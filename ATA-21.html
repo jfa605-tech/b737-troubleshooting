@@ -27,16 +27,12 @@ footer{border-top:1px solid var(--line);padding:1rem 0;color:var(--muted);font-s
 <body>
 <header>
 <h1>B737NG Air Conditioning Fault Summaries</h1>
-<p>ATA 21-31 Cabin Pressurization Control · ATA 21-62 Pack/Zone Temperature Control</p>
-<p>English summaries of the requested maintenance messages, organized by FIM task and the six requested fields.</p>
 </header>
 <main>
-<div class="note"><strong>Use the approved manual for maintenance.</strong> These summaries are navigation and briefing aids; they do not replace the applicable FIM, AMM, aircraft effectivity, or required safety precautions. Connector pin checks, access steps, and effectivity-specific variations are abbreviated.</div>
 <div class="tools"><input id="search" type="search" placeholder="Filter by message, task, component, or fault detail…" aria-label="Filter fault summaries"><button id="expand" type="button">Expand all</button><button id="collapse" type="button">Collapse all</button><span id="count" class="small">35 message entries</span></div>
 <div id="content"></div>
 <footer>
-<p><strong>Mapping notes.</strong> Task 21-31-801 is a DCPC BITE procedure, so the source does not provide the same six fault-isolation headings for it. The three left controller-fault messages under 21-62 all map to Task 802 and share one procedure; they are shown separately because their fault labels differ. Breakers below are those listed by the source task, not an instruction to open them unless the applicable procedure says so.</p>
-<p>Source: Boeing 737-600/700/800/900 Fault Isolation Manual, provided by the user, ATA 21. Summarized and paraphrased.</p>
+
 </footer>
 </main>
 <script>
