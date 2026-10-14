@@ -23,22 +23,24 @@
 <header class="hero">
   <div class="eyebrow">Boeing 737-600/700/800/900 · Fault Isolation Manual</div>
   <h1>ATA 21 Fault Library</h1>
-  <p>Searchable summaries of the supplied fault-code index, linked to the applicable FIM task. Each task is shared by its associated fault codes; source descriptions retain their original line breaks.</p>
+  <br>
+  <br>
+  <p style="margin-left: 320px; font-size: 40px; color:#FFF4D6;">NON APPROVED DATA</p>
 </header>
-<div class="notice"><strong>Maintenance reference:</strong> This catalog is a summary and navigation aid, not an approved maintenance procedure. Use the current approved FIM/AMM, verify airplane effectivity, and follow all task warnings, cautions, conditions, and exact test steps. Circuit-breaker references identify breakers listed by the task; operate them only as the applicable task directs.</div>
-<div class="toolbar">
+
+  <div style="color: #435CCC;"class="nav-label">Related reference pages</div>
+  <nav class="nav" aria-label="Related reference pages" >
+    <a style="background-color:#C28029;"  href="esquema_sistema.html">SCHEMATICS</a>
+    <a style="background-color:#C28029;" href="siglas.html">Siglas</a>
+    <a style="background-color:#C28029;" href="amm.html">AMM</a>
+    <a style="background-color:#C28029;" href="test.html">TESTS & CHECKS</a>
+    <a style="background-color:#C28029;" href="mel.html">MEL</a>
+  </nav>
+  <div class="toolbar">
   <div class="search-wrap"><label for="search">Search fault code, symptom, component, or task</label><input id="search" type="search" placeholder="Example: 213 010 00, smoke, Task 801…" autocomplete="off"></div>
   <button id="expand" type="button">Expand visible</button>
   <button id="collapse" type="button">Collapse all</button>
 </div>
-<div class="nav-label">Related reference pages</div>
-  <nav class="nav" aria-label="Related reference pages">
-    <a href="esquema_sistema.html">Esquema del Sistema</a>
-    <a href="siglas.html">Siglas</a>
-    <a href="amm.html">AMM</a>
-    <a href="test.html">Test</a>
-    <a href="mel.html">MEL</a>
-  </nav>
 <div id="count" class="count" aria-live="polite"></div>
 <main id="content"></main>
 <footer class="footer">Source: supplied 737 FIM fault-code index and referenced ATA 21 fault-isolation tasks. Summaries preserve task-level distinctions and relevant source line breaks. Images open at full size when selected.</footer>
