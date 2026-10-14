@@ -1,0 +1,408 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>B737NG ATA 23 · FIM Fault Library</title>
+<style>
+:root{--navy:#102a43;--blue:#155e8a;--teal:#159a9c;--paper:#f4f7fa;--ink:#1d2935;--muted:#607080;--line:#d9e2ec;--white:#fff;--amber:#fff4d6;--shadow:0 8px 24px rgba(16,42,67,.08)}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.55 "Segoe UI",Arial,sans-serif}
+.page{max-width:1220px;margin:0 auto;padding:26px 24px 56px}.hero{border-radius:22px;padding:30px 34px;background:linear-gradient(122deg,#0b2944,#155e8a 65%,#159a9c);color:#fff;box-shadow:var(--shadow)}
+.eyebrow{text-transform:uppercase;letter-spacing:.14em;font-size:.75rem;font-weight:700;opacity:.82}.hero h1{font-size:clamp(1.7rem,3vw,2.5rem);line-height:1.15;margin:.5rem 0 .45rem}.hero p{max-width:850px;margin:0;color:#eaf4fb}
+.nav-label{font-size:.78rem;text-transform:uppercase;letter-spacing:.09em;font-weight:800;color:#d4eaf5;margin:22px 0 9px}.nav{display:flex;flex-wrap:wrap;gap:9px}.nav a{color:#fff;text-decoration:none;padding:9px 13px;border:1px solid rgba(255,255,255,.42);border-radius:999px;font-weight:700;font-size:.9rem;background:rgba(255,255,255,.1);transition:.15s}.nav a:hover,.nav a:focus{background:#fff;color:var(--navy);outline:none}
+.notice{margin:18px 0 14px;border:1px solid #f0d286;background:var(--amber);padding:13px 16px;border-radius:12px;color:#57451b;font-size:.92rem}.toolbar{display:grid;grid-template-columns:minmax(240px,1fr) auto auto;gap:10px;align-items:center;margin:18px 0 10px}.search-wrap{position:relative}.search-wrap label{display:block;font-size:.78rem;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin:0 0 6px}.search-wrap input{width:100%;padding:13px 15px;border:1px solid #b8c7d6;border-radius:12px;font:inherit;background:#fff;box-shadow:0 2px 5px rgba(16,42,67,.03)}.search-wrap input:focus{outline:3px solid rgba(21,154,156,.22);border-color:var(--teal)}
+.toolbar button{align-self:end;border:1px solid #b8c7d6;background:#fff;color:var(--navy);padding:11px 14px;border-radius:10px;font:inherit;font-weight:700;cursor:pointer}.toolbar button:hover{border-color:var(--blue);background:#eef7fb}.count{color:var(--muted);font-weight:700;font-size:.9rem;margin:8px 2px 18px}
+.section-title{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:24px 2px 9px;border-bottom:2px solid var(--line);margin-top:8px}.section-title h2{font-size:1.24rem;color:var(--navy);margin:0}.section-title span{color:var(--muted);font-size:.86rem;font-weight:700}.fault-list{display:grid;gap:12px;margin-top:13px}.fault{background:var(--white);border:1px solid var(--line);border-radius:14px;box-shadow:0 2px 9px rgba(16,42,67,.035);overflow:hidden}.fault[hidden]{display:none}.fault>summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:14px;padding:17px 19px;cursor:pointer}.fault>summary::-webkit-details-marker{display:none}.fault>summary:after{content:"＋";font-weight:800;color:var(--blue);font-size:1.1rem;margin-left:3px}.fault[open]>summary:after{content:"−"}.fault>summary:hover{background:#f8fbfd}.fault-head{display:flex;gap:12px;align-items:flex-start;min-width:0}.fault-code{font-size:.76rem;white-space:nowrap;background:#e8f1f7;color:#164365;border-radius:7px;padding:4px 7px;font-weight:800}.fault-name{font-weight:700;color:#213547}.task-badge{flex:none;background:#e8f7f6;color:#126669;border:1px solid #c7eae7;border-radius:999px;padding:5px 9px;font-size:.78rem;font-weight:800}
+.fields{padding:0 18px 18px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}.field{border:1px solid #e6edf2;border-radius:10px;padding:12px 13px;background:#fbfcfd;min-width:0}.field.description{grid-column:1/-1;background:#f3f8fc}.field h3{font-size:.79rem;text-transform:uppercase;letter-spacing:.07em;color:#356078;margin:0 0 7px}.field p{white-space:pre-line;margin:0;font-size:.91rem;color:#2c3945}.field p:empty:after{content:"Not available in the referenced task.";color:var(--muted);font-style:italic}
+.figure-gallery{margin:0 18px 18px;border:1px solid #cbdbe6;border-radius:11px;background:#f7fbfd;overflow:hidden}.figure-gallery>summary{cursor:pointer;padding:11px 14px;color:#164365;font-weight:800}.figure-gallery>summary:hover{background:#eef7fb}.figure-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(195px,1fr));gap:10px;padding:0 12px 13px}.figure-link{display:flex;flex-direction:column;gap:6px;background:#fff;border:1px solid var(--line);border-radius:8px;padding:7px;color:#25506d;text-decoration:none;font-size:.78rem;font-weight:700}.figure-link:hover{border-color:var(--teal);box-shadow:0 3px 12px rgba(21,154,156,.12)}.figure-link img{width:100%;height:155px;object-fit:contain;background:#edf2f6;border-radius:5px}.figure-note{font-weight:500;color:var(--muted);font-size:.78rem;padding:0 13px 12px}.footer{margin-top:30px;border-top:1px solid var(--line);padding:16px 2px;color:var(--muted);font-size:.82rem}
+@media(max-width:760px){.page{padding:15px 12px 36px}.hero{padding:23px 20px;border-radius:16px}.toolbar{grid-template-columns:1fr 1fr}.search-wrap{grid-column:1/-1}.fields{grid-template-columns:1fr;padding:0 12px 13px}.field.description{grid-column:auto}.fault>summary{padding:14px;flex-wrap:wrap}.task-badge{margin-left:44px}.figure-gallery{margin:0 12px 13px}.section-title{align-items:flex-start;flex-direction:column;gap:2px}}
+</style>
+</head>
+<body>
+<div class="page">
+<header class="hero">
+  <div class="eyebrow">Boeing 737-600/700/800/900 · Fault Isolation Manual</div>
+  <h1>ATA 23 Communications Fault Library</h1>
+  <br>
+  <br>
+  <p style="margin-left: 320px; font-size: 40px; color:#FFF4D6;">NON APPROVED DATA</p>
+</header>
+
+  <div style="color: #435CCC;"class="nav-label">Related reference pages</div>
+  <nav class="nav" aria-label="Related reference pages" >
+    <a style="background-color:#C28029;"  href="esquema_sistema.html">SCHEMATICS</a>
+    <a style="background-color:#C28029;" href="siglas.html">Siglas</a>
+    <a style="background-color:#C28029;" href="amm.html">AMM</a>
+    <a style="background-color:#C28029;" href="test.html">TESTS & CHECKS</a>
+    <a style="background-color:#C28029;" href="mel.html">MEL</a>
+  </nav>
+  <div class="toolbar">
+  <div class="search-wrap"><label for="search">Search fault code, symptom, component, or task</label><input id="search" type="search" placeholder="Example: 231 310 31, VHF, Task 816…" autocomplete="off"></div>
+  <button id="expand" type="button">Expand visible</button>
+  <button id="collapse" type="button">Collapse all</button>
+</div>
+<div id="count" class="count" aria-live="polite"></div>
+<main id="content"></main>
+<footer class="footer">Source: supplied ATA 23 fault-code index and the referenced ATA 23 FIM tasks. Fault-code descriptions retain the source line breaks.</footer>
+</div>
+<script>
+const entries = [{"code": "231 300 31", "description": "Radio tuning panel problem - captain's.", "ata": "23-12", "task": "815"}, {"code": "231 300 32", "description": "Radio tuning panel problem - first officer's.", "ata": "23-12", "task": "815"}, {"code": "231 300 33", "description": "Radio tuning panel problem - first observer's.", "ata": "23-12", "task": "815"}, {"code": "231 310 31", "description": "VHF 1 radio: reception and transmission problem at one station
+- captain's.", "ata": "23-12", "task": "816"}, {"code": "231 310 32", "description": "VHF 1 radio: reception and transmission problem at one station
+- first officer's.", "ata": "23-12", "task": "816"}, {"code": "231 310 33", "description": "VHF 1 radio: reception and transmission problem at one station
+- first observer's.", "ata": "23-12", "task": "816"}, {"code": "231 310 48", "description": "VHF 1 radio: reception and transmission problem at all stations.", "ata": "23-12", "task": "816"}, {"code": "231 320 31", "description": "VHF 1 radio: reception problem at one station - captain's.", "ata": "23-12", "task": "816"}, {"code": "231 320 32", "description": "VHF 1 radio: reception problem at one station - first officer's.", "ata": "23-12", "task": "816"}, {"code": "231 320 33", "description": "VHF 1 radio: reception problem at one station - first observer's.", "ata": "23-12", "task": "816"}, {"code": "231 320 48", "description": "VHF 1 radio: reception problem at all stations.", "ata": "23-12", "task": "816"}, {"code": "231 330 31", "description": "VHF 1 radio: Transmission problem at one station - captain's.", "ata": "23-12", "task": "816"}, {"code": "231 330 32", "description": "VHF 1 radio: Transmission problem at one station - first officer's.", "ata": "23-12", "task": "816"}, {"code": "231 330 33", "description": "VHF 1 radio: Transmission problem at one station - first
+observer's.", "ata": "23-12", "task": "816"}, {"code": "231 330 48", "description": "VHF 1 radio: Transmission problem at all stations.", "ata": "23-12", "task": "816"}, {"code": "231 430 31", "description": "VHF 2 radio: reception and transmission problem at one station
+- captain's.", "ata": "23-12", "task": "816"}, {"code": "231 430 32", "description": "VHF 2 radio: reception and transmission problem at one station
+- first officer's.", "ata": "23-12", "task": "816"}, {"code": "231 430 33", "description": "VHF 2 radio: reception and transmission problem at one station
+- first observer's.", "ata": "23-12", "task": "816"}, {"code": "231 430 48", "description": "VHF 2 radio: reception and transmission problem at all stations.", "ata": "23-12", "task": "816"}, {"code": "231 440 31", "description": "VHF 2 radio: reception problem at one station - captain's.", "ata": "23-12", "task": "816"}, {"code": "231 440 32", "description": "VHF 2 radio: reception problem at one station - first officer's.", "ata": "23-12", "task": "816"}, {"code": "231 440 33", "description": "VHF 2 radio: reception problem at one station - first observer's.", "ata": "23-12", "task": "816"}, {"code": "231 440 48", "description": "VHF 2 radio: reception problem at all stations.", "ata": "23-12", "task": "816"}, {"code": "231 450 31", "description": "VHF 2 radio: Transmission problem at one station - captain's.", "ata": "23-12", "task": "816"}, {"code": "231 450 32", "description": "VHF 2 radio: Transmission problem at one station - first officer's.", "ata": "23-12", "task": "816"}, {"code": "231 450 33", "description": "VHF 2 radio: Transmission problem at one station - first
+observer's.", "ata": "23-12", "task": "816"}, {"code": "231 450 48", "description": "VHF 2 radio: Transmission problem at all stations.", "ata": "23-12", "task": "816"}, {"code": "231 501 00", "description": "SATCOM: SIGNAL level in SAT LOG page fluctuates or remains
+below 3 continuously.", "ata": "23-15", "task": "975"}, {"code": "231 550 31", "description": "VHF 3 radio: reception and transmission problem at one station
+- captain's.", "ata": "23-12", "task": "816"}, {"code": "231 550 32", "description": "VHF 3 radio: reception and transmission problem at one station
+- first officer's.", "ata": "23-12", "task": "816"}, {"code": "231 550 33", "description": "VHF 3 radio: reception and transmission problem at one station
+- first observer's.", "ata": "23-12", "task": "816"}, {"code": "231 550 48", "description": "VHF 3 radio: reception and transmission problem at all stations.", "ata": "23-12", "task": "816"}, {"code": "231 560 31", "description": "VHF 3 radio: reception problem at one station - captain's.", "ata": "23-12", "task": "816"}, {"code": "231 560 32", "description": "VHF 3 radio: reception problem at one station - first officer's.", "ata": "23-12", "task": "816"}, {"code": "231 560 33", "description": "VHF 3 radio: reception problem at one station - first observer's.", "ata": "23-12", "task": "816"}, {"code": "231 560 48", "description": "VHF 3 radio: reception problem at all stations.", "ata": "23-12", "task": "816"}, {"code": "231 570 31", "description": "VHF 3 radio: Transmission problem at one station - captain's.", "ata": "23-12", "task": "816"}, {"code": "231 570 32", "description": "VHF 3 radio: Transmission problem at one station - first officer's.", "ata": "23-12", "task": "816"}, {"code": "231 570 33", "description": "VHF 3 radio: Transmission problem at one station - first
+observer's.", "ata": "23-12", "task": "816"}, {"code": "231 570 48", "description": "VHF 3 radio: Transmission problem at all stations.", "ata": "23-12", "task": "816"}, {"code": "231 575 00", "description": "VHF 3 radio: transmits continuously on the ELT VHF frequency.", "ata": "23-27", "task": "808"}, {"code": "232 305 00", "description": "ACARS: input problem.", "ata": "23-27", "task": "827"}, {"code": "232 306 00", "description": "ACARS: CDU scratchpad shows CHECK TRANSPONDER I/F.", "ata": "23-27", "task": "826"}, {"code": "232 310 00", "description": "ACARS: does not operate correctly.", "ata": "23-27", "task": "801"}, {"code": "232 313 00", "description": "ACARS: CDU scratchpad shows NO COMM.", "ata": "23-27", "task": "806"}, {"code": "232 314 00", "description": "ACARS: Out-Off-On-In (OOOI) value not correct.", "ata": "23-27", "task": "807"}, {"code": "232 316 00", "description": "ACARS: CDU scratchpad shows APM HARDWARE FAULT.", "ata": "23-27", "task": "830"}, {"code": "232 317 00", "description": "ACARS: CDU scratchpad shows INITIALIZE APM.", "ata": "23-27", "task": "830"}, {"code": "233 010 00", "description": "Passenger address system - does not operate from flight
+compartment.", "ata": "23-31", "task": "801"}, {"code": "233 020 00", "description": "Passenger address system - distorted from flight compartment.", "ata": "23-31", "task": "801"}, {"code": "233 030 00", "description": "Passenger address system - intermittent from flight
+compartment.", "ata": "23-31", "task": "801"}, {"code": "233 040 00", "description": "Passenger address system - volume problem from flight
+compartment.", "ata": "23-31", "task": "802"}, {"code": "233 041 00", "description": "Prerecorded Announcement Machine (PRAM): announcement
+audio is is too loud.", "ata": "23-31", "task": "808"}, {"code": "233 042 00", "description": "Prerecorded Announcement Machine (PRAM): announcement
+audio is is too quiet.", "ata": "23-31", "task": "808"}, {"code": "234 010 00", "description": "Service interphone: does not connect to flight interphone.", "ata": "23-41", "task": "801"}, {"code": "234 020 48", "description": "Service interphone: does not operate - all jacks.", "ata": "23-41", "task": "801"}, {"code": "234 030 48", "description": "Service interphone: distorted - all jacks.", "ata": "23-41", "task": "803"}, {"code": "234 040 48", "description": "Service interphone: intermittent - all jacks.", "ata": "23-41", "task": "803"}, {"code": "234 050 48", "description": "Service interphone: volume problem - all jacks.", "ata": "23-41", "task": "803"}, {"code": "234 060 00", "description": "Service interphone: does not operate - jack at EE rack.", "ata": "23-41", "task": "802"}, {"code": "234 070 00", "description": "Service interphone: distorted - jack at EE rack.", "ata": "23-41", "task": "802"}, {"code": "234 080 00", "description": "Service interphone: intermittent - jack at EE rack.", "ata": "23-41", "task": "802"}, {"code": "234 090 00", "description": "Service interphone: volume problem - jack at EE rack.", "ata": "23-41", "task": "802"}, {"code": "234 100 00", "description": "Service interphone: does not operate - jack adjacent to APU.", "ata": "23-41", "task": "802"}, {"code": "234 110 00", "description": "Service interphone: intermittent - jack adjacent to APU.", "ata": "23-41", "task": "802"}, {"code": "234 120 00", "description": "Service interphone: distorted - jack adjacent to APU.", "ata": "23-41", "task": "802"}, {"code": "234 130 00", "description": "Service interphone: volume problem - jack adjacent to APU.", "ata": "23-41", "task": "802"}, {"code": "234 140 00", "description": "Service interphone: does not operate - jack at aft entry light
+panel.", "ata": "23-41", "task": "802"}, {"code": "234 150 00", "description": "Service interphone: distorted - jack at aft entry light panel.", "ata": "23-41", "task": "802"}, {"code": "234 160 00", "description": "Service interphone: intermittent - jack at aft entry light panel.", "ata": "23-41", "task": "802"}, {"code": "234 170 00", "description": "Service interphone: volume problem - jack at aft entry light
+panel.", "ata": "23-41", "task": "802"}, {"code": "234 180 00", "description": "Service interphone: does not operate - jack at external power
+receptacle panel.", "ata": "23-41", "task": "802"}, {"code": "234 190 00", "description": "Service interphone: distorted - jack at external power receptacle
+panel.", "ata": "23-41", "task": "802"}, {"code": "234 200 00", "description": "Service interphone: intermittent - jack at external power
+receptacle panel.", "ata": "23-41", "task": "802"}, {"code": "234 210 00", "description": "Service interphone: volume problem - jack at external power
+receptacle panel.", "ata": "23-41", "task": "802"}, {"code": "234 220 00", "description": "Service interphone: does not operate - jack at left wheel well.", "ata": "23-41", "task": "802"}, {"code": "234 230 00", "description": "Service interphone: distorted - jack at left wheel well.", "ata": "23-41", "task": "802"}, {"code": "234 240 00", "description": "Service interphone: intermittent - jack at left wheel well.", "ata": "23-41", "task": "802"}, {"code": "234 250 00", "description": "Service interphone: volume problem - jack at left wheel well.", "ata": "23-41", "task": "802"}, {"code": "234 260 00", "description": "Service interphone: does not operate - jack at right wheel well.", "ata": "23-41", "task": "802"}, {"code": "234 270 00", "description": "Service interphone: distorted - jack at right wheel well.", "ata": "23-41", "task": "802"}, {"code": "234 280 00", "description": "Service interphone: intermittent - jack at right wheel well.", "ata": "23-41", "task": "802"}, {"code": "234 290 00", "description": "Service interphone: volume problem - jack at right wheel well.", "ata": "23-41", "task": "802"}, {"code": "234 300 00", "description": "Service interphone: does not operate - jack at right wing
+refueling slat.", "ata": "23-41", "task": "802"}, {"code": "234 310 00", "description": "Service interphone: distorted - jack at right wing refueling slat.", "ata": "23-41", "task": "802"}, {"code": "234 320 00", "description": "Service interphone: intermittent - jack at right wing refueling slat.", "ata": "23-41", "task": "802"}, {"code": "234 330 00", "description": "Service interphone: volume problem - jack at right wing refueling
+slat.", "ata": "23-41", "task": "802"}, {"code": "234 340 00", "description": "Call horn: does not sound.", "ata": "23-43", "task": "801"}, {"code": "234 350 00", "description": "Call horn: operates continuously.", "ata": "23-43", "task": "802"}, {"code": "234 360 00", "description": "Call system: does not operate, ground crew to flight
+compartment.", "ata": "23-43", "task": "803"}, {"code": "234 370 00", "description": "Call system: call light does not come on, ground crew to flight
+compartment.", "ata": "23-43", "task": "804"}, {"code": "234 371 00", "description": "Call system: does not operate, attendant to flight compartment.", "ata": "23-42", "task": "805"}, {"code": "234 380 00", "description": "Call system: call light does not come on, attendant to flight
+compartment.", "ata": "23-42", "task": "806"}, {"code": "234 390 00", "description": "Call system: Chime does not sound in the flight compartment.", "ata": "23-42", "task": "804"}, {"code": "234 395 00", "description": "Call system: attendant call chime does not operate in passenger
+cabin.", "ata": "23-42", "task": "803"}, {"code": "234 400 00", "description": "Call system: does not operate, flight compartment to attendant.", "ata": "23-42", "task": "802"}, {"code": "234 410 00", "description": "Service interphone: does not operate - jack in the electronic
+equipment bay.", "ata": "23-41", "task": "802"}, {"code": "234 420 00", "description": "Service interphone: intermittent - jack in the electronic
+equipment bay.", "ata": "23-41", "task": "802"}, {"code": "234 430 00", "description": "Service interphone: distorted - jack in the electronic equipment
+bay.", "ata": "23-41", "task": "802"}, {"code": "234 440 00", "description": "Service interphone: volume problem - jack in the electronic
+equipment bay.", "ata": "23-41", "task": "802"}, {"code": "234 811 00", "description": "Attendant control panel: amber light on ACP switch assembly
+does not come on during operational test.", "ata": "23-42", "task": "841"}, {"code": "235 010 31", "description": "Boom microphone/headset: does not operate - captain's.", "ata": "23-51", "task": "801"}, {"code": "235 010 32", "description": "Boom microphone/headset: does not operate - first officer's.", "ata": "23-51", "task": "801"}, {"code": "235 020 31", "description": "Boom microphone/headset: damaged - captain's.", "ata": "23-51", "task": "802"}, {"code": "235 020 32", "description": "Boom microphone/headset: damaged - first officer's.", "ata": "23-51", "task": "802"}, {"code": "235 030 31", "description": "Flight interphone: does not operate - captain's.", "ata": "23-51", "task": "804"}, {"code": "235 030 32", "description": "Flight interphone: does not operate - first officer's.", "ata": "23-51", "task": "804"}, {"code": "235 030 33", "description": "Flight interphone: does not operate - first observer's.", "ata": "23-51", "task": "804"}, {"code": "235 030 48", "description": "Flight interphone: does not operate - all stations.", "ata": "23-51", "task": "803"}, {"code": "235 040 31", "description": "Headphone: does not operate - captain's.", "ata": "23-51", "task": "801"}, {"code": "235 040 32", "description": "Headphone: does not operate - first officer's.", "ata": "23-51", "task": "801"}, {"code": "235 040 33", "description": "Headphone: does not operate - first observer's.", "ata": "23-51", "task": "801"}, {"code": "235 040 34", "description": "Headphone: does not operate - second observer's.", "ata": "23-51", "task": "801"}, {"code": "235 050 31", "description": "Hand microphone: does not operate - captain's.", "ata": "23-51", "task": "801"}, {"code": "235 050 32", "description": "Hand microphone: does not operate - first officer's.", "ata": "23-51", "task": "801"}, {"code": "235 050 33", "description": "Hand microphone: does not operate - first observer's.", "ata": "23-51", "task": "801"}, {"code": "235 060 31", "description": "Hand microphone: damaged - captain's.", "ata": "23-51", "task": "802"}, {"code": "235 060 32", "description": "Hand microphone: damaged - first officer's.", "ata": "23-51", "task": "802"}, {"code": "235 060 33", "description": "Hand microphone: damaged - first observer's.", "ata": "23-51", "task": "802"}, {"code": "235 070 31", "description": "Headphone: damaged - captain's.", "ata": "23-51", "task": "802"}, {"code": "235 070 32", "description": "Headphone: damaged - first officer's.", "ata": "23-51", "task": "802"}, {"code": "235 070 33", "description": "Headphone: damaged - first observer's.", "ata": "23-51", "task": "802"}, {"code": "235 070 34", "description": "Headphone: damaged - second observer's.", "ata": "23-51", "task": "802"}, {"code": "235 071 31", "description": "Oxygen mask: communication problem - captain's.", "ata": "23-51", "task": "808"}, {"code": "235 071 32", "description": "Oxygen mask: communication problem - first officer's.", "ata": "23-51", "task": "808"}, {"code": "235 071 33", "description": "Oxygen mask: communication problem - first observer's.", "ata": "23-51", "task": "808"}, {"code": "235 080 31", "description": "Speaker in the flight compartment: does not operate - captain's.", "ata": "23-51", "task": "805"}, {"code": "235 080 32", "description": "Speaker in the flight compartment: does not operate - first
+officer's.", "ata": "23-51", "task": "806"}, {"code": "235 101 31", "description": "Audio control panel indicator light problem - captain's.", "ata": "23-51", "task": "807"}, {"code": "235 101 32", "description": "Audio control panel indicator light problem - first officer's.", "ata": "23-51", "task": "807"}, {"code": "235 101 33", "description": "Audio control panel indicator light problem - first observer's.", "ata": "23-51", "task": "807"}, {"code": "235 102 31", "description": "Audio control panel volume control problem - captain's.", "ata": "23-51", "task": "807"}, {"code": "235 102 32", "description": "Audio control panel volume control problem - first officer's.", "ata": "23-51", "task": "807"}, {"code": "235 102 33", "description": "Audio control panel volume control problem - first observer's.", "ata": "23-51", "task": "807"}, {"code": "235 103 31", "description": "Audio control panel selector switch problem - captain's.", "ata": "23-51", "task": "807"}, {"code": "235 103 32", "description": "Audio control panel selector switch problem - first officer's.", "ata": "23-51", "task": "807"}, {"code": "235 103 33", "description": "Audio control panel selector switch problem - first observer's.", "ata": "23-51", "task": "807"}, {"code": "237 010 00", "description": "Voice recorder: Signal problem at monitor jack.", "ata": "23-71", "task": "801"}, {"code": "237 020 00", "description": "Voice recorder: STATUS light or TEST light does not come on
+when TEST switch is pushed.", "ata": "23-71", "task": "804"}, {"code": "237 050 00", "description": "Voice recorder: system operation problem (airplanes with
+AUTO/ON switch).", "ata": "23-71", "task": "805"}];
+const tasks = {"23-12:815": {"context": "The radio tuning panel (RTP) at the captain, first-officer, or first-observer station does not operate correctly. The task also covers RTP frequency lock-up.", "causes": "• RTP-1 P8-71, RTP-2 P8-72, or RTP-3 P8-73
+• Wiring/connectors", "breakers": "CAPT Electrical System Panel, P18-2: D11 C00165 — COMMUNICATIONS VHF 1; D12 C00471 — COMMUNICATIONS VHF 3.
+F/O Electrical System Panel, P6-1: C3 C00166 — COMMUNICATIONS VHF 2.
+The task identifies HF1 C00839 and HF2 C00857 as INOP breakers that must remain open for applicable effectivities.", "related": "SSM 23-12-11/-21; WDM 23-12-11/-21. For specified post-SB effectivities, SSM/WDM 23-12-31 is also listed.", "initial": "For frequency lock-up with Gables P/N G7404-XX RTPs, select VHF-1 on all RTPs and check whether the ACTIVE frequency changes at every station. If one RTP works while others do not, switch the satisfactory RTP OFF and check the others again. Also run the VHF transceiver BITE procedure and a VHF communication test with a radio operator.", "procedure": "1. Use the symptom and station to identify the applicable RTP.
+2. Replace the affected RTP and repeat the VHF BITE and radio communication test.
+3. If the fault remains, check wiring between the RTP and the applicable VHF transceiver using the task's WDM references.
+4. For frequency lock-up, replace the RTP switched OFF during the initial check, then verify frequency selection at all RTPs. The FIM notes that an RTP cross-tuning failure can prevent other RTPs from tuning correctly.
+5. Confirm satisfactory transmit and receive operation.", "figures": []}, "23-12:816": {"context": "VHF-1, VHF-2, or VHF-3 reception and/or transmission is unsatisfactory. The fault-code suffix distinguishes the affected crew station or an all-stations symptom.", "causes": "• VHF transceiver M149 (VHF-1), M150 (VHF-2), or M411 (VHF-3)
+• RTP P8-71/P8-72/P8-73
+• Audio control panel P8-6/P8-7/P5-15
+• Stuck push-to-talk (PTT) switch
+• Remote electronics unit M1353
+• VHF antenna M57/M58/M225, RF coaxial cable, or wiring", "breakers": "CAPT Electrical System Panel, P18-2: D11 C00165 — COMMUNICATIONS VHF 1; D12 C00471 — COMMUNICATIONS VHF 3.
+F/O Electrical System Panel, P6-1: C3 C00166 — COMMUNICATIONS VHF 2.
+F/O Electrical System Panel, P6-2: C21 C00560, C22 C00561, C23 C00239, C24 C00240 — interphone power; D22 C00086 — AUDIO F/O; D23 C00083 — AUDIO CAPT; D24 C00085 — AUDIO OBS.", "related": "SSM 23-12-11/-21/-31 and 23-51-11/-21/-31; WDM 23-12-11/-21/-31 and 23-51-11/-21/-31. Some SSM/WDM references vary with service-bulletin effectivity.", "initial": "First make sure no PTT switch is stuck in transmit; the FIM points to AMM 23-51-00-710-801. Then run VHF transceiver BITE and the applicable radio test. Identify whether the problem affects all stations or one station, and whether it is reception, transmission, or both.", "procedure": "1. Follow the task branch for the reported station/system scope.
+2. For a problem at all audio control panels, perform the VHF transceiver exchange check, run BITE, and verify voice quality with a radio operator.
+3. For a one-station problem, isolate the applicable RTP, ACP, PTT switch, or REU path.
+4. If the transceiver/audio checks do not isolate the fault, inspect the antenna, RF coaxial cable, and wiring using the referenced WDMs.
+5. Complete the radio test and verify the reported receive/transmit function is satisfactory.", "figures": []}, "23-15:975": {"context": "SATCOM SIGNAL level on the SAT LOG page fluctuates or remains below 3 continuously, indicating weak satellite signal reception.", "causes": "• SATCOM antenna M1389
+• Wiring/coaxial cable between the SATCOM SDU and antenna", "breakers": "CAPT Electrical System Panel, P18-2: E13 C04060 — SATCOM SDU. (Effectivity: RYR 507/508, 519–999 and RYR 509–518 POST SB 737-23-1724.)", "related": "WDM 23-15-11, 23-15-12, and 23-15-15.", "initial": "Open and close the SATCOM SDU breaker as directed. Allow the SDU to power up (up to approximately 90 seconds), then open the MCDU SAT pages and SAT LOG page. Record SIGNAL levels and modem status for LBT-1, LBT-2, and SBD.", "procedure": "1. If all modem SIGNAL levels are below 3, move the airplane outside the hangar and away from structures that obstruct the SATCOM antenna's view of the Iridium satellites, then do the repair confirmation.
+2. If LBT-1/LBT-2 is low, inspect the applicable RX/TX coaxial cable between the SDU and antenna; check continuity and repair/replace the cable if defective.
+3. Follow the FIM branch for the affected modem or antenna and inspect connectors/wiring.
+4. Repeat the SAT LOG check and confirm the signal/modem status is satisfactory.", "figures": []}, "23-27:801": {"context": "The ACARS communication management unit/system does not operate correctly. The task includes missing ACARS menu prompts and applicable DATALINK FAIL or VDR 3 FAULT messages.", "causes": "• ACARS MU M1109 and software (applicable earlier effectivity)
+• ACARS CMU-1 M2127 and software
+• VHF-3 transceiver M411 or antenna M225
+• Wiring/connectors", "breakers": "F/O Electrical System Panel, P6-1 (effectivity-dependent): E7 C00744 — ACARS MU AC; E8 C01483 — CMU-1 AC; E9 C01500 — CMU/ACARS DC. The task also identifies some MU breakers as INOP and says they must remain open; verify airplane effectivity before action.", "related": "SSM 23-27-11 or 23-27-31; WDM 23-27-11 or 23-27-31, and 23-12-31 where applicable.", "initial": "Use the displayed message to select the branch. For VDR 3 FAULT/ANTENNA, run VHF-3 BITE first. Run the applicable ACARS system/operational tests and inspect the CDU MENU/DATALINK indications. Where the test passes, treat the event as intermittent; where it fails, continue with the reported ACARS/VHF fault.", "procedure": "1. Follow the FIM branch for ACARS MU/CMU, VHF-3, antenna, or wiring based on the BITE message and operational-test result.
+2. For an ACARS MU wiring branch, test the applicable AC power and inspect the circuit to the MU. For VHF-3 faults, use the VHF BITE and inspect antenna/coaxial wiring as directed.
+3. Replace the MU/CMU/transceiver or antenna only when the task's tests identify it as defective.
+4. Perform the applicable ACARS and VHF repair-confirmation tests and verify the message/system symptom is corrected.", "figures": []}, "23-27:806": {"context": "A NO COMM message is shown on the flight-management CDU.", "causes": "• ACARS MU M1109/software (effectivity-dependent)
+• CMU M2127/M2128 or software
+• VHF-3 transceiver M411 or antenna M225
+• Wiring/connectors", "breakers": "F/O Electrical System Panel, P6-1 (effectivity-dependent): E7 C00744 — ACARS MU AC; E8 C01483 — CMU-1 AC; E9 C01500 — CMU/ACARS DC. The task marks certain MU breakers INOP for applicable airplanes; follow the FIM effectivity notes.", "related": "SSM 23-27-11/-31; WDM 23-27-11/-31.", "initial": "Push MENU on CDU-1 and CDU-2 and run the applicable ACARS initialization, VHF-link, system, and operational tests. A satisfactory test indicates an intermittent fault; if the tests fail, use the ACARS MU, NO COMM, or VHF link branch as directed by effectivity and test results.", "procedure": "1. Use the test result and CMU/VHF BITE messages to identify whether the fault is in the ACARS MU, CMU, VHF-3 interface, or wiring.
+2. Check the MU/CMU/VHF path with the referenced SSM/WDM and task test points.
+3. Replace a unit only when the FIM branch confirms it; preserve effectivity-specific INOP breaker restrictions.
+4. Repeat the applicable ACARS/VHF link tests and confirm NO COMM no longer appears.", "figures": []}, "23-27:807": {"context": "An ACARS Out-Off-On-In (OOOI) value is incorrect.", "causes": "• ACARS MU M1109/software (effectivity-dependent)
+• CMU-1 M2127/software
+• Proximity Switch Electronics Unit M2061
+• Wiring or the applicable OOOI switch/sensor input", "breakers": "F/O Electrical System Panel, P6-1 (effectivity-dependent): E7 C00744 — ACARS MU AC; E8 C01483 — CMU-1 AC; E9 C01500 — CMU/ACARS DC. Some MU breakers are identified as INOP for applicable airplanes; do not operate them contrary to the task.", "related": "SSM/WDM 23-27-11 or 23-27-31.", "initial": "Open the MENU on the CDU/MIDU and run the applicable OOOI discrete/system test. A satisfactory result indicates an intermittent fault. If an OOOI value remains wrong, continue to the OOOI fault-isolation branch.", "procedure": "1. Perform the ACARS operational test. If satisfactory, test the affected OOOI switch and its wiring.
+2. If the CMU FAIL indicator is on or the operational test fails, follow the effectivity-specific MU/CMU branch.
+3. Check the relevant proximity-switch/sensor input and wiring when the displayed state does not match the actual door/gear/switch state.
+4. Repair the identified source and repeat the OOOI test; confirm OUT/OFF/ON/IN values update correctly.", "figures": []}, "23-27:808": {"context": "VHF-3 transmits continuously on the ELT VHF frequency (121.5 MHz).", "causes": "• ACARS MU or CMU (effectivity-dependent)
+• VHF-3 communication transceiver M411
+• Wiring/interface between ACARS and VHF-3", "breakers": "The task has no separate primary Circuit Breakers section. Its initial evaluation cycles the applicable ACARS MU/CMU breakers on P6-1: E7 C00744, E8 C01483, and E9 C01500, depending on airplane effectivity. It specifies a minimum 10-second open interval and safety-tagging for the applicable fault-isolation steps.", "related": "SSM 23-12-31 or 23-27-31; WDM 23-12-31 or 23-27-35.", "initial": "Prepare to cycle the applicable breakers and keep them open for at least 10 seconds. Use the airplane effectivity to select the ACARS MU/CMU breaker set, then check whether the continuous transmission stops.", "procedure": "1. If transmission continues, follow the FIM branch for ACARS MU, CMU, or ACARS/VHF-3 interface.
+2. Check the applicable transceiver and the signal/wiring path between ACARS and VHF-3.
+3. Repair wiring or replace only the component confirmed defective by the task.
+4. Restore the specified breaker configuration and confirm VHF-3 no longer transmits continuously on 121.5 MHz.", "figures": []}, "23-27:826": {"context": "Use this task when the ACARS CDU scratchpad shows CHECK TRANSPONDER I/F while the airplane is on the ground.", "causes": "• ATC transponder control-panel reply/select switch setting
+• Wiring between the CMU and ATC transponders", "breakers": "No separate primary Circuit Breakers section is listed in this FIM task.", "related": "WDM 23-27-37; WDM 34-45-21.", "initial": "Set the ATC transponder control-panel reply/select switch so it is not in STBY, TA/RA, or TA ONLY. If CHECK TRANSPONDER I/F clears, the FIM identifies this as a known CMU software condition; it does not indicate a CMU/transponder interface fault.", "procedure": "1. If the message remains after the switch-position check, inspect the CMU-to-ATC-transponder wiring using the referenced WDMs.
+2. Check continuity at the specified CMU and transponder connectors.
+3. Repair wiring defects and reinstall the affected units per the applicable AMM tasks.
+4. Confirm CHECK TRANSPONDER I/F no longer appears.", "figures": []}, "23-27:827": {"context": "The ground station reports that ACARS downlink messages are incomplete.", "causes": "• CMU-1 M2127
+• FMC-1 M1175 or FMC-2 M1632 (if installed)
+• DFDAU M675
+• PSEU M2061
+• Wiring/data-bus inputs", "breakers": "F/O Electrical System Panel, P6-1 (applicable effectivity): E8 C01483 — CMU-1 AC; E9 C01500 — CMU/ACARS DC. The task identifies E7 C00744 and E8 C00743 MU breakers as INOP for specified effectivity; follow the task effectivity.", "related": "WDM/SSM 23-27-33, 23-27-35, 23-27-36, and 23-27-38.", "initial": "Identify whether the missing downlink data is a crew-entered value, OOOI data (OUT/OFF/ON/IN), or data from an LRU over an ARINC-429 bus. For manual entries, verify the crew-entered data. Then follow the OOOI or ARINC data branch.", "procedure": "1. Check the CMU FAIL indicator. If ON, use the applicable CMU replacement/installation procedure.
+2. For missing OOOI data, inspect the displayed sensor states against actual switch/door states and follow the relevant source-system task.
+3. For missing ARINC data, isolate the transmitting LRU, data bus, CMU input, and wiring using the referenced WDM/SSM.
+4. Repair the confirmed source and verify that the missing data appears in a subsequent downlink.", "figures": []}, "23-27:830": {"context": "The ACARS MCDU scratchpad shows APM HARDWARE FAULT or INITIALIZE APM.", "causes": "• CMU-1 M2127
+• Airplane Personality Module (APM)
+• Wiring between the CMU and APM", "breakers": "F/O Electrical System Panel, P6-1 (applicable effectivity): E8 C01483 — CMU-1 AC; E9 C01500 — CMU/ACARS DC. The task identifies certain MU breakers as INOP for applicable airplanes; follow the FIM effectivity notes.", "related": "SSM/WDM 23-27-39.", "initial": "If INITIALIZE APM follows APM/software installation, use the referenced AMM page block to clear it. If the message remains, do the ACARS operational test. If it clears, treat the fault as intermittent; if it remains, continue with the wiring check.", "procedure": "1. Inspect the wiring between CMU-1 and the APM at the connectors identified in WDM 23-27-39.
+2. Repair wiring defects. Replace the CMU or APM only when the task's isolation confirms the unit.
+3. If the APM or CMU is replaced, perform the APM software-installation procedure specified by the FIM.
+4. Repeat the ACARS operational test and confirm the scratchpad message is gone.", "figures": []}, "23-31:801": {"context": "No, intermittent, or poor-quality audio is heard from the passenger-address (PA) speakers when the flight crew makes an announcement.", "causes": "• Microphone
+• Wiring
+• Control-wheel PTT switch
+• PA amplifier M63
+• Remote electronics unit M1353", "breakers": "F/O Electrical System Panel, P6-1: D4 C00082 — COMMUNICATIONS PA AMPL BAT.
+F/O Electrical System Panel, P6-2: C21 C00560, C22 C00561, C23 C00239, C24 C00240 — interphone power; D21 C00084 — INTPH AND WARN; D22 C00086 — AUDIO F/O; D23 C00083 — AUDIO CAPT; D24 C00085 — AUDIO OBS.", "related": "SSM 23-31-11/-12/-13/-14 and 23-51-11/-21/-31; WDM 23-31-01/-02/-03/-04 and 23-51-11/-21/-31.", "initial": "Use a different flight-deck microphone to make a PA announcement. If the announcement is satisfactory, isolate the reported microphone. If it is not, check the microphone/PA path and compare the affected speakers.", "procedure": "1. Check the reported microphone and control-wheel PTT switch; inspect/repair the related wiring.
+2. Follow the task branch for the PA amplifier M63 or REU M1353 when the microphone path is satisfactory but PA audio remains poor.
+3. Use the referenced SSM/WDM for wiring isolation and replace only the confirmed defective unit.
+4. Make a PA announcement and confirm clear audio at all applicable speakers.", "figures": []}, "23-31:802": {"context": "Audio from the PA speakers, attendant speakers, or lavatory speakers is too loud or too quiet.", "causes": "• PA amplifier master gain
+• PA gain setting on REU M1353
+• PA amplifier M63
+• Wiring or REU M1353", "breakers": "No separate primary Circuit Breakers section is listed in this FIM task.", "related": "SSM 73-22-31; WDM 23-31-01/-02/-03/-04 and 23-51-11/-21/-31.", "initial": "The task proceeds directly to the gain checks. Identify which speaker groups have the wrong level and compare flight-deck announcements with attendant/lavatory audio.", "procedure": "1. Adjust/check the PA amplifier master gain using the FIM calibration procedure.
+2. Check the PA gain setting at REU M1353 and follow the task branch for PA amplifier or REU.
+3. Inspect the related wiring if the level remains incorrect after gain checks.
+4. Make a PA announcement and confirm the level is satisfactory at the applicable speakers.", "figures": []}, "23-31:808": {"context": "Audio from recorded announcements is too loud or too quiet.", "causes": "• Pre-recorded announcement machine (PRAM) M1276", "breakers": "F/O Electrical System Panel, P6-1: C9 C00080 — ENTERTAINMENT PA TAPE RPDR AC.", "related": "SSM 23-31-12; WDM 23-31-06.", "initial": "Check PA volume using 23-31 Task 802. If the repair confirmation is not satisfactory, continue with the recorded-announcement task checks.", "procedure": "1. Clean the tape head using the applicable AMM task, then repeat the repair confirmation.
+2. If the level remains incorrect, follow the task's PRAM checks and replace M1276 only when indicated.
+3. Play the specified standard test tape and confirm clear, undistorted announcement audio.", "figures": []}, "23-41:801": {"context": "The service interphone does not connect to the flight interphone or to other service-interphone locations.", "causes": "• Remote electronics unit M1353
+• SERVICE INTERPHONE switch S50
+• Wiring", "breakers": "F/O Electrical System Panel, P6-2:
+C21 C00560 — INTERPHONE POWER F/O DC 2
+C22 C00561 — INTERPHONE POWER F/O BAT
+C23 C00239 — INTERPHONE POWER CAPT DC 2
+C24 C00240 — INTERPHONE POWER CAPT BAT
+D21 C00084 — INTPH AND WARN
+D22 C00086 — AUDIO F/O
+D23 C00083 — AUDIO CAPT
+D24 C00085 — AUDIO OBS", "related": "SSM/WDM 23-41-11.", "initial": "Set S50 on the P5 overhead panel to ON. Connect a boom microphone/headset at the pilot station and at the reported service-interphone jack. Select SVC on the ACP, set its volume to mid-range, and check communication in both directions.", "procedure": "1. Replace REU M1353 and perform repair confirmation.
+2. If the fault remains, check/replace SERVICE INTERPHONE switch S50.
+3. Inspect the wiring between S50, REU connector D2501B, and the reported service jack.
+4. Repair wiring as needed and confirm communication between the flight deck and service station.", "figures": []}, "23-41:802": {"context": "Audio at one service-interphone jack is unsatisfactory; other locations are used for comparison.", "causes": "• Service-interphone jack
+• Wiring", "breakers": "F/O Electrical System Panel, P6-2:
+C21 C00560 — INTERPHONE POWER F/O DC 2
+C22 C00561 — INTERPHONE POWER F/O BAT
+C23 C00239 — INTERPHONE POWER CAPT DC 2
+C24 C00240 — INTERPHONE POWER CAPT BAT
+D21 C00084 — INTPH AND WARN
+D22 C00086 — AUDIO F/O
+D23 C00083 — AUDIO CAPT
+D24 C00085 — AUDIO OBS", "related": "SSM/WDM 23-41-11.", "initial": "Set S50 to ON and make a two-way audio check between the pilot station and the affected jack. Compare with another service-interphone jack to confirm that the problem is local to one location.", "procedure": "1. Replace the applicable jack and repeat the two-way audio check.
+2. If audio is still unsatisfactory, inspect the wiring between the jack and REU M1353 using WDM 23-41-11.
+3. Repair open/defective wiring and confirm clear transmit and receive audio at the affected jack.", "figures": []}, "23-41:803": {"context": "Audio at all service-interphone jacks is unsatisfactory.", "causes": "• Remote electronics unit M1353
+• Wiring", "breakers": "F/O Electrical System Panel, P6-2:
+C21 C00560 — INTERPHONE POWER F/O DC 2
+C22 C00561 — INTERPHONE POWER F/O BAT
+C23 C00239 — INTERPHONE POWER CAPT DC 2
+C24 C00240 — INTERPHONE POWER CAPT BAT
+D21 C00084 — INTPH AND WARN
+D22 C00086 — AUDIO F/O
+D23 C00083 — AUDIO CAPT
+D24 C00085 — AUDIO OBS", "related": "SSM/WDM 23-41-11.", "initial": "Set S50 to ON. Connect a boom microphone/headset at the pilot station and the EE-rack service-interphone jack, select SVC on the ACP, and test both directions.", "procedure": "1. Replace REU M1353 and repeat the service-interphone check.
+2. If the fault remains, inspect the common wiring between the REU and service-interphone circuit/jacks.
+3. Repair the confirmed wiring fault and verify operation at all applicable service jacks.", "figures": []}, "23-42:802": {"context": "The flight-deck ATTEND button does not illuminate the pink attendant call lights on the exit locator signs, and the passenger-cabin call chime does not sound.", "causes": "• Attendant Call switch S36
+• Wiring", "breakers": "CAPT Electrical System Panel, P18-3: A9 C00073 — PASSENGER CABIN CREW CALL.", "related": "SSM/WDM 23-42-11 and 23-43-11.", "initial": "Press ATTEND on the P5 forward overhead panel. Check the forward/aft pink call lights and passenger-cabin chime, then reset at the attendant handset. If both indications and chime are normal, follow the intermittent branch.", "procedure": "1. Replace call switch S36 and perform repair confirmation.
+2. If the fault remains, inspect the exit-locator-sign, handset/control-panel, and associated wiring path per effectivity and WDM.
+3. Repair wiring and verify both call lights and the cabin chime operate.", "figures": []}, "23-42:803": {"context": "The flight crew ATTEND command illuminates the attendant call lights, but the passenger-cabin chime does not sound.", "causes": "• PA amplifier M63
+• Wiring", "breakers": "CAPT Electrical System Panel, P18-3: A9 C00073 — PASSENGER CABIN CREW CALL.
+F/O Electrical System Panel, P6-1: D4 C00082 — COMMUNICATIONS PA AMPL BAT.", "related": "SSM/WDM 23-42-11 and 23-43-11.", "initial": "Press ATTEND on the P5 panel or the attendant button on the handset. Verify whether the passenger-cabin chime sounds, then reset the call. If the chime operates during this check, the fault is intermittent.", "procedure": "1. Replace PA amplifier M63 and perform repair confirmation.
+2. If the chime still does not operate, inspect the wiring between the PA amplifier and attendant-call/chime circuit.
+3. Repair the fault and confirm the call chime sounds in the passenger cabin.", "figures": []}, "23-42:804": {"context": "The flight-deck call chime does not sound, but the P5 CALL light illuminates when the ground crew uses PILOT CALL or an attendant presses the pilot-call button.", "causes": "• Aural Warning Module M315
+• Attendant handset M74/M75
+• PILOT CALL switch S33
+• Wiring", "breakers": "CAPT Electrical System Panel, P18-3: A9 C00073 — PASSENGER CABIN CREW CALL.
+F/O Electrical System Panel, P6-3: D18 C00451 — LANDING GEAR AURAL WARN.", "related": "SSM/WDM 23-42-11 and 23-43-11.", "initial": "Test PILOT CALL from the P19 external-power panel and from both attendant handsets. Compare which source makes the flight-deck chime sound to determine whether the fault follows one handset or the shared call circuit.", "procedure": "1. Follow the handset branch if only one handset does not produce the chime; inspect/replace that handset and its wiring.
+2. If both handsets fail but P19 PILOT CALL works, inspect handset wiring to the aural-warning system.
+3. If all call sources fail, follow the Aural Warning Module/PILOT CALL switch branch and inspect wiring.
+4. Confirm the chime sounds from each required call source.", "figures": []}, "23-42:805": {"context": "Cabin crew cannot communicate with the flight deck or other crew stations through the crew-call/interphone system.", "causes": "• Forward/aft cabin-attendant control panel P13/P14
+• Magnetic-actuated handset cradle reset switch/magnet", "breakers": "CAPT Electrical System Panel, P18-3: A9 C00073 — PASSENGER CABIN CREW CALL.
+F/O Electrical System Panel, P6-3: D18 C00451 — LANDING GEAR AURAL WARN.", "related": "WDM/SSM 23-42-11 and 23-43-11.", "initial": "Lift the attendant handset, press the call key for another station, and verify the PA chime, pink call light at the other station, and two-way voice. If communication works during the test, follow the intermittent branch.", "procedure": "1. Replace the applicable cabin-attendant control panel and perform repair confirmation.
+2. If the problem remains, inspect and repair the handset-cradle reset magnet assembly as directed.
+3. Repeat call, light, chime, and voice checks between crew stations.", "figures": []}, "23-42:806": {"context": "The captain's CALL light on the P5 forward overhead panel does not illuminate, but the chime sounds when PILOT is pressed on an attendant handset.", "causes": "• Master Dim and Test switch S3
+• Captain's CALL light L19
+• Wiring", "breakers": "CAPT Electrical System Panel, P18-3: A9 C00073 — PASSENGER CABIN CREW CALL.", "related": "SSM/WDM 23-42-11 and 23-43-11.", "initial": "Set the P1 Master Dim and Test switch to BRT. Press and hold PILOT on an attendant handset and check the P5 CALL light. If the light illuminates, the fault is intermittent.", "procedure": "1. Test CALL light L19 with the Master Dim and Test switch at TEST. Replace the light if it fails.
+2. If the light passes, inspect the wiring between L19 and the call-switch/control circuit.
+3. Repair wiring and confirm the CALL light illuminates when a pilot call is made.", "figures": []}, "23-42:841": {"context": "The amber LED at the left corner of the attendant control panel (ACP) switch assembly does not illuminate during the approximately two-second power-up test.", "causes": "No separate Possible Causes section is listed in this FIM task.", "breakers": "F/O Electrical System Panel, P6-1: D12 C01936 — ATTENDANT PANELS.", "related": "No Related Data section is listed in this FIM task.", "initial": "This task has no separate Initial Evaluation section. Its fault-isolation check is performed during the first two seconds after ACP power-up.", "procedure": "1. Open and close circuit breaker C01936 to cycle power to the ACP.
+2. Check whether the amber LED illuminates for about two seconds at power-up, then goes out. If it does, the fault was intermittent.
+3. If the LED does not illuminate, replace the applicable ACP per the AMM page block.
+4. Confirm the LED performs the power-up test.", "figures": []}, "23-43:801": {"context": "The ground-crew call horn does not sound in the nose-wheel-well area.", "causes": "• Ground Crew Call Horn M53
+• Ground Crew Call switch S32
+• Wiring
+• Loss of electrical power to the horn", "breakers": "CAPT Electrical System Panel, P18-3: A9 C00073 — PASSENGER CABIN CREW CALL.", "related": "SSM/WDM 23-43-11.", "initial": "Press and hold GRD CALL on the P5 forward overhead panel. Verify the horn in the nose-wheel-well area, then release the switch. If the horn sounds normally, follow the intermittent-fault branch.", "procedure": "1. Check for the specified electrical supply at the horn using the task setup and breaker instructions.
+2. If power is present, install a serviceable Ground Crew Call Horn M53.
+3. If power is absent, inspect switch S32 and wiring per WDM 23-43-11.
+4. Repeat the GRD CALL test and confirm the horn sounds.", "figures": []}, "23-43:802": {"context": "The ground-crew call horn stays on continuously.", "causes": "• Left/right ADIRU M1749/M1752
+• Ground Crew Call switch S32", "breakers": "CAPT Electrical System Panel, P18-1: E7 C01007 — ADIRU LEFT AC.
+CAPT Electrical System Panel, P18-3: A9 C00073 — PASSENGER CABIN CREW CALL; A17 C01433 — equipment-cooling supply low-flow detector; A18 C01434 — equipment-cooling exhaust low-flow detector.
+F/O Electrical System Panel, P6-1: C14 C01008 — ADIRU RIGHT AC.
+F/O Electrical System Panel, P6-4: C12/C13 supply-fan controls; C14/C15 exhaust-fan controls. P91/P92 also list the applicable equipment-cooling fan power breakers; locations vary by effectivity.", "related": "SSM/WDM 23-43-11.", "initial": "Follow the FIM direction to do ATA 34-21 Task 829 for the continuous ground-call-horn condition. If the horn stops, the reported fault is corrected; if it continues, proceed with the call-switch branch.", "procedure": "1. Replace Ground Crew Call switch S32 if the horn continues after the specified ATA 34 check.
+2. Inspect the call-switch circuit and the effectivity-dependent ADIRU/equipment-cooling interfaces listed in the task.
+3. Repeat the GRD CALL check: the horn must sound while the switch is held and stop when released.", "figures": []}, "23-43:803": {"context": "The ground crew's PILOT CALL command does not illuminate the P5 CALL light and does not produce a flight-deck aural chime.", "causes": "• PILOT CALL switch S33 on the P19 external-power panel", "breakers": "CAPT Electrical System Panel, P18-3: A9 C00073 — PASSENGER CABIN CREW CALL.", "related": "SSM/WDM 23-43-11.", "initial": "Press and hold PILOT CALL on the P19 panel. Check both the P5 CALL light and flight-deck chime. If both operate, the fault is intermittent.", "procedure": "1. Replace PILOT CALL switch S33.
+2. Repeat the call test and verify the P5 CALL light illuminates and the flight-deck chime sounds.", "figures": []}, "23-43:804": {"context": "The P5 captain's CALL light does not illuminate, but the flight-deck call chime sounds when ground crew presses PILOT CALL.", "causes": "• Master Dim and Test switch S3
+• Captain's CALL light L19
+• Wiring", "breakers": "CAPT Electrical System Panel, P18-3: A9 C00073 — PASSENGER CABIN CREW CALL.
+F/O Electrical System Panel, P6-3: D11 C00133 — INDICATOR MASTER DIM DIM/TST CONT.", "related": "SSM/WDM 23-43-11.", "initial": "Set the P1 Master Dim and Test switch to BRT and press/hold PILOT CALL on P19. Check the P5 CALL light. If it illuminates, follow the intermittent branch.", "procedure": "1. Set the Master Dim and Test switch to TEST. If L19 does not illuminate, replace it and repeat the call check.
+2. If L19 passes, inspect wiring between the light and PILOT CALL switch S33.
+3. Repair the identified fault and confirm the light illuminates with the chime.", "figures": []}, "23-51:801": {"context": "A flight-interphone hand microphone, headset, or boom microphone/headset does not operate at the reported station.", "causes": "• Hand microphone/headset or boom microphone/headset
+• Microphone/headset jack
+• ACP P8-6 (captain), P8-7 (first officer), or P5-15 (observer)
+• Oxygen-mask stowage panel
+• REU M1353
+• Wiring", "breakers": "F/O Electrical System Panel, P6-2:
+C21 C00560 — INTERPHONE POWER F/O DC 2
+C22 C00561 — INTERPHONE POWER F/O BAT
+C23 C00239 — INTERPHONE POWER CAPT DC 2
+C24 C00240 — INTERPHONE POWER CAPT BAT
+D21 C00084 — INTPH AND WARN
+D22 C00086 — AUDIO F/O
+D23 C00083 — AUDIO CAPT
+D24 C00085 — AUDIO OBS", "related": "SSM 23-51-11; WDM 23-51-11/-21/-31.", "initial": "Prepare the flight interphone as specified. For applicable effectivity, make sure the REU AURAL WARN MUTE switch is not at MUTE. Set SERVICE INTERPHONE OFF, connect microphones/headsets at the crew stations, select FLT/FLT INT/INT, and check the reported device against another station.", "procedure": "1. Replace the affected microphone/headset and retest.
+2. If the fault remains, check/replace the station jack, then the applicable ACP.
+3. Continue to the oxygen-mask stowage panel or REU M1353 branches only when indicated by the symptom.
+4. Inspect and repair wiring using the related SSM/WDM.
+5. Repeat the flight-interphone repair-confirmation checks.", "figures": []}, "23-51:802": {"context": "The microphone, headset, or boom microphone/headset is damaged.", "causes": "No separate Possible Causes section is listed in this FIM task.", "breakers": "No separate primary Circuit Breakers section is listed in this FIM task.", "related": "No Related Data section is listed in this FIM task.", "initial": "This task contains a direct replacement procedure; use the station and item identified by the fault code.", "procedure": "Replace the affected hand microphone, headphone, or boom microphone/headset using the applicable maintenance procedure, then verify operation at the reported station.", "figures": []}, "23-51:803": {"context": "The flight interphone does not operate at any flight-deck station.", "causes": "• REU M1353", "breakers": "F/O Electrical System Panel, P6-2:
+C21 C00560 — INTERPHONE POWER F/O DC 2
+C22 C00561 — INTERPHONE POWER F/O BAT
+C23 C00239 — INTERPHONE POWER CAPT DC 2
+C24 C00240 — INTERPHONE POWER CAPT BAT
+D21 C00084 — INTPH AND WARN
+D22 C00086 — AUDIO F/O
+D23 C00083 — AUDIO CAPT
+D24 C00085 — AUDIO OBS", "related": "SSM 23-51-11; WDM 23-51-11/-21/-31.", "initial": "Set SERVICE INTERPHONE OFF, connect boom microphones/headsets at both pilot stations, select FLT/FLT INT/INT on the ACPs, turn the volume on, and check two-way communication between pilots.", "procedure": "1. Replace REU M1353 and repeat the flight-interphone check.
+2. If the fault remains, inspect the common interphone wiring between the REU and flight-deck stations using the referenced WDMs.
+3. Repair the confirmed fault and verify clear communication at all stations.", "figures": []}, "23-51:804": {"context": "The flight interphone does not operate at one station while the other stations operate correctly.", "causes": "• PTT switch S519 (captain) or S520 (first officer)
+• ACP P8-6/P8-7/P5-15
+• REU M1353", "breakers": "F/O Electrical System Panel, P6-2:
+C21 C00560 — INTERPHONE POWER F/O DC 2
+C22 C00561 — INTERPHONE POWER F/O BAT
+C23 C00239 — INTERPHONE POWER CAPT DC 2
+C24 C00240 — INTERPHONE POWER CAPT BAT
+D21 C00084 — INTPH AND WARN
+D22 C00086 — AUDIO F/O
+D23 C00083 — AUDIO CAPT
+D24 C00085 — AUDIO OBS", "related": "SSM 23-51-11; WDM 23-51-11/-21/-31.", "initial": "Prepare the flight interphone with SERVICE INTERPHONE OFF, microphones/headsets at all crew stations, and flight microphone selectors/volume on. Test the affected station and compare it with a working station.", "procedure": "1. Replace the applicable PTT switch and do repair confirmation.
+2. If the fault remains, replace the affected ACP, then REU M1353 if required by the test result.
+3. Inspect wiring if the fault persists after component checks.
+4. Confirm the affected station communicates correctly with the other stations.", "figures": []}, "23-51:805": {"context": "Sound is not heard from the captain's flight-interphone speaker.", "causes": "• Captain's speaker M77
+• Captain's ACP P8-6
+• REU M1353
+• Wiring", "breakers": "F/O Electrical System Panel, P6-2:
+C21 C00560 — INTERPHONE POWER F/O DC 2
+C22 C00561 — INTERPHONE POWER F/O BAT
+C23 C00239 — INTERPHONE POWER CAPT DC 2
+C24 C00240 — INTERPHONE POWER CAPT BAT
+D21 C00084 — INTPH AND WARN
+D22 C00086 — AUDIO F/O
+D23 C00083 — AUDIO CAPT
+D24 C00085 — AUDIO OBS", "related": "SSM 23-51-11; WDM 23-51-11/-21/-31.", "initial": "Set SERVICE INTERPHONE OFF and configure the ACPs for the prescribed audio test. Use the first officer's microphone to check the captain's speaker and compare with the other station.", "procedure": "1. Replace the captain's flight-interphone speaker and confirm audio.
+2. If audio is still absent, replace ACP P8-6, then REU M1353 if required.
+3. Inspect wiring between the REU, ACP, and speaker.
+4. Repeat the speaker check and verify clear sound.", "figures": []}, "23-51:806": {"context": "Sound is not heard from the first officer's flight-interphone speaker.", "causes": "• First-officer speaker M78
+• First-officer ACP (listed in the task)
+• REU M1353
+• Wiring", "breakers": "F/O Electrical System Panel, P6-2:
+C21 C00560 — INTERPHONE POWER F/O DC 2
+C22 C00561 — INTERPHONE POWER F/O BAT
+C23 C00239 — INTERPHONE POWER CAPT DC 2
+C24 C00240 — INTERPHONE POWER CAPT BAT
+D21 C00084 — INTPH AND WARN
+D22 C00086 — AUDIO F/O
+D23 C00083 — AUDIO CAPT
+D24 C00085 — AUDIO OBS", "related": "SSM 23-51-11; WDM 23-51-11/-21/-31.", "initial": "Set SERVICE INTERPHONE OFF, configure the ACPs for the prescribed audio test, and use the captain's microphone to check the first-officer speaker. Compare with the other station.", "procedure": "1. Replace the first-officer ACP and repeat the check.
+2. If audio is still absent, replace REU M1353, then the first-officer speaker if indicated by the task.
+3. Inspect wiring between the REU, ACP, and speaker.
+4. Repeat the speaker check and verify clear sound.", "figures": []}, "23-51:807": {"context": "The ACP does not operate correctly at one station while other stations operate correctly.", "causes": "• ACP P8-6 (captain), P8-7 (first officer), or P5-15 (observer)", "breakers": "F/O Electrical System Panel, P6-2:
+C21 C00560 — INTERPHONE POWER F/O DC 2
+C22 C00561 — INTERPHONE POWER F/O BAT
+C23 C00239 — INTERPHONE POWER CAPT DC 2
+C24 C00240 — INTERPHONE POWER CAPT BAT
+D21 C00084 — INTPH AND WARN
+D22 C00086 — AUDIO F/O
+D23 C00083 — AUDIO CAPT
+D24 C00085 — AUDIO OBS", "related": "SSM 23-51-11; WDM 23-51-11/-21/-31.", "initial": "Visually examine the affected ACP and identify the light or switch that does not operate correctly.", "procedure": "Replace the affected ACP using the applicable AMM removal/installation task. Operate the reported light or switch and confirm that it now functions correctly.", "figures": []}, "23-51:808": {"context": "Captain, first-officer, or observer oxygen-mask communication does not operate correctly.", "causes": "• Oxygen mask M524/M525/M526
+• Oxygen-mask stowage panel P21-7/P23-7/P61-7
+• Applicable ACP
+• REU M1353
+• Wiring", "breakers": "CAPT Electrical System Panel, P18-2: E2 C00412 — INSTR XFR.
+F/O Electrical System Panel, P6-2: C21 C00560, C22 C00561, C23 C00239, C24 C00240 — interphone power; D21 C00084 — INTPH AND WARN; D22 C00086 — AUDIO F/O; D23 C00083 — AUDIO CAPT; D24 C00085 — AUDIO OBS.", "related": "SSM 23-51-11; WDM 23-51-11/-21/-31.", "initial": "Do the Oxygen Mask Microphone Operational Test, AMM 23-51-00-710-803. If the microphone operates, the fault was intermittent; if it does not, continue with the task.", "procedure": "1. Replace the applicable oxygen mask and repeat the operational test.
+2. If the fault remains, check the interface wiring between the oxygen-mask stowage panel and REU M1353 using the referenced WDM.
+3. Inspect the applicable ACP/REU path and wiring; repair or replace only the item identified by the FIM.
+4. Repeat the oxygen-mask microphone operational test.", "figures": []}, "23-71:801": {"context": "No sound is heard through the headset connected to the voice-recorder monitor jack.", "causes": "• Headset/headphone
+• Voice recorder M383
+• Voice-recorder control panel P5-7
+• Wiring/connector", "breakers": "CAPT Electrical System Panel, P18-2: D7 C00107 — VOICE RCDR. For specified RYR effectivities, D6 C01948 — VOICE RCDR/RIPS is marked INOP and must remain open.", "related": "SSM 23-71-11; WDM 23-71-01.", "initial": "Connect STD-1390 headphones to the P5 voice-recorder control panel. Set ACP volume controls OFF. Both engines must have been OFF for at least five minutes before setting CVR AUTO/ON to ON. Check for flight-deck audio and a tone while TEST is held.", "procedure": "1. Follow the FIM test branch for whether conversation audio and the TEST tone are present.
+2. Check the headset, voice recorder M383, and control panel P5-7.
+3. Inspect wiring/connectors if the recorder and panel checks do not correct the fault.
+4. Confirm the monitor jack reproduces flight-deck audio and the test tone.", "figures": []}, "23-71:804": {"context": "When the CVR TEST button is pushed for approximately one-half second, the STATUS or TEST light blinks, flickers, dims, or does not illuminate momentarily.", "causes": "• Voice recorder M383
+• Voice-recorder control panel P5-7
+• CVR dispatch relay R1069 (specified effectivity)
+• Circuit breaker C1537 (specified effectivity)
+• Wiring", "breakers": "CAPT Electrical System Panel, P18-2: C7 C01537 — VOICE RCDR RELAY; D7 C00107 — VOICE RCDR. For specified effectivities, D6 C01948 — VOICE RCDR/RIPS is marked INOP and must remain open.", "related": "SSM 23-71-11; WDM 23-71-01.", "initial": "For RYR 507 and later, confirm ACARS is serviceable with the required CMU software before the CVR operational test. Set CVR AUTO/ON to ON only after both engines have been OFF for at least five minutes; then press TEST for approximately one-half second and observe the lights.", "procedure": "1. Check the voice-recorder M383 front-panel BITE indicator. Replace the recorder if the indicator remains on as specified.
+2. If the recorder check passes, replace the P5-7 control panel as directed.
+3. For applicable effectivity, check dispatch relay R1069 and breaker C1537.
+4. Inspect wiring if the light fault remains.
+5. Press TEST again and confirm the STATUS/TEST light illuminates momentarily.", "figures": []}, "23-71:805": {"context": "The cockpit voice recorder (CVR) system does not operate correctly on airplanes with the AUTO/ON switch.", "causes": "• Voice recorder M383
+• Voice-recorder control panel P5-7
+• CVR AUTO/ON switch P5-88
+• CVR sense-engine-run relay R779
+• CVR switch-latching relay R780
+• Engine-running relays R737/R738
+• Wiring", "breakers": "CAPT Electrical System Panel, P18-2: C7 C01537 — VOICE RCDR RELAY; D7 C00107 — VOICE RCDR. For specified effectivities, D6 C01948 — VOICE RCDR/RIPS is marked INOP and must remain open.", "related": "SSM 23-71-11; WDM 23-71-01.", "initial": "For RYR 507 and later, verify ACARS serviceability and correct CMU software. Connect STD-1390 headphones, set AUTO/ON to ON only after both engines have been OFF for at least five minutes, then follow the FIM's engine-start-lever and five-minute timing checks.", "procedure": "1. Use the CVR operation test to distinguish recorder/panel faults from AUTO/ON switch or engine-running relay faults.
+2. Check/replace the voice recorder M383 and P5-7 control panel as directed.
+3. Inspect the AUTO/ON switch P5-88, relays R779/R780/R737/R738, breaker C1537, and wiring on the applicable branch.
+4. Repeat the left/right engine-running and CVR test sequences, observing the FIM's five-minute conditions, and confirm the CVR changes between ON/AUTO and records the test tone correctly.", "figures": []}};
+const labels = [["description","Description"],["causes","Possible Causes"],["breakers","Circuit Breakers"],["related","Related Data"],["initial","Initial Evaluation"],["procedure","Fault Isolation Procedure"]];
+const ataTitles = {"23-12": "VHF Communications", "23-15": "SATCOM", "23-27": "ACARS", "23-31": "Passenger Address", "23-41": "Service Interphone", "23-42": "Attendant/Crew Call", "23-43": "Ground Crew Call", "23-51": "Flight Interphone", "23-71": "Voice Recorder"};
+const grouped = new Map();
+for (const item of entries) { if (!grouped.has(item.ata)) grouped.set(item.ata, []); grouped.get(item.ata).push(item); }
+const content = document.getElementById("content");
+for (const [ata, group] of grouped) {
+  const section = document.createElement("section");
+  const heading = document.createElement("div"); heading.className = "section-title";
+  const h2 = document.createElement("h2"); h2.textContent = `ATA ${ata} · ${ataTitles[ata] || "Fault Isolation"}`;
+  const n = document.createElement("span"); n.textContent = `${group.length} fault-code entries`;
+  heading.append(h2,n); section.append(heading);
+  const list = document.createElement("div"); list.className = "fault-list";
+  for (const item of group) {
+    const data = tasks[`${item.ata}:${item.task}`];
+    const card = document.createElement("details"); card.className = "fault";
+    const summary = document.createElement("summary");
+    const head = document.createElement("span"); head.className = "fault-head";
+    const code = document.createElement("span"); code.className = "fault-code"; code.textContent = item.code;
+    const name = document.createElement("span"); name.className = "fault-name"; name.textContent = item.description;
+    const badge = document.createElement("span"); badge.className = "task-badge"; badge.textContent = `${item.ata} · Task ${item.task}`;
+    head.append(code,name); summary.append(head,badge); card.append(summary);
+    const fields = document.createElement("div"); fields.className = "fields";
+    for (const [key,label] of labels) {
+      const box = document.createElement("section"); box.className = "field" + (key === "description" ? " description" : "");
+      const title = document.createElement("h3"); title.textContent = label;
+      const text = document.createElement("p");
+      if (key === "description") {
+        text.textContent = item.description + (data.context ? `\n\nFIM task context:\n${data.context}` : "");
+      } else text.textContent = data[key] || "";
+      box.append(title,text); fields.append(box);
+    }
+    card.append(fields);
+    if (data.figures?.length) {
+      const gallery = document.createElement("details"); gallery.className = "figure-gallery";
+      const cap = document.createElement("summary"); cap.textContent = `FIM Figures · ${data.figures.length} ${data.figures.length === 1 ? "image" : "images"}`;
+      const grid = document.createElement("div"); grid.className = "figure-grid";
+      for (const fig of data.figures) {
+        const a = document.createElement("a"); a.className = "figure-link"; a.href = `b737ng_fim_assets/${fig.src}`; a.target = "_blank"; a.rel = "noopener";
+        const img = document.createElement("img"); img.src = `b737ng_fim_assets/${fig.src}`; img.alt = fig.alt; img.loading = "lazy";
+        const caption = document.createElement("span"); caption.textContent = fig.label;
+        a.append(img,caption); grid.append(a);
+      }
+      gallery.append(cap,grid);
+      card.append(gallery);
+    }
+    list.append(card);
+  }
+  section.append(list); content.append(section);
+}
+const cards = [...document.querySelectorAll("details.fault")], search = document.getElementById("search"), count = document.getElementById("count");
+function filter(){const q=search.value.trim().toLowerCase();let visible=0;for(const card of cards){const match=!q||card.textContent.toLowerCase().includes(q);card.hidden=!match;if(match)visible++;}count.textContent=`${visible} of ${cards.length} fault-code entries`}
+search.addEventListener("input",filter);
+document.getElementById("expand").addEventListener("click",()=>cards.filter(c=>!c.hidden).forEach(c=>c.open=true));
+document.getElementById("collapse").addEventListener("click",()=>cards.forEach(c=>c.open=false));
+filter();
+</script>
+</body>
+</html>
