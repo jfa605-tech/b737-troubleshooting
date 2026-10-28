@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>B737NG ATA 56 | FIM Fault Library</title>
+<style>
+:root{--navy:#102a43;--blue:#155e8a;--teal:#159a9c;--paper:#f4f7fa;--ink:#1d2935;--muted:#607080;--line:#d9e2ec;--white:#fff;--amber:#fff4d6;--shadow:0 8px 24px rgba(16,42,67,.08)}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.55 "Segoe UI",Arial,sans-serif}
+.page{max-width:1220px;margin:0 auto;padding:26px 24px 56px}.hero{border-radius:22px;padding:30px 34px;background:linear-gradient(122deg,#0b2944,#155e8a 65%,#159a9c);color:#fff;box-shadow:var(--shadow)}
+.eyebrow{text-transform:uppercase;letter-spacing:.14em;font-size:.75rem;font-weight:700;opacity:.82}.hero h1{font-size:clamp(1.7rem,3vw,2.5rem);line-height:1.15;margin:.5rem 0 .45rem}.hero p{max-width:850px;margin:0;color:#eaf4fb}
+.nav-label{font-size:.78rem;text-transform:uppercase;letter-spacing:.09em;font-weight:800;color:#d4eaf5;margin:22px 0 9px}.nav{display:flex;flex-wrap:wrap;gap:9px}.nav a{color:#fff;text-decoration:none;padding:9px 13px;border:1px solid rgba(255,255,255,.42);border-radius:999px;font-weight:700;font-size:.9rem;background:rgba(255,255,255,.1);transition:.15s}.nav a:hover,.nav a:focus{background:#fff;color:var(--navy);outline:none}
+.notice{margin:18px 0 14px;border:1px solid #f0d286;background:var(--amber);padding:13px 16px;border-radius:12px;color:#57451b;font-size:.92rem}.toolbar{display:grid;grid-template-columns:minmax(240px,1fr) auto auto;gap:10px;align-items:center;margin:18px 0 10px}.search-wrap{position:relative}.search-wrap label{display:block;font-size:.78rem;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin:0 0 6px}.search-wrap input{width:100%;padding:13px 15px;border:1px solid #b8c7d6;border-radius:12px;font:inherit;background:#fff;box-shadow:0 2px 5px rgba(16,42,67,.03)}.search-wrap input:focus{outline:3px solid rgba(21,154,156,.22);border-color:var(--teal)}
+.toolbar button{align-self:end;border:1px solid #b8c7d6;background:#fff;color:var(--navy);padding:11px 14px;border-radius:10px;font:inherit;font-weight:700;cursor:pointer}.toolbar button:hover{border-color:var(--blue);background:#eef7fb}.count{color:var(--muted);font-weight:700;font-size:.9rem;margin:8px 2px 18px}
+.section-title{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:24px 2px 9px;border-bottom:2px solid var(--line);margin-top:8px}.section-title h2{font-size:1.24rem;color:var(--navy);margin:0}.section-title span{color:var(--muted);font-size:.86rem;font-weight:700}.fault-list{display:grid;gap:12px;margin-top:13px}.fault{background:var(--white);border:1px solid var(--line);border-radius:14px;box-shadow:0 2px 9px rgba(16,42,67,.035);overflow:hidden}.fault[hidden]{display:none}.fault>summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:14px;padding:17px 19px;cursor:pointer}.fault>summary::-webkit-details-marker{display:none}.fault>summary:after{content:"＋";font-weight:800;color:var(--blue);font-size:1.1rem;margin-left:3px}.fault[open]>summary:after{content:"−"}.fault>summary:hover{background:#f8fbfd}.fault-head{display:flex;gap:12px;align-items:flex-start;min-width:0}.fault-code{font-size:.76rem;white-space:nowrap;background:#e8f1f7;color:#164365;border-radius:7px;padding:4px 7px;font-weight:800}.fault-name{white-space:pre-line;font-weight:700;color:#213547}.task-badge{flex:none;background:#e8f7f6;color:#126669;border:1px solid #c7eae7;border-radius:999px;padding:5px 9px;font-size:.78rem;font-weight:800}
+.fields{padding:0 18px 18px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}.field{border:1px solid #e6edf2;border-radius:10px;padding:12px 13px;background:#fbfcfd;min-width:0}.field.description{grid-column:1/-1;background:#f3f8fc}.field h3{font-size:.79rem;text-transform:uppercase;letter-spacing:.07em;color:#356078;margin:0 0 7px}.field p{white-space:pre-line;margin:0;font-size:.91rem;color:#2c3945}.field p:empty:after{content:"Not available in the referenced task.";color:var(--muted);font-style:italic}
+.figure-gallery{margin:0 18px 18px;border:1px solid #cbdbe6;border-radius:11px;background:#f7fbfd;overflow:hidden}.figure-gallery>summary{cursor:pointer;padding:11px 14px;color:#164365;font-weight:800}.figure-gallery>summary:hover{background:#eef7fb}.figure-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(195px,1fr));gap:10px;padding:0 12px 13px}.figure-link{display:flex;flex-direction:column;gap:6px;background:#fff;border:1px solid var(--line);border-radius:8px;padding:7px;color:#25506d;text-decoration:none;font-size:.78rem;font-weight:700}.figure-link:hover{border-color:var(--teal);box-shadow:0 3px 12px rgba(21,154,156,.12)}.figure-link img{width:100%;height:155px;object-fit:contain;background:#edf2f6;border-radius:5px}.figure-note{font-weight:500;color:var(--muted);font-size:.78rem;padding:0 13px 12px}.footer{margin-top:30px;border-top:1px solid var(--line);padding:16px 2px;color:var(--muted);font-size:.82rem}
+@media(max-width:760px){.page{padding:15px 12px 36px}.hero{padding:23px 20px;border-radius:16px}.toolbar{grid-template-columns:1fr 1fr}.search-wrap{grid-column:1/-1}.fields{grid-template-columns:1fr;padding:0 12px 13px}.field.description{grid-column:auto}.fault>summary{padding:14px;flex-wrap:wrap}.task-badge{margin-left:44px}.figure-gallery{margin:0 12px 13px}.section-title{align-items:flex-start;flex-direction:column;gap:2px}}
+</style>
+</head>
+<body>
+<div class="page">
+<header class="hero">
+  <div class="eyebrow">Boeing 737-600/700/800/900 · Fault Isolation Manual</div>
+  <h1>ATA 56 Fault Library</h1>
+  <br>
+  <br>
+  <p style="margin-left: 320px; font-size: 40px; color:#FFF4D6;">NON APPROVED DATA</p>
+</header>
+
+  <div style="color: #435CCC;"class="nav-label">Related reference pages</div>
+  <nav class="nav" aria-label="Related reference pages" >
+    <a style="background-color:#C28029;"  href="esquema_sistema.html">SCHEMATICS</a>
+    <a style="background-color:#C28029;" href="siglas.html">Siglas</a>
+    <a style="background-color:#C28029;" href="amm.html">AMM</a>
+    <a style="background-color:#C28029;" href="test.html">TESTS & CHECKS</a>
+    <a style="background-color:#C28029;" href="mel.html">MEL</a>
+  </nav>
+  <div class="toolbar">
+  <div class="search-wrap"><label for="search">Search fault code, symptom, component, or task</label><input id="search" type="search" placeholder="Example: 213 010 00, smoke, Task 801…" autocomplete="off"></div>
+  <button id="expand" type="button">Expand visible</button>
+  <button id="collapse" type="button">Collapse all</button>
+</div>
+<div id="count" class="count" aria-live="polite"></div>
+<main id="content"></main>
+<footer class="footer">Source: supplied 737 FIM fault-code index and referenced ATA 56 fault-isolation tasks. Task summaries preserve source distinctions and line breaks. Figures open at full size when selected.</footer>
+</div>
+<script>
+const figureAssets = {};
+const entries = [{"code":"561 010 41","description":"Window, flight compartment: delaminated, cracked, chipped,\ncrazed, scratched, or has bubbles - no. 1 left.","ata":"56-11","task":"802"},{"code":"561 010 42","description":"Window, flight compartment: delaminated, cracked, chipped,\ncrazed, scratched, or has bubbles - no. 1 right.","ata":"56-11","task":"802"},{"code":"561 020 41","description":"Window, flight compartment: delaminated, cracked, chipped,\ncrazed, scratched, or has bubbles - no. 2 left.","ata":"56-11","task":"802"},{"code":"561 020 42","description":"Window, flight compartment: delaminated, cracked, chipped,\ncrazed, scratched, or has bubbles - no. 2 right.","ata":"56-11","task":"802"},{"code":"561 030 41","description":"Window, flight compartment: delaminated, cracked, chipped,\ncrazed, scratched, or has bubbles - no. 3 left.","ata":"56-11","task":"802"},{"code":"561 030 42","description":"Window, flight compartment: delaminated, cracked, chipped,\ncrazed, scratched, or has bubbles - no. 3 right.","ata":"56-11","task":"802"},{"code":"561 040 41","description":"Window, flight compartment: delaminated, cracked, chipped,\ncrazed, scratched, or has bubbles - no. 4 left.","ata":"56-11","task":"803"},{"code":"561 040 42","description":"Window, flight compartment: delaminated, cracked, chipped,\ncrazed, scratched, or has bubbles - no. 4 right.","ata":"56-11","task":"803"},{"code":"561 050 41","description":"Window, flight compartment: delaminated, cracked, chipped,\ncrazed, scratched, or has bubbles - no. 5 left.","ata":"56-11","task":"804"},{"code":"561 050 42","description":"Window, flight compartment: delaminated, cracked, chipped,\ncrazed, scratched, or has bubbles - no. 5 right.","ata":"56-11","task":"804"},{"code":"561 060 00","description":"Window, flight compartment: windows need cleaning.","ata":"56-11","task":"805"},{"code":"561 070 41","description":"Window, flight compartment: Sliding difficult to operate - no. 2\nleft.","ata":"56-11","task":"801"},{"code":"561 070 42","description":"Window, flight compartment: Sliding difficult to operate - no. 2\nright.","ata":"56-11","task":"801"},{"code":"561 080 41","description":"Window, flight compartment: Sliding has air leak - no. 2 left.","ata":"56-11","task":"801"},{"code":"561 080 42","description":"Window, flight compartment: Sliding has air leak - no. 2 right.","ata":"56-11","task":"801"}];
+const tasks = {"56-11:802":{"context":"No separate task context is provided in this task.","causes":"No possible causes are listed in this task.","breakers":"No circuit breakers are listed in this task.","related":"No related manuals or data are listed in this task.","initial":"No separate initial evaluation is provided in this task.","procedure":"(1) If a No. 1 or a No. 3 window shows signs of damage, then, do this task: AMM\nTASK 56-11-00-200-803.\n(2) If a No. 2 window shows signs of damage, then, do this task: AMM TASK 56-12-11-200-801.","figures":[]},"56-11:803":{"context":"No separate task context is provided in this task.","causes":"No possible causes are listed in this task.","breakers":"No circuit breakers are listed in this task.","related":"No related manuals or data are listed in this task.","initial":"No separate initial evaluation is provided in this task.","procedure":"(1) If a No. 4 window shows signs of damage, then, do this task: AMM TASK 56-11-00-200-803.","figures":[]},"56-11:804":{"context":"No separate task context is provided in this task.","causes":"No possible causes are listed in this task.","breakers":"No circuit breakers are listed in this task.","related":"No related manuals or data are listed in this task.","initial":"No separate initial evaluation is provided in this task.","procedure":"(1) If a No. 5 window shows signs of damage, then, do this task: AMM TASK 56-11-00-200-803.","figures":[]},"56-11:805":{"context":"No separate task context is provided in this task.","causes":"No possible causes are listed in this task.","breakers":"No circuit breakers are listed in this task.","related":"No related manuals or data are listed in this task.","initial":"No separate initial evaluation is provided in this task.","procedure":"(1) For the applicable window, do this task: Clean the Glass Flight Compartment Windows - Inner\nSurface, AMM TASK 12-16-02-100-801.","figures":[]},"56-11:801":{"context":"No separate task context is provided in this task.","causes":"No possible causes are listed in this task.","breakers":"No circuit breakers are listed in this task.","related":"No related manuals or data are listed in this task.","initial":"No separate initial evaluation is provided in this task.","procedure":"(1) For the applicable No. 2 window, do this task: No. 2 Openable Window Inspection, AMM\nTASK 56-12-11-200-801.","figures":[]}};
+const labels = [["description","Description"],["causes","Possible Causes"],["breakers","Circuit Breakers"],["related","Related Data"],["initial","Initial Evaluation"],["procedure","Fault Isolation Procedure"]];
+const ataTitles = {"56-11":"Fault Isolation Tasks"};
+const grouped = new Map();
+for (const item of entries) { if (!grouped.has(item.ata)) grouped.set(item.ata, []); grouped.get(item.ata).push(item); }
+const content = document.getElementById("content");
+for (const [ata, group] of grouped) {
+  const section = document.createElement("section");
+  const heading = document.createElement("div"); heading.className = "section-title";
+  const h2 = document.createElement("h2"); h2.textContent = `ATA ${ata} · ${ataTitles[ata] || "Fault Isolation"}`;
+  const n = document.createElement("span"); n.textContent = `${group.length} fault-code entries`;
+  heading.append(h2,n); section.append(heading);
+  const list = document.createElement("div"); list.className = "fault-list";
+  for (const item of group) {
+    const data = tasks[`${item.ata}:${item.task}`];
+    const card = document.createElement("details"); card.className = "fault";
+    const summary = document.createElement("summary");
+    const head = document.createElement("span"); head.className = "fault-head";
+    const code = document.createElement("span"); code.className = "fault-code"; code.textContent = item.code;
+    const name = document.createElement("span"); name.className = "fault-name"; name.textContent = item.description;
+    const badge = document.createElement("span"); badge.className = "task-badge"; badge.textContent = `${item.ata} · Task ${item.task}`;
+    head.append(code,name); summary.append(head,badge); card.append(summary);
+    const fields = document.createElement("div"); fields.className = "fields";
+    for (const [key,label] of labels) {
+      const box = document.createElement("section"); box.className = "field" + (key === "description" ? " description" : "");
+      const title = document.createElement("h3"); title.textContent = label;
+      const text = document.createElement("p");
+      if (key === "description") {
+        text.textContent = item.description + (data.context ? `\n\nFIM task context:\n${data.context}` : "");
+      } else text.textContent = data[key] || "";
+      box.append(title,text); fields.append(box);
+    }
+    card.append(fields);
+    if (data.figures?.length) {
+      const gallery = document.createElement("details"); gallery.className = "figure-gallery";
+      const cap = document.createElement("summary"); cap.textContent = `FIM Figures · ${data.figures.length} ${data.figures.length === 1 ? "image" : "images"}`;
+      const grid = document.createElement("div"); grid.className = "figure-grid";
+      for (const fig of data.figures) {
+        const a = document.createElement("a"); a.className = "figure-link"; const src = figureAssets[fig.src]; if (!src) continue; a.href = src; a.target = "_blank"; a.rel = "noopener";
+        const img = document.createElement("img"); img.src = src; img.alt = fig.alt; img.loading = "lazy";
+        const caption = document.createElement("span"); caption.textContent = fig.label;
+        a.append(img,caption); grid.append(a);
+      }
+      gallery.append(cap,grid);
+      if (item.ata === "21-62" && item.task === "903") { const note = document.createElement("div"); note.className = "figure-note"; note.textContent = "Figures 303 and 304 apply to the PFTC effectivity identified in the FIM (RYR385–999); confirm airplane effectivity before use."; gallery.append(note); }
+      card.append(gallery);
+    }
+    list.append(card);
+  }
+  section.append(list); content.append(section);
+}
+const cards = [...document.querySelectorAll("details.fault")], search = document.getElementById("search"), count = document.getElementById("count");
+function filter(){const q=search.value.trim().toLowerCase();let visible=0;for(const card of cards){const match=!q||card.textContent.toLowerCase().includes(q);card.hidden=!match;if(match)visible++;}count.textContent=`${visible} of ${cards.length} fault-code entries`}
+search.addEventListener("input",filter);
+document.getElementById("expand").addEventListener("click",()=>cards.filter(c=>!c.hidden).forEach(c=>c.open=true));
+document.getElementById("collapse").addEventListener("click",()=>cards.forEach(c=>c.open=false));
+filter();
+</script>
+</body>
+</html>
