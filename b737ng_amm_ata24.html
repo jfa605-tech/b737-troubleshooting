@@ -6,32 +6,47 @@
 <meta name="description" content="Searchable Boeing 737NG AMM task library for ATA 24.">
 <title>B737NG ATA 24 | AMM Task Library</title>
 <style>
-:root{--navy:#102a43;--blue:#155e8a;--teal:#159a9c;--paper:#f4f7fa;--ink:#1d2935;--muted:#607080;--line:#d9e2ec;--white:#fff;--shadow:0 8px 24px rgba(16,42,67,.08)}
+:root{--navy:#102a43;--blue:#155e8a;--teal:#159a9c;--paper:#f4f7fa;--ink:#1d2935;--muted:#607080;--line:#d9e2ec;--white:#fff;--amber:#fff4d6;--shadow:0 8px 24px rgba(16,42,67,.08)}
 *{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.55 "Segoe UI",Arial,sans-serif}
 .page{max-width:1220px;margin:0 auto;padding:26px 24px 56px}.hero{border-radius:22px;padding:30px 34px;background:linear-gradient(122deg,#0b2944,#155e8a 65%,#159a9c);color:#fff;box-shadow:var(--shadow)}
 .eyebrow{text-transform:uppercase;letter-spacing:.14em;font-size:.75rem;font-weight:700;opacity:.82}.hero h1{font-size:clamp(1.7rem,3vw,2.5rem);line-height:1.15;margin:.5rem 0 .45rem}.hero p{max-width:850px;margin:0;color:#eaf4fb}
-.hero-meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}.hero-meta span{border:1px solid rgba(255,255,255,.32);background:rgba(255,255,255,.1);padding:6px 10px;border-radius:999px;font-size:.82rem;font-weight:700}
-.notice{margin:18px 0 14px;border:1px solid #cbdbe6;background:#fff;padding:13px 16px;border-radius:12px;color:#405364;font-size:.92rem}
-.toolbar{display:grid;grid-template-columns:minmax(240px,1fr) auto auto;gap:10px;align-items:center;margin:18px 0 10px}.search-wrap{position:relative}.search-wrap label{display:block;font-size:.78rem;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin:0 0 6px}.search-wrap input{width:100%;padding:13px 15px;border:1px solid #b8c7d6;border-radius:12px;font:inherit;background:#fff;box-shadow:0 2px 5px rgba(16,42,67,.03)}.search-wrap input:focus{outline:3px solid rgba(21,154,156,.22);border-color:var(--teal)}
+.nav-label{font-size:.78rem;text-transform:uppercase;letter-spacing:.09em;font-weight:800;color:#d4eaf5;margin:22px 0 9px}.nav{display:flex;flex-wrap:wrap;gap:9px}.nav a{color:#fff;text-decoration:none;padding:9px 13px;border:1px solid rgba(255,255,255,.42);border-radius:999px;font-weight:700;font-size:.9rem;background:rgba(255,255,255,.1);transition:.15s}.nav a:hover,.nav a:focus{background:#fff;color:var(--navy);outline:none}
+.notice{margin:18px 0 14px;border:1px solid #f0d286;background:var(--amber);padding:13px 16px;border-radius:12px;color:#57451b;font-size:.92rem}.toolbar{display:grid;grid-template-columns:minmax(240px,1fr) auto auto;gap:10px;align-items:center;margin:18px 0 10px}.search-wrap{position:relative}.search-wrap label{display:block;font-size:.78rem;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin:0 0 6px}.search-wrap input{width:100%;padding:13px 15px;border:1px solid #b8c7d6;border-radius:12px;font:inherit;background:#fff;box-shadow:0 2px 5px rgba(16,42,67,.03)}.search-wrap input:focus{outline:3px solid rgba(21,154,156,.22);border-color:var(--teal)}
 .toolbar button{align-self:end;border:1px solid #b8c7d6;background:#fff;color:var(--navy);padding:11px 14px;border-radius:10px;font:inherit;font-weight:700;cursor:pointer}.toolbar button:hover{border-color:var(--blue);background:#eef7fb}.count{color:var(--muted);font-weight:700;font-size:.9rem;margin:8px 2px 18px}
-.section-title{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:24px 2px 9px;border-bottom:2px solid var(--line);margin-top:8px}.section-title h2{font-size:1.24rem;color:var(--navy);margin:0}.section-title span{color:var(--muted);font-size:.86rem;font-weight:700}.task-list{display:grid;gap:12px;margin-top:13px}.task{background:var(--white);border:1px solid var(--line);border-radius:14px;box-shadow:0 2px 9px rgba(16,42,67,.035);overflow:hidden}.task[hidden],.system-section[hidden]{display:none}.task>summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:14px;padding:17px 19px;cursor:pointer}.task>summary::-webkit-details-marker{display:none}.task>summary:after{content:"＋";font-weight:800;color:var(--blue);font-size:1.1rem;margin-left:3px}.task[open]>summary:after{content:"−"}.task>summary:hover{background:#f8fbfd}.task-head{display:flex;gap:12px;align-items:flex-start;min-width:0}.task-code{font-size:.76rem;white-space:nowrap;background:#e8f1f7;color:#164365;border-radius:7px;padding:4px 7px;font-weight:800}.task-name{white-space:pre-line;font-weight:700;color:#213547}.task-page{flex:none;background:#e8f7f6;color:#126669;border:1px solid #c7eae7;border-radius:999px;padding:5px 9px;font-size:.78rem;font-weight:800}
-.task-body{padding:0 18px 18px}.source-link{display:inline-flex;align-items:center;gap:7px;margin:0 0 13px;padding:8px 11px;border-radius:9px;background:#edf6fa;border:1px solid #cbdde7;color:#164365;text-decoration:none;font-size:.86rem;font-weight:800}.source-link:hover,.source-link:focus{background:#dceef5;outline:2px solid rgba(21,154,156,.2)}.procedure{margin:0;padding:16px 17px;border:1px solid #e2eaf0;border-radius:10px;background:#fbfcfd;color:#263746;font:13px/1.58 Consolas,"Courier New",monospace;white-space:pre-wrap;overflow-wrap:anywhere;tab-size:4;max-height:none;overflow:auto}
-.empty{display:none;margin:24px 0;padding:28px;text-align:center;color:var(--muted);background:#fff;border:1px dashed #b8c7d6;border-radius:14px}.empty.visible{display:block}.footer{padding:28px 2px 0;color:var(--muted);font-size:.82rem;text-align:center}
-@media(max-width:760px){.page{padding:14px 12px 34px}.hero{padding:24px 21px;border-radius:16px}.toolbar{grid-template-columns:1fr 1fr}.search-wrap{grid-column:1/-1}.task>summary{align-items:flex-start;padding:14px}.task-head{flex-direction:column;gap:6px}.task-page{white-space:nowrap}.procedure{font-size:12px;padding:12px}.task-body{padding:0 12px 12px}}
-@media print{body{background:#fff}.page{max-width:none;padding:0}.hero{box-shadow:none;border-radius:0}.toolbar,.notice,.footer{display:none}.task{break-inside:avoid;box-shadow:none}.procedure{max-height:none;overflow:visible}}
+.section-title{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:24px 2px 9px;border-bottom:2px solid var(--line);margin-top:8px}.section-title h2{font-size:1.24rem;color:var(--navy);margin:0}.section-title span{color:var(--muted);font-size:.86rem;font-weight:700}.task-list{display:grid;gap:12px;margin-top:13px}.task{background:var(--white);border:1px solid var(--line);border-radius:14px;box-shadow:0 2px 9px rgba(16,42,67,.035);overflow:hidden}.task[hidden]{display:none}.task>summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:14px;padding:17px 19px;cursor:pointer}.task>summary::-webkit-details-marker{display:none}.task>summary:after{content:"＋";font-weight:800;color:var(--blue);font-size:1.1rem;margin-left:3px}.task[open]>summary:after{content:"−"}.task>summary:hover{background:#f8fbfd}.task-head{display:flex;gap:12px;align-items:flex-start;min-width:0}.task-code{font-size:.76rem;white-space:nowrap;background:#e8f1f7;color:#164365;border-radius:7px;padding:4px 7px;font-weight:800}.task-name{white-space:pre-line;font-weight:700;color:#213547}.task-page{flex:none;background:#e8f7f6;color:#126669;border:1px solid #c7eae7;border-radius:999px;padding:5px 9px;font-size:.78rem;font-weight:800}
+.fields{padding:0 18px 18px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}.field{border:1px solid #e6edf2;border-radius:10px;padding:12px 13px;background:#fbfcfd;min-width:0}.field.description{grid-column:1/-1;background:#f3f8fc}.field h3{font-size:.79rem;text-transform:uppercase;letter-spacing:.07em;color:#356078;margin:0 0 7px}.field p{white-space:pre-line;margin:0;font-size:.91rem;color:#2c3945}.field p:empty:after{content:"Not available in the referenced task.";color:var(--muted);font-style:italic}
+.figure-gallery{margin:0 18px 18px;border:1px solid #cbdbe6;border-radius:11px;background:#f7fbfd;overflow:hidden}.figure-gallery>summary{cursor:pointer;padding:11px 14px;color:#164365;font-weight:800}.figure-gallery>summary:hover{background:#eef7fb}.figure-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(195px,1fr));gap:10px;padding:0 12px 13px}.figure-link{display:flex;flex-direction:column;gap:6px;background:#fff;border:1px solid var(--line);border-radius:8px;padding:7px;color:#25506d;text-decoration:none;font-size:.78rem;font-weight:700}.figure-link:hover{border-color:var(--teal);box-shadow:0 3px 12px rgba(21,154,156,.12)}.figure-link img{width:100%;height:155px;object-fit:contain;background:#edf2f6;border-radius:5px}.figure-note{font-weight:500;color:var(--muted);font-size:.78rem;padding:0 13px 12px}.footer{margin-top:30px;border-top:1px solid var(--line);padding:16px 2px;color:var(--muted);font-size:.82rem}
+@media(max-width:760px){.page{padding:15px 12px 36px}.hero{padding:23px 20px;border-radius:16px}.toolbar{grid-template-columns:1fr 1fr}.search-wrap{grid-column:1/-1}.fields{grid-template-columns:1fr;padding:0 12px 13px}.field.description{grid-column:auto}.task>summary{padding:14px;flex-wrap:wrap}.task-page{margin-left:44px}.figure-gallery{margin:0 12px 13px}.section-title{align-items:flex-start;flex-direction:column;gap:2px}}
+
+.task-body{padding:0 18px 18px}
+.source-link{display:inline-flex;align-items:center;gap:7px;margin:0 0 13px;padding:8px 11px;border-radius:9px;background:#edf6fa;border:1px solid #cbdde7;color:#164365;text-decoration:none;font-size:.86rem;font-weight:800}
+.source-link:hover,.source-link:focus{background:#dceef5;outline:2px solid rgba(21,154,156,.2)}
+.procedure{margin:0;padding:12px 13px;border:1px solid #e6edf2;border-radius:10px;background:#fbfcfd;color:#2c3945;font:15px/1.55 "Segoe UI",Arial,sans-serif;white-space:pre-wrap;overflow-wrap:anywhere;tab-size:4}
+.empty{display:none;margin:24px 0;padding:28px;text-align:center;color:var(--muted);background:#fff;border:1px dashed #b8c7d6;border-radius:14px}.empty.visible{display:block}
+.hero .approval-warning{margin-left:320px;font-size:40px;color:#FFF4D6}
+@media(max-width:760px){.task-body{padding:0 12px 13px}.hero .approval-warning{margin-left:0;font-size:clamp(1.25rem,8vw,2.5rem)}}
+
 </style>
 </head>
 <body>
 <main class="page">
   <header class="hero">
-    <div class="eyebrow">B737NG / Aircraft Maintenance Manual</div>
-    <h1>ATA 24 - Electrical Power</h1>
-    <p>Search and open the complete maintenance tasks in this ATA chapter. Each procedure keeps the line breaks extracted from the supplied AMM PDF.</p>
-    <div class="hero-meta"><span>98 tasks</span><span>Source: 24___091.PDF</span></div>
-  </header>
-  <div class="notice">Procedure text is shown with its original line breaks. Use the source link in any task to review the original PDF page, figures, and surrounding context.</div>
+  <div class="eyebrow">Boeing 737-600/700/800/900 · Aircraft Maintenance Manual</div>
+  <h1>ATA 24 AMM Task Library</h1>
+  <br>
+  <br>
+  <p class="approval-warning">NON APPROVED DATA</p>
+</header>
+  <div style="color:#435CCC;" class="nav-label">Related reference pages</div>
+<nav class="nav" aria-label="Related reference pages">
+    <a style="background-color:#C28029;" href="b737ng_ssm_ata24.html">SCHEMATICS</a>
+    <a style="background-color:#C28029;" href="siglas.html">Siglas</a>
+    <a style="background-color:#C28029;" href="b737ng_amm_ata24.html">AMM</a>
+    <a style="background-color:#C28029;" href="test.html">TESTS &amp; CHECKS</a>
+    <a style="background-color:#C28029;" href="b737ng_mel_ata24.html">MEL</a>
+</nav>
   <div class="toolbar">
-    <div class="search-wrap"><label for="search">Find a task</label><input id="search" type="search" autocomplete="off" placeholder="Search task number, title, section, or procedure text"></div>
+    <div class="search-wrap"><label for="search">Search task number, title, section, or procedure text</label><input id="search" type="search" autocomplete="off" placeholder="Example: 22-11-00-700-801, autopilot, TASK 801…"></div>
     <button id="expand" type="button">Expand visible</button>
     <button id="collapse" type="button">Collapse all</button>
   </div>
@@ -9864,7 +9879,7 @@ SUBTASK 24-61-01-410-001
 </section>
   </div>
   <div class="empty" id="empty">No tasks match this search.</div>
-  <footer class="footer">B737NG AMM task index - ATA 24</footer>
+  <footer class="footer">Source: supplied 737 AMM chapter. Task procedures retain the extracted source line breaks. The source links open the original PDF at the task page.</footer>
 </main>
 <script>
 (()=>{
