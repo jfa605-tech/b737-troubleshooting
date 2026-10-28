@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Searchable Boeing 737NG AMM task library for ATA 74.">
+<meta name="description" content="B737NG ATA 74 AMM task library with lettered source sections and paragraph cards.">
 <title>B737NG ATA 74 | AMM Task Library</title>
 <style>
 :root{--navy:#102a43;--blue:#155e8a;--teal:#159a9c;--paper:#f4f7fa;--ink:#1d2935;--muted:#607080;--line:#d9e2ec;--white:#fff;--amber:#fff4d6;--shadow:0 8px 24px rgba(16,42,67,.08)}
@@ -13,62 +13,60 @@
 .nav-label{font-size:.78rem;text-transform:uppercase;letter-spacing:.09em;font-weight:800;color:#d4eaf5;margin:22px 0 9px}.nav{display:flex;flex-wrap:wrap;gap:9px}.nav a{color:#fff;text-decoration:none;padding:9px 13px;border:1px solid rgba(255,255,255,.42);border-radius:999px;font-weight:700;font-size:.9rem;background:rgba(255,255,255,.1);transition:.15s}.nav a:hover,.nav a:focus{background:#fff;color:var(--navy);outline:none}
 .notice{margin:18px 0 14px;border:1px solid #f0d286;background:var(--amber);padding:13px 16px;border-radius:12px;color:#57451b;font-size:.92rem}.toolbar{display:grid;grid-template-columns:minmax(240px,1fr) auto auto;gap:10px;align-items:center;margin:18px 0 10px}.search-wrap{position:relative}.search-wrap label{display:block;font-size:.78rem;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin:0 0 6px}.search-wrap input{width:100%;padding:13px 15px;border:1px solid #b8c7d6;border-radius:12px;font:inherit;background:#fff;box-shadow:0 2px 5px rgba(16,42,67,.03)}.search-wrap input:focus{outline:3px solid rgba(21,154,156,.22);border-color:var(--teal)}
 .toolbar button{align-self:end;border:1px solid #b8c7d6;background:#fff;color:var(--navy);padding:11px 14px;border-radius:10px;font:inherit;font-weight:700;cursor:pointer}.toolbar button:hover{border-color:var(--blue);background:#eef7fb}.count{color:var(--muted);font-weight:700;font-size:.9rem;margin:8px 2px 18px}
-.section-title{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:24px 2px 9px;border-bottom:2px solid var(--line);margin-top:8px}.section-title h2{font-size:1.24rem;color:var(--navy);margin:0}.section-title span{color:var(--muted);font-size:.86rem;font-weight:700}.task-list{display:grid;gap:12px;margin-top:13px}.task{background:var(--white);border:1px solid var(--line);border-radius:14px;box-shadow:0 2px 9px rgba(16,42,67,.035);overflow:hidden}.task[hidden]{display:none}.task>summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:14px;padding:17px 19px;cursor:pointer}.task>summary::-webkit-details-marker{display:none}.task>summary:after{content:"＋";font-weight:800;color:var(--blue);font-size:1.1rem;margin-left:3px}.task[open]>summary:after{content:"−"}.task>summary:hover{background:#f8fbfd}.task-head{display:flex;gap:12px;align-items:flex-start;min-width:0}.task-code{font-size:.76rem;white-space:nowrap;background:#e8f1f7;color:#164365;border-radius:7px;padding:4px 7px;font-weight:800}.task-name{white-space:pre-line;font-weight:700;color:#213547}.task-page{flex:none;background:#e8f7f6;color:#126669;border:1px solid #c7eae7;border-radius:999px;padding:5px 9px;font-size:.78rem;font-weight:800}
+.section-title{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:24px 2px 9px;border-bottom:2px solid var(--line);margin-top:8px}.section-title h2{font-size:1.24rem;color:var(--navy);margin:0}.section-title span{color:var(--muted);font-size:.86rem;font-weight:700}.fault-list{display:grid;gap:12px;margin-top:13px}.fault{background:var(--white);border:1px solid var(--line);border-radius:14px;box-shadow:0 2px 9px rgba(16,42,67,.035);overflow:hidden}.fault[hidden]{display:none}.fault>summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:14px;padding:17px 19px;cursor:pointer}.fault>summary::-webkit-details-marker{display:none}.fault>summary:after{content:"＋";font-weight:800;color:var(--blue);font-size:1.1rem;margin-left:3px}.fault[open]>summary:after{content:"−"}.fault>summary:hover{background:#f8fbfd}.fault-head{display:flex;gap:12px;align-items:flex-start;min-width:0}.fault-code{font-size:.76rem;white-space:nowrap;background:#e8f1f7;color:#164365;border-radius:7px;padding:4px 7px;font-weight:800}.fault-name{white-space:pre-line;font-weight:700;color:#213547}.task-badge{flex:none;background:#e8f7f6;color:#126669;border:1px solid #c7eae7;border-radius:999px;padding:5px 9px;font-size:.78rem;font-weight:800}
 .fields{padding:0 18px 18px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}.field{border:1px solid #e6edf2;border-radius:10px;padding:12px 13px;background:#fbfcfd;min-width:0}.field.description{grid-column:1/-1;background:#f3f8fc}.field h3{font-size:.79rem;text-transform:uppercase;letter-spacing:.07em;color:#356078;margin:0 0 7px}.field p{white-space:pre-line;margin:0;font-size:.91rem;color:#2c3945}.field p:empty:after{content:"Not available in the referenced task.";color:var(--muted);font-style:italic}
 .figure-gallery{margin:0 18px 18px;border:1px solid #cbdbe6;border-radius:11px;background:#f7fbfd;overflow:hidden}.figure-gallery>summary{cursor:pointer;padding:11px 14px;color:#164365;font-weight:800}.figure-gallery>summary:hover{background:#eef7fb}.figure-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(195px,1fr));gap:10px;padding:0 12px 13px}.figure-link{display:flex;flex-direction:column;gap:6px;background:#fff;border:1px solid var(--line);border-radius:8px;padding:7px;color:#25506d;text-decoration:none;font-size:.78rem;font-weight:700}.figure-link:hover{border-color:var(--teal);box-shadow:0 3px 12px rgba(21,154,156,.12)}.figure-link img{width:100%;height:155px;object-fit:contain;background:#edf2f6;border-radius:5px}.figure-note{font-weight:500;color:var(--muted);font-size:.78rem;padding:0 13px 12px}.footer{margin-top:30px;border-top:1px solid var(--line);padding:16px 2px;color:var(--muted);font-size:.82rem}
-@media(max-width:760px){.page{padding:15px 12px 36px}.hero{padding:23px 20px;border-radius:16px}.toolbar{grid-template-columns:1fr 1fr}.search-wrap{grid-column:1/-1}.fields{grid-template-columns:1fr;padding:0 12px 13px}.field.description{grid-column:auto}.task>summary{padding:14px;flex-wrap:wrap}.task-page{margin-left:44px}.figure-gallery{margin:0 12px 13px}.section-title{align-items:flex-start;flex-direction:column;gap:2px}}
+@media(max-width:760px){.page{padding:15px 12px 36px}.hero{padding:23px 20px;border-radius:16px}.toolbar{grid-template-columns:1fr 1fr}.search-wrap{grid-column:1/-1}.fields{grid-template-columns:1fr;padding:0 12px 13px}.field.description{grid-column:auto}.fault>summary{padding:14px;flex-wrap:wrap}.task-badge{margin-left:44px}.figure-gallery{margin:0 12px 13px}.section-title{align-items:flex-start;flex-direction:column;gap:2px}}
 
-.task-body{padding:0 18px 18px}
-.source-link{display:inline-flex;align-items:center;gap:7px;margin:0 0 13px;padding:8px 11px;border-radius:9px;background:#edf6fa;border:1px solid #cbdde7;color:#164365;text-decoration:none;font-size:.86rem;font-weight:800}
-.source-link:hover,.source-link:focus{background:#dceef5;outline:2px solid rgba(21,154,156,.2)}
-.procedure{margin:0;padding:12px 13px;border:1px solid #e6edf2;border-radius:10px;background:#fbfcfd;color:#2c3945;font:15px/1.55 "Segoe UI",Arial,sans-serif;white-space:pre-wrap;overflow-wrap:anywhere;tab-size:4}
+.letter-field{grid-column:1/-1}
+.field p strong.step-marker{font-weight:800;color:#159a9c}
+.field p strong.section-marker,.field.letter-field h3{font-weight:800;color:#155e8a}
 .empty{display:none;margin:24px 0;padding:28px;text-align:center;color:var(--muted);background:#fff;border:1px dashed #b8c7d6;border-radius:14px}.empty.visible{display:block}
-.hero .approval-warning{margin-left:320px;font-size:40px;color:#FFF4D6}
-@media(max-width:760px){.task-body{padding:0 12px 13px}.hero .approval-warning{margin-left:0;font-size:clamp(1.25rem,8vw,2.5rem)}}
+#content>section[hidden]{display:none}
 
 </style>
 </head>
 <body>
-<main class="page">
-  <header class="hero">
+<div class="page">
+<header class="hero">
   <div class="eyebrow">Boeing 737-600/700/800/900 · Aircraft Maintenance Manual</div>
   <h1>ATA 74 AMM Task Library</h1>
   <br>
   <br>
-  <p class="approval-warning">NON APPROVED DATA</p>
+  <p style="margin-left: 320px; font-size: 40px; color:#FFF4D6;">NON APPROVED DATA</p>
 </header>
-  <div style="color:#435CCC;" class="nav-label">Related reference pages</div>
+<div style="color:#435CCC;" class="nav-label">Related reference pages</div>
 <nav class="nav" aria-label="Related reference pages">
-    <a style="background-color:#C28029;" href="b737ng_ssm_ata74.html">SCHEMATICS</a>
-    <a style="background-color:#C28029;" href="siglas.html">Siglas</a>
-    <a style="background-color:#C28029;" href="b737ng_amm_ata74.html">AMM</a>
-    <a style="background-color:#C28029;" href="test.html">TESTS &amp; CHECKS</a>
-    <a style="background-color:#C28029;" href="b737ng_mel_ata74.html">MEL</a>
+<a style="background-color:#C28029;" href="b737ng_ssm_ata74.html">SCHEMATICS</a>
+<a style="background-color:#C28029;" href="siglas.html">Siglas</a>
+<a style="background-color:#C28029;" href="b737ng_amm_ata74.html">AMM</a>
+<a style="background-color:#C28029;" href="test.html">TESTS &amp; CHECKS</a>
+<a style="background-color:#C28029;" href="b737ng_mel_ata74.html">MEL</a>
 </nav>
-  <div class="toolbar">
-    <div class="search-wrap"><label for="search">Search task number, title, section, or procedure text</label><input id="search" type="search" autocomplete="off" placeholder="Example: 22-11-00-700-801, autopilot, TASK 801…"></div>
-    <button id="expand" type="button">Expand visible</button>
-    <button id="collapse" type="button">Collapse all</button>
-  </div>
-  <div class="count" id="count" aria-live="polite"></div>
-  <div id="catalog">
-<section class="system-section" id="section-74-00-00">
-  <div class="section-title"><h2>ATA 74-00-00 - Section</h2><span>6 tasks</span></div>
-  <div class="task-list">
-<details class="task" id="task-74-00-00-040-803-F00" data-section="74-00-00">
-  <summary><span class="task-head"><span class="task-code">74-00-00-040-803-F00</span><span class="task-name">Ignition System - Deactivation</span></span><span class="task-page">PDF p. 7</span></summary>
-  <div class="task-body"><a class="source-link" href="file:///C:/Users/javie/Desktop/Proyecto%20B737NG/MANUALES/AMM/74_F__091.PDF#page=7" target="_blank" rel="noopener">Open original AMM PDF - page 7 <span aria-hidden="true">↗</span></a>
-    <pre class="procedure">2. Ignition System - Deactivation
-A. General
-(1) This task will deactivate the ignition system.
-B. Location Zones
-Zone Area
+<div class="toolbar">
+  <div class="search-wrap"><label for="search">Search task number, title, section, or procedure text</label><input id="search" type="search" placeholder="Example: 74-11-00, procedure, TASK 801…" autocomplete="off"></div>
+  <button id="expand" type="button">Expand visible</button>
+  <button id="collapse" type="button">Collapse all</button>
+</div>
+<div id="count" class="count" aria-live="polite"></div>
+<main id="content">
+<section class="system-section">
+  <div class="section-title"><h2>ATA 74 · 74-00-00</h2><span>6 tasks</span></div>
+  <div class="fault-list">
+<details class="fault" id="task-74-00-00-040-803-F00">
+  <summary>
+    <span class="fault-head"><span class="fault-code">74-00-00-040-803-F00</span><span class="fault-name">Ignition System - Deactivation</span></span>
+    <span class="task-badge">ATA 74 · Task 040-803-F00</span>
+  </summary>
+  <div class="fields">
+<section class="field description letter-field"><h3>Task Description</h3><p class="section-text">2. Ignition System - Deactivation</p></section>
+<section class="field letter-field" data-letter="A"><h3>A. General</h3><p class="section-text"><strong class="step-marker">(1)</strong> This task will deactivate the ignition system.</p></section>
+<section class="field letter-field" data-letter="B"><h3>B. Location Zones</h3><p class="section-text">Zone Area
 211 Flight Compartment - Left
 212 Flight Compartment - Right
 411 Engine 1 - Engine
-421 Engine 2 - Engine
-C. Procedure
-WARNING
+421 Engine 2 - Engine</p></section>
+<section class="field letter-field" data-letter="C"><h3>C. Procedure</h3><p class="section-text">WARNING
 IGNITION EXCITER COIL UNIT VOLTAGE IS SUFFICIENTLY HIGH TO
 ENDANGER HUMAN LIFE. APU MASTER SWITCH MUST BE IN OFF
 POSITION, AND IGNITION INOPERATIVE FOR 5 MINUTES BEFORE
@@ -81,13 +79,13 @@ THE JET EXHAUST AREA, OR THE AIRPLANE IS IN THE HANGAR. MAKE
 SURE THAT NO PERSONNEL OR EQUIPMENT ARE IN THE JET EXHAUST
 AREA. INJURIES TO PERSONNEL CAN OCCUR.
 SUBTASK 74-00-00-210-002-F00
-(1) Make sure that the airplane and adjacent areas are safe, in case a tailpipe fire occurs.
+<strong class="step-marker">(1)</strong> Make sure that the airplane and adjacent areas are safe, in case a tailpipe fire occurs.
 SUBTASK 74-00-00-810-002-F00
-(2) Use the interphone to speak between persons on the ground and in the flight compartment.
+<strong class="step-marker">(2)</strong> Use the interphone to speak between persons on the ground and in the flight compartment.
 NOTE: One person must be near the engine to listen for the igniter(s) to fire. The igniters are
 found on the combustion case at the 4:00 and 8:00 o'clock position.
 SUBTASK 74-00-00-020-004-F00
-(3) For engine 1, do this step:
+<strong class="step-marker">(3)</strong> For engine 1, do this step:
 Open these circuit breakers and install safety tags:
 CAPT Electrical System Panel, P18-2
 Row Col Number Name
@@ -100,7 +98,7 @@ F/O Electrical System Panel, P6-3
 Row Col Number Name
 B 4 C00359 FUEL SPAR VALVE ENG 1
 SUBTASK 74-00-00-020-005-F00
-(4) For engine 2, do this step:
+<strong class="step-marker">(4)</strong> For engine 2, do this step:
 Open these circuit breakers and install safety tags:
 F/O Electrical System Panel, P6-2
 Row Col Number Name
@@ -112,17 +110,17 @@ F/O Electrical System Panel, P6-3
 Row Col Number Name
 B 3 C00360 FUEL SPAR VALVE ENG 2
 SUBTASK 74-00-00-210-003-F00
-(5) Make sure that the two engine start levers on the control stand, panel P8, are in the CUTOFF
+<strong class="step-marker">(5)</strong> Make sure that the two engine start levers on the control stand, panel P8, are in the CUTOFF
 position.
 SUBTASK 74-00-00-210-004-F00
-(6) Make sure that the engine start switch is off and install a DO-NOT-OPERATE tag.
+<strong class="step-marker">(6)</strong> Make sure that the engine start switch is off and install a DO-NOT-OPERATE tag.
 SUBTASK 74-00-00-480-001-F00
-(7) Do these steps to get access to the igniters test of the EEC BITE with the Flight Management
+<strong class="step-marker">(7)</strong> Do these steps to get access to the igniters test of the EEC BITE with the Flight Management
 Computer System Central Display Unit (FMCS CDU) in the flight compartment.
-(a) Push the INIT REF key to show the PERF INIT screen on the FMCS CDU.
+<strong class="step-marker">(a)</strong> Push the INIT REF key to show the PERF INIT screen on the FMCS CDU.
 NOTE: The FMCS CDU does not support a type-ahead function. You must have the
 prompt on the FMCS CDU screen before you type in the response.
-(b) Push these line select keys (LSK) on the FMCS CDU:
+<strong class="step-marker">(b)</strong> Push these line select keys (LSK) on the FMCS CDU:
 1) INDEX
 2) MAINT
 NOTE: This LSK causes the MAINT BITE INDEX screen to show.
@@ -145,7 +143,7 @@ Sometimes, this is not enough time and the system will show this problem.
 a) If the FOR CH A ONLY or FOR CH B ONLY screen continues to show, do this
 task: CH A (B) EEC DATA NOT AVAILABLE - Fault Isolation,
 FIM 73-05 TASK 803.
-(c) Push the L IGNITER TEST LSK for the left igniter test.
+<strong class="step-marker">(c)</strong> Push the L IGNITER TEST LSK for the left igniter test.
 NOTE: This LSK causes the L IGNITER TEST menu to show along with a WARNING
 about the operation of the ignition system.
 1) Push the START TEST LSK.
@@ -169,7 +167,7 @@ a) If you put the start lever back to the CUTOFF position before you exit the BI
 screen, the EEC BITE INOP message will show because the power is
 removed from the EEC.
 7) Put the applicable engine start lever to the CUTOFF position.
-(d) Push the R IGNITER TEST LSK for the right igniter test.
+<strong class="step-marker">(d)</strong> Push the R IGNITER TEST LSK for the right igniter test.
 NOTE: This LSK causes the R IGNITER TEST menu to show along with a WARNING
 about the operation of the ignition system.
 1) Push the START TEST LSK.
@@ -193,27 +191,27 @@ screen shows LISTEN FOR IGNITER.
 a) If you put the start lever back to the CUTOFF position before you exit the BITE
 screen, the EEC BITE INOP message will show because the power is
 removed from the EEC.
-7) Put the applicable engine start lever to the CUTOFF position.</pre></div>
+7) Put the applicable engine start lever to the CUTOFF position.</p></section>
+  </div>
 </details>
-<details class="task" id="task-74-00-00-440-801-F00" data-section="74-00-00">
-  <summary><span class="task-head"><span class="task-code">74-00-00-440-801-F00</span><span class="task-name">Ignition System - Activation</span></span><span class="task-page">PDF p. 12</span></summary>
-  <div class="task-body"><a class="source-link" href="file:///C:/Users/javie/Desktop/Proyecto%20B737NG/MANUALES/AMM/74_F__091.PDF#page=12" target="_blank" rel="noopener">Open original AMM PDF - page 12 <span aria-hidden="true">↗</span></a>
-    <pre class="procedure">3. Ignition System - Activation
-(Figure 201)
-A. General
-(1) This task will activate the ignition system.
-B. References
-Reference Title
-74-00-00-750-802-F00 Ignition System Test (P/B 501)
-C. Location Zones
-Zone Area
+<details class="fault" id="task-74-00-00-440-801-F00">
+  <summary>
+    <span class="fault-head"><span class="fault-code">74-00-00-440-801-F00</span><span class="fault-name">Ignition System - Activation</span></span>
+    <span class="task-badge">ATA 74 · Task 440-801-F00</span>
+  </summary>
+  <div class="fields">
+<section class="field description letter-field"><h3>Task Description</h3><p class="section-text">3. Ignition System - Activation
+(Figure 201)</p></section>
+<section class="field letter-field" data-letter="A"><h3>A. General</h3><p class="section-text"><strong class="step-marker">(1)</strong> This task will activate the ignition system.</p></section>
+<section class="field letter-field" data-letter="B"><h3>B. References</h3><p class="section-text">Reference Title
+74-00-00-750-802-F00 Ignition System Test (P/B 501)</p></section>
+<section class="field letter-field" data-letter="C"><h3>C. Location Zones</h3><p class="section-text">Zone Area
 211 Flight Compartment - Left
 212 Flight Compartment - Right
 411 Engine 1 - Engine
-421 Engine 2 - Engine
-D. Procedure
-SUBTASK 74-00-00-420-004-F00
-(1) For engine 1, do this step:
+421 Engine 2 - Engine</p></section>
+<section class="field letter-field" data-letter="D"><h3>D. Procedure</h3><p class="section-text">SUBTASK 74-00-00-420-004-F00
+<strong class="step-marker">(1)</strong> For engine 1, do this step:
 Remove the safety tags and close these circuit breakers:
 CAPT Electrical System Panel, P18-2
 Row Col Number Name
@@ -228,7 +226,7 @@ F/O Electrical System Panel, P6-3
 Row Col Number Name
 B 4 C00359 FUEL SPAR VALVE ENG 1
 SUBTASK 74-00-00-420-005-F00
-(2) For engine 2, do this step:
+<strong class="step-marker">(2)</strong> For engine 2, do this step:
 Remove the safety tags and close these circuit breakers:
 F/O Electrical System Panel, P6-2
 Row Col Number Name
@@ -244,28 +242,28 @@ F/O Electrical System Panel, P6-3
 Row Col Number Name
 B 3 C00360 FUEL SPAR VALVE ENG 2
 SUBTASK 74-00-00-420-006-F00
-(3) Do this task: Ignition System Test, TASK 74-00-00-750-802-F00.</pre></div>
+<strong class="step-marker">(3)</strong> Do this task: Ignition System Test, TASK 74-00-00-750-802-F00.</p></section>
+  </div>
 </details>
-<details class="task" id="task-74-00-00-750-801-F00" data-section="74-00-00">
-  <summary><span class="task-head"><span class="task-code">74-00-00-750-801-F00</span><span class="task-name">Ignition System Audible Test</span></span><span class="task-page">PDF p. 15</span></summary>
-  <div class="task-body"><a class="source-link" href="file:///C:/Users/javie/Desktop/Proyecto%20B737NG/MANUALES/AMM/74_F__091.PDF#page=15" target="_blank" rel="noopener">Open original AMM PDF - page 15 <span aria-hidden="true">↗</span></a>
-    <pre class="procedure">2. Ignition System Audible Test
-(Figure 501)
-A. General
-(1) This task provides the instructions on how to do the audible test of the ignition system.
-(2) This task uses the ground test of the EEC BITE to energize the ignition system.
-B. References
-Reference Title
+<details class="fault" id="task-74-00-00-750-801-F00">
+  <summary>
+    <span class="fault-head"><span class="fault-code">74-00-00-750-801-F00</span><span class="fault-name">Ignition System Audible Test</span></span>
+    <span class="task-badge">ATA 74 · Task 750-801-F00</span>
+  </summary>
+  <div class="fields">
+<section class="field description letter-field"><h3>Task Description</h3><p class="section-text">2. Ignition System Audible Test
+(Figure 501)</p></section>
+<section class="field letter-field" data-letter="A"><h3>A. General</h3><p class="section-text"><strong class="step-marker">(1)</strong> This task provides the instructions on how to do the audible test of the ignition system.
+<strong class="step-marker">(2)</strong> This task uses the ground test of the EEC BITE to energize the ignition system.</p></section>
+<section class="field letter-field" data-letter="B"><h3>B. References</h3><p class="section-text">Reference Title
 71-00-00-700-819-F00 Stop the Engine Procedure (Usual Engine Stop) (P/B 201)
-71-00-00-700-821-F00 Dry Motor the Engine (P/B 201)
-C. Location Zones
-Zone Area
+71-00-00-700-821-F00 Dry Motor the Engine (P/B 201)</p></section>
+<section class="field letter-field" data-letter="C"><h3>C. Location Zones</h3><p class="section-text">Zone Area
 211 Flight Compartment - Left
 212 Flight Compartment - Right
 411 Engine 1 - Engine
-421 Engine 2 - Engine
-D. Prepare for the Test
-SUBTASK 74-00-00-860-001-F00
+421 Engine 2 - Engine</p></section>
+<section class="field letter-field" data-letter="D"><h3>D. Prepare for the Test</h3><p class="section-text">SUBTASK 74-00-00-860-001-F00
 WARNING
 OBEY THE INSTRUCTIONS IN THE PROCEDURE TO MOTOR THE ENGINE.
 IF YOU DO NOT OBEY THE INSTRUCTIONS, INJURIES TO PERSONS AND
@@ -275,9 +273,9 @@ BEFORE YOU CAN DO THE IGNITION SYSTEM TEST , DRY MOTOR THE
 ENGINE TO REMOVE ALL FUEL IN THE ENGINE. FUEL THAT WAS NOT
 BURNED CAN CAUSE AN INTERNAL ENGINE FIRE OR A FIRE IN THE
 TURBINE EXHAUST AREA.
-(1) Dry motor the engine until there is no fuel fog visible (TASK 71-00-00-700-821-F00).
-(a) Stop the engine (TASK 71-00-00-700-819-F00).
-(b) Make sure that pneumatic power is available to dry motor the engine in case of an engine
+<strong class="step-marker">(1)</strong> Dry motor the engine until there is no fuel fog visible (TASK 71-00-00-700-821-F00).
+<strong class="step-marker">(a)</strong> Stop the engine (TASK 71-00-00-700-819-F00).
+<strong class="step-marker">(b)</strong> Make sure that pneumatic power is available to dry motor the engine in case of an engine
 tailpipe fire.
 74-00-00
 SUBTASK 74-00-00-940-001-F00
@@ -296,13 +294,13 @@ WHEN THE AIRPLANE IS IN THE HANGAR. MAKE SURE THAT NO
 PERSONS OR EQUIPMENT ARE IN THE JET EXHAUST AREA FOR GROUND
 IDLE OF THE APPLICABLE ENGINE. SERIOUS INJURY TO PERSONS AND
 DAMAGE TO EQUIPMENT COULD OCCUR.
-(2) Make sure that the airplane and adjacent areas are safe, in case a tailpipe fire occurs.
+<strong class="step-marker">(2)</strong> Make sure that the airplane and adjacent areas are safe, in case a tailpipe fire occurs.
 SUBTASK 74-00-00-860-002-F00
-(3) Use the interphone to speak between persons on the ground and in the flight compartment.
+<strong class="step-marker">(3)</strong> Use the interphone to speak between persons on the ground and in the flight compartment.
 NOTE: One person must be near the engine to listen for the igniter(s) to fire. The igniters are
 found on the combustion case at the 4:00 and 8:00 o'clock position.
 SUBTASK 74-00-00-860-003-F00
-(4) Make sure that these circuit breakers are closed:
+<strong class="step-marker">(4)</strong> Make sure that these circuit breakers are closed:
 CAPT Electrical System Panel, P18-2
 Row Col Number Name
 A 6 C01017 FMCS CMPTR 1
@@ -323,7 +321,7 @@ RYR 006, 007, 018-020, 056-063, 067-078, 081, 083-103, 111-114, 121-129, 131, 13
 D 15 C01050 FMCS CDU 2
 RYR ALL
 SUBTASK 74-00-00-860-029-F00
-(5) For engine 1, do this step:
+<strong class="step-marker">(5)</strong> For engine 1, do this step:
 74-00-00
 Make sure that these circuit breakers are closed:
 CAPT Electrical System Panel, P18-2
@@ -339,7 +337,7 @@ F/O Electrical System Panel, P6-3
 Row Col Number Name
 B 4 C00359 FUEL SPAR VALVE ENG 1
 SUBTASK 74-00-00-860-030-F00
-(6) For engine 2, do this step:
+<strong class="step-marker">(6)</strong> For engine 2, do this step:
 Make sure that these circuit breakers are closed:
 F/O Electrical System Panel, P6-2
 Row Col Number Name
@@ -354,27 +352,26 @@ F/O Electrical System Panel, P6-3
 Row Col Number Name
 B 3 C00360 FUEL SPAR VALVE ENG 2
 SUBTASK 74-00-00-860-006-F00
-(7) Make sure that the two engine start levers on the control stand, panel P10, are in the CUTOFF
-position.
-E. Do the Audible Test
-SUBTASK 74-00-00-860-007-F00
-(1) For Engine 1, open this circuit breaker and install safety tag:
+<strong class="step-marker">(7)</strong> Make sure that the two engine start levers on the control stand, panel P10, are in the CUTOFF
+position.</p></section>
+<section class="field letter-field" data-letter="E"><h3>E. Do the Audible Test</h3><p class="section-text">SUBTASK 74-00-00-860-007-F00
+<strong class="step-marker">(1)</strong> For Engine 1, open this circuit breaker and install safety tag:
 F/O Electrical System Panel, P6-3
 Row Col Number Name
 B 4 C00359 FUEL SPAR VALVE ENG 1
 SUBTASK 74-00-00-860-008-F00
-(2) For Engine 2, open this circuit breaker and install safety tag:
+<strong class="step-marker">(2)</strong> For Engine 2, open this circuit breaker and install safety tag:
 F/O Electrical System Panel, P6-3
 Row Col Number Name
 B 3 C00360 FUEL SPAR VALVE ENG 2
 74-00-00
 SUBTASK 74-00-00-740-001-F00
-(3) Do these steps to get access to the igniters test of the EEC BITE with the Flight Management
+<strong class="step-marker">(3)</strong> Do these steps to get access to the igniters test of the EEC BITE with the Flight Management
 Computer System Central Display Unit (FMCS CDU) in the flight compartment.
-(a) Push the INIT REF key to show the PERF INIT screen on the FMCS CDU.
+<strong class="step-marker">(a)</strong> Push the INIT REF key to show the PERF INIT screen on the FMCS CDU.
 NOTE: The FMCS CDU does not support a type-ahead function. You must have the
 prompt on the FMCS CDU screen before you type in the response.
-(b) Push these line select keys (LSK) on the FMCS CDU:
+<strong class="step-marker">(b)</strong> Push these line select keys (LSK) on the FMCS CDU:
 1) INDEX
 2) MAINT
 NOTE: This LSK causes the MAINT BITE INDEX screen to show.
@@ -397,8 +394,8 @@ a) If the FOR CH A ONLY or FOR CH B ONLY screen continues to show, do this
 task: CH A (B) EEC DATA NOT AVAILABLE - Fault Isolation,
 FIM 73-05 TASK 803.
 SUBTASK 74-00-00-740-003-F00
-(4) Continue to the step to do the test for the applicable igniter.
-(a) Push the L IGNITER TEST LSK for the left igniter test.
+<strong class="step-marker">(4)</strong> Continue to the step to do the test for the applicable igniter.
+<strong class="step-marker">(a)</strong> Push the L IGNITER TEST LSK for the left igniter test.
 NOTE: This LSK causes the L IGNITER TEST menu to show along with a WARNING
 about the operation of the ignition system.
 1) Push the START TEST LSK.
@@ -440,7 +437,7 @@ a) If you put the start lever back to the CUTOFF position before you exit the BI
 screen, the EEC BITE INOP message will show because the power is
 removed from the EEC.
 10) Put the applicable engine start lever to the CUTOFF position.
-(b) Push the R IGNITER TEST LSK for the right igniter test.
+<strong class="step-marker">(b)</strong> Push the R IGNITER TEST LSK for the right igniter test.
 NOTE: This LSK causes the R IGNITER TEST menu to show along with a WARNING
 about the operation of the ignition system.
 1) Push the START TEST LSK.
@@ -482,28 +479,30 @@ a) If you put the start lever back to the CUTOFF position before you exit the BI
 screen, the EEC BITE INOP message will show because the power is
 removed from the EEC.
 10) Put the applicable engine start lever to the CUTOFF position.
-F . Put the Airplane Back to Its Usual Condition
+<strong class="section-marker">F. Put the Airplane Back to Its Usual Condition</strong>
 SUBTASK 74-00-00-860-013-F00
-(1) For Engine 1, remove the safety tag and close this circuit breaker:
+<strong class="step-marker">(1)</strong> For Engine 1, remove the safety tag and close this circuit breaker:
 F/O Electrical System Panel, P6-3
 Row Col Number Name
 B 4 C00359 FUEL SPAR VALVE ENG 1
 SUBTASK 74-00-00-860-014-F00
-(2) For Engine 2, remove the safety tag and close this circuit breaker:
+<strong class="step-marker">(2)</strong> For Engine 2, remove the safety tag and close this circuit breaker:
 F/O Electrical System Panel, P6-3
 Row Col Number Name
-B 3 C00360 FUEL SPAR VALVE ENG 2</pre></div>
+B 3 C00360 FUEL SPAR VALVE ENG 2</p></section>
+  </div>
 </details>
-<details class="task" id="task-74-00-00-750-802-F00" data-section="74-00-00">
-  <summary><span class="task-head"><span class="task-code">74-00-00-750-802-F00</span><span class="task-name">Ignition System Test</span></span><span class="task-page">PDF p. 22</span></summary>
-  <div class="task-body"><a class="source-link" href="file:///C:/Users/javie/Desktop/Proyecto%20B737NG/MANUALES/AMM/74_F__091.PDF#page=22" target="_blank" rel="noopener">Open original AMM PDF - page 22 <span aria-hidden="true">↗</span></a>
-    <pre class="procedure">3. Ignition System Test
-A. General
-(1) This task provides the instructions on how to test the ignition system.
-(2) You do this task to find which part of the ignition system is faulty when there is a problem in the
-system.
-B. References
-Reference Title
+<details class="fault" id="task-74-00-00-750-802-F00">
+  <summary>
+    <span class="fault-head"><span class="fault-code">74-00-00-750-802-F00</span><span class="fault-name">Ignition System Test</span></span>
+    <span class="task-badge">ATA 74 · Task 750-802-F00</span>
+  </summary>
+  <div class="fields">
+<section class="field description letter-field"><h3>Task Description</h3><p class="section-text">3. Ignition System Test</p></section>
+<section class="field letter-field" data-letter="A"><h3>A. General</h3><p class="section-text"><strong class="step-marker">(1)</strong> This task provides the instructions on how to test the ignition system.
+<strong class="step-marker">(2)</strong> You do this task to find which part of the ignition system is faulty when there is a problem in the
+system.</p></section>
+<section class="field letter-field" data-letter="B"><h3>B. References</h3><p class="section-text">Reference Title
 71-11-02-010-801-F00 Open the Fan Cowl Panels (P/B 201)
 71-11-02-410-801-F00 Close the Fan Cowl Panels (P/B 201)
 74-11-01-000-801-F00 Ignition Exciter Removal (P/B 401)
@@ -514,114 +513,110 @@ Reference Title
 78-31-00-010-804-F00 Close the Thrust Reverser (Selection) (P/B 201)
 78-31-00-040-802-F00 Thrust Reverser Deactivation For Ground Maintenance
 (P/B 201)
-78-31-00-440-803-F00 Thrust Reverser Activation After Ground Maintenance (P/B 201)
-C. Tools/Equipment
-NOTE: When more than one tool part number is listed under the same "Reference" number, the
+78-31-00-440-803-F00 Thrust Reverser Activation After Ground Maintenance (P/B 201)</p></section>
+<section class="field letter-field" data-letter="C"><h3>C. Tools/Equipment</h3><p class="section-text">NOTE: When more than one tool part number is listed under the same "Reference" number, the
 tools shown are alternates to each other within the same airplane series. Tool part numbers
 that are replaced or non-procurable are preceded by "Opt:", which stands for Optional.
 Reference Description
 SPL-5665 Tester - Ignition System, Flight Line Applications
-Part #: 137332 Supplier: 59501
-D. Location Zones
-Zone Area
+Part #: 137332 Supplier: 59501</p></section>
+<section class="field letter-field" data-letter="D"><h3>D. Location Zones</h3><p class="section-text">Zone Area
 211 Flight Compartment - Left
 212 Flight Compartment - Right
 411 Engine 1 - Engine
-421 Engine 2 - Engine
-E. Prepare for the Test
-SUBTASK 74-00-00-010-006-F00
-(1) Do these tasks in sequence to safely open the left and right thrust reversers on the applicable
+421 Engine 2 - Engine</p></section>
+<section class="field letter-field" data-letter="E"><h3>E. Prepare for the Test</h3><p class="section-text">SUBTASK 74-00-00-010-006-F00
+<strong class="step-marker">(1)</strong> Do these tasks in sequence to safely open the left and right thrust reversers on the applicable
 engine:
 WARNING
 DO THE DEACTIVATION PROCEDURE FOR THE THRUST REVERSER
 TO PREVENT THE OPERATION OF THE THRUST REVERSER.
 ACCIDENTAL OPERATION OF THE THRUST REVERSER CAN CAUSE
 INJURIES TO PERSONS OR DAMAGE TO EQUIPMENT .
-(a) Do this task: Thrust Reverser Deactivation for Ground Maintenance,
+<strong class="step-marker">(a)</strong> Do this task: Thrust Reverser Deactivation for Ground Maintenance,
 TASK 78-31-00-040-802-F00.
-(b) Open the left and right fan cowl panels (TASK 71-11-02-010-801-F00).
+<strong class="step-marker">(b)</strong> Open the left and right fan cowl panels (TASK 71-11-02-010-801-F00).
 74-00-00
 WARNING
 OBEY THE INSTRUCTIONS IN THE PROCEDURE TO OPEN THE
 THRUST REVERSERS. IF YOU DO NOT OBEY THE INSTRUCTIONS,
 INJURIES TO PERSONS AND DAMAGE TO EQUIPMENT CAN OCCUR.
-(c) Open the left and right thrust reversers (TASK 78-31-00-010-801-F00).
+<strong class="step-marker">(c)</strong> Open the left and right thrust reversers (TASK 78-31-00-010-801-F00).
 SUBTASK 74-00-00-210-001-F00
-(2) Visually examine the ignition systems.
-(a) Replace all the components that are unsatisfactory.
-(b) Make sure that all connections are tight.
-F . Ignition System Test
+<strong class="step-marker">(2)</strong> Visually examine the ignition systems.
+<strong class="step-marker">(a)</strong> Replace all the components that are unsatisfactory.
+<strong class="step-marker">(b)</strong> Make sure that all connections are tight.
+<strong class="section-marker">F. Ignition System Test</strong>
 SUBTASK 74-00-00-710-002-F00
 WARNING
 DO NOT TOUCH THE ENGINE IGNITION SYSTEM WHILE THE SYSTEM
 OPERATES. IGNITION VOLTAGE IS HIGH WHICH MAKES IT DANGEROUS.
 ELECTRICAL SHOCK CAN KILL, OR CAUSE INJURIES TO PERSONNEL.
-(1) Do these steps to test the ignition lead and ignition exciter:
+<strong class="step-marker">(1)</strong> Do these steps to test the ignition lead and ignition exciter:
 NOTE: The audible test towards the end of this task will require engine motoring. Do not do a
 check of the ignition system when the airplane is in the hangar, near buildings and/or
 other airplanes that are within the jet-wake hazard area for ground idle. Make sure that
 no persons or equipment are in the jet-wake hazard area for the ground idle of the
 applicable engine.
-(a) Do this task: Ignition Lead Removal, TASK 74-21-01-000-801-F00.
+<strong class="step-marker">(a)</strong> Do this task: Ignition Lead Removal, TASK 74-21-01-000-801-F00.
 NOTE: Do not touch the end of the ignition lead with your hands or with a dirty cloth. Oil
 or grease can cause the ignition lead to operate incorrectly.
-(b) Connect the ignition system tester, SPL-5665 to the applicable remote sensor box.
-(c) Refer to the instructions supplied with the tester.
+<strong class="step-marker">(b)</strong> Connect the ignition system tester, SPL-5665 to the applicable remote sensor box.
+<strong class="step-marker">(c)</strong> Refer to the instructions supplied with the tester.
 NOTE: The sensors have different connections for the different types of cable
 connectors. Make sure that you use the correct sensor box.
-(d) Do the ignition system test.
+<strong class="step-marker">(d)</strong> Do the ignition system test.
 SUBTASK 74-00-00-960-001-F00
-(2) If it is necessary, replace the ignition lead (TASK 74-21-01-000-801-F00 and
+<strong class="step-marker">(2)</strong> If it is necessary, replace the ignition lead (TASK 74-21-01-000-801-F00 and
 TASK 74-21-01-400-801-F00).
 SUBTASK 74-00-00-960-002-F00
-(3) If it is necessary, replace the ignition exciter (TASK 74-11-01-000-801-F00 and
+<strong class="step-marker">(3)</strong> If it is necessary, replace the ignition exciter (TASK 74-11-01-000-801-F00 and
 TASK 74-11-01-400-801-F00).
 SUBTASK 74-00-00-710-003-F00
-(4) Do this task: Ignition System Audible Test, TASK 74-00-00-750-801-F00.
-74-00-00
-G. Put the Airplane Back to Its Usual Condition
-SUBTASK 74-00-00-410-006-F00
+<strong class="step-marker">(4)</strong> Do this task: Ignition System Audible Test, TASK 74-00-00-750-801-F00.
+74-00-00</p></section>
+<section class="field letter-field" data-letter="G"><h3>G. Put the Airplane Back to Its Usual Condition</h3><p class="section-text">SUBTASK 74-00-00-410-006-F00
 WARNING
 OBEY THE INSTRUCTIONS IN THE PROCEDURE TO CLOSE THE THRUST
 REVERSERS. IF YOU DO NOT OBEY THE INSTRUCTIONS, INJURIES TO
 PERSONS AND DAMAGE TO EQUIPMENT CAN OCCUR.
-(1) Do these tasks in sequence to safely close the left and right thrust reversers:
-(a) Do this task: Close the Thrust Reverser (Selection), TASK 78-31-00-010-804-F00.
-(b) Do this task: Close the Fan Cowl Panels, TASK 71-11-02-410-801-F00.
-(c) Do this task: Thrust Reverser Activation after Ground Maintenance,
-TASK 78-31-00-440-803-F00.</pre></div>
+<strong class="step-marker">(1)</strong> Do these tasks in sequence to safely close the left and right thrust reversers:
+<strong class="step-marker">(a)</strong> Do this task: Close the Thrust Reverser (Selection), TASK 78-31-00-010-804-F00.
+<strong class="step-marker">(b)</strong> Do this task: Close the Fan Cowl Panels, TASK 71-11-02-410-801-F00.
+<strong class="step-marker">(c)</strong> Do this task: Thrust Reverser Activation after Ground Maintenance,
+TASK 78-31-00-440-803-F00.</p></section>
+  </div>
 </details>
-<details class="task" id="task-74-00-00-040-801-F00" data-section="74-00-00">
-  <summary><span class="task-head"><span class="task-code">74-00-00-040-801-F00</span><span class="task-name">MMEL 74-1 (DDPG) Preparation - Right Ignition System Inoperative</span></span><span class="task-page">PDF p. 25</span></summary>
-  <div class="task-body"><a class="source-link" href="file:///C:/Users/javie/Desktop/Proyecto%20B737NG/MANUALES/AMM/74_F__091.PDF#page=25" target="_blank" rel="noopener">Open original AMM PDF - page 25 <span aria-hidden="true">↗</span></a>
-    <pre class="procedure">2. MMEL 74-1 (DDPG) Preparation - Right Ignition System Inoperative
-(Figure 901)
-A. General
-(1) This task prepares the airplane for flight with the Right Ignition System inoperative.
+<details class="fault" id="task-74-00-00-040-801-F00">
+  <summary>
+    <span class="fault-head"><span class="fault-code">74-00-00-040-801-F00</span><span class="fault-name">MMEL 74-1 (DDPG) Preparation - Right Ignition System Inoperative</span></span>
+    <span class="task-badge">ATA 74 · Task 040-801-F00</span>
+  </summary>
+  <div class="fields">
+<section class="field description letter-field"><h3>Task Description</h3><p class="section-text">2. MMEL 74-1 (DDPG) Preparation - Right Ignition System Inoperative
+(Figure 901)</p></section>
+<section class="field letter-field" data-letter="A"><h3>A. General</h3><p class="section-text"><strong class="step-marker">(1)</strong> This task prepares the airplane for flight with the Right Ignition System inoperative.
 NOTE: Dispatch is permitted for a fault in the ignition system such as the right igniter itself.
 Dispatch is not permitted for a fault in the ignition system that cause by an Electronic
 Engine Control (EEC) right igniter fault.
-(2) This task connects the left igniter to the AC STANDBY BUS.
-(3) The usual condition is the left igniter on the AC TRANSFER BUS and the right igniter on the
-AC STANDBY BUS.
-B. References
-Reference Title
+<strong class="step-marker">(2)</strong> This task connects the left igniter to the AC STANDBY BUS.
+<strong class="step-marker">(3)</strong> The usual condition is the left igniter on the AC TRANSFER BUS and the right igniter on the
+AC STANDBY BUS.</p></section>
+<section class="field letter-field" data-letter="B"><h3>B. References</h3><p class="section-text">Reference Title
 71-11-02-010-801-F00 Open the Fan Cowl Panels (P/B 201)
 71-11-02-410-801-F00 Close the Fan Cowl Panels (P/B 201)
-74-00-00-750-801-F00 Ignition System Audible Test (P/B 501)
-C. Location Zones
-Zone Area
+74-00-00-750-801-F00 Ignition System Audible Test (P/B 501)</p></section>
+<section class="field letter-field" data-letter="C"><h3>C. Location Zones</h3><p class="section-text">Zone Area
 411 Engine 1 - Engine
-421 Engine 2 - Engine
-D. Procedure
-SUBTASK 74-00-00-860-052-F00
-(1) For Engine 1, open these circuit breakers and install safety tags:
+421 Engine 2 - Engine</p></section>
+<section class="field letter-field" data-letter="D"><h3>D. Procedure</h3><p class="section-text">SUBTASK 74-00-00-860-052-F00
+<strong class="step-marker">(1)</strong> For Engine 1, open these circuit breakers and install safety tags:
 CAPT Electrical System Panel, P18-2
 Row Col Number Name
 A 1 C00458 ENGINE 1 IGNITION RIGHT
 A 3 C00153 ENGINE 1 IGNITION LEFT
 SUBTASK 74-00-00-860-053-F00
-(2) For Engine 2, open these circuit breakers and install safety tags:
+<strong class="step-marker">(2)</strong> For Engine 2, open these circuit breakers and install safety tags:
 F/O Electrical System Panel, P6-2
 Row Col Number Name
 D 4 C00459 ENGINE 2 IGNITION RIGHT
@@ -631,11 +626,11 @@ F/O Electrical System Panel, P6-2
 Row Col Number Name
 D 6 C00151 ENGINE 2 IGNITION LEFT
 SUBTASK 74-00-00-860-017-F00
-(3) Make sure that the start lever is in the CUTOFF position and install a DO-NOT-OPERATE tag.
+<strong class="step-marker">(3)</strong> Make sure that the start lever is in the CUTOFF position and install a DO-NOT-OPERATE tag.
 SUBTASK 74-00-00-860-018-F00
-(4) Make sure that the engine start switch is off and install a DO-NOT-OPERATE tag.
+<strong class="step-marker">(4)</strong> Make sure that the engine start switch is off and install a DO-NOT-OPERATE tag.
 SUBTASK 74-00-00-010-007-F00
-(5) Do this task: Open the Fan Cowl Panels, TASK 71-11-02-010-801-F00.
+<strong class="step-marker">(5)</strong> Do this task: Open the Fan Cowl Panels, TASK 71-11-02-010-801-F00.
 SUBTASK 74-00-00-040-001-F00
 WARNING
 MAKE SURE THAT THE IGNITION EXCITERS ARE DE-ENERGIZED FOR A
@@ -644,28 +639,28 @@ SYSTEM. THE IGNITION SYSTEM VOLTAGE IS DANGEROUSLY HIGH. DO
 NOT TOUCH THE ELECTRICAL CONTACTS. THE IGNITION EXCITERS CAN
 HAVE AN ELECTRICAL CHARGE EVEN WHEN NOT ENERGIZED. IF YOU DO
 NOT OBEY THIS STEP , INJURY TO PERSONS CAN OCCUR.
-(6) Stop (wait) for a minimum of five minutes to release the high voltage from the ignition exciter.
+<strong class="step-marker">(6)</strong> Stop (wait) for a minimum of five minutes to release the high voltage from the ignition exciter.
 SUBTASK 74-00-00-020-001-F00
-(7) Disconnect the power supply cables from the ignition exciters:
-(a) Disconnect the DP0102 connector on the left power supply cable (Transfer Bus) [3] from
+<strong class="step-marker">(7)</strong> Disconnect the power supply cables from the ignition exciters:
+<strong class="step-marker">(a)</strong> Disconnect the DP0102 connector on the left power supply cable (Transfer Bus) [3] from
 the left ignition exciter IGN 1 [4].
-(b) Disconnect the DP0201 connector on the right power supply cable (Standby Bus) [2] from
+<strong class="step-marker">(b)</strong> Disconnect the DP0201 connector on the right power supply cable (Standby Bus) [2] from
 the right ignition exciter IGN 2 [1].
 SUBTASK 74-00-00-420-001-F00
-(8) Connect the power supply cables:
-(a) Connect the DP0102 connector on the left power supply cable (Transfer Bus) [3] to the
+<strong class="step-marker">(8)</strong> Connect the power supply cables:
+<strong class="step-marker">(a)</strong> Connect the DP0102 connector on the left power supply cable (Transfer Bus) [3] to the
 right ignition exciter IGN 2 [1].
-(b) Connect the DP0201 connector on the right power supply cable (Standby Bus) [2] to the
+<strong class="step-marker">(b)</strong> Connect the DP0201 connector on the right power supply cable (Standby Bus) [2] to the
 left ignition exciter IGN 1 [4].
-(c) Tighten the connectors.
+<strong class="step-marker">(c)</strong> Tighten the connectors.
 SUBTASK 74-00-00-860-033-F00
-(9) For Engine 1, remove the safety tags and close these circuit breakers:
+<strong class="step-marker">(9)</strong> For Engine 1, remove the safety tags and close these circuit breakers:
 CAPT Electrical System Panel, P18-2
 Row Col Number Name
 A 1 C00458 ENGINE 1 IGNITION RIGHT
 A 3 C00153 ENGINE 1 IGNITION LEFT
 SUBTASK 74-00-00-860-034-F00
-(10) For Engine 2, remove the safety tags and close these circuit breakers:
+<strong class="step-marker">(10)</strong> For Engine 2, remove the safety tags and close these circuit breakers:
 F/O Electrical System Panel, P6-2
 Row Col Number Name
 D 4 C00459 ENGINE 2 IGNITION RIGHT
@@ -675,52 +670,52 @@ F/O Electrical System Panel, P6-2
 Row Col Number Name
 D 6 C00151 ENGINE 2 IGNITION LEFT
 SUBTASK 74-00-00-860-021-F00
-(11) Remove the DO-NOT-OPERATE tags from the start lever and engine start switch.
+<strong class="step-marker">(11)</strong> Remove the DO-NOT-OPERATE tags from the start lever and engine start switch.
 SUBTASK 74-00-00-710-001-F00
-(12) Do this task: Ignition System Audible Test, TASK 74-00-00-750-801-F00.
-(a) It is permitted to find faults with the left ignition system, but the right ignition system must
+<strong class="step-marker">(12)</strong> Do this task: Ignition System Audible Test, TASK 74-00-00-750-801-F00.
+<strong class="step-marker">(a)</strong> It is permitted to find faults with the left ignition system, but the right ignition system must
 pass the audible test.
 NOTE: When the EEC tests the right ignition system, the left igniter will fire because of
 the wiring change. This audible check means the right ignition system is correct.
 SUBTASK 74-00-00-410-007-F00
-(13) Do this task: Close the Fan Cowl Panels, TASK 71-11-02-410-801-F00.</pre></div>
+<strong class="step-marker">(13)</strong> Do this task: Close the Fan Cowl Panels, TASK 71-11-02-410-801-F00.</p></section>
+  </div>
 </details>
-<details class="task" id="task-74-00-00-040-802-F00" data-section="74-00-00">
-  <summary><span class="task-head"><span class="task-code">74-00-00-040-802-F00</span><span class="task-name">MMEL 74-1 (DDPG) Restoration - Right Ignition System Inoperative</span></span><span class="task-page">PDF p. 29</span></summary>
-  <div class="task-body"><a class="source-link" href="file:///C:/Users/javie/Desktop/Proyecto%20B737NG/MANUALES/AMM/74_F__091.PDF#page=29" target="_blank" rel="noopener">Open original AMM PDF - page 29 <span aria-hidden="true">↗</span></a>
-    <pre class="procedure">3. MMEL 74-1 (DDPG) Restoration - Right Ignition System Inoperative
-(Figure 902)
-A. General
-(1) This task restores the airplane after flight with the Right Ignition System inoperative.
-(2) This task re-connects the right igniter to the AC STANDBY BUS and re-connects the left igniter
-to the AC TRANSFER BUS.
-B. References
-Reference Title
+<details class="fault" id="task-74-00-00-040-802-F00">
+  <summary>
+    <span class="fault-head"><span class="fault-code">74-00-00-040-802-F00</span><span class="fault-name">MMEL 74-1 (DDPG) Restoration - Right Ignition System Inoperative</span></span>
+    <span class="task-badge">ATA 74 · Task 040-802-F00</span>
+  </summary>
+  <div class="fields">
+<section class="field description letter-field"><h3>Task Description</h3><p class="section-text">3. MMEL 74-1 (DDPG) Restoration - Right Ignition System Inoperative
+(Figure 902)</p></section>
+<section class="field letter-field" data-letter="A"><h3>A. General</h3><p class="section-text"><strong class="step-marker">(1)</strong> This task restores the airplane after flight with the Right Ignition System inoperative.
+<strong class="step-marker">(2)</strong> This task re-connects the right igniter to the AC STANDBY BUS and re-connects the left igniter
+to the AC TRANSFER BUS.</p></section>
+<section class="field letter-field" data-letter="B"><h3>B. References</h3><p class="section-text">Reference Title
 71-11-02-010-801-F00 Open the Fan Cowl Panels (P/B 201)
-71-11-02-410-801-F00 Close the Fan Cowl Panels (P/B 201)
-C. Location Zones
-Zone Area
+71-11-02-410-801-F00 Close the Fan Cowl Panels (P/B 201)</p></section>
+<section class="field letter-field" data-letter="C"><h3>C. Location Zones</h3><p class="section-text">Zone Area
 411 Engine 1 - Engine
-421 Engine 2 - Engine
-D. Procedure
-SUBTASK 74-00-00-860-035-F00
-(1) For Engine 1, open these circuit breakers and install safety tags:
+421 Engine 2 - Engine</p></section>
+<section class="field letter-field" data-letter="D"><h3>D. Procedure</h3><p class="section-text">SUBTASK 74-00-00-860-035-F00
+<strong class="step-marker">(1)</strong> For Engine 1, open these circuit breakers and install safety tags:
 CAPT Electrical System Panel, P18-2
 Row Col Number Name
 A 1 C00458 ENGINE 1 IGNITION RIGHT
 A 3 C00153 ENGINE 1 IGNITION LEFT
 SUBTASK 74-00-00-860-036-F00
-(2) For Engine 2, open these circuit breakers and install safety tags:
+<strong class="step-marker">(2)</strong> For Engine 2, open these circuit breakers and install safety tags:
 F/O Electrical System Panel, P6-2
 Row Col Number Name
 D 4 C00459 ENGINE 2 IGNITION RIGHT
 D 6 C00151 ENGINE 2 IGNITION LEFT
 SUBTASK 74-00-00-860-024-F00
-(3) Make sure that the start lever is in the CUTOFF position and install a DO-NOT-OPERATE tag.
+<strong class="step-marker">(3)</strong> Make sure that the start lever is in the CUTOFF position and install a DO-NOT-OPERATE tag.
 SUBTASK 74-00-00-860-025-F00
-(4) Make sure that the engine start switch is off and install a DO-NOT-OPERATE tag.
+<strong class="step-marker">(4)</strong> Make sure that the engine start switch is off and install a DO-NOT-OPERATE tag.
 SUBTASK 74-00-00-010-008-F00
-(5) Do this task: Open the Fan Cowl Panels, TASK 71-11-02-010-801-F00.
+<strong class="step-marker">(5)</strong> Do this task: Open the Fan Cowl Panels, TASK 71-11-02-010-801-F00.
 SUBTASK 74-00-00-040-002-F00
 WARNING
 MAKE SURE THAT THE IGNITION EXCITERS ARE DE-ENERGIZED FOR A
@@ -729,90 +724,89 @@ SYSTEM. THE IGNITION SYSTEM VOLTAGE IS DANGEROUSLY HIGH. DO
 NOT TOUCH THE ELECTRICAL CONTACTS. THE IGNITION EXCITERS CAN
 HAVE AN ELECTRICAL CHARGE EVEN WHEN NOT ENERGIZED. IF YOU DO
 NOT OBEY THIS STEP , INJURY TO PERSONS CAN OCCUR.
-(6) Stop (wait) for a minimum of five minutes to release the high voltage from the ignition exciter.
+<strong class="step-marker">(6)</strong> Stop (wait) for a minimum of five minutes to release the high voltage from the ignition exciter.
 74-00-00
 SUBTASK 74-00-00-020-002-F00
-(7) Disconnect the power supply cables from the ignition exciters:
-(a) Disconnect the DP0102 connector on the left power supply (Transfer Bus) cable [3] from
+<strong class="step-marker">(7)</strong> Disconnect the power supply cables from the ignition exciters:
+<strong class="step-marker">(a)</strong> Disconnect the DP0102 connector on the left power supply (Transfer Bus) cable [3] from
 the right ignition exciter IGN 2 [1].
-(b) Disconnect the DP0201 connector on the right power supply (Standby Bus) cable [2] from
+<strong class="step-marker">(b)</strong> Disconnect the DP0201 connector on the right power supply (Standby Bus) cable [2] from
 the left ignition exciter IGN 1 [4].
 SUBTASK 74-00-00-420-002-F00
-(8) Connect the power supply cables:
-(a) Connect the DP0102 connector on the left power supply (Transfer Bus) cable [3] to the
+<strong class="step-marker">(8)</strong> Connect the power supply cables:
+<strong class="step-marker">(a)</strong> Connect the DP0102 connector on the left power supply (Transfer Bus) cable [3] to the
 left ignition exciter IGN 1 [4].
-(b) Connect the DP0201 connector on the right power supply (Standby Bus) cable [2] to the
+<strong class="step-marker">(b)</strong> Connect the DP0201 connector on the right power supply (Standby Bus) cable [2] to the
 right ignition exciter IGN 2 [1].
-(c) Tighten the connectors.
+<strong class="step-marker">(c)</strong> Tighten the connectors.
 SUBTASK 74-00-00-860-037-F00
-(9) For Engine 1, remove the safety tags and close these circuit breakers:
+<strong class="step-marker">(9)</strong> For Engine 1, remove the safety tags and close these circuit breakers:
 CAPT Electrical System Panel, P18-2
 Row Col Number Name
 A 1 C00458 ENGINE 1 IGNITION RIGHT
 A 3 C00153 ENGINE 1 IGNITION LEFT
 SUBTASK 74-00-00-860-038-F00
-(10) For Engine 2, remove the safety tags and close these circuit breakers:
+<strong class="step-marker">(10)</strong> For Engine 2, remove the safety tags and close these circuit breakers:
 F/O Electrical System Panel, P6-2
 Row Col Number Name
 D 4 C00459 ENGINE 2 IGNITION RIGHT
 D 6 C00151 ENGINE 2 IGNITION LEFT
 SUBTASK 74-00-00-860-028-F00
-(11) Remove the DO-NOT-OPERATE tags from the start lever and the engine start switch.
+<strong class="step-marker">(11)</strong> Remove the DO-NOT-OPERATE tags from the start lever and the engine start switch.
 SUBTASK 74-00-00-810-001-F00
-(12) Do the applicable fault isolation task in the FIM to correct the problem.
-(a) When you do the Audible Test of the Ignition System - EEC BITE Igniters Test, make sure
+<strong class="step-marker">(12)</strong> Do the applicable fault isolation task in the FIM to correct the problem.
+<strong class="step-marker">(a)</strong> When you do the Audible Test of the Ignition System - EEC BITE Igniters Test, make sure
 you do a check of the left and right ignition systems.
 SUBTASK 74-00-00-410-008-F00
-(13) Do this task: Close the Fan Cowl Panels, TASK 71-11-02-410-801-F00.</pre></div>
+<strong class="step-marker">(13)</strong> Do this task: Close the Fan Cowl Panels, TASK 71-11-02-410-801-F00.</p></section>
+  </div>
 </details>
   </div>
 </section>
-<section class="system-section" id="section-74-11-01">
-  <div class="section-title"><h2>ATA 74-11-01 - Section</h2><span>3 tasks</span></div>
-  <div class="task-list">
-<details class="task" id="task-74-11-01-000-801-F00" data-section="74-11-01">
-  <summary><span class="task-head"><span class="task-code">74-11-01-000-801-F00</span><span class="task-name">Ignition Exciter Removal</span></span><span class="task-page">PDF p. 33</span></summary>
-  <div class="task-body"><a class="source-link" href="file:///C:/Users/javie/Desktop/Proyecto%20B737NG/MANUALES/AMM/74_F__091.PDF#page=33" target="_blank" rel="noopener">Open original AMM PDF - page 33 <span aria-hidden="true">↗</span></a>
-    <pre class="procedure">2. Ignition Exciter Removal
-(Figure 401)
-A. General
-(1) This task provides the instructions on how to remove the ignition exciter.
-(2) The ignition exciters are found on the engine fan case at the 5:00 o'clock position.
-(3) The top ignition exciter is connected to the right ignition lead, and the bottom ignition exciter is
+<section class="system-section">
+  <div class="section-title"><h2>ATA 74 · 74-11-01</h2><span>3 tasks</span></div>
+  <div class="fault-list">
+<details class="fault" id="task-74-11-01-000-801-F00">
+  <summary>
+    <span class="fault-head"><span class="fault-code">74-11-01-000-801-F00</span><span class="fault-name">Ignition Exciter Removal</span></span>
+    <span class="task-badge">ATA 74 · Task 000-801-F00</span>
+  </summary>
+  <div class="fields">
+<section class="field description letter-field"><h3>Task Description</h3><p class="section-text">2. Ignition Exciter Removal
+(Figure 401)</p></section>
+<section class="field letter-field" data-letter="A"><h3>A. General</h3><p class="section-text"><strong class="step-marker">(1)</strong> This task provides the instructions on how to remove the ignition exciter.
+<strong class="step-marker">(2)</strong> The ignition exciters are found on the engine fan case at the 5:00 o'clock position.
+<strong class="step-marker">(3)</strong> The top ignition exciter is connected to the right ignition lead, and the bottom ignition exciter is
 connected to the left ignition lead.
-(4) This task can be used for the top or bottom ignition exciter.
-B. References
-Reference Title
-71-11-02-010-801-F00 Open the Fan Cowl Panels (P/B 201)
-C. Tools/Equipment
-Reference Description
-STD-858 Tag - DO NOT OPERATE
-D. Location Zones
-Zone Area
+<strong class="step-marker">(4)</strong> This task can be used for the top or bottom ignition exciter.</p></section>
+<section class="field letter-field" data-letter="B"><h3>B. References</h3><p class="section-text">Reference Title
+71-11-02-010-801-F00 Open the Fan Cowl Panels (P/B 201)</p></section>
+<section class="field letter-field" data-letter="C"><h3>C. Tools/Equipment</h3><p class="section-text">Reference Description
+STD-858 Tag - DO NOT OPERATE</p></section>
+<section class="field letter-field" data-letter="D"><h3>D. Location Zones</h3><p class="section-text">Zone Area
 411 Engine 1 - Engine
-421 Engine 2 - Engine
-E. Prepare for the Removal
-SUBTASK 74-11-01-860-031-F00
-(1) For Engine 1, open these circuit breakers and install safety tags:
+421 Engine 2 - Engine</p></section>
+<section class="field letter-field" data-letter="E"><h3>E. Prepare for the Removal</h3><p class="section-text">SUBTASK 74-11-01-860-031-F00
+<strong class="step-marker">(1)</strong> For Engine 1, open these circuit breakers and install safety tags:
 CAPT Electrical System Panel, P18-2
 Row Col Number Name
 A 1 C00458 ENGINE 1 IGNITION RIGHT
 A 3 C00153 ENGINE 1 IGNITION LEFT
 SUBTASK 74-11-01-860-032-F00
-(2) For Engine 2, open these circuit breakers and install safety tags:
+<strong class="step-marker">(2)</strong> For Engine 2, open these circuit breakers and install safety tags:
 F/O Electrical System Panel, P6-2
 Row Col Number Name
 D 4 C00459 ENGINE 2 IGNITION RIGHT
 D 6 C00151 ENGINE 2 IGNITION LEFT
 SUBTASK 74-11-01-040-004-F00
-(3) Make sure that the start lever is in the CUTOFF position.
-(a) Install a DO NOT OPERATE tag, STD-858.
+<strong class="step-marker">(3)</strong> Make sure that the start lever is in the CUTOFF position.
+<strong class="step-marker">(a)</strong> Install a DO NOT OPERATE tag, STD-858.
 74-11-01
 SUBTASK 74-11-01-860-010-F00
-(4) Make sure that the engine start switch is off.
-(a) Install a DO NOT OPERATE tag, STD-858.
+<strong class="step-marker">(4)</strong> Make sure that the engine start switch is off.
+<strong class="step-marker">(a)</strong> Install a DO NOT OPERATE tag, STD-858.
 SUBTASK 74-11-01-010-006-F00
-(5) Do this task: Open the Fan Cowl Panels, TASK 71-11-02-010-801-F00.
+<strong class="step-marker">(5)</strong> Do this task: Open the Fan Cowl Panels, TASK 71-11-02-010-801-F00.
 SUBTASK 74-11-01-040-005-F00
 WARNING
 MAKE SURE THAT THE IGNITION EXCITERS ARE DE-ENERGIZED FOR A
@@ -821,10 +815,10 @@ SYSTEM. THE IGNITION SYSTEM VOLTAGE IS DANGEROUSLY HIGH. DO
 NOT TOUCH THE ELECTRICAL CONTACTS. THE IGNITION EXCITERS CAN
 HAVE AN ELECTRICAL CHARGE EVEN WHEN NOT ENERGIZED. IF YOU DO
 NOT OBEY THIS STEP , INJURY TO PERSONS CAN OCCUR.
-(6) Wait for a minimum of five minutes to release the high voltage from the ignition exciter [2].
-F . Ignition Exciter Removal
+<strong class="step-marker">(6)</strong> Wait for a minimum of five minutes to release the high voltage from the ignition exciter [2].
+<strong class="section-marker">F. Ignition Exciter Removal</strong>
 SUBTASK 74-11-01-020-003-F00
-(1) Disconnect the power supply cable [4] from the electrical receptacle on the forward side of the
+<strong class="step-marker">(1)</strong> Disconnect the power supply cable [4] from the electrical receptacle on the forward side of the
 ignition exciter [2].
 SUBTASK 74-11-01-020-004-F00
 CAUTION
@@ -832,32 +826,33 @@ MAKE SURE THAT YOUR HANDS AND TOOLS ARE CLEAN. DO NOT TOUCH
 THE IGNITION LEAD OR THE IGNITER PLUG WITH DIRT OR GREASE ON
 HANDS OR TOOLS. DIRT AND GREASE WILL CAUSE DAMAGE TO THE
 IGNITION LEAD AND THE IGNITER PLUG.
-(2) Disconnect the ignition lead [1] from the ignition lead receptacle on the aft side of the ignition
+<strong class="step-marker">(2)</strong> Disconnect the ignition lead [1] from the ignition lead receptacle on the aft side of the ignition
 exciter [2].
-(a) Put protective covers on the ignition lead [1] and on the ignition lead receptacle.
+<strong class="step-marker">(a)</strong> Put protective covers on the ignition lead [1] and on the ignition lead receptacle.
 SUBTASK 74-11-01-020-005-F00
-(3) Remove the ignition exciter [2] from the engine fan case, do these steps:
-(a) Hold each stud on the flats with an open-end wrench.
+<strong class="step-marker">(3)</strong> Remove the ignition exciter [2] from the engine fan case, do these steps:
+<strong class="step-marker">(a)</strong> Hold each stud on the flats with an open-end wrench.
 NOTE: The stud flats are between the resilient mount and ignition exciter.
-(b) Remove the nuts [6] and washers [5] that attach the ignition exciter [2] to the brackets.
-(c) Remove the ground strap [3].
-(d) Remove the ignition exciter [2] from the studs.</pre></div>
+<strong class="step-marker">(b)</strong> Remove the nuts [6] and washers [5] that attach the ignition exciter [2] to the brackets.
+<strong class="step-marker">(c)</strong> Remove the ground strap [3].
+<strong class="step-marker">(d)</strong> Remove the ignition exciter [2] from the studs.</p></section>
+  </div>
 </details>
-<details class="task" id="task-74-11-01-400-801-F00" data-section="74-11-01">
-  <summary><span class="task-head"><span class="task-code">74-11-01-400-801-F00</span><span class="task-name">Ignition Exciter Installation</span></span><span class="task-page">PDF p. 36</span></summary>
-  <div class="task-body"><a class="source-link" href="file:///C:/Users/javie/Desktop/Proyecto%20B737NG/MANUALES/AMM/74_F__091.PDF#page=36" target="_blank" rel="noopener">Open original AMM PDF - page 36 <span aria-hidden="true">↗</span></a>
-    <pre class="procedure">3. Ignition Exciter Installation
-(Figure 401)
-A. General
-(1) This task provides the instructions on how to install the ignition exciter.
-B. References
-Reference Title
+<details class="fault" id="task-74-11-01-400-801-F00">
+  <summary>
+    <span class="fault-head"><span class="fault-code">74-11-01-400-801-F00</span><span class="fault-name">Ignition Exciter Installation</span></span>
+    <span class="task-badge">ATA 74 · Task 400-801-F00</span>
+  </summary>
+  <div class="fields">
+<section class="field description letter-field"><h3>Task Description</h3><p class="section-text">3. Ignition Exciter Installation
+(Figure 401)</p></section>
+<section class="field letter-field" data-letter="A"><h3>A. General</h3><p class="section-text"><strong class="step-marker">(1)</strong> This task provides the instructions on how to install the ignition exciter.</p></section>
+<section class="field letter-field" data-letter="B"><h3>B. References</h3><p class="section-text">Reference Title
 71-00-00-800-811-F00 Power Plant Test Reference Table (P/B 501)
 71-11-02-410-801-F00 Close the Fan Cowl Panels (P/B 201)
 SWPM 20-20-00 ELECTRICAL BONDING PROCESSES
-SWPM 20-20-10 Replacement of Ground Studs and Bonding Jumper Installation
-C. Tools/Equipment
-NOTE: When more than one tool part number is listed under the same "Reference" number, the
+SWPM 20-20-10 Replacement of Ground Studs and Bonding Jumper Installation</p></section>
+<section class="field letter-field" data-letter="C"><h3>C. Tools/Equipment</h3><p class="section-text">NOTE: When more than one tool part number is listed under the same "Reference" number, the
 tools shown are alternates to each other within the same airplane series. Tool part numbers
 that are replaced or non-procurable are preceded by "Opt:", which stands for Optional.
 Reference Description
@@ -869,27 +864,9 @@ Part #: 620LK Supplier: 1CRL2
 Part #: 720A-BK-KIT Supplier: 49374
 Part #: M1 Supplier: 3AD17
 Part #: M1B Supplier: 3AD17
-Part #: T477W (C15292) Supplier: 06659
-D. Consumable Materials
-Reference Description Specification
-D00601 [CP2101] Vaseline - Graphite Mineral
-E. Expendables/Parts
-AMM Item Description AIPC Reference AIPC Effectivity
-2 Ignition exciter 74-11-01-01-080 RYR 006, 007, 013, 014,
-018, 019, 043, 044,
-056-063, 067-078, 081,
-083-103, 111-114,
-121-129, 131, 132, 135
-74-11-01-01A-080 RYR 014, 068, 087, 090,
-111, 125, 128, 138-168,
-174-179, 182-187,
-189-203, 205-209,
-212-220, 223, 224,
-231-236, 239-298,
-301-304, 306, 308,
-315-317, 322-341, 343,
-346-999
-74-11-01
+Part #: T477W (C15292) Supplier: 06659</p></section>
+<section class="field letter-field" data-letter="D"><h3>D. Consumable Materials</h3><p class="section-text"></p></section>
+<section class="field letter-field" data-letter="E"><h3>E. Expendables/Parts</h3><p class="section-text">74-11-01
 (Continued)
 AMM Item Description AIPC Reference AIPC Effectivity
 2 (cont.) 74-11-01-01B-080 RYR 006, 007, 013, 014,
@@ -898,104 +875,87 @@ AMM Item Description AIPC Reference AIPC Effectivity
 083-103, 111-114,
 121-129, 131, 132, 135,
 143, 147, 152, 167, 177
-F . Location Zones
+<strong class="section-marker">F. Location Zones</strong>
 Zone Area
 411 Engine 1 - Engine
-421 Engine 2 - Engine
-G. Ignition Exciter Installation
-SUBTASK 74-11-01-420-003-F00
-(1) Install the ignition exciter [2] on the engine fan case, do these steps:
-(a) Install the ignition exciter [2] on the studs.
-(b) Put the end of the ground strap [3] on the nearest stud on the respective ignition
+421 Engine 2 - Engine</p></section>
+<section class="field letter-field" data-letter="G"><h3>G. Ignition Exciter Installation</h3><p class="section-text">SUBTASK 74-11-01-420-003-F00
+<strong class="step-marker">(1)</strong> Install the ignition exciter [2] on the engine fan case, do these steps:
+<strong class="step-marker">(a)</strong> Install the ignition exciter [2] on the studs.
+<strong class="step-marker">(b)</strong> Put the end of the ground strap [3] on the nearest stud on the respective ignition
 exciter [2].
 NOTE: The ground strap is installed between the washer and ignition exciter.
-(c) Put the washers [5] on the studs.
-(d) Apply a thin layer of graphite mineral vaseline, D00601 [CP2101], to the ends of the
+<strong class="step-marker">(c)</strong> Put the washers [5] on the studs.
+<strong class="step-marker">(d)</strong> Apply a thin layer of graphite mineral vaseline, D00601 [CP2101], to the ends of the
 threads of the studs.
-(e) Install the nuts [6] on the studs and hold each stud on the flats with an open-end wrench.
+<strong class="step-marker">(e)</strong> Install the nuts [6] on the studs and hold each stud on the flats with an open-end wrench.
 NOTE: The stud flats are between the resilient mount and ignition exciter.
 1) Hold the stud while you tighten the nuts [6] to 115 ±5 in-lb (13.0 ±0.6 N·m).
-(f) Do a check of the resistance between the ignition exciter [2] and the engine fan case with
+<strong class="step-marker">(f)</strong> Do a check of the resistance between the ignition exciter [2] and the engine fan case with
 an intrinsically safe approved bonding meter, COM-1550 (SWPM 20-20-00, SWPM
 20-20-10).
 1) Make sure that the resistance is less than 0.004 ohms (4 milliohms).
 SUBTASK 74-11-01-420-004-F00
-(2) Connect the ignition lead [1] to the ignition exciter [2], do these steps:
-(a) Remove the protective covers on the ignition lead [1] and ignition lead receptacle.
+<strong class="step-marker">(2)</strong> Connect the ignition lead [1] to the ignition exciter [2], do these steps:
+<strong class="step-marker">(a)</strong> Remove the protective covers on the ignition lead [1] and ignition lead receptacle.
 CAUTION
 MAKE SURE THAT THE IGNITION LEAD IS CLEAN WHEN YOU
 CONNECT IT . THE CONTAMINATION OF THE IGNITION LEAD CAN
 CAUSE DAMAGE TO THE EQUIPMENT .
-(b) Connect the ignition lead [1] to the ignition lead receptacle on the aft side of the ignition
+<strong class="step-marker">(b)</strong> Connect the ignition lead [1] to the ignition lead receptacle on the aft side of the ignition
 exciter [2].
 1) Tighten the connector nut on the ignition lead [1] to 150 ±10 in-lb (17 ±1 N·m).
 SUBTASK 74-11-01-420-005-F00
-(3) Connect the power supply cable [4] to the electrical receptacle on the forward side of the
+<strong class="step-marker">(3)</strong> Connect the power supply cable [4] to the electrical receptacle on the forward side of the
 ignition exciter [2].
-74-11-01
-H. Ignition Exciter Test
-SUBTASK 74-11-01-860-035-F00
-(1) For Engine 1, remove the safety tags and close these circuit breakers:
+74-11-01</p></section>
+<section class="field letter-field" data-letter="H"><h3>H. Ignition Exciter Test</h3><p class="section-text">SUBTASK 74-11-01-860-035-F00
+<strong class="step-marker">(1)</strong> For Engine 1, remove the safety tags and close these circuit breakers:
 CAPT Electrical System Panel, P18-2
 Row Col Number Name
 A 1 C00458 ENGINE 1 IGNITION RIGHT
 A 3 C00153 ENGINE 1 IGNITION LEFT
 SUBTASK 74-11-01-860-036-F00
-(2) For Engine 2, remove the safety tags and close these circuit breakers:
+<strong class="step-marker">(2)</strong> For Engine 2, remove the safety tags and close these circuit breakers:
 F/O Electrical System Panel, P6-2
 Row Col Number Name
 D 4 C00459 ENGINE 2 IGNITION RIGHT
 D 6 C00151 ENGINE 2 IGNITION LEFT
 SUBTASK 74-11-01-860-014-F00
-(3) Remove the DO NOT OPERATE tags from the start lever and engine start switch.
+<strong class="step-marker">(3)</strong> Remove the DO NOT OPERATE tags from the start lever and engine start switch.
 SUBTASK 74-11-01-710-002-F00
-(4) Do the tests for the ignition exciter [2] (TASK 71-00-00-800-811-F00).
-I. Put the Airplane Back to Its Usual Condition
-SUBTASK 74-11-01-410-003-F00
-(1) Do this task: Close the Fan Cowl Panels, TASK 71-11-02-410-801-F00.</pre></div>
+<strong class="step-marker">(4)</strong> Do the tests for the ignition exciter [2] (TASK 71-00-00-800-811-F00).</p></section>
+<section class="field letter-field" data-letter="I"><h3>I. Put the Airplane Back to Its Usual Condition</h3><p class="section-text">SUBTASK 74-11-01-410-003-F00
+<strong class="step-marker">(1)</strong> Do this task: Close the Fan Cowl Panels, TASK 71-11-02-410-801-F00.</p></section>
+  </div>
 </details>
-<details class="task" id="task-74-11-01-200-801-F00" data-section="74-11-01">
-  <summary><span class="task-head"><span class="task-code">74-11-01-200-801-F00</span><span class="task-name">Ignition Exciter Inspection</span></span><span class="task-page">PDF p. 39</span></summary>
-  <div class="task-body"><a class="source-link" href="file:///C:/Users/javie/Desktop/Proyecto%20B737NG/MANUALES/AMM/74_F__091.PDF#page=39" target="_blank" rel="noopener">Open original AMM PDF - page 39 <span aria-hidden="true">↗</span></a>
-    <pre class="procedure">2. Ignition Exciter Inspection
-(Figure 601)
-A. General
-(1) This task provides the instructions on how to examine the ignition exciter.
-(2) The top ignition exciter is connected to the right ignition lead, and the bottom ignition exciter is
-connected to the left ignition lead.
-B. References
-Reference Title
+<details class="fault" id="task-74-11-01-200-801-F00">
+  <summary>
+    <span class="fault-head"><span class="fault-code">74-11-01-200-801-F00</span><span class="fault-name">Ignition Exciter Inspection</span></span>
+    <span class="task-badge">ATA 74 · Task 200-801-F00</span>
+  </summary>
+  <div class="fields">
+<section class="field description letter-field"><h3>Task Description</h3><p class="section-text">2. Ignition Exciter Inspection
+(Figure 601)</p></section>
+<section class="field letter-field" data-letter="A"><h3>A. General</h3><p class="section-text"><strong class="step-marker">(1)</strong> This task provides the instructions on how to examine the ignition exciter.
+<strong class="step-marker">(2)</strong> The top ignition exciter is connected to the right ignition lead, and the bottom ignition exciter is
+connected to the left ignition lead.</p></section>
+<section class="field letter-field" data-letter="B"><h3>B. References</h3><p class="section-text">Reference Title
 71-11-02-010-801-F00 Open the Fan Cowl Panels (P/B 201)
 71-11-02-410-801-F00 Close the Fan Cowl Panels (P/B 201)
 74-00-00-750-801-F00 Ignition System Audible Test (P/B 501)
 74-11-01-000-801-F00 Ignition Exciter Removal (P/B 401)
-74-11-01-400-801-F00 Ignition Exciter Installation (P/B 401)
-C. Tools/Equipment
-NOTE: When more than one tool part number is listed under the same "Reference" number, the
+74-11-01-400-801-F00 Ignition Exciter Installation (P/B 401)</p></section>
+<section class="field letter-field" data-letter="C"><h3>C. Tools/Equipment</h3><p class="section-text">NOTE: When more than one tool part number is listed under the same "Reference" number, the
 tools shown are alternates to each other within the same airplane series. Tool part numbers
 that are replaced or non-procurable are preceded by "Opt:", which stands for Optional.
 Reference Description
 COM-14688 Wrench - Socket, 0.188 in (4.76 mm)
 Part #: STM6 Supplier: 55719
 STD-123 Brush - Soft Bristle
-STD-858 Tag - DO NOT OPERATE
-D. Consumable Materials
-Reference Description Specification
-B00676 [CP1041] Alcohol - Isopropyl
-B00682 [CP2011] Solvent - Stoddard MIL-PRF-680 Type I, II
-or III
-G01659 Swab - Cotton Or Rayon, (Disposable)
-G50138 Cloth - Soft Cotton
-G51027 Cleaner - Flux-Off CZ Flux Remover (ITW
-Chemtronics - ES7200)
-E. Expendables/Parts
-AMM Item Description AIPC Reference AIPC Effectivity
-6 Output pin 74-11-01-01-085 RYR 006, 007, 013, 014,
-018, 019, 043, 044,
-056-063, 067-078, 081,
-083-103, 111-114,
-121-129, 131, 132, 135
-74-11-01
+STD-858 Tag - DO NOT OPERATE</p></section>
+<section class="field letter-field" data-letter="D"><h3>D. Consumable Materials</h3><p class="section-text"></p></section>
+<section class="field letter-field" data-letter="E"><h3>E. Expendables/Parts</h3><p class="section-text">74-11-01
 (Continued)
 AMM Item Description AIPC Reference AIPC Effectivity
 6 (cont.) 74-11-01-01A-085 RYR 014, 068, 087, 090,
@@ -1013,31 +973,30 @@ AMM Item Description AIPC Reference AIPC Effectivity
 083-103, 111-114,
 121-129, 131, 132, 135,
 143, 147, 152, 167, 177
-F . Location Zones
+<strong class="section-marker">F. Location Zones</strong>
 Zone Area
 411 Engine 1 - Engine
-421 Engine 2 - Engine
-G. Prepare for the Inspection
-SUBTASK 74-11-01-860-037-F00
-(1) For Engine 1, open these circuit breakers and install safety tags:
+421 Engine 2 - Engine</p></section>
+<section class="field letter-field" data-letter="G"><h3>G. Prepare for the Inspection</h3><p class="section-text">SUBTASK 74-11-01-860-037-F00
+<strong class="step-marker">(1)</strong> For Engine 1, open these circuit breakers and install safety tags:
 CAPT Electrical System Panel, P18-2
 Row Col Number Name
 A 1 C00458 ENGINE 1 IGNITION RIGHT
 A 3 C00153 ENGINE 1 IGNITION LEFT
 SUBTASK 74-11-01-860-038-F00
-(2) For Engine 2, open these circuit breakers and install safety tags:
+<strong class="step-marker">(2)</strong> For Engine 2, open these circuit breakers and install safety tags:
 F/O Electrical System Panel, P6-2
 Row Col Number Name
 D 4 C00459 ENGINE 2 IGNITION RIGHT
 D 6 C00151 ENGINE 2 IGNITION LEFT
 SUBTASK 74-11-01-040-001-F00
-(3) Make sure that the start lever is in the CUTOFF position.
-(a) Install a DO NOT OPERATE tag, STD-858.
+<strong class="step-marker">(3)</strong> Make sure that the start lever is in the CUTOFF position.
+<strong class="step-marker">(a)</strong> Install a DO NOT OPERATE tag, STD-858.
 SUBTASK 74-11-01-040-002-F00
-(4) Make sure that the engine start switch is off.
-(a) Install a DO NOT OPERATE tag, STD-858.
+<strong class="step-marker">(4)</strong> Make sure that the engine start switch is off.
+<strong class="step-marker">(a)</strong> Install a DO NOT OPERATE tag, STD-858.
 SUBTASK 74-11-01-010-005-F00
-(5) Do this task: Open the Fan Cowl Panels, TASK 71-11-02-010-801-F00.
+<strong class="step-marker">(5)</strong> Do this task: Open the Fan Cowl Panels, TASK 71-11-02-010-801-F00.
 74-11-01
 SUBTASK 74-11-01-040-003-F00
 WARNING
@@ -1047,10 +1006,10 @@ SYSTEM. THE IGNITION SYSTEM VOLTAGE IS DANGEROUSLY HIGH. DO
 NOT TOUCH THE ELECTRICAL CONTACTS. THE IGNITION EXCITERS CAN
 HAVE AN ELECTRICAL CHARGE EVEN WHEN NOT ENERGIZED. IF YOU DO
 NOT OBEY THIS STEP , INJURY TO PERSONS CAN OCCUR.
-(6) Wait a minimum of five minutes after you remove power from the ignition system before you do
+<strong class="step-marker">(6)</strong> Wait a minimum of five minutes after you remove power from the ignition system before you do
 the next step.
 SUBTASK 74-11-01-020-001-F00
-(7) Disconnect the power supply cable [3] from the input connector [4] on the forward side of the
+<strong class="step-marker">(7)</strong> Disconnect the power supply cable [3] from the input connector [4] on the forward side of the
 applicable ignition exciter [2].
 SUBTASK 74-11-01-020-002-F00
 CAUTION
@@ -1058,38 +1017,37 @@ MAKE SURE THAT YOUR HANDS AND TOOLS ARE CLEAN. DO NOT TOUCH
 THE IGNITION LEAD OR THE IGNITER PLUG WITH DIRT OR GREASE ON
 HANDS OR TOOLS. DIRT AND GREASE WILL CAUSE DAMAGE TO THE
 IGNITION LEAD AND THE IGNITER PLUG.
-(8) Disconnect the ignition lead [1] from the ignition lead connector [5] on the aft side of the
+<strong class="step-marker">(8)</strong> Disconnect the ignition lead [1] from the ignition lead connector [5] on the aft side of the
 ignition exciter [2].
 SUBTASK 74-11-01-480-001-F00
-(9) Put the protective covers on the ignition lead [1].
-H. Ignition Exciter Inspection
-SUBTASK 74-11-01-900-001-F00
-(1) If you find damage that is not in the limits, replace the ignition exciter
+<strong class="step-marker">(9)</strong> Put the protective covers on the ignition lead [1].</p></section>
+<section class="field letter-field" data-letter="H"><h3>H. Ignition Exciter Inspection</h3><p class="section-text">SUBTASK 74-11-01-900-001-F00
+<strong class="step-marker">(1)</strong> If you find damage that is not in the limits, replace the ignition exciter
 (TASK 74-11-01-000-801-F00 and TASK 74-11-01-400-801-F00).
 SUBTASK 74-11-01-210-001-F00
-(2) Examine the ignition exciter [2] for cracks.
-(a) Cracks are not permitted.
+<strong class="step-marker">(2)</strong> Examine the ignition exciter [2] for cracks.
+<strong class="step-marker">(a)</strong> Cracks are not permitted.
 SUBTASK 74-11-01-210-002-F00
-(3) Examine the ignition exciter [2] for nicks, dents, and scratches.
-(a) All nicks, dents, and scratches are permitted, if they are no more than 0.03 in. (0.76 mm)
+<strong class="step-marker">(3)</strong> Examine the ignition exciter [2] for nicks, dents, and scratches.
+<strong class="step-marker">(a)</strong> All nicks, dents, and scratches are permitted, if they are no more than 0.03 in. (0.76 mm)
 in depth.
 SUBTASK 74-11-01-210-003-F00
-(4) Examine the input connector [4] and ignition lead connector [5] for thread damage.
-(a) 30 percent damage on one lead-in thread is permitted, or 20 percent damage on each of
+<strong class="step-marker">(4)</strong> Examine the input connector [4] and ignition lead connector [5] for thread damage.
+<strong class="step-marker">(a)</strong> 30 percent damage on one lead-in thread is permitted, or 20 percent damage on each of
 the two lead-in threads.
 SUBTASK 74-11-01-210-004-F00
-(5) Examine the input connector [4] for pin damage.
-(a) Pin damage is permitted if the pins engage freely with the connector.
+<strong class="step-marker">(5)</strong> Examine the input connector [4] for pin damage.
+<strong class="step-marker">(a)</strong> Pin damage is permitted if the pins engage freely with the connector.
 SUBTASK 74-11-01-210-005-F00
-(6) Examine the well of the power supply cable [3] and well of the input connector [4] for dirt.
-(a) Dirt is not permitted.
+<strong class="step-marker">(6)</strong> Examine the well of the power supply cable [3] and well of the input connector [4] for dirt.
+<strong class="step-marker">(a)</strong> Dirt is not permitted.
 74-11-01
-(b) If you find dirt, clean the well with a soft bristle brush, STD-123 and solvent, B00682
+<strong class="step-marker">(b)</strong> If you find dirt, clean the well with a soft bristle brush, STD-123 and solvent, B00682
 [CP2011] or alcohol, B00676 [CP1041].
 SUBTASK 74-11-01-210-006-F00
-(7) Examine the ignition lead connectors [5] for damage to the output pin [6].
-(a) Burn, arcing or missing plate are not permitted.
-(b) If it is necessary, replace the output pin [6] as follows:
+<strong class="step-marker">(7)</strong> Examine the ignition lead connectors [5] for damage to the output pin [6].
+<strong class="step-marker">(a)</strong> Burn, arcing or missing plate are not permitted.
+<strong class="step-marker">(b)</strong> If it is necessary, replace the output pin [6] as follows:
 WARNING
 MAKE SURE THAT THE IGNITION EXCITERS ARE DE-ENERGIZED
 FOR A MINIMUM OF FIVE MINUTES BEFORE YOU START WORK
@@ -1113,106 +1071,103 @@ CAREFULLY AND SLOWLY TURN THE NEW OUTPUT PIN INTO THE
 SOCKET TO PREVENT CROSS-THREADING.
 3) Put the new output pin [6] in the socket wrench, COM-14688, and install into the
 threaded hole.
-4) Tighten the output pin [6] to 2 in-lb (0.226 N·m) - 3 in-lb (0.339 N·m).
-I. Put the Airplane Back to Its Usual Condition
-SUBTASK 74-11-01-420-001-F00
-(1) Connect the ignition lead [1] to the ignition exciter [2].
-(a) Remove the protective covers on the ignition lead [1].
+4) Tighten the output pin [6] to 2 in-lb (0.226 N·m) - 3 in-lb (0.339 N·m).</p></section>
+<section class="field letter-field" data-letter="I"><h3>I. Put the Airplane Back to Its Usual Condition</h3><p class="section-text">SUBTASK 74-11-01-420-001-F00
+<strong class="step-marker">(1)</strong> Connect the ignition lead [1] to the ignition exciter [2].
+<strong class="step-marker">(a)</strong> Remove the protective covers on the ignition lead [1].
 CAUTION
 MAKE SURE THAT THE IGNITION LEAD IS CLEAN WHEN YOU
 CONNECT IT . THE CONTAMINATION OF THE IGNITION LEAD CAN
 CAUSE DAMAGE TO THE EQUIPMENT .
-(b) Connect the ignition lead [1] to the ignition lead connector [5] on the aft side of the
+<strong class="step-marker">(b)</strong> Connect the ignition lead [1] to the ignition lead connector [5] on the aft side of the
 ignition exciter.
-(c) Tighten the connector nut on the ignition lead [1] to 140 in-lb (16 N·m) - 160 in-lb
+<strong class="step-marker">(c)</strong> Tighten the connector nut on the ignition lead [1] to 140 in-lb (16 N·m) - 160 in-lb
 (18 N·m).
 SUBTASK 74-11-01-420-002-F00
-(2) Connect the power supply cable [3] to the ignition exciter [2].
+<strong class="step-marker">(2)</strong> Connect the power supply cable [3] to the ignition exciter [2].
 74-11-01
 SUBTASK 74-11-01-860-033-F00
-(3) For Engine 1, remove the safety tags and close these circuit breakers:
+<strong class="step-marker">(3)</strong> For Engine 1, remove the safety tags and close these circuit breakers:
 CAPT Electrical System Panel, P18-2
 Row Col Number Name
 A 1 C00458 ENGINE 1 IGNITION RIGHT
 A 3 C00153 ENGINE 1 IGNITION LEFT
 SUBTASK 74-11-01-860-034-F00
-(4) For Engine 2, remove the safety tags and close these circuit breakers:
+<strong class="step-marker">(4)</strong> For Engine 2, remove the safety tags and close these circuit breakers:
 F/O Electrical System Panel, P6-2
 Row Col Number Name
 D 4 C00459 ENGINE 2 IGNITION RIGHT
 D 6 C00151 ENGINE 2 IGNITION LEFT
 SUBTASK 74-11-01-860-005-F00
-(5) Remove the DO NOT OPERATE tags, STD-858 from the start lever and engine start switch.
-J. Ignition Exciter Test
-SUBTASK 74-11-01-710-001-F00
-(1) Do this task: Ignition System Audible Test, TASK 74-00-00-750-801-F00.
+<strong class="step-marker">(5)</strong> Remove the DO NOT OPERATE tags, STD-858 from the start lever and engine start switch.</p></section>
+<section class="field letter-field" data-letter="J"><h3>J. Ignition Exciter Test</h3><p class="section-text">SUBTASK 74-11-01-710-001-F00
+<strong class="step-marker">(1)</strong> Do this task: Ignition System Audible Test, TASK 74-00-00-750-801-F00.
 SUBTASK 74-11-01-410-002-F00
-(2) Do this task: Close the Fan Cowl Panels, TASK 71-11-02-410-801-F00.</pre></div>
+<strong class="step-marker">(2)</strong> Do this task: Close the Fan Cowl Panels, TASK 71-11-02-410-801-F00.</p></section>
+  </div>
 </details>
   </div>
 </section>
-<section class="system-section" id="section-74-21-01">
-  <div class="section-title"><h2>ATA 74-21-01 - Section</h2><span>3 tasks</span></div>
-  <div class="task-list">
-<details class="task" id="task-74-21-01-000-801-F00" data-section="74-21-01">
-  <summary><span class="task-head"><span class="task-code">74-21-01-000-801-F00</span><span class="task-name">Ignition Lead Removal</span></span><span class="task-page">PDF p. 47</span></summary>
-  <div class="task-body"><a class="source-link" href="file:///C:/Users/javie/Desktop/Proyecto%20B737NG/MANUALES/AMM/74_F__091.PDF#page=47" target="_blank" rel="noopener">Open original AMM PDF - page 47 <span aria-hidden="true">↗</span></a>
-    <pre class="procedure">2. Ignition Lead Removal
-(Figure 401)
-A. General
-(1) This task gives the instructions to remove the left or right ignition lead.
-(a) The left ignition lead connects the left igniter plug to the bottom ignition exciter.
-(b) The right ignition lead connects the right igniter plug to the top ignition exciter.
-B. References
-Reference Title
+<section class="system-section">
+  <div class="section-title"><h2>ATA 74 · 74-21-01</h2><span>3 tasks</span></div>
+  <div class="fault-list">
+<details class="fault" id="task-74-21-01-000-801-F00">
+  <summary>
+    <span class="fault-head"><span class="fault-code">74-21-01-000-801-F00</span><span class="fault-name">Ignition Lead Removal</span></span>
+    <span class="task-badge">ATA 74 · Task 000-801-F00</span>
+  </summary>
+  <div class="fields">
+<section class="field description letter-field"><h3>Task Description</h3><p class="section-text">2. Ignition Lead Removal
+(Figure 401)</p></section>
+<section class="field letter-field" data-letter="A"><h3>A. General</h3><p class="section-text"><strong class="step-marker">(1)</strong> This task gives the instructions to remove the left or right ignition lead.
+<strong class="step-marker">(a)</strong> The left ignition lead connects the left igniter plug to the bottom ignition exciter.
+<strong class="step-marker">(b)</strong> The right ignition lead connects the right igniter plug to the top ignition exciter.</p></section>
+<section class="field letter-field" data-letter="B"><h3>B. References</h3><p class="section-text">Reference Title
 71-11-02-010-801-F00 Open the Fan Cowl Panels (P/B 201)
 74-21-01-200-801-F00 Ignition Lead Inspection (P/B 601)
 78-31-00-010-801-F00 Open the Thrust Reverser (Selection) (P/B 201)
 78-31-00-040-802-F00 Thrust Reverser Deactivation For Ground Maintenance
-(P/B 201)
-C. Tools/Equipment
-Reference Description
-STD-858 Tag - DO NOT OPERATE
-D. Location Zones
-Zone Area
+(P/B 201)</p></section>
+<section class="field letter-field" data-letter="C"><h3>C. Tools/Equipment</h3><p class="section-text">Reference Description
+STD-858 Tag - DO NOT OPERATE</p></section>
+<section class="field letter-field" data-letter="D"><h3>D. Location Zones</h3><p class="section-text">Zone Area
 411 Engine 1 - Engine
-421 Engine 2 - Engine
-E. Prepare for the Removal
-SUBTASK 74-21-01-860-026-F00
-(1) For Engine 1, open these circuit breakers and install safety tags:
+421 Engine 2 - Engine</p></section>
+<section class="field letter-field" data-letter="E"><h3>E. Prepare for the Removal</h3><p class="section-text">SUBTASK 74-21-01-860-026-F00
+<strong class="step-marker">(1)</strong> For Engine 1, open these circuit breakers and install safety tags:
 CAPT Electrical System Panel, P18-2
 Row Col Number Name
 A 1 C00458 ENGINE 1 IGNITION RIGHT
 A 3 C00153 ENGINE 1 IGNITION LEFT
 SUBTASK 74-21-01-860-027-F00
-(2) For Engine 2, open these circuit breakers and install safety tags:
+<strong class="step-marker">(2)</strong> For Engine 2, open these circuit breakers and install safety tags:
 F/O Electrical System Panel, P6-2
 Row Col Number Name
 D 4 C00459 ENGINE 2 IGNITION RIGHT
 D 6 C00151 ENGINE 2 IGNITION LEFT
 74-21-01
 SUBTASK 74-21-01-860-012-F00
-(3) Make sure that the start lever is in the CUTOFF position and install a DO NOT OPERATE tag,
+<strong class="step-marker">(3)</strong> Make sure that the start lever is in the CUTOFF position and install a DO NOT OPERATE tag,
 STD-858.
 SUBTASK 74-21-01-040-004-F00
-(4) Make sure that the engine start switch is off and install a DO NOT OPERATE tag, STD-858.
+<strong class="step-marker">(4)</strong> Make sure that the engine start switch is off and install a DO NOT OPERATE tag, STD-858.
 SUBTASK 74-21-01-010-002-F00
-(5) Do these tasks in sequence to safely open the left and right thrust reversers on the applicable
+<strong class="step-marker">(5)</strong> Do these tasks in sequence to safely open the left and right thrust reversers on the applicable
 engine:
 WARNING
 DO THE DEACTIVATION PROCEDURE FOR THE THRUST REVERSER
 TO PREVENT THE OPERATION OF THE THRUST REVERSER.
 ACCIDENTAL OPERATION OF THE THRUST REVERSER CAN CAUSE
 INJURIES TO PERSONS OR DAMAGE TO EQUIPMENT .
-(a) Do this task: Thrust Reverser Deactivation for Ground Maintenance,
+<strong class="step-marker">(a)</strong> Do this task: Thrust Reverser Deactivation for Ground Maintenance,
 TASK 78-31-00-040-802-F00.
-(b) Open the left and right fan cowl panels (TASK 71-11-02-010-801-F00).
+<strong class="step-marker">(b)</strong> Open the left and right fan cowl panels (TASK 71-11-02-010-801-F00).
 WARNING
 OBEY THE INSTRUCTIONS IN THE PROCEDURE TO OPEN THE
 THRUST REVERSERS. IF YOU DO NOT OBEY THE INSTRUCTIONS,
 INJURIES TO PERSONS AND DAMAGE TO EQUIPMENT CAN OCCUR.
-(c) Open the left and right thrust reversers (TASK 78-31-00-010-801-F00).
-F . Ignition Lead Removal
+<strong class="step-marker">(c)</strong> Open the left and right thrust reversers (TASK 78-31-00-010-801-F00).
+<strong class="section-marker">F. Ignition Lead Removal</strong>
 SUBTASK 74-21-01-020-003-F00
 WARNING
 MAKE SURE THAT THE IGNITION EXCITERS ARE DE-ENERGIZED FOR A
@@ -1241,99 +1196,68 @@ MAKE SURE THAT YOUR HANDS AND TOOLS ARE CLEAN. DO NOT TOUCH
 THE IGNITION LEAD OR THE IGNITER PLUG WITH DIRT OR GREASE ON
 HANDS OR TOOLS. DIRT AND GREASE WILL CAUSE DAMAGE TO THE
 IGNITION LEAD AND THE IGNITER PLUG.
-(1) Wait a minimum of five minutes after you remove power from the ignition system before you do
+<strong class="step-marker">(1)</strong> Wait a minimum of five minutes after you remove power from the ignition system before you do
 the next step.
 SUBTASK 74-21-01-020-009-F00
-(2) Remove the mating pad [15] and mating pad shroud [18] on the 6:00 o'clock strut as follows:
-(a) Remove the bolts [13] and washers [14] from the mating pad [15].
+<strong class="step-marker">(2)</strong> Remove the mating pad [15] and mating pad shroud [18] on the 6:00 o'clock strut as follows:
+<strong class="step-marker">(a)</strong> Remove the bolts [13] and washers [14] from the mating pad [15].
 1) Remove the mating pad shroud [18].
-(b) Remove the bolt [17] and washer [16] that connects the mating pad [15] to the 6:00
+<strong class="step-marker">(b)</strong> Remove the bolt [17] and washer [16] that connects the mating pad [15] to the 6:00
 o'clock strut.
-(c) Remove the mating pad [15].
+<strong class="step-marker">(c)</strong> Remove the mating pad [15].
 SUBTASK 74-21-01-020-011-F00
-(3) Remove the hose clamp [19] from the cooling joint over the ignition lead [2].
-(a) Remove the safety wire [21].
-(b) Loosen the hose clamp bolts and ignition lead nut [20].
+<strong class="step-marker">(3)</strong> Remove the hose clamp [19] from the cooling joint over the ignition lead [2].
+<strong class="step-marker">(a)</strong> Remove the safety wire [21].
+<strong class="step-marker">(b)</strong> Loosen the hose clamp bolts and ignition lead nut [20].
 SUBTASK 74-21-01-020-010-F00
-(4) Disconnect the ignition lead [2] from the main igniter plug [1] as follows:
-(a) Remove the cooling shroud clamp [9].
-(b) Remove the cooling shrouds [7].
-(c) Loosen the coupling nut [8].
-(d) Pull the ignition lead [2] straight out with no side load until it is free from the main igniter
+<strong class="step-marker">(4)</strong> Disconnect the ignition lead [2] from the main igniter plug [1] as follows:
+<strong class="step-marker">(a)</strong> Remove the cooling shroud clamp [9].
+<strong class="step-marker">(b)</strong> Remove the cooling shrouds [7].
+<strong class="step-marker">(c)</strong> Loosen the coupling nut [8].
+<strong class="step-marker">(d)</strong> Pull the ignition lead [2] straight out with no side load until it is free from the main igniter
 plug [1].
 WARNING
 AFTER YOU REMOVE THE IGNITION LEADS FROM THE IGNITER
 PLUG, MAKE SURE THAT YOU MANUALLY GROUND THE IGNITION
 LEAD. IF YOU DO NOT GROUND THE IGNITION LEAD, YOU CAN
 CAUSE INJURY TO PERSONS AND DAMAGE TO EQUIPMENT .
-(e) Remove the outer silicone seal [10] from the ignition lead [2].
+<strong class="step-marker">(e)</strong> Remove the outer silicone seal [10] from the ignition lead [2].
 1) Discard the outer silicone seal [10].
 SUBTASK 74-21-01-020-004-F00
-(5) Disconnect the ignition lead [2] from the aft side of the ignition exciter [3].
+<strong class="step-marker">(5)</strong> Disconnect the ignition lead [2] from the aft side of the ignition exciter [3].
 NOTE: A small quantity of water can be in the non air-cooled section of the lead. This is
 acceptable and will not affect electrical operation of the lead if the terminal connection
 to the exciter outlet is not disturbed and the lead is in compliance with inspection limits
 stated in Ignition Lead Inspection, TASK 74-21-01-200-801-F00.
 SUBTASK 74-21-01-020-005-F00
-(6) Put the protective covers on the main igniter plug [1], ignition exciter [3], and ignition lead [2].
+<strong class="step-marker">(6)</strong> Put the protective covers on the main igniter plug [1], ignition exciter [3], and ignition lead [2].
 SUBTASK 74-21-01-020-006-F00
-(7) Remove the ignition lead [2] from the loop clamp [5] and loop clamp [6]:
-(a) Remove the bolt [11] and bolt [12] from the loop clamp [5] and loop clamp [6].
+<strong class="step-marker">(7)</strong> Remove the ignition lead [2] from the loop clamp [5] and loop clamp [6]:
+<strong class="step-marker">(a)</strong> Remove the bolt [11] and bolt [12] from the loop clamp [5] and loop clamp [6].
 74-21-01
-(b) Remove the loop clamp [5] and loop clamp [6] from the ignition lead.
+<strong class="step-marker">(b)</strong> Remove the loop clamp [5] and loop clamp [6] from the ignition lead.
 SUBTASK 74-21-01-020-007-F00
-(8) Remove the ignition lead [2] from the electrical clips [4] and mating plate.
+<strong class="step-marker">(8)</strong> Remove the ignition lead [2] from the electrical clips [4] and mating plate.
 SUBTASK 74-21-01-020-008-F00
-(9) Remove the ignition lead [2].</pre></div>
+<strong class="step-marker">(9)</strong> Remove the ignition lead [2].</p></section>
+  </div>
 </details>
-<details class="task" id="task-74-21-01-400-801-F00" data-section="74-21-01">
-  <summary><span class="task-head"><span class="task-code">74-21-01-400-801-F00</span><span class="task-name">Ignition Lead Installation</span></span><span class="task-page">PDF p. 54</span></summary>
-  <div class="task-body"><a class="source-link" href="file:///C:/Users/javie/Desktop/Proyecto%20B737NG/MANUALES/AMM/74_F__091.PDF#page=54" target="_blank" rel="noopener">Open original AMM PDF - page 54 <span aria-hidden="true">↗</span></a>
-    <pre class="procedure">3. Ignition Lead Installation
-(Figure 401)
-A. General
-(1) This task gives the instructions to install the ignition lead.
-B. References
-Reference Title
+<details class="fault" id="task-74-21-01-400-801-F00">
+  <summary>
+    <span class="fault-head"><span class="fault-code">74-21-01-400-801-F00</span><span class="fault-name">Ignition Lead Installation</span></span>
+    <span class="task-badge">ATA 74 · Task 400-801-F00</span>
+  </summary>
+  <div class="fields">
+<section class="field description letter-field"><h3>Task Description</h3><p class="section-text">3. Ignition Lead Installation
+(Figure 401)</p></section>
+<section class="field letter-field" data-letter="A"><h3>A. General</h3><p class="section-text"><strong class="step-marker">(1)</strong> This task gives the instructions to install the ignition lead.</p></section>
+<section class="field letter-field" data-letter="B"><h3>B. References</h3><p class="section-text">Reference Title
 71-00-00-800-811-F00 Power Plant Test Reference Table (P/B 501)
 71-11-02-410-801-F00 Close the Fan Cowl Panels (P/B 201)
 78-31-00-010-804-F00 Close the Thrust Reverser (Selection) (P/B 201)
-78-31-00-440-803-F00 Thrust Reverser Activation After Ground Maintenance (P/B 201)
-C. Consumable Materials
-Reference Description Specification
-A01077 [CP2266] Adhesive - Silicone Rubber - RTV 102
-B00666 Solvent - Methyl Propyl Ketone BMS11-9
-B01058 [CP1039] Solvent - Acetone, Reagent Grade
-B50046 Solvent - Methyl Ethyl Ketone, T echnical
-Grade
-ASTM D740
-(Supersedes TT-M-261)
-D00601 [CP2101] Vaseline - Graphite Mineral
-G02345 [CP8001] Wire - Safety, 0.032 Inch (0.8 mm) Diameter AMS 5687
-G02495 [CP8002] Wire - Safety, 0.032 Inch (0.8 mm) Diameter AMS5689
-D. Expendables/Parts
-AMM Item Description AIPC Reference AIPC Effectivity
-2 Ignition lead 74-21-01-01-065 RYR 006, 007, 013, 014,
-018, 019, 043, 044,
-056-063, 067-078, 081,
-083-103, 111-114,
-121-129, 131, 132, 135
-74-21-01-01A-115 RYR 014, 068, 087, 090,
-111, 125, 128, 138-168,
-174-179, 182-187,
-189-203, 205-209,
-212-220, 223, 224,
-231-236, 239-298,
-301-304, 306, 308,
-315-317, 322-341, 343,
-346-999
-74-21-01-01B-095 RYR 006, 007, 013, 014,
-018, 019, 043, 044,
-056-063, 067-078, 081,
-083-103, 111-114,
-121-129, 131, 132, 135,
-143, 147, 152, 167, 177
-74-21-01
+78-31-00-440-803-F00 Thrust Reverser Activation After Ground Maintenance (P/B 201)</p></section>
+<section class="field letter-field" data-letter="C"><h3>C. Consumable Materials</h3><p class="section-text"></p></section>
+<section class="field letter-field" data-letter="D"><h3>D. Expendables/Parts</h3><p class="section-text">74-21-01
 (Continued)
 AMM Item Description AIPC Reference AIPC Effectivity
 10 Outer silicone seal 74-21-01-01-070 RYR 006, 007, 013, 014,
@@ -1355,14 +1279,13 @@ AMM Item Description AIPC Reference AIPC Effectivity
 056-063, 067-078, 081,
 083-103, 111-114,
 121-129, 131, 132, 135,
-143, 147, 152, 167, 177
-E. Location Zones
-Zone Area
+143, 147, 152, 167, 177</p></section>
+<section class="field letter-field" data-letter="E"><h3>E. Location Zones</h3><p class="section-text">Zone Area
 411 Engine 1 - Engine
 421 Engine 2 - Engine
-F . Ignition Lead Installation
+<strong class="section-marker">F. Ignition Lead Installation</strong>
 SUBTASK 74-21-01-420-003-F00
-(1) Install the ignition lead [2] as follows:
+<strong class="step-marker">(1)</strong> Install the ignition lead [2] as follows:
 CAUTION
 MAKE SURE THAT YOUR HANDS AND TOOLS ARE CLEAN. DO NOT
 TOUCH THE IGNITION LEAD OR THE IGNITER PLUG WITH DIRT OR
@@ -1371,146 +1294,138 @@ DAMAGE TO THE IGNITION LEAD AND THE IGNITER PLUG.
 CAUTION
 DO NOT TWIST OR BEND THE IGNITION LEADS. DAMAGE TO THE
 LEADS CAN OCCUR.
-(a) Remove the protective covers from the ignition exciter [3], main igniter plug [1], and
+<strong class="step-marker">(a)</strong> Remove the protective covers from the ignition exciter [3], main igniter plug [1], and
 ignition lead [2].
-(b) Loosely connect the ignition lead [2] to the connector on the aft side of the ignition
+<strong class="step-marker">(b)</strong> Loosely connect the ignition lead [2] to the connector on the aft side of the ignition
 exciter [3].
-(c) Install the ignition lead [2] along the fan case.
+<strong class="step-marker">(c)</strong> Install the ignition lead [2] along the fan case.
 1) Put the ignition lead [2] into the four electrical clips [4].
-(d) Install the ignition lead [2] along the 6:00 o'clock strut and into the two electrical clips [4].
-(e) Put the ignition lead [2] into the mating plate at the top of the 6:00 o'clock strut.
+<strong class="step-marker">(d)</strong> Install the ignition lead [2] along the 6:00 o'clock strut and into the two electrical clips [4].
+<strong class="step-marker">(e)</strong> Put the ignition lead [2] into the mating plate at the top of the 6:00 o'clock strut.
 74-21-01
-(f) Install the ignition lead [2] along the bottom of the compressor case.
-(g) Put the ignition lead [2] into the electrical clip [4] found on the transient bleed valve.
+<strong class="step-marker">(f)</strong> Install the ignition lead [2] along the bottom of the compressor case.
+<strong class="step-marker">(g)</strong> Put the ignition lead [2] into the electrical clip [4] found on the transient bleed valve.
 SUBTASK 74-21-01-420-004-F00
-(2) Connect the ignition lead [2] to the main igniter plug [1] as follows:
-(a) Install a new outer silicone seal [10] on the ignition lead [2].
-(b) Connect the end of the ignition lead [2] to the main igniter plug [1].
+<strong class="step-marker">(2)</strong> Connect the ignition lead [2] to the main igniter plug [1] as follows:
+<strong class="step-marker">(a)</strong> Install a new outer silicone seal [10] on the ignition lead [2].
+<strong class="step-marker">(b)</strong> Connect the end of the ignition lead [2] to the main igniter plug [1].
 1) Tighten the coupling nut [8] to 275 ±15 in-lb (31.1 ±1.7 N·m).
-(c) Install the cooling shrouds [7] to the ignition lead [2] as follows:
+<strong class="step-marker">(c)</strong> Install the cooling shrouds [7] to the ignition lead [2] as follows:
 1) Install the cooling shrouds [7] on the flange of the ignition lead [2] with the cooling
 shroud clamp [9].
 2) Tighten the cooling shroud clamp [9] to 35 ±2 in-lb (4.0 ±0.2 N·m).
 SUBTASK 74-21-01-800-001-F00
-(3) Install the mating pad [15] and mating pad shroud [18]:
-(a) Use a clean cloth and one of the following solvents to remove the remaining sealant from
+<strong class="step-marker">(3)</strong> Install the mating pad [15] and mating pad shroud [18]:
+<strong class="step-marker">(a)</strong> Use a clean cloth and one of the following solvents to remove the remaining sealant from
 the mating pad [15] and ignition leads [2].
 1) solvent, B00666
 2) technical grade methyl ethyl ketone, B50046
 3) acetone solvent, B01058 [CP1039].
-(b) Apply a layer of the RTV 102 adhesive, A01077 [CP2266], to the recesses in the mating
+<strong class="step-marker">(b)</strong> Apply a layer of the RTV 102 adhesive, A01077 [CP2266], to the recesses in the mating
 pad [15] that touch the ignition lead [2].
-(c) Put the mating pad [15] on the 6:00 o'clock strut with the recesses in the mating pad
+<strong class="step-marker">(c)</strong> Put the mating pad [15] on the 6:00 o'clock strut with the recesses in the mating pad
 around the ignition lead [2].
-(d) Install the bolt [17] and washer [16] that attach the mating pad [15] to the strut.
+<strong class="step-marker">(d)</strong> Install the bolt [17] and washer [16] that attach the mating pad [15] to the strut.
 1) Tighten the bolt [17] to 110 in-lb (12.4 N·m) - 120 in-lb (13.6 N·m).
-(e) Install the mating pad shroud [18] on the mating pad [15].
-(f) Install the two washers [14] and bolts [13].
+<strong class="step-marker">(e)</strong> Install the mating pad shroud [18] on the mating pad [15].
+<strong class="step-marker">(f)</strong> Install the two washers [14] and bolts [13].
 1) Tighten the bolts [13] to 110 in-lb (12.4 N·m) - 120 in-lb (13.6 N·m).
 SUBTASK 74-21-01-420-008-F00
-(4) Install the hose clamp [19] on the ignition lead [2]:
-(a) Install the hose clamp [19] on the ignition lead cooling joint.
-(b) Lubricate the threads of the hose clamp bolts with graphite mineral vaseline, D00601
+<strong class="step-marker">(4)</strong> Install the hose clamp [19] on the ignition lead [2]:
+<strong class="step-marker">(a)</strong> Install the hose clamp [19] on the ignition lead cooling joint.
+<strong class="step-marker">(b)</strong> Lubricate the threads of the hose clamp bolts with graphite mineral vaseline, D00601
 [CP2101].
-(c) Tighten the hose clamp bolts to 35 ±2 in-lb (4.0 ±0.2 N·m).
-(d) Hand tighten the ignition lead nut [20].
-(e) Install the safety wire [21] (safety wire, G02345 [CP8001], or safety wire, G02495
+<strong class="step-marker">(c)</strong> Tighten the hose clamp bolts to 35 ±2 in-lb (4.0 ±0.2 N·m).
+<strong class="step-marker">(d)</strong> Hand tighten the ignition lead nut [20].
+<strong class="step-marker">(e)</strong> Install the safety wire [21] (safety wire, G02345 [CP8001], or safety wire, G02495
 [CP8002]) as shown in detail to prevent the nut from getting loose.
 NOTE: Always use new safety wire.
 SUBTASK 74-21-01-420-005-F00
-(5) Install the loop clamp [5] and loop clamp [6] as follows:
-(a) Put the loop clamp [5] and loop clamp [6] around the ignition lead [2].
+<strong class="step-marker">(5)</strong> Install the loop clamp [5] and loop clamp [6] as follows:
+<strong class="step-marker">(a)</strong> Put the loop clamp [5] and loop clamp [6] around the ignition lead [2].
 74-21-01
-(b) Apply graphite mineral vaseline, D00601 [CP2101], to the threads of the bolt [11] and
+<strong class="step-marker">(b)</strong> Apply graphite mineral vaseline, D00601 [CP2101], to the threads of the bolt [11] and
 bolt [12].
-(c) Loosely install the bolt [11] and bolt [12] that attach the loop clamp [5] and loop clamp [6]
+<strong class="step-marker">(c)</strong> Loosely install the bolt [11] and bolt [12] that attach the loop clamp [5] and loop clamp [6]
 to the brackets.
-(d) If it is necessary, move the ignition lead [2] until it does not touch the other parts.
-(e) Tighten the bolt [11] and bolt [12] to 63 ±3 in-lb (7.1 ±0.3 N·m).
+<strong class="step-marker">(d)</strong> If it is necessary, move the ignition lead [2] until it does not touch the other parts.
+<strong class="step-marker">(e)</strong> Tighten the bolt [11] and bolt [12] to 63 ±3 in-lb (7.1 ±0.3 N·m).
 SUBTASK 74-21-01-420-006-F00
-(6) Tighten the connector on the ignition exciter [3] to 150 ±10 in-lb (16.9 ±1.1 N·m).
-G. Put the Airplane Back to Its Usual Condition
-SUBTASK 74-21-01-410-002-F00
+<strong class="step-marker">(6)</strong> Tighten the connector on the ignition exciter [3] to 150 ±10 in-lb (16.9 ±1.1 N·m).</p></section>
+<section class="field letter-field" data-letter="G"><h3>G. Put the Airplane Back to Its Usual Condition</h3><p class="section-text">SUBTASK 74-21-01-410-002-F00
 WARNING
 OBEY THE INSTRUCTIONS IN THE PROCEDURE TO CLOSE THE THRUST
 REVERSERS. IF YOU DO NOT OBEY THE INSTRUCTIONS, INJURIES TO
 PERSONS AND DAMAGE TO EQUIPMENT CAN OCCUR.
-(1) Do these tasks in sequence to safely close the left and right thrust reversers:
-(a) Do this task: Close the Thrust Reverser (Selection), TASK 78-31-00-010-804-F00.
-(b) Do this task: Close the Fan Cowl Panels, TASK 71-11-02-410-801-F00.
-(c) Do this task: Thrust Reverser Activation after Ground Maintenance,
+<strong class="step-marker">(1)</strong> Do these tasks in sequence to safely close the left and right thrust reversers:
+<strong class="step-marker">(a)</strong> Do this task: Close the Thrust Reverser (Selection), TASK 78-31-00-010-804-F00.
+<strong class="step-marker">(b)</strong> Do this task: Close the Fan Cowl Panels, TASK 71-11-02-410-801-F00.
+<strong class="step-marker">(c)</strong> Do this task: Thrust Reverser Activation after Ground Maintenance,
 TASK 78-31-00-440-803-F00.
 SUBTASK 74-21-01-860-030-F00
-(2) For Engine 1, remove the safety tags and close these circuit breakers:
+<strong class="step-marker">(2)</strong> For Engine 1, remove the safety tags and close these circuit breakers:
 CAPT Electrical System Panel, P18-2
 Row Col Number Name
 A 1 C00458 ENGINE 1 IGNITION RIGHT
 A 3 C00153 ENGINE 1 IGNITION LEFT
 SUBTASK 74-21-01-860-031-F00
-(3) For Engine 2, remove the safety tags and close these circuit breakers:
+<strong class="step-marker">(3)</strong> For Engine 2, remove the safety tags and close these circuit breakers:
 F/O Electrical System Panel, P6-2
 Row Col Number Name
 D 4 C00459 ENGINE 2 IGNITION RIGHT
 D 6 C00151 ENGINE 2 IGNITION LEFT
 SUBTASK 74-21-01-860-011-F00
-(4) Remove the DO NOT OPERATE tags from the start lever and the engine start switch.
-H. Ignition Lead Test
-SUBTASK 74-21-01-700-003-F00
-(1) Do the test(s) listed in the Power Plant Test Reference Table (TASK 71-00-00-800-811-F00).</pre></div>
+<strong class="step-marker">(4)</strong> Remove the DO NOT OPERATE tags from the start lever and the engine start switch.</p></section>
+<section class="field letter-field" data-letter="H"><h3>H. Ignition Lead Test</h3><p class="section-text">SUBTASK 74-21-01-700-003-F00
+<strong class="step-marker">(1)</strong> Do the test(s) listed in the Power Plant Test Reference Table (TASK 71-00-00-800-811-F00).</p></section>
+  </div>
 </details>
-<details class="task" id="task-74-21-01-200-801-F00" data-section="74-21-01">
-  <summary><span class="task-head"><span class="task-code">74-21-01-200-801-F00</span><span class="task-name">Ignition Lead Inspection</span></span><span class="task-page">PDF p. 59</span></summary>
-  <div class="task-body"><a class="source-link" href="file:///C:/Users/javie/Desktop/Proyecto%20B737NG/MANUALES/AMM/74_F__091.PDF#page=59" target="_blank" rel="noopener">Open original AMM PDF - page 59 <span aria-hidden="true">↗</span></a>
-    <pre class="procedure">2. Ignition Lead Inspection
+<details class="fault" id="task-74-21-01-200-801-F00">
+  <summary>
+    <span class="fault-head"><span class="fault-code">74-21-01-200-801-F00</span><span class="fault-name">Ignition Lead Inspection</span></span>
+    <span class="task-badge">ATA 74 · Task 200-801-F00</span>
+  </summary>
+  <div class="fields">
+<section class="field description letter-field"><h3>Task Description</h3><p class="section-text">2. Ignition Lead Inspection
 (Figure 601)
-NOTE: This procedure is a scheduled maintenance task.
-A. General
-(1) This task is to examine the condition of the ignition leads [2].
-(2) The left ignition lead [2] connects the left igniter plug with the bottom ignition exciter.
-(3) The right ignition lead [2] connects the right igniter plug with the top ignition exciter.
-B. References
-Reference Title
+NOTE: This procedure is a scheduled maintenance task.</p></section>
+<section class="field letter-field" data-letter="A"><h3>A. General</h3><p class="section-text"><strong class="step-marker">(1)</strong> This task is to examine the condition of the ignition leads [2].
+<strong class="step-marker">(2)</strong> The left ignition lead [2] connects the left igniter plug with the bottom ignition exciter.
+<strong class="step-marker">(3)</strong> The right ignition lead [2] connects the right igniter plug with the top ignition exciter.</p></section>
+<section class="field letter-field" data-letter="B"><h3>B. References</h3><p class="section-text">Reference Title
 71-00-00-800-811-F00 Power Plant Test Reference Table (P/B 501)
 71-11-02-010-801-F00 Open the Fan Cowl Panels (P/B 201)
 71-11-02-410-801-F00 Close the Fan Cowl Panels (P/B 201)
 74-21-01-000-801-F00 Ignition Lead Removal (P/B 401)
 74-21-01-400-801-F00 Ignition Lead Installation (P/B 401)
-74-21-02-400-801-F00 Main Igniter Plug Installation (P/B 401)
-C. Tools/Equipment
-Reference Description
-STD-858 Tag - DO NOT OPERATE
-D. Consumable Materials
-Reference Description Specification
-B00676 [CP1041] Alcohol - Isopropyl
-B00682 [CP2011] Solvent - Stoddard MIL-PRF-680 Type I, II
-or III
-B00683 [CP1008] Solvent - Stabilized Trichloroethylene
-G00834 Cloth - Lint-free Cotton
-E. Location Zones
-Zone Area
+74-21-02-400-801-F00 Main Igniter Plug Installation (P/B 401)</p></section>
+<section class="field letter-field" data-letter="C"><h3>C. Tools/Equipment</h3><p class="section-text">Reference Description
+STD-858 Tag - DO NOT OPERATE</p></section>
+<section class="field letter-field" data-letter="D"><h3>D. Consumable Materials</h3><p class="section-text"></p></section>
+<section class="field letter-field" data-letter="E"><h3>E. Location Zones</h3><p class="section-text">Zone Area
 411 Engine 1 - Engine
 421 Engine 2 - Engine
-F . Prepare for the Inspection
+<strong class="section-marker">F. Prepare for the Inspection</strong>
 SUBTASK 74-21-01-860-022-F00
-(1) For Engine 1, open these circuit breakers and install safety tags:
+<strong class="step-marker">(1)</strong> For Engine 1, open these circuit breakers and install safety tags:
 CAPT Electrical System Panel, P18-2
 Row Col Number Name
 A 1 C00458 ENGINE 1 IGNITION RIGHT
 A 3 C00153 ENGINE 1 IGNITION LEFT
 74-21-01
 SUBTASK 74-21-01-860-023-F00
-(2) For Engine 2, open these circuit breakers and install safety tags:
+<strong class="step-marker">(2)</strong> For Engine 2, open these circuit breakers and install safety tags:
 F/O Electrical System Panel, P6-2
 Row Col Number Name
 D 4 C00459 ENGINE 2 IGNITION RIGHT
 D 6 C00151 ENGINE 2 IGNITION LEFT
 SUBTASK 74-21-01-040-001-F00
-(3) Make sure that the start lever is in the CUTOFF position and install a DO NOT OPERATE tag,
+<strong class="step-marker">(3)</strong> Make sure that the start lever is in the CUTOFF position and install a DO NOT OPERATE tag,
 STD-858.
 SUBTASK 74-21-01-040-002-F00
-(4) Make sure that the engine start switch is off and install a DO NOT OPERATE tag, STD-858.
+<strong class="step-marker">(4)</strong> Make sure that the engine start switch is off and install a DO NOT OPERATE tag, STD-858.
 SUBTASK 74-21-01-010-004-F00
-(5) Open the left and right fan cowl panels (TASK 71-11-02-010-801-F00).
+<strong class="step-marker">(5)</strong> Open the left and right fan cowl panels (TASK 71-11-02-010-801-F00).
 SUBTASK 74-21-01-040-003-F00
 WARNING
 MAKE SURE THAT THE IGNITION EXCITERS ARE DE-ENERGIZED FOR A
@@ -1519,33 +1434,32 @@ SYSTEM. THE IGNITION SYSTEM VOLTAGE IS DANGEROUSLY HIGH. DO
 NOT TOUCH THE ELECTRICAL CONTACTS. THE IGNITION EXCITERS CAN
 HAVE AN ELECTRICAL CHARGE EVEN WHEN NOT ENERGIZED. IF YOU DO
 NOT OBEY THIS STEP , INJURY TO PERSONS CAN OCCUR.
-(6) Wait a minimum of five minutes after you remove power from the ignition system before you do
+<strong class="step-marker">(6)</strong> Wait a minimum of five minutes after you remove power from the ignition system before you do
 the next step.
 SUBTASK 74-21-01-020-001-F00
 CAUTION
 MAKE SURE THAT YOUR HANDS AND TOOLS ARE CLEAN. DO NOT TOUCH
 THE IGNITION LEAD WITH DIRT OR GREASE ON HANDS OR TOOLS. DIRT
 AND GREASE WILL CAUSE DAMAGE TO THE IGNITION LEAD.
-(7) Disconnect the ignition leads [2] from the aft side of the ignition exciters.
+<strong class="step-marker">(7)</strong> Disconnect the ignition leads [2] from the aft side of the ignition exciters.
 NOTE: A small quantity of water can be in the non air-cooled section of the lead. This is
 acceptable and will not affect electrical operation of the lead if the terminal connection
 to the exciter outlet is not disturbed and the lead is in compliance with inspection limits
 stated in this task.
-(a) Put the protective covers on the ignition exciters.
-G. Ignition Lead Inspection
-SUBTASK 74-21-01-210-015-F00
-(1) Examine the ignition exciter end of the ignition lead [2].
+<strong class="step-marker">(a)</strong> Put the protective covers on the ignition exciters.</p></section>
+<section class="field letter-field" data-letter="G"><h3>G. Ignition Lead Inspection</h3><p class="section-text">SUBTASK 74-21-01-210-015-F00
+<strong class="step-marker">(1)</strong> Examine the ignition exciter end of the ignition lead [2].
 NOTE: Inspection of the igniter plug end of the ignition lead is not a requirement of this task.
 To inspect the igniter plug end of the ignition lead, refer to Main Igniter Plug
 Installation, TASK 74-21-02-400-801-F00.
-(a) Signs of arcing, burning, or flash over can be polished as follows:
+<strong class="step-marker">(a)</strong> Signs of arcing, burning, or flash over can be polished as follows:
 NOTE: Use a brush-nylon bristle (interdental brush or equivalent) to do this task.
-(b) Brush the signs of arcing, burning, or flash over until no evident material is left on the
+<strong class="step-marker">(b)</strong> Brush the signs of arcing, burning, or flash over until no evident material is left on the
 metal conduits. Use alcohol, B00676 [CP1041] to ease the brushing.
 74-21-01
-(c) Damage to the metal conduit is not permitted. Replace the ignition lead [2]
+<strong class="step-marker">(c)</strong> Damage to the metal conduit is not permitted. Replace the ignition lead [2]
 (TASK 74-21-01-000-801-F00 and TASK 74-21-01-400-801-F00).
-(d) If the ignition exciter end of the ignition lead [2] has missing components, replace the
+<strong class="step-marker">(d)</strong> If the ignition exciter end of the ignition lead [2] has missing components, replace the
 ignition lead [2] (TASK 74-21-01-000-801-F00 and TASK 74-21-01-400-801-F00).
 SUBTASK 74-21-01-110-001-F00
 WARNING
@@ -1556,53 +1470,53 @@ YOU USE THE CLEANING SOLVENT . KEEP THE CLEANING SOLVENT AWAY
 FROM SPARKS, FLAME AND HEAT . THE CLEANING SOLVENT IS
 POISONOUS AND FLAMMABLE AND CAN CAUSE INJURY TO PERSONS OR
 DAMAGE TO EQUIPMENT .
-(2) Clean the contact with a lint-free cloth, G00834 that is moist with solvent, B00683 [CP1008],
-solvent, B00682 [CP2011] or alcohol, B00676 [CP1041].
-H. Put the Airplane Back to Its Usual Condition
-SUBTASK 74-21-01-420-002-F00
-(1) Do these steps to connect the ignition lead [2] to the aft side of the ignition exciter:
-(a) Remove the protective cover from the ignition exciter.
-(b) Connect the ignition lead [2] to the aft side of the ignition exciter.
-(c) Tighten the connector nut on the ignition lead [2] to 140 in-lb (16 N·m) – 160 in-lb
+<strong class="step-marker">(2)</strong> Clean the contact with a lint-free cloth, G00834 that is moist with solvent, B00683 [CP1008],
+solvent, B00682 [CP2011] or alcohol, B00676 [CP1041].</p></section>
+<section class="field letter-field" data-letter="H"><h3>H. Put the Airplane Back to Its Usual Condition</h3><p class="section-text">SUBTASK 74-21-01-420-002-F00
+<strong class="step-marker">(1)</strong> Do these steps to connect the ignition lead [2] to the aft side of the ignition exciter:
+<strong class="step-marker">(a)</strong> Remove the protective cover from the ignition exciter.
+<strong class="step-marker">(b)</strong> Connect the ignition lead [2] to the aft side of the ignition exciter.
+<strong class="step-marker">(c)</strong> Tighten the connector nut on the ignition lead [2] to 140 in-lb (16 N·m) – 160 in-lb
 (18 N·m).
 SUBTASK 74-21-01-410-004-F00
-(2) Do this task: Close the Fan Cowl Panels, TASK 71-11-02-410-801-F00.
+<strong class="step-marker">(2)</strong> Do this task: Close the Fan Cowl Panels, TASK 71-11-02-410-801-F00.
 SUBTASK 74-21-01-860-024-F00
-(3) For Engine 1, remove the safety tags and close these circuit breakers:
+<strong class="step-marker">(3)</strong> For Engine 1, remove the safety tags and close these circuit breakers:
 CAPT Electrical System Panel, P18-2
 Row Col Number Name
 A 1 C00458 ENGINE 1 IGNITION RIGHT
 A 3 C00153 ENGINE 1 IGNITION LEFT
 SUBTASK 74-21-01-860-025-F00
-(4) For Engine 2, remove the safety tags and close these circuit breakers:
+<strong class="step-marker">(4)</strong> For Engine 2, remove the safety tags and close these circuit breakers:
 F/O Electrical System Panel, P6-2
 Row Col Number Name
 D 4 C00459 ENGINE 2 IGNITION RIGHT
 D 6 C00151 ENGINE 2 IGNITION LEFT
 SUBTASK 74-21-01-860-005-F00
-(5) Remove the DO NOT OPERATE tags, STD-858 from the start lever and the engine start
-switch.
-I. Ignition Lead Test
-SUBTASK 74-21-01-700-004-F00
-(1) Do the test(s) listed in the Power Plant Test Reference Table (TASK 71-00-00-800-811-F00).</pre></div>
+<strong class="step-marker">(5)</strong> Remove the DO NOT OPERATE tags, STD-858 from the start lever and the engine start
+switch.</p></section>
+<section class="field letter-field" data-letter="I"><h3>I. Ignition Lead Test</h3><p class="section-text">SUBTASK 74-21-01-700-004-F00
+<strong class="step-marker">(1)</strong> Do the test(s) listed in the Power Plant Test Reference Table (TASK 71-00-00-800-811-F00).</p></section>
+  </div>
 </details>
   </div>
 </section>
-<section class="system-section" id="section-74-21-02">
-  <div class="section-title"><h2>ATA 74-21-02 - Section</h2><span>4 tasks</span></div>
-  <div class="task-list">
-<details class="task" id="task-74-21-02-000-801-F00" data-section="74-21-02">
-  <summary><span class="task-head"><span class="task-code">74-21-02-000-801-F00</span><span class="task-name">Main Igniter Plug Removal</span></span><span class="task-page">PDF p. 65</span></summary>
-  <div class="task-body"><a class="source-link" href="file:///C:/Users/javie/Desktop/Proyecto%20B737NG/MANUALES/AMM/74_F__091.PDF#page=65" target="_blank" rel="noopener">Open original AMM PDF - page 65 <span aria-hidden="true">↗</span></a>
-    <pre class="procedure">2. Main Igniter Plug Removal
-(Figure 401 or Figure 402 or Figure 403 or Figure 404)
-A. General
-(1) This task provides the instructions on how to remove the main igniter plug.
-(2) There are two main igniter plugs on each engine.
-(a) Main igniter plugs are installed on the combustion case at the 4:00 (right ignition) and
-8:00 (left ignition) o'clock positions.
-B. References
-Reference Title
+<section class="system-section">
+  <div class="section-title"><h2>ATA 74 · 74-21-02</h2><span>4 tasks</span></div>
+  <div class="fault-list">
+<details class="fault" id="task-74-21-02-000-801-F00">
+  <summary>
+    <span class="fault-head"><span class="fault-code">74-21-02-000-801-F00</span><span class="fault-name">Main Igniter Plug Removal</span></span>
+    <span class="task-badge">ATA 74 · Task 000-801-F00</span>
+  </summary>
+  <div class="fields">
+<section class="field description letter-field"><h3>Task Description</h3><p class="section-text">2. Main Igniter Plug Removal
+(Figure 401 or Figure 402 or Figure 403 or Figure 404)</p></section>
+<section class="field letter-field" data-letter="A"><h3>A. General</h3><p class="section-text"><strong class="step-marker">(1)</strong> This task provides the instructions on how to remove the main igniter plug.
+<strong class="step-marker">(2)</strong> There are two main igniter plugs on each engine.
+<strong class="step-marker">(a)</strong> Main igniter plugs are installed on the combustion case at the 4:00 (right ignition) and
+8:00 (left ignition) o'clock positions.</p></section>
+<section class="field letter-field" data-letter="B"><h3>B. References</h3><p class="section-text">Reference Title
 71-11-02-010-801-F00 Open the Fan Cowl Panels (P/B 201)
 72-00-00-200-807-F00 HPT Blades Borescope Inspection (P/B 601)
 73-11-04-000-804-F02 Fuel Nozzle Removal (P/B 401)
@@ -1610,56 +1524,53 @@ Reference Title
 74-21-02-200-801-F00 Main Igniter Plug Inspection (P/B 601)
 78-31-00-010-801-F00 Open the Thrust Reverser (Selection) (P/B 201)
 78-31-00-040-802-F00 Thrust Reverser Deactivation For Ground Maintenance
-(P/B 201)
-C. Tools/Equipment
-NOTE: When more than one tool part number is listed under the same "Reference" number, the
+(P/B 201)</p></section>
+<section class="field letter-field" data-letter="C"><h3>C. Tools/Equipment</h3><p class="section-text">NOTE: When more than one tool part number is listed under the same "Reference" number, the
 tools shown are alternates to each other within the same airplane series. Tool part numbers
 that are replaced or non-procurable are preceded by "Opt:", which stands for Optional.
 Reference Description
 SPL-2332 Borescope Blend Tool
 Part #: 5.08136.001 Supplier: 50958
-STD-858 Tag - DO NOT OPERATE
-D. Location Zones
-Zone Area
+STD-858 Tag - DO NOT OPERATE</p></section>
+<section class="field letter-field" data-letter="D"><h3>D. Location Zones</h3><p class="section-text">Zone Area
 411 Engine 1 - Engine
 421 Engine 2 - Engine
-74-21-02
-E. Prepare for the Removal
-SUBTASK 74-21-02-860-013-F00
-(1) For Engine 1, open these circuit breakers and install safety tags:
+74-21-02</p></section>
+<section class="field letter-field" data-letter="E"><h3>E. Prepare for the Removal</h3><p class="section-text">SUBTASK 74-21-02-860-013-F00
+<strong class="step-marker">(1)</strong> For Engine 1, open these circuit breakers and install safety tags:
 CAPT Electrical System Panel, P18-2
 Row Col Number Name
 A 1 C00458 ENGINE 1 IGNITION RIGHT
 A 3 C00153 ENGINE 1 IGNITION LEFT
 SUBTASK 74-21-02-860-014-F00
-(2) For Engine 2, open these circuit breakers and install safety tags:
+<strong class="step-marker">(2)</strong> For Engine 2, open these circuit breakers and install safety tags:
 F/O Electrical System Panel, P6-2
 Row Col Number Name
 D 4 C00459 ENGINE 2 IGNITION RIGHT
 D 6 C00151 ENGINE 2 IGNITION LEFT
 SUBTASK 74-21-02-860-003-F00
-(3) Make sure that the start lever is in the CUTOFF position and install a DO NOT OPERATE tag,
+<strong class="step-marker">(3)</strong> Make sure that the start lever is in the CUTOFF position and install a DO NOT OPERATE tag,
 STD-858.
 SUBTASK 74-21-02-860-004-F00
-(4) Make sure that the engine start switches are off and install a DO NOT OPERATE tags,
+<strong class="step-marker">(4)</strong> Make sure that the engine start switches are off and install a DO NOT OPERATE tags,
 STD-858.
 SUBTASK 74-21-02-010-001-F00
-(5) Do these tasks in sequence to safely open the left and right thrust reversers on the applicable
+<strong class="step-marker">(5)</strong> Do these tasks in sequence to safely open the left and right thrust reversers on the applicable
 engine:
 WARNING
 DO THE DEACTIVATION PROCEDURE FOR THE THRUST REVERSER
 TO PREVENT THE OPERATION OF THE THRUST REVERSER.
 ACCIDENTAL OPERATION OF THE THRUST REVERSER CAN CAUSE
 INJURIES TO PERSONS OR DAMAGE TO EQUIPMENT .
-(a) Do this task: Thrust Reverser Deactivation for Ground Maintenance,
+<strong class="step-marker">(a)</strong> Do this task: Thrust Reverser Deactivation for Ground Maintenance,
 TASK 78-31-00-040-802-F00.
-(b) Open the left and right fan cowl panels (TASK 71-11-02-010-801-F00).
+<strong class="step-marker">(b)</strong> Open the left and right fan cowl panels (TASK 71-11-02-010-801-F00).
 WARNING
 OBEY THE INSTRUCTIONS IN THE PROCEDURE TO OPEN THE
 THRUST REVERSERS. IF YOU DO NOT OBEY THE INSTRUCTIONS,
 INJURIES TO PERSONS AND DAMAGE TO EQUIPMENT CAN OCCUR.
-(c) Open the left and right thrust reversers (TASK 78-31-00-010-801-F00).
-F . Main Igniter Plug Removal
+<strong class="step-marker">(c)</strong> Open the left and right thrust reversers (TASK 78-31-00-010-801-F00).
+<strong class="section-marker">F. Main Igniter Plug Removal</strong>
 SUBTASK 74-21-02-020-002-F00
 WARNING
 MAKE SURE THAT THE IGNITION EXCITERS ARE DE-ENERGIZED FOR A
@@ -1688,11 +1599,11 @@ MAKE SURE THAT YOUR HANDS AND TOOLS ARE CLEAN. DO NOT TOUCH
 THE IGNITION LEAD OR THE IGNITER PLUG WITH DIRT OR GREASE ON
 HANDS OR TOOLS. DIRT AND GREASE WILL CAUSE DAMAGE TO THE
 IGNITION LEAD AND THE IGNITER PLUG.
-(1) Wait a minimum of five minutes after removal of power from the ignition system before the next
+<strong class="step-marker">(1)</strong> Wait a minimum of five minutes after removal of power from the ignition system before the next
 step.
 SUBTASK 74-21-02-020-003-F00
-(2) Disconnect the ignition lead [4] from the main igniter plug [6] as follows:
-(a) Remove the cooling shroud clamp [2].
+<strong class="step-marker">(2)</strong> Disconnect the ignition lead [4] from the main igniter plug [6] as follows:
+<strong class="step-marker">(a)</strong> Remove the cooling shroud clamp [2].
 1) Remove the cooling shrouds [1].
 CAUTION
 MAKE SURE THAT THE HINGE CLAMP NEAREST TO THE MAIN
@@ -1700,34 +1611,34 @@ IGNITER PLUG IS LOOSE OR REMOVED BEFORE YOU REMOVE THE
 IGNITION LEAD FROM THE MAIN IGNITER PLUG. IF YOU DO NOT
 OBEY , DAMAGE TO THE CERAMIC TIP OF THE MAIN IGNITER PLUG
 CAN OCCUR.
-(b) Loosen the bolt [11] on the loop clamp [10] on the ignition lead [4] nearest to the igniter
+<strong class="step-marker">(b)</strong> Loosen the bolt [11] on the loop clamp [10] on the ignition lead [4] nearest to the igniter
 plug [6].
 1) If it is necessary, remove the bolt [11] and loop clamp [10] from the ignition lead [4].
-(c) Loosen the coupling nut [3] to disconnect the ignition lead [4] from the main igniter
+<strong class="step-marker">(c)</strong> Loosen the coupling nut [3] to disconnect the ignition lead [4] from the main igniter
 plug [6].
 CAUTION
 DO NOT TWIST OR BEND THE IGNITION LEAD. YOU CAN CAUSE
 DAMAGE TO THE CONDUIT AND THE INTERNAL WIRES.
-(d) Pull the ignition lead [4] straight out until it is free from the main igniter plug [6].
+<strong class="step-marker">(d)</strong> Pull the ignition lead [4] straight out until it is free from the main igniter plug [6].
 74-21-02
 WARNING
 AFTER YOU REMOVE THE IGNITION LEADS FROM THE IGNITER
 PLUG, MAKE SURE THAT YOU MANUALLY GROUND THE IGNITION
 LEAD. IF YOU DO NOT GROUND THE IGNITION LEAD, YOU CAN
 CAUSE INJURY TO PERSONS AND DAMAGE TO EQUIPMENT .
-(e) Remove the outer silicone seal [5].
+<strong class="step-marker">(e)</strong> Remove the outer silicone seal [5].
 1) Discard the outer silicone seal [5].
-(f) Put a protective cover on the ignition lead [4].
+<strong class="step-marker">(f)</strong> Put a protective cover on the ignition lead [4].
 SUBTASK 74-21-02-020-004-F00
 CAUTION
 DO NOT REMOVE THE IGNITER BUSHING AS PART OF THE IGNITER PLUG
 REMOVAL PROCEDURE. THE IGNITER PLUG IMMERSION CAN BE
 DAMAGED.
-(3) Remove the main igniter plug [6] as follows:
-(a) Hold the igniter bushing.
-(b) Remove the main igniter plug [6] from the igniter bushing.
-(c) Make sure to remove the captive washer with the main igniter plug [6].
-(d) If the main igniter plug [6] seized in the combustion case, do the following steps
+<strong class="step-marker">(3)</strong> Remove the main igniter plug [6] as follows:
+<strong class="step-marker">(a)</strong> Hold the igniter bushing.
+<strong class="step-marker">(b)</strong> Remove the main igniter plug [6] from the igniter bushing.
+<strong class="step-marker">(c)</strong> Make sure to remove the captive washer with the main igniter plug [6].
+<strong class="step-marker">(d)</strong> If the main igniter plug [6] seized in the combustion case, do the following steps
 (Figure 404):
 1) For the applicable location, enter through the borescope ports S12, S13, S14, or
 S15 with a borescope probe and a vacuum hose.
@@ -1762,58 +1673,42 @@ OBJECT DAMAGE (DOD) TO EQUIPMENT .
 igniter tip shell from the inner walls.
 8) Remove all remaining section of the igniter plug and make sure to clean off any
 debris from the area with a vacuum hose.
-(e) Examine the spark igniter shell (TASK 74-21-02-200-801-F00).
+<strong class="step-marker">(e)</strong> Examine the spark igniter shell (TASK 74-21-02-200-801-F00).
 1) If you find missing material on the tip shell or the ceramic insulator, do this step:
 a) Do a borescope inspection of the High Pressure Turbine (HPT) blades, to look
 for damage from the missing igniter material (TASK 72-00-00-200-807-F00).
 SUBTASK 74-21-02-020-005-F00
-(4) If it is necessary to remove the igniter bushing, do the steps that follow:
-(a) Remove the safety wire and the three bolts.
-(b) Remove the igniter bushing and igniter plug gasket(s).</pre></div>
+<strong class="step-marker">(4)</strong> If it is necessary to remove the igniter bushing, do the steps that follow:
+<strong class="step-marker">(a)</strong> Remove the safety wire and the three bolts.
+<strong class="step-marker">(b)</strong> Remove the igniter bushing and igniter plug gasket(s).</p></section>
+  </div>
 </details>
-<details class="task" id="task-74-21-02-400-801-F00" data-section="74-21-02">
-  <summary><span class="task-head"><span class="task-code">74-21-02-400-801-F00</span><span class="task-name">Main Igniter Plug Installation</span></span><span class="task-page">PDF p. 75</span></summary>
-  <div class="task-body"><a class="source-link" href="file:///C:/Users/javie/Desktop/Proyecto%20B737NG/MANUALES/AMM/74_F__091.PDF#page=75" target="_blank" rel="noopener">Open original AMM PDF - page 75 <span aria-hidden="true">↗</span></a>
-    <pre class="procedure">3. Main Igniter Plug Installation
-(Figure 401 or Figure 402 or Figure 403)
-A. General
-(1) This task provides the instructions on how to install the main igniter plug.
-B. References
-Reference Title
+<details class="fault" id="task-74-21-02-400-801-F00">
+  <summary>
+    <span class="fault-head"><span class="fault-code">74-21-02-400-801-F00</span><span class="fault-name">Main Igniter Plug Installation</span></span>
+    <span class="task-badge">ATA 74 · Task 400-801-F00</span>
+  </summary>
+  <div class="fields">
+<section class="field description letter-field"><h3>Task Description</h3><p class="section-text">3. Main Igniter Plug Installation
+(Figure 401 or Figure 402 or Figure 403)</p></section>
+<section class="field letter-field" data-letter="A"><h3>A. General</h3><p class="section-text"><strong class="step-marker">(1)</strong> This task provides the instructions on how to install the main igniter plug.</p></section>
+<section class="field letter-field" data-letter="B"><h3>B. References</h3><p class="section-text">Reference Title
 71-00-00-800-811-F00 Power Plant Test Reference Table (P/B 501)
 71-11-02-410-801-F00 Close the Fan Cowl Panels (P/B 201)
 74-21-01-000-801-F00 Ignition Lead Removal (P/B 401)
 74-21-01-400-801-F00 Ignition Lead Installation (P/B 401)
 78-31-00-010-804-F00 Close the Thrust Reverser (Selection) (P/B 201)
-78-31-00-440-803-F00 Thrust Reverser Activation After Ground Maintenance (P/B 201)
-C. Tools/Equipment
-NOTE: When more than one tool part number is listed under the same "Reference" number, the
+78-31-00-440-803-F00 Thrust Reverser Activation After Ground Maintenance (P/B 201)</p></section>
+<section class="field letter-field" data-letter="C"><h3>C. Tools/Equipment</h3><p class="section-text">NOTE: When more than one tool part number is listed under the same "Reference" number, the
 tools shown are alternates to each other within the same airplane series. Tool part numbers
 that are replaced or non-procurable are preceded by "Opt:", which stands for Optional.
 Reference Description
 COM-10504 Tool - Polishing, Contact
 Part #: 11-10786-1 Supplier: 59501
 STD-25698 Pin - Alignment (Drift Pin) 0.375 Inch Maximum Diameter, Plastic or
-Brass
-D. Consumable Materials
-Reference Description Specification
-D00601 [CP2101] Vaseline - Graphite Mineral
-D50043 [C02-058] Compound - Antiseize, Acheson GP460 (For
-Threaded Fasteners 0.250 Inches Diameter
-Or Larger, C02-079 Is An Alternative)
-GE A50TF201 Class A
-D50186 [CP2691] Fluid - Penetrating - Aerokroil
-G50138 Cloth - Soft Cotton
-G51027 Cleaner - Flux-Off CZ Flux Remover (ITW
-Chemtronics - ES7200)
-E. Expendables/Parts
-AMM Item Description AIPC Reference AIPC Effectivity
-5 Outer silicone seal 74-21-02-01-045 RYR 006, 007, 013, 014,
-018, 019, 043, 044,
-056-063, 067-078, 081,
-083-103, 111-114,
-121-129, 131, 132, 135
-74-21-02
+Brass</p></section>
+<section class="field letter-field" data-letter="D"><h3>D. Consumable Materials</h3><p class="section-text"></p></section>
+<section class="field letter-field" data-letter="E"><h3>E. Expendables/Parts</h3><p class="section-text">74-21-02
 (Continued)
 AMM Item Description AIPC Reference AIPC Effectivity
 5 (cont.) 74-21-02-01A-080 RYR 014, 068, 087, 090,
@@ -1851,14 +1746,13 @@ AMM Item Description AIPC Reference AIPC Effectivity
 083-103, 111-114,
 121-129, 131, 132, 135,
 143, 147, 152, 167, 177
-F . Location Zones
+<strong class="section-marker">F. Location Zones</strong>
 Zone Area
 411 Engine 1 - Engine
-421 Engine 2 - Engine
-G. Prepare for the Installation
-SUBTASK 74-21-02-210-007-F00
-(1) Examine the contact on the igniter plug end of the ignition lead for erosion, arcing marks, pits.
-(a) Erosion, arcing marks, pits on the contact are not permitted and if you see these
+421 Engine 2 - Engine</p></section>
+<section class="field letter-field" data-letter="G"><h3>G. Prepare for the Installation</h3><p class="section-text">SUBTASK 74-21-02-210-007-F00
+<strong class="step-marker">(1)</strong> Examine the contact on the igniter plug end of the ignition lead for erosion, arcing marks, pits.
+<strong class="step-marker">(a)</strong> Erosion, arcing marks, pits on the contact are not permitted and if you see these
 conditions, polish the ignition lead contact as follows:
 NOTE: The lead must be overhauled if contact surface cannot be made completely free
 of pits and arc marks.
@@ -1883,53 +1777,52 @@ VAPORS. WASH HANDS IMMEDIATELY AFTER CONTACT WITH
 SOLVENTS. USE OF PROTECTIVE GLOVES IS RECOMMENDED.
 5) Remove the tool and clean the terminal with a clean soft cotton cloth, G50138,
 moist with Flux-Off CZ cleaner, G51027.
-(b) Measure the dimension from the contact face to the retaining ring groove.
+<strong class="step-marker">(b)</strong> Measure the dimension from the contact face to the retaining ring groove.
 1) The limit is 0.055 in. (1.40 mm) minimum.
 SUBTASK 74-21-02-210-008-F00
 CAUTION
 DO NOT PULL ON THE CONTACT AND CERAMIC INSULATOR. THIS CAN
 CAUSE DAMAGE TO THE SILICONE INSULATION.
-(2) Examine the ceramic insulator on the igniter plug end of the ignition lead for cracks or chips.
-(a) Cracks or chips are not permitted.
+<strong class="step-marker">(2)</strong> Examine the ceramic insulator on the igniter plug end of the ignition lead for cracks or chips.
+<strong class="step-marker">(a)</strong> Cracks or chips are not permitted.
 1) If cracks or chips are found, replace the lead (TASK 74-21-01-000-801-F00 and
-TASK 74-21-01-400-801-F00).
-H. Main Igniter Plug Installation
-SUBTASK 74-21-02-820-001-F00
+TASK 74-21-01-400-801-F00).</p></section>
+<section class="field letter-field" data-letter="H"><h3>H. Main Igniter Plug Installation</h3><p class="section-text">SUBTASK 74-21-02-820-001-F00
 CAUTION
 ALIGN THE COMBUSTION CHAMBER FERRULE WITH THE IGNITER BOSS
 BEFORE YOU INSTALL THE MAIN IGNITER PLUG. IF YOU DO NOT OBEY ,
 DAMAGE TO THE MAIN IGNITER PLUG CAN OCCUR.
-(1) Align the combustion chamber ferrule with the igniter boss as follows:
+<strong class="step-marker">(1)</strong> Align the combustion chamber ferrule with the igniter boss as follows:
 74-21-02
-(a) Put an alignment pin, STD-25698, through the igniter bushing on the combustion case
+<strong class="step-marker">(a)</strong> Put an alignment pin, STD-25698, through the igniter bushing on the combustion case
 and the combustion chamber ferrule.
 NOTE: The ferrule is on the combustion chamber in the engine. The combustion
 chamber ferrule floats on the combustion chamber. It can become out of line with
 the igniter bushing.
 NOTE: The alignment pin, STD-25698, should have a maximum diameter of 0.375 in.
 (9.52 mm).
-(b) Align the combustion chamber ferrule and the igniter bushing with the alignment pin,
+<strong class="step-marker">(b)</strong> Align the combustion chamber ferrule and the igniter bushing with the alignment pin,
 STD-25698.
 NOTE: Apply penetrating fluid, D50186 [CP2691], to the combustion chamber ferrule if
 the combustion chamber ferrule is difficult to move.
 SUBTASK 74-21-02-420-002-F00
-(2) Install the main igniter plug [6] as follows:
+<strong class="step-marker">(2)</strong> Install the main igniter plug [6] as follows:
 CAUTION
 MAKE SURE THAT YOUR HANDS AND TOOLS ARE CLEAN. DO NOT
 TOUCH THE IGNITION LEAD OR THE IGNITER PLUG WITH DIRT OR
 GREASE ON HANDS OR TOOLS. DIRT AND GREASE WILL CAUSE
 DAMAGE TO THE IGNITION LEAD AND THE IGNITER PLUG.
-(a) Apply a small amount of graphite mineral vaseline, D00601 [CP2101], or Acheson GP460
+<strong class="step-marker">(a)</strong> Apply a small amount of graphite mineral vaseline, D00601 [CP2101], or Acheson GP460
 compound, D50043 [C02-058], to the threads on the combustion-case-side of the main
 igniter plug [6].
-(b) Install the main igniter plug [6] into the igniter bushing.
+<strong class="step-marker">(b)</strong> Install the main igniter plug [6] into the igniter bushing.
 1) Make sure to install the captive washer with the main igniter plug [6].
 2) Hold the igniter bushing.
 3) Install the main igniter plug [6] into the igniter bushing by hand until it touches the
 bottom.
 4) Tighten the main igniter plug [6] to 274 ±14 in-lb (31.0 ±1.6 N·m).
 SUBTASK 74-21-02-420-003-F00
-(3) Connect the ignition lead [4] to the main igniter plug [6] as follows:
+<strong class="step-marker">(3)</strong> Connect the ignition lead [4] to the main igniter plug [6] as follows:
 CAUTION
 DO NOT APPLY GREASE OR LUBRICANT TO THE THREADS OF THE
 CONNECTOR ON THE IGNITION LEAD. GREASE AND LUBRICANTS
@@ -1938,100 +1831,64 @@ PLUG.
 CAUTION
 DO NOT TWIST OR BEND THE IGNITION LEAD. YOU CAN CAUSE
 DAMAGE TO THE CONDUIT AND THE INTERNAL WIRES.
-(a) Remove the protective cover from the ignition lead [4].
-(b) Install the outer silicone seal [5].
-(c) Install the ignition lead [4] into the main igniter plug [6].
+<strong class="step-marker">(a)</strong> Remove the protective cover from the ignition lead [4].
+<strong class="step-marker">(b)</strong> Install the outer silicone seal [5].
+<strong class="step-marker">(c)</strong> Install the ignition lead [4] into the main igniter plug [6].
 1) Tighten the coupling nut [3] to 275 ±15 in-lb (31.1 ±1.7 N·m).
 SUBTASK 74-21-02-420-004-F00
-(4) Install the loop clamp [10] as follows:
+<strong class="step-marker">(4)</strong> Install the loop clamp [10] as follows:
 74-21-02
-(a) Put the loop clamp [10] around the ignition lead [4].
-(b) Apply graphite mineral vaseline, D00601 [CP2101], to the threads of the bolt [11].
-(c) Loosely install the bolt [11] that attaches the loop clamp [10] to the bracket.
-(d) If it is necessary, move the ignition lead [4] until it does not touch the other parts.
-(e) Tighten the bolt [11] to 63 ±3 in-lb (7.1 ±0.3 N·m).
+<strong class="step-marker">(a)</strong> Put the loop clamp [10] around the ignition lead [4].
+<strong class="step-marker">(b)</strong> Apply graphite mineral vaseline, D00601 [CP2101], to the threads of the bolt [11].
+<strong class="step-marker">(c)</strong> Loosely install the bolt [11] that attaches the loop clamp [10] to the bracket.
+<strong class="step-marker">(d)</strong> If it is necessary, move the ignition lead [4] until it does not touch the other parts.
+<strong class="step-marker">(e)</strong> Tighten the bolt [11] to 63 ±3 in-lb (7.1 ±0.3 N·m).
 SUBTASK 74-21-02-420-005-F00
-(5) Install the cooling shrouds [1] to the ignition lead [4] as follows:
-(a) Install the cooling shrouds [1] on the flange of the ignition lead [4] with the cooling shroud
+<strong class="step-marker">(5)</strong> Install the cooling shrouds [1] to the ignition lead [4] as follows:
+<strong class="step-marker">(a)</strong> Install the cooling shrouds [1] on the flange of the ignition lead [4] with the cooling shroud
 clamp [2].
-(b) Tighten the cooling shroud clamp [2] to 35 ±2 in-lb (4.0 ±0.2 N·m).
-I. Put the Airplane Back to Its Usual Condition
-SUBTASK 74-21-02-410-002-F00
+<strong class="step-marker">(b)</strong> Tighten the cooling shroud clamp [2] to 35 ±2 in-lb (4.0 ±0.2 N·m).</p></section>
+<section class="field letter-field" data-letter="I"><h3>I. Put the Airplane Back to Its Usual Condition</h3><p class="section-text">SUBTASK 74-21-02-410-002-F00
 WARNING
 OBEY THE INSTRUCTIONS IN THE PROCEDURE TO CLOSE THE THRUST
 REVERSERS. IF YOU DO NOT OBEY THE INSTRUCTIONS, INJURIES TO
 PERSONS AND DAMAGE TO EQUIPMENT CAN OCCUR.
-(1) Do these tasks in sequence to safely close the left and right thrust reversers:
-(a) Do this task: Close the Thrust Reverser (Selection), TASK 78-31-00-010-804-F00.
-(b) Do this task: Close the Fan Cowl Panels, TASK 71-11-02-410-801-F00.
-(c) Do this task: Thrust Reverser Activation after Ground Maintenance,
+<strong class="step-marker">(1)</strong> Do these tasks in sequence to safely close the left and right thrust reversers:
+<strong class="step-marker">(a)</strong> Do this task: Close the Thrust Reverser (Selection), TASK 78-31-00-010-804-F00.
+<strong class="step-marker">(b)</strong> Do this task: Close the Fan Cowl Panels, TASK 71-11-02-410-801-F00.
+<strong class="step-marker">(c)</strong> Do this task: Thrust Reverser Activation after Ground Maintenance,
 TASK 78-31-00-440-803-F00.
 SUBTASK 74-21-02-860-017-F00
-(2) For Engine 1, remove the safety tags and close these circuit breakers:
+<strong class="step-marker">(2)</strong> For Engine 1, remove the safety tags and close these circuit breakers:
 CAPT Electrical System Panel, P18-2
 Row Col Number Name
 A 1 C00458 ENGINE 1 IGNITION RIGHT
 A 3 C00153 ENGINE 1 IGNITION LEFT
 SUBTASK 74-21-02-860-018-F00
-(3) For Engine 2, remove the safety tags and close these circuit breakers:
+<strong class="step-marker">(3)</strong> For Engine 2, remove the safety tags and close these circuit breakers:
 F/O Electrical System Panel, P6-2
 Row Col Number Name
 D 4 C00459 ENGINE 2 IGNITION RIGHT
 D 6 C00151 ENGINE 2 IGNITION LEFT
 SUBTASK 74-21-02-860-008-F00
-(4) Remove the DO-NOT-OPERATE tags from the start lever and the engine start switches.
-J. Main Igniter Plug Test
-SUBTASK 74-21-02-700-001-F00
-(1) Do the test(s) listed in the Power Plant Test Reference Table (TASK 71-00-00-800-811-F00).</pre></div>
+<strong class="step-marker">(4)</strong> Remove the DO-NOT-OPERATE tags from the start lever and the engine start switches.</p></section>
+<section class="field letter-field" data-letter="J"><h3>J. Main Igniter Plug Test</h3><p class="section-text">SUBTASK 74-21-02-700-001-F00
+<strong class="step-marker">(1)</strong> Do the test(s) listed in the Power Plant Test Reference Table (TASK 71-00-00-800-811-F00).</p></section>
+  </div>
 </details>
-<details class="task" id="task-74-21-02-400-802-F00" data-section="74-21-02">
-  <summary><span class="task-head"><span class="task-code">74-21-02-400-802-F00</span><span class="task-name">Igniter Bushing (Igniter Adapter) Installation</span></span><span class="task-page">PDF p. 80</span></summary>
-  <div class="task-body"><a class="source-link" href="file:///C:/Users/javie/Desktop/Proyecto%20B737NG/MANUALES/AMM/74_F__091.PDF#page=80" target="_blank" rel="noopener">Open original AMM PDF - page 80 <span aria-hidden="true">↗</span></a>
-    <pre class="procedure">4. Igniter Bushing (Igniter Adapter) Installation
-(Figure 401 or Figure 402 or Figure 403)
-A. General
-(1) This procedure gives instructions to install the Igniter Bushing (Igniter Adapter).
-B. Tools/Equipment
-Reference Description
-STD-1162 Gauge - Depth
-C. Consumable Materials
-Reference Description Specification
-D00601 [CP2101] Vaseline - Graphite Mineral
-G02345 [CP8001] Wire - Safety, 0.032 Inch (0.8 mm) Diameter AMS 5687
-G02495 [CP8002] Wire - Safety, 0.032 Inch (0.8 mm) Diameter AMS5689
-G50065 [CP8006] Cable, Safety, Stainless Steel, 0.032 inch (0.8
-mm) Diameter
-M50 TF 9 CL-A
-D. Expendables/Parts
-AMM Item Description AIPC Reference AIPC Effectivity
-9 Igniter plug gasket 74-21-02-01-035 RYR 006, 007, 013, 014,
-018, 019, 043, 044,
-056-063, 067-078, 081,
-083-103, 111-114,
-121-129, 131, 132, 135
-74-21-02-01-075 RYR 006, 007, 013, 014,
-018, 019, 043, 044,
-056-063, 067-078, 081,
-083-103, 111-114,
-121-129, 131, 132, 135
-74-21-02-01A-060 RYR 315-317, 322-341,
-343, 346-999
-74-21-02-01A-105 RYR 014, 068, 087, 090,
-111, 125, 128, 138-168,
-174-179, 182-187,
-189-203, 205-209,
-212-220, 223, 224,
-231-236, 239-298,
-301-304, 306, 308,
-315-317, 322-341, 343,
-346-999
-74-21-02-01B-035 RYR 006, 007, 013, 014,
-018, 019, 043, 044,
-056-063, 067-078, 081,
-083-103, 111-114,
-121-129, 131, 132, 135,
-143, 147, 152, 167, 177
-74-21-02
+<details class="fault" id="task-74-21-02-400-802-F00">
+  <summary>
+    <span class="fault-head"><span class="fault-code">74-21-02-400-802-F00</span><span class="fault-name">Igniter Bushing (Igniter Adapter) Installation</span></span>
+    <span class="task-badge">ATA 74 · Task 400-802-F00</span>
+  </summary>
+  <div class="fields">
+<section class="field description letter-field"><h3>Task Description</h3><p class="section-text">4. Igniter Bushing (Igniter Adapter) Installation
+(Figure 401 or Figure 402 or Figure 403)</p></section>
+<section class="field letter-field" data-letter="A"><h3>A. General</h3><p class="section-text"><strong class="step-marker">(1)</strong> This procedure gives instructions to install the Igniter Bushing (Igniter Adapter).</p></section>
+<section class="field letter-field" data-letter="B"><h3>B. Tools/Equipment</h3><p class="section-text">Reference Description
+STD-1162 Gauge - Depth</p></section>
+<section class="field letter-field" data-letter="C"><h3>C. Consumable Materials</h3><p class="section-text"></p></section>
+<section class="field letter-field" data-letter="D"><h3>D. Expendables/Parts</h3><p class="section-text">74-21-02
 (Continued)
 AMM Item Description AIPC Reference AIPC Effectivity
 9 (cont.) 74-21-02-01B-085 RYR 006, 007, 013, 014,
@@ -2039,64 +1896,61 @@ AMM Item Description AIPC Reference AIPC Effectivity
 056-063, 067-078, 081,
 083-103, 111-114,
 121-129, 131, 132, 135,
-143, 147, 152, 167, 177
-E. Location Zones
-Zone Area
+143, 147, 152, 167, 177</p></section>
+<section class="field letter-field" data-letter="E"><h3>E. Location Zones</h3><p class="section-text">Zone Area
 411 Engine 1 - Engine
 421 Engine 2 - Engine
-F . Igniter Bushing Installation
+<strong class="section-marker">F. Igniter Bushing Installation</strong>
 SUBTASK 74-21-02-420-007-F00
-(1) Install the igniter bushing [8] as follows:
+<strong class="step-marker">(1)</strong> Install the igniter bushing [8] as follows:
 NOTE: The depth of the igniter plug is controlled by the igniter bushing (igniter adapter) and
 the igniter plug gasket(s). Each gasket is 0.015 in. (0.381 mm) thick.
-(a) Install four igniter plug gaskets [9] between the igniter bushing [8] and the combustion
+<strong class="step-marker">(a)</strong> Install four igniter plug gaskets [9] between the igniter bushing [8] and the combustion
 case boss.
-(b) Apply graphite mineral vaseline, D00601 [CP2101] to the threads of the bolts [7].
-(c) Install the igniter bushing [8] on the combustion case with the three bolts [7].
+<strong class="step-marker">(b)</strong> Apply graphite mineral vaseline, D00601 [CP2101] to the threads of the bolts [7].
+<strong class="step-marker">(c)</strong> Install the igniter bushing [8] on the combustion case with the three bolts [7].
 1) Tighten the bolts to between 110 in-lb (12.4 N·m) and 120 in-lb (13.6 N·m).
-(d) Measure the Dimension Z (Igniter Plug Immersion). Dimension Z is measured from the
+<strong class="step-marker">(d)</strong> Measure the Dimension Z (Igniter Plug Immersion). Dimension Z is measured from the
 combustion chamber outer liner inner surface to the top of the igniter bushing [8] as
 follows (Refer to Figure 402):
 1) Measure at the aft spot of the igniter hole with a depth gauge, STD-1162.
 2) Make a record of this value.
-(e) Dimension Z must be between 2.529 in. (64.237 mm) and 2.545 in. (64.643 mm).
-(f) If Dimension Z is not in the limits, adjust the number of igniter plug gaskets [9] (total of
+<strong class="step-marker">(e)</strong> Dimension Z must be between 2.529 in. (64.237 mm) and 2.545 in. (64.643 mm).
+<strong class="step-marker">(f)</strong> If Dimension Z is not in the limits, adjust the number of igniter plug gaskets [9] (total of
 one minimum to eight maximum) to get the correct Dimension Z.
 1) Tighten the bolts [7] to between 110 in-lb (12.4 N·m) and 120 in-lb (13.6 N·m).
 2) Make sure Dimension Z is still in the limits.
-(g) Use safety wire, G02345 [CP8001]/safety wire, G02495 [CP8002] or safety safety cable,
-G50065 [CP8006] to attach the bolts together.
-G. Install the Main Igniter Plug
-SUBTASK 74-21-02-420-008-F00
-(1) Install the Main Igniter Plug (TASK 74-21-02-400-801-F00).</pre></div>
+<strong class="step-marker">(g)</strong> Use safety wire, G02345 [CP8001]/safety wire, G02495 [CP8002] or safety safety cable,
+G50065 [CP8006] to attach the bolts together.</p></section>
+<section class="field letter-field" data-letter="G"><h3>G. Install the Main Igniter Plug</h3><p class="section-text">SUBTASK 74-21-02-420-008-F00
+<strong class="step-marker">(1)</strong> Install the Main Igniter Plug (TASK 74-21-02-400-801-F00).</p></section>
+  </div>
 </details>
-<details class="task" id="task-74-21-02-200-801-F00" data-section="74-21-02">
-  <summary><span class="task-head"><span class="task-code">74-21-02-200-801-F00</span><span class="task-name">Main Igniter Plug Inspection</span></span><span class="task-page">PDF p. 83</span></summary>
-  <div class="task-body"><a class="source-link" href="file:///C:/Users/javie/Desktop/Proyecto%20B737NG/MANUALES/AMM/74_F__091.PDF#page=83" target="_blank" rel="noopener">Open original AMM PDF - page 83 <span aria-hidden="true">↗</span></a>
-    <pre class="procedure">2. Main Igniter Plug Inspection
-(Figure 601)
-A. General
-(1) This task provides the instructions on how to examine the main igniter plug.
-B. References
-Reference Title
+<details class="fault" id="task-74-21-02-200-801-F00">
+  <summary>
+    <span class="fault-head"><span class="fault-code">74-21-02-200-801-F00</span><span class="fault-name">Main Igniter Plug Inspection</span></span>
+    <span class="task-badge">ATA 74 · Task 200-801-F00</span>
+  </summary>
+  <div class="fields">
+<section class="field description letter-field"><h3>Task Description</h3><p class="section-text">2. Main Igniter Plug Inspection
+(Figure 601)</p></section>
+<section class="field letter-field" data-letter="A"><h3>A. General</h3><p class="section-text"><strong class="step-marker">(1)</strong> This task provides the instructions on how to examine the main igniter plug.</p></section>
+<section class="field letter-field" data-letter="B"><h3>B. References</h3><p class="section-text">Reference Title
 72-00-00-200-807-F00 HPT Blades Borescope Inspection (P/B 601)
 74-21-02-000-801-F00 Main Igniter Plug Removal (P/B 401)
-74-21-02-400-801-F00 Main Igniter Plug Installation (P/B 401)
-C. Location Zones
-Zone Area
+74-21-02-400-801-F00 Main Igniter Plug Installation (P/B 401)</p></section>
+<section class="field letter-field" data-letter="C"><h3>C. Location Zones</h3><p class="section-text">Zone Area
 411 Engine 1 - Engine
-421 Engine 2 - Engine
-D. Prepare for the Inspection
-SUBTASK 74-21-02-020-001-F00
-(1) Do this task: Main Igniter Plug Removal, TASK 74-21-02-000-801-F00.
-E. Main Igniter Plug Inspection
-SUBTASK 74-21-02-211-001-F00
-(1) Examine the spark igniter tip.
-(a) Holes burned through the shell are not permitted.
-(b) Distortion is not permitted.
-(c) Tips that have a crack or are damaged are not permitted.
-(d) Damaged, cracked, chipped or missing pieces on the ceramic insulator are not permitted.
-(e) Do the applicable inspection for the type of electrode as follows:
+421 Engine 2 - Engine</p></section>
+<section class="field letter-field" data-letter="D"><h3>D. Prepare for the Inspection</h3><p class="section-text">SUBTASK 74-21-02-020-001-F00
+<strong class="step-marker">(1)</strong> Do this task: Main Igniter Plug Removal, TASK 74-21-02-000-801-F00.</p></section>
+<section class="field letter-field" data-letter="E"><h3>E. Main Igniter Plug Inspection</h3><p class="section-text">SUBTASK 74-21-02-211-001-F00
+<strong class="step-marker">(1)</strong> Examine the spark igniter tip.
+<strong class="step-marker">(a)</strong> Holes burned through the shell are not permitted.
+<strong class="step-marker">(b)</strong> Distortion is not permitted.
+<strong class="step-marker">(c)</strong> Tips that have a crack or are damaged are not permitted.
+<strong class="step-marker">(d)</strong> Damaged, cracked, chipped or missing pieces on the ceramic insulator are not permitted.
+<strong class="step-marker">(e)</strong> Do the applicable inspection for the type of electrode as follows:
 RYR ALL PRE SB 737-CFM56-7B-74-0008
 1) Washer type electrode
 a) No distortion or electrode loose or missing are permitted.
@@ -2118,50 +1972,52 @@ c) Shell erosion along its axis must not be more than 0.290 in. (7.366 mm)
 measured along longest axis and no more than 0.275 in. (6.985 mm)
 measured along shortest axis.
 RYR ALL
-(f) Carbon buildup on the electrode tip or the gap area is not permitted.
+<strong class="step-marker">(f)</strong> Carbon buildup on the electrode tip or the gap area is not permitted.
 SUBTASK 74-21-02-220-001-F00
-(2) Examine the spark igniter shell as follows:
-(a) Look for worn areas where the combustion chamber ferrule touches the spark igniter.
+<strong class="step-marker">(2)</strong> Examine the spark igniter shell as follows:
+<strong class="step-marker">(a)</strong> Look for worn areas where the combustion chamber ferrule touches the spark igniter.
 1) Worn areas are permitted if not more than 0.02 in. (0.51 mm) in depth.
 2) Wear completely through the shell is not permitted.
-(b) Holes in the shell from internal arcs are not permitted.
-(c) Missing material on the tip shell or the ceramic insulator is not permitted.
+<strong class="step-marker">(b)</strong> Holes in the shell from internal arcs are not permitted.
+<strong class="step-marker">(c)</strong> Missing material on the tip shell or the ceramic insulator is not permitted.
 1) Do an inspection of the High Pressure Turbine (HPT) Blades for igniter debris
 impact (TASK 72-00-00-200-807-F00).
 SUBTASK 74-21-02-220-003-F00
-(3) Examine the terminal end of the main igniter plug.
-(a) Examine the well for dirt or grease.
+<strong class="step-marker">(3)</strong> Examine the terminal end of the main igniter plug.
+<strong class="step-marker">(a)</strong> Examine the well for dirt or grease.
 1) Dirt or grease is not permitted.
-(b) Examine the ceramic material:
+<strong class="step-marker">(b)</strong> Examine the ceramic material:
 1) Damaged, cracked, chipped or missing pieces are not permitted.
 2) Carbon tracks are not permitted.
-(c) Examine the contact for arcing or erosion.
+<strong class="step-marker">(c)</strong> Examine the contact for arcing or erosion.
 1) Arcing or erosion is not permitted.
 SUBTASK 74-21-02-900-001-F00
-(4) If you find damage that is not in the limits, replace the main igniter plug
+<strong class="step-marker">(4)</strong> If you find damage that is not in the limits, replace the main igniter plug
 (TASK 74-21-02-000-801-F00 and TASK 74-21-02-400-801-F00).
-F . Put the Airplane Back to Its Usual Condition
+<strong class="section-marker">F. Put the Airplane Back to Its Usual Condition</strong>
 SUBTASK 74-21-02-420-001-F00
-(1) Do this task: Main Igniter Plug Installation, TASK 74-21-02-400-801-F00.</pre></div>
+<strong class="step-marker">(1)</strong> Do this task: Main Igniter Plug Installation, TASK 74-21-02-400-801-F00.</p></section>
+  </div>
 </details>
   </div>
 </section>
-  </div>
-  <div class="empty" id="empty">No tasks match this search.</div>
-  <footer class="footer">Source: supplied 737 AMM chapter. Task procedures retain the extracted source line breaks. The source links open the original PDF at the task page.</footer>
 </main>
+<div class="empty" id="empty">No tasks match this search.</div>
+<footer class="footer">Lettered sections follow the structure of the supplied AMM manual. Each lettered section contains one paragraph with its procedure steps grouped together.</footer>
+</div>
 <script>
+
 (()=>{
  const input=document.getElementById('search');
- const cards=[...document.querySelectorAll('.task')];
- const sections=[...document.querySelectorAll('.system-section')];
+ const cards=[...document.querySelectorAll('.fault')];
+ const groups=[...document.querySelectorAll('.system-section')];
  const count=document.getElementById('count');
  const empty=document.getElementById('empty');
  function filter(){
    const q=input.value.trim().toLocaleLowerCase();let shown=0;
    for(const card of cards){const match=!q||card.textContent.toLocaleLowerCase().includes(q);card.hidden=!match;if(match)shown++;}
-   for(const section of sections)section.hidden=!section.querySelector('.task:not([hidden])');
-   count.textContent=`Showing ${shown.toLocaleString()} of ${cards.length.toLocaleString()} tasks`;
+   for(const group of groups)group.hidden=!group.querySelector('.fault:not([hidden])');
+   count.textContent=`Showing ${shown.toLocaleString()} of ${cards.length.toLocaleString()} maintenance tasks`;
    empty.classList.toggle('visible',shown===0);
  }
  input.addEventListener('input',filter);
@@ -2169,6 +2025,7 @@ SUBTASK 74-21-02-420-001-F00
  document.getElementById('collapse').addEventListener('click',()=>cards.forEach(c=>c.open=false));
  filter();
 })();
+
 </script>
 </body>
 </html>

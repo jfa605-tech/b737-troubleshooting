@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Searchable Boeing 737NG AMM task library for ATA 80.">
+<meta name="description" content="B737NG ATA 80 AMM task library with lettered source sections and paragraph cards.">
 <title>B737NG ATA 80 | AMM Task Library</title>
 <style>
 :root{--navy:#102a43;--blue:#155e8a;--teal:#159a9c;--paper:#f4f7fa;--ink:#1d2935;--muted:#607080;--line:#d9e2ec;--white:#fff;--amber:#fff4d6;--shadow:0 8px 24px rgba(16,42,67,.08)}
@@ -13,222 +13,207 @@
 .nav-label{font-size:.78rem;text-transform:uppercase;letter-spacing:.09em;font-weight:800;color:#d4eaf5;margin:22px 0 9px}.nav{display:flex;flex-wrap:wrap;gap:9px}.nav a{color:#fff;text-decoration:none;padding:9px 13px;border:1px solid rgba(255,255,255,.42);border-radius:999px;font-weight:700;font-size:.9rem;background:rgba(255,255,255,.1);transition:.15s}.nav a:hover,.nav a:focus{background:#fff;color:var(--navy);outline:none}
 .notice{margin:18px 0 14px;border:1px solid #f0d286;background:var(--amber);padding:13px 16px;border-radius:12px;color:#57451b;font-size:.92rem}.toolbar{display:grid;grid-template-columns:minmax(240px,1fr) auto auto;gap:10px;align-items:center;margin:18px 0 10px}.search-wrap{position:relative}.search-wrap label{display:block;font-size:.78rem;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin:0 0 6px}.search-wrap input{width:100%;padding:13px 15px;border:1px solid #b8c7d6;border-radius:12px;font:inherit;background:#fff;box-shadow:0 2px 5px rgba(16,42,67,.03)}.search-wrap input:focus{outline:3px solid rgba(21,154,156,.22);border-color:var(--teal)}
 .toolbar button{align-self:end;border:1px solid #b8c7d6;background:#fff;color:var(--navy);padding:11px 14px;border-radius:10px;font:inherit;font-weight:700;cursor:pointer}.toolbar button:hover{border-color:var(--blue);background:#eef7fb}.count{color:var(--muted);font-weight:700;font-size:.9rem;margin:8px 2px 18px}
-.section-title{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:24px 2px 9px;border-bottom:2px solid var(--line);margin-top:8px}.section-title h2{font-size:1.24rem;color:var(--navy);margin:0}.section-title span{color:var(--muted);font-size:.86rem;font-weight:700}.task-list{display:grid;gap:12px;margin-top:13px}.task{background:var(--white);border:1px solid var(--line);border-radius:14px;box-shadow:0 2px 9px rgba(16,42,67,.035);overflow:hidden}.task[hidden]{display:none}.task>summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:14px;padding:17px 19px;cursor:pointer}.task>summary::-webkit-details-marker{display:none}.task>summary:after{content:"＋";font-weight:800;color:var(--blue);font-size:1.1rem;margin-left:3px}.task[open]>summary:after{content:"−"}.task>summary:hover{background:#f8fbfd}.task-head{display:flex;gap:12px;align-items:flex-start;min-width:0}.task-code{font-size:.76rem;white-space:nowrap;background:#e8f1f7;color:#164365;border-radius:7px;padding:4px 7px;font-weight:800}.task-name{white-space:pre-line;font-weight:700;color:#213547}.task-page{flex:none;background:#e8f7f6;color:#126669;border:1px solid #c7eae7;border-radius:999px;padding:5px 9px;font-size:.78rem;font-weight:800}
+.section-title{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:24px 2px 9px;border-bottom:2px solid var(--line);margin-top:8px}.section-title h2{font-size:1.24rem;color:var(--navy);margin:0}.section-title span{color:var(--muted);font-size:.86rem;font-weight:700}.fault-list{display:grid;gap:12px;margin-top:13px}.fault{background:var(--white);border:1px solid var(--line);border-radius:14px;box-shadow:0 2px 9px rgba(16,42,67,.035);overflow:hidden}.fault[hidden]{display:none}.fault>summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:14px;padding:17px 19px;cursor:pointer}.fault>summary::-webkit-details-marker{display:none}.fault>summary:after{content:"＋";font-weight:800;color:var(--blue);font-size:1.1rem;margin-left:3px}.fault[open]>summary:after{content:"−"}.fault>summary:hover{background:#f8fbfd}.fault-head{display:flex;gap:12px;align-items:flex-start;min-width:0}.fault-code{font-size:.76rem;white-space:nowrap;background:#e8f1f7;color:#164365;border-radius:7px;padding:4px 7px;font-weight:800}.fault-name{white-space:pre-line;font-weight:700;color:#213547}.task-badge{flex:none;background:#e8f7f6;color:#126669;border:1px solid #c7eae7;border-radius:999px;padding:5px 9px;font-size:.78rem;font-weight:800}
 .fields{padding:0 18px 18px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}.field{border:1px solid #e6edf2;border-radius:10px;padding:12px 13px;background:#fbfcfd;min-width:0}.field.description{grid-column:1/-1;background:#f3f8fc}.field h3{font-size:.79rem;text-transform:uppercase;letter-spacing:.07em;color:#356078;margin:0 0 7px}.field p{white-space:pre-line;margin:0;font-size:.91rem;color:#2c3945}.field p:empty:after{content:"Not available in the referenced task.";color:var(--muted);font-style:italic}
 .figure-gallery{margin:0 18px 18px;border:1px solid #cbdbe6;border-radius:11px;background:#f7fbfd;overflow:hidden}.figure-gallery>summary{cursor:pointer;padding:11px 14px;color:#164365;font-weight:800}.figure-gallery>summary:hover{background:#eef7fb}.figure-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(195px,1fr));gap:10px;padding:0 12px 13px}.figure-link{display:flex;flex-direction:column;gap:6px;background:#fff;border:1px solid var(--line);border-radius:8px;padding:7px;color:#25506d;text-decoration:none;font-size:.78rem;font-weight:700}.figure-link:hover{border-color:var(--teal);box-shadow:0 3px 12px rgba(21,154,156,.12)}.figure-link img{width:100%;height:155px;object-fit:contain;background:#edf2f6;border-radius:5px}.figure-note{font-weight:500;color:var(--muted);font-size:.78rem;padding:0 13px 12px}.footer{margin-top:30px;border-top:1px solid var(--line);padding:16px 2px;color:var(--muted);font-size:.82rem}
-@media(max-width:760px){.page{padding:15px 12px 36px}.hero{padding:23px 20px;border-radius:16px}.toolbar{grid-template-columns:1fr 1fr}.search-wrap{grid-column:1/-1}.fields{grid-template-columns:1fr;padding:0 12px 13px}.field.description{grid-column:auto}.task>summary{padding:14px;flex-wrap:wrap}.task-page{margin-left:44px}.figure-gallery{margin:0 12px 13px}.section-title{align-items:flex-start;flex-direction:column;gap:2px}}
+@media(max-width:760px){.page{padding:15px 12px 36px}.hero{padding:23px 20px;border-radius:16px}.toolbar{grid-template-columns:1fr 1fr}.search-wrap{grid-column:1/-1}.fields{grid-template-columns:1fr;padding:0 12px 13px}.field.description{grid-column:auto}.fault>summary{padding:14px;flex-wrap:wrap}.task-badge{margin-left:44px}.figure-gallery{margin:0 12px 13px}.section-title{align-items:flex-start;flex-direction:column;gap:2px}}
 
-.task-body{padding:0 18px 18px}
-.source-link{display:inline-flex;align-items:center;gap:7px;margin:0 0 13px;padding:8px 11px;border-radius:9px;background:#edf6fa;border:1px solid #cbdde7;color:#164365;text-decoration:none;font-size:.86rem;font-weight:800}
-.source-link:hover,.source-link:focus{background:#dceef5;outline:2px solid rgba(21,154,156,.2)}
-.procedure{margin:0;padding:12px 13px;border:1px solid #e6edf2;border-radius:10px;background:#fbfcfd;color:#2c3945;font:15px/1.55 "Segoe UI",Arial,sans-serif;white-space:pre-wrap;overflow-wrap:anywhere;tab-size:4}
+.letter-field{grid-column:1/-1}
+.field p strong.step-marker{font-weight:800;color:#159a9c}
+.field p strong.section-marker,.field.letter-field h3{font-weight:800;color:#155e8a}
 .empty{display:none;margin:24px 0;padding:28px;text-align:center;color:var(--muted);background:#fff;border:1px dashed #b8c7d6;border-radius:14px}.empty.visible{display:block}
-.hero .approval-warning{margin-left:320px;font-size:40px;color:#FFF4D6}
-@media(max-width:760px){.task-body{padding:0 12px 13px}.hero .approval-warning{margin-left:0;font-size:clamp(1.25rem,8vw,2.5rem)}}
+#content>section[hidden]{display:none}
 
 </style>
 </head>
 <body>
-<main class="page">
-  <header class="hero">
+<div class="page">
+<header class="hero">
   <div class="eyebrow">Boeing 737-600/700/800/900 · Aircraft Maintenance Manual</div>
   <h1>ATA 80 AMM Task Library</h1>
   <br>
   <br>
-  <p class="approval-warning">NON APPROVED DATA</p>
+  <p style="margin-left: 320px; font-size: 40px; color:#FFF4D6;">NON APPROVED DATA</p>
 </header>
-  <div style="color:#435CCC;" class="nav-label">Related reference pages</div>
+<div style="color:#435CCC;" class="nav-label">Related reference pages</div>
 <nav class="nav" aria-label="Related reference pages">
-    <a style="background-color:#C28029;" href="b737ng_ssm_ata80.html">SCHEMATICS</a>
-    <a style="background-color:#C28029;" href="siglas.html">Siglas</a>
-    <a style="background-color:#C28029;" href="b737ng_amm_ata80.html">AMM</a>
-    <a style="background-color:#C28029;" href="test.html">TESTS &amp; CHECKS</a>
-    <a style="background-color:#C28029;" href="b737ng_mel_ata80.html">MEL</a>
+<a style="background-color:#C28029;" href="b737ng_ssm_ata80.html">SCHEMATICS</a>
+<a style="background-color:#C28029;" href="siglas.html">Siglas</a>
+<a style="background-color:#C28029;" href="b737ng_amm_ata80.html">AMM</a>
+<a style="background-color:#C28029;" href="test.html">TESTS &amp; CHECKS</a>
+<a style="background-color:#C28029;" href="b737ng_mel_ata80.html">MEL</a>
 </nav>
-  <div class="toolbar">
-    <div class="search-wrap"><label for="search">Search task number, title, section, or procedure text</label><input id="search" type="search" autocomplete="off" placeholder="Example: 22-11-00-700-801, autopilot, TASK 801…"></div>
-    <button id="expand" type="button">Expand visible</button>
-    <button id="collapse" type="button">Collapse all</button>
-  </div>
-  <div class="count" id="count" aria-live="polite"></div>
-  <div id="catalog">
-<section class="system-section" id="section-80-00-00">
-  <div class="section-title"><h2>ATA 80-00-00 - Section</h2><span>2 tasks</span></div>
-  <div class="task-list">
-<details class="task" id="task-80-00-00-040-801-F00" data-section="80-00-00">
-  <summary><span class="task-head"><span class="task-code">80-00-00-040-801-F00</span><span class="task-name">MMEL 80-3 (DDPG) Preparation - Start Valve Inoperative</span></span><span class="task-page">PDF p. 7</span></summary>
-  <div class="task-body"><a class="source-link" href="file:///C:/Users/javie/Desktop/Proyecto%20B737NG/MANUALES/AMM/80_F__091.PDF#page=7" target="_blank" rel="noopener">Open original AMM PDF - page 7 <span aria-hidden="true">↗</span></a>
-    <pre class="procedure">2. MMEL 80-3 (DDPG) Preparation - Start Valve Inoperative
-A. General
-(1) This task prepares the airplane for flight with the start valve inoperative.
-B. References
-Reference Title
+<div class="toolbar">
+  <div class="search-wrap"><label for="search">Search task number, title, section, or procedure text</label><input id="search" type="search" placeholder="Example: 80-11-00, procedure, TASK 801…" autocomplete="off"></div>
+  <button id="expand" type="button">Expand visible</button>
+  <button id="collapse" type="button">Collapse all</button>
+</div>
+<div id="count" class="count" aria-live="polite"></div>
+<main id="content">
+<section class="system-section">
+  <div class="section-title"><h2>ATA 80 · 80-00-00</h2><span>2 tasks</span></div>
+  <div class="fault-list">
+<details class="fault" id="task-80-00-00-040-801-F00">
+  <summary>
+    <span class="fault-head"><span class="fault-code">80-00-00-040-801-F00</span><span class="fault-name">MMEL 80-3 (DDPG) Preparation - Start Valve Inoperative</span></span>
+    <span class="task-badge">ATA 80 · Task 040-801-F00</span>
+  </summary>
+  <div class="fields">
+<section class="field description letter-field"><h3>Task Description</h3><p class="section-text">2. MMEL 80-3 (DDPG) Preparation - Start Valve Inoperative</p></section>
+<section class="field letter-field" data-letter="A"><h3>A. General</h3><p class="section-text"><strong class="step-marker">(1)</strong> This task prepares the airplane for flight with the start valve inoperative.</p></section>
+<section class="field letter-field" data-letter="B"><h3>B. References</h3><p class="section-text">Reference Title
 71-00-00-800-809-F00 Start the Engine Procedure (Manual Override of the Engine
-Start Valve) (P/B 201)
-C. Procedure
-SUBTASK 80-00-00-980-001-F00
-(1) Do this task: Start the Engine Procedure (Manual Override of the Engine Start Valve),
-TASK 71-00-00-800-809-F00.</pre></div>
+Start Valve) (P/B 201)</p></section>
+<section class="field letter-field" data-letter="C"><h3>C. Procedure</h3><p class="section-text">SUBTASK 80-00-00-980-001-F00
+<strong class="step-marker">(1)</strong> Do this task: Start the Engine Procedure (Manual Override of the Engine Start Valve),
+TASK 71-00-00-800-809-F00.</p></section>
+  </div>
 </details>
-<details class="task" id="task-80-00-00-440-801-F00" data-section="80-00-00">
-  <summary><span class="task-head"><span class="task-code">80-00-00-440-801-F00</span><span class="task-name">MMEL 80-3 (DDPG) Restoration - Start Valve Inoperative</span></span><span class="task-page">PDF p. 7</span></summary>
-  <div class="task-body"><a class="source-link" href="file:///C:/Users/javie/Desktop/Proyecto%20B737NG/MANUALES/AMM/80_F__091.PDF#page=7" target="_blank" rel="noopener">Open original AMM PDF - page 7 <span aria-hidden="true">↗</span></a>
-    <pre class="procedure">3. MMEL 80-3 (DDPG) Restoration - Start Valve Inoperative
-A. General
-(1) This task puts the airplane back to its usual condition after operation with the start valve
-inoperative.
-B. Procedure
-SUBTASK 80-00-00-810-001-F00
-(1) Do the applicable fault isolation task in the FIM to correct the problem.</pre></div>
+<details class="fault" id="task-80-00-00-440-801-F00">
+  <summary>
+    <span class="fault-head"><span class="fault-code">80-00-00-440-801-F00</span><span class="fault-name">MMEL 80-3 (DDPG) Restoration - Start Valve Inoperative</span></span>
+    <span class="task-badge">ATA 80 · Task 440-801-F00</span>
+  </summary>
+  <div class="fields">
+<section class="field description letter-field"><h3>Task Description</h3><p class="section-text">3. MMEL 80-3 (DDPG) Restoration - Start Valve Inoperative</p></section>
+<section class="field letter-field" data-letter="A"><h3>A. General</h3><p class="section-text"><strong class="step-marker">(1)</strong> This task puts the airplane back to its usual condition after operation with the start valve
+inoperative.</p></section>
+<section class="field letter-field" data-letter="B"><h3>B. Procedure</h3><p class="section-text">SUBTASK 80-00-00-810-001-F00
+<strong class="step-marker">(1)</strong> Do the applicable fault isolation task in the FIM to correct the problem.</p></section>
+  </div>
 </details>
   </div>
 </section>
-<section class="system-section" id="section-80-11-00">
-  <div class="section-title"><h2>ATA 80-11-00 - Section</h2><span>3 tasks</span></div>
-  <div class="task-list">
-<details class="task" id="task-80-11-00-000-801-F00" data-section="80-11-00">
-  <summary><span class="task-head"><span class="task-code">80-11-00-000-801-F00</span><span class="task-name">Start Switch - Removal</span></span><span class="task-page">PDF p. 9</span></summary>
-  <div class="task-body"><a class="source-link" href="file:///C:/Users/javie/Desktop/Proyecto%20B737NG/MANUALES/AMM/80_F__091.PDF#page=9" target="_blank" rel="noopener">Open original AMM PDF - page 9 <span aria-hidden="true">↗</span></a>
-    <pre class="procedure">2. Start Switch - Removal
-(Figure 401)
-A. General
-(1) The task gives the instructions on how to remove the start switch.
-(2) The start switch is located on the P5 overhead panel.
-B. Tools/Equipment
-Reference Description
-STD-858 Tag - DO NOT OPERATE
-C. Location Zones
-Zone Area
+<section class="system-section">
+  <div class="section-title"><h2>ATA 80 · 80-11-00</h2><span>3 tasks</span></div>
+  <div class="fault-list">
+<details class="fault" id="task-80-11-00-000-801-F00">
+  <summary>
+    <span class="fault-head"><span class="fault-code">80-11-00-000-801-F00</span><span class="fault-name">Start Switch - Removal</span></span>
+    <span class="task-badge">ATA 80 · Task 000-801-F00</span>
+  </summary>
+  <div class="fields">
+<section class="field description letter-field"><h3>Task Description</h3><p class="section-text">2. Start Switch - Removal
+(Figure 401)</p></section>
+<section class="field letter-field" data-letter="A"><h3>A. General</h3><p class="section-text"><strong class="step-marker">(1)</strong> The task gives the instructions on how to remove the start switch.
+<strong class="step-marker">(2)</strong> The start switch is located on the P5 overhead panel.</p></section>
+<section class="field letter-field" data-letter="B"><h3>B. Tools/Equipment</h3><p class="section-text">Reference Description
+STD-858 Tag - DO NOT OPERATE</p></section>
+<section class="field letter-field" data-letter="C"><h3>C. Location Zones</h3><p class="section-text">Zone Area
 211 Flight Compartment - Left
-212 Flight Compartment - Right
-D. Prepare for the Removal
-SUBTASK 80-11-00-860-012-F00
-(1) For Engine 1, open this circuit breaker and install a safety tag:
+212 Flight Compartment - Right</p></section>
+<section class="field letter-field" data-letter="D"><h3>D. Prepare for the Removal</h3><p class="section-text">SUBTASK 80-11-00-860-012-F00
+<strong class="step-marker">(1)</strong> For Engine 1, open this circuit breaker and install a safety tag:
 CAPT Electrical System Panel, P18-2
 Row Col Number Name
 B 8 C01103 ENGINE 1 START VALVE
 SUBTASK 80-11-00-860-013-F00
-(2) For Engine 2, open this circuit breaker and install a safety tag:
+<strong class="step-marker">(2)</strong> For Engine 2, open this circuit breaker and install a safety tag:
 F/O Electrical System Panel, P6-2
 Row Col Number Name
 C 4 C00154 ENGINE 2 START VALVE
 SUBTASK 80-11-00-860-006-F00
-(3) Make sure that the start levers are in the CUTOFF position.
-(a) Install a DO NOT OPERATE tag, STD-858, on the applicable start lever.
+<strong class="step-marker">(3)</strong> Make sure that the start levers are in the CUTOFF position.
+<strong class="step-marker">(a)</strong> Install a DO NOT OPERATE tag, STD-858, on the applicable start lever.
 SUBTASK 80-11-00-860-007-F00
-(4) Set the engine start switch in the OFF position.
-(a) Install a DO NOT OPERATE tag, STD-858, on the engine start switch.
-E. Start Switch Removal
-SUBTASK 80-11-00-860-008-F00
-(1) Turn 2 locks in the right and left lower corners, unlatch the P5 overhead panel and put it in the
+<strong class="step-marker">(4)</strong> Set the engine start switch in the OFF position.
+<strong class="step-marker">(a)</strong> Install a DO NOT OPERATE tag, STD-858, on the engine start switch.</p></section>
+<section class="field letter-field" data-letter="E"><h3>E. Start Switch Removal</h3><p class="section-text">SUBTASK 80-11-00-860-008-F00
+<strong class="step-marker">(1)</strong> Turn 2 locks in the right and left lower corners, unlatch the P5 overhead panel and put it in the
 open position.
 80-11-00
 SUBTASK 80-11-00-030-001-F00
-(2) Disconnect the applicable wire from the switch [1].
-(a) Remove each wire lug from the terminal.
+<strong class="step-marker">(2)</strong> Disconnect the applicable wire from the switch [1].
+<strong class="step-marker">(a)</strong> Remove each wire lug from the terminal.
 SUBTASK 80-11-00-020-001-F00
-(3) Remove the knob [7] from the switch [1].
-(a) Remove the screws from the knob [7].
+<strong class="step-marker">(3)</strong> Remove the knob [7] from the switch [1].
+<strong class="step-marker">(a)</strong> Remove the screws from the knob [7].
 SUBTASK 80-11-00-020-006-F00
-(4) Remove the lightplate [6]:
-(a) Remove the screws [5].
-(b) Remove the lightplate [6].
+<strong class="step-marker">(4)</strong> Remove the lightplate [6]:
+<strong class="step-marker">(a)</strong> Remove the screws [5].
+<strong class="step-marker">(b)</strong> Remove the lightplate [6].
 SUBTASK 80-11-00-020-002-F00
-(5) If installed, remove the spacer [2].
+<strong class="step-marker">(5)</strong> If installed, remove the spacer [2].
 SUBTASK 80-11-00-020-003-F00
-(6) Remove the nut [3] and washer [4] from the switch [1].
+<strong class="step-marker">(6)</strong> Remove the nut [3] and washer [4] from the switch [1].
 SUBTASK 80-11-00-020-004-F00
-(7) Remove the switch [1].
+<strong class="step-marker">(7)</strong> Remove the switch [1].
 SUBTASK 80-11-00-020-005-F00
-(8) If it is necessary, remove the diode from the X1 and X2 terminals of the switch.
-NOTE: Keep the diode for installation on the new starter switch.</pre></div>
+<strong class="step-marker">(8)</strong> If it is necessary, remove the diode from the X1 and X2 terminals of the switch.
+NOTE: Keep the diode for installation on the new starter switch.</p></section>
+  </div>
 </details>
-<details class="task" id="task-80-11-00-400-801-F00" data-section="80-11-00">
-  <summary><span class="task-head"><span class="task-code">80-11-00-400-801-F00</span><span class="task-name">Start Switch - Installation</span></span><span class="task-page">PDF p. 12</span></summary>
-  <div class="task-body"><a class="source-link" href="file:///C:/Users/javie/Desktop/Proyecto%20B737NG/MANUALES/AMM/80_F__091.PDF#page=12" target="_blank" rel="noopener">Open original AMM PDF - page 12 <span aria-hidden="true">↗</span></a>
-    <pre class="procedure">3. Start Switch - Installation
-(Figure 401)
-A. General
-(1) The task gives the instructions on how to install the start switch.
-(2) The start switch is located on the P5 overhead panel.
-B. References
-Reference Title
-80-11-00-730-801-F00 Start Switch Test (P/B 501)
-C. Expendables/Parts
-AMM Item Description AIPC Reference AIPC Effectivity
-1 Switch 74-31-52-01-060 RYR 121-129, 131, 132,
-135, 138-169, 174-179,
-182-187, 189-203,
-205-209, 212-220, 223,
-224, 231-236, 239-298,
-301-304, 306, 308,
-315-317, 322-341, 343,
-346-356
-74-31-52-01-105 RYR 357, 358
-74-31-52-01-135 RYR 359-999
-74-31-52-02-020 RYR 006, 007, 013, 014,
-018-020, 043, 044,
-056-063, 067-078, 081,
-083-103, 111-114
-D. Location Zones
-Zone Area
+<details class="fault" id="task-80-11-00-400-801-F00">
+  <summary>
+    <span class="fault-head"><span class="fault-code">80-11-00-400-801-F00</span><span class="fault-name">Start Switch - Installation</span></span>
+    <span class="task-badge">ATA 80 · Task 400-801-F00</span>
+  </summary>
+  <div class="fields">
+<section class="field description letter-field"><h3>Task Description</h3><p class="section-text">3. Start Switch - Installation
+(Figure 401)</p></section>
+<section class="field letter-field" data-letter="A"><h3>A. General</h3><p class="section-text"><strong class="step-marker">(1)</strong> The task gives the instructions on how to install the start switch.
+<strong class="step-marker">(2)</strong> The start switch is located on the P5 overhead panel.</p></section>
+<section class="field letter-field" data-letter="B"><h3>B. References</h3><p class="section-text">Reference Title
+80-11-00-730-801-F00 Start Switch Test (P/B 501)</p></section>
+<section class="field letter-field" data-letter="C"><h3>C. Expendables/Parts</h3><p class="section-text"></p></section>
+<section class="field letter-field" data-letter="D"><h3>D. Location Zones</h3><p class="section-text">Zone Area
 211 Flight Compartment - Left
-212 Flight Compartment - Right
-E. Start Switch Installation
-SUBTASK 80-11-00-420-001-F00
-(1) Install the start switch [1] as follows:
-(a) Put the start switch [1] in its position in the P5 overhead panel.
-(b) Install the washer [4] and the nut [3].
+212 Flight Compartment - Right</p></section>
+<section class="field letter-field" data-letter="E"><h3>E. Start Switch Installation</h3><p class="section-text">SUBTASK 80-11-00-420-001-F00
+<strong class="step-marker">(1)</strong> Install the start switch [1] as follows:
+<strong class="step-marker">(a)</strong> Put the start switch [1] in its position in the P5 overhead panel.
+<strong class="step-marker">(b)</strong> Install the washer [4] and the nut [3].
 1) Tighten the nut [3].
-(c) If it is necessary, install the spacer [2] .
+<strong class="step-marker">(c)</strong> If it is necessary, install the spacer [2] .
 NOTE: The spacer is a press fit spacer. To install the spacer, align it straight on the D-cut
 and push it manually to the start switch shaft.
-(d) Install the screws [5] to the lightplate [6].
+<strong class="step-marker">(d)</strong> Install the screws [5] to the lightplate [6].
 1) Tighten the screws [5].
-(e) Install the knob [7] on the switch [1].
+<strong class="step-marker">(e)</strong> Install the knob [7] on the switch [1].
 1) Install the screws on the knob [7].
 80-11-00
 2) Tighten the screws on the knob [7] 1/8 to 1/3 of a turn after the point where there is
 a sharp increase in resistance.
-(f) Connect the applicable wire back to the switch [1].
+<strong class="step-marker">(f)</strong> Connect the applicable wire back to the switch [1].
 1) Install each wire lug to its terminal.
-(g) If the start switch does not have a diode installed at the X1 and X2 terminals, do these
+<strong class="step-marker">(g)</strong> If the start switch does not have a diode installed at the X1 and X2 terminals, do these
 steps:
 1) Use a new diode or the diode from the removed switch.
 2) Install the cathode end of the diode to the X2 terminal.
 3) Install the anode of the diode to the X1 terminal.
-(h) Close and latch the P5 overhead panel.
-F . Put the Airplane Back to Its Usual Condition
+<strong class="step-marker">(h)</strong> Close and latch the P5 overhead panel.
+<strong class="section-marker">F. Put the Airplane Back to Its Usual Condition</strong>
 SUBTASK 80-11-00-860-010-F00
-(1) For Engine 1, remove the safety tag and close this circuit breaker:
+<strong class="step-marker">(1)</strong> For Engine 1, remove the safety tag and close this circuit breaker:
 CAPT Electrical System Panel, P18-2
 Row Col Number Name
 B 8 C01103 ENGINE 1 START VALVE
 SUBTASK 80-11-00-860-011-F00
-(2) For Engine 2, remove the safety tag and close this circuit breaker:
+<strong class="step-marker">(2)</strong> For Engine 2, remove the safety tag and close this circuit breaker:
 F/O Electrical System Panel, P6-2
 Row Col Number Name
 C 4 C00154 ENGINE 2 START VALVE
 SUBTASK 80-11-00-860-009-F00
-(3) Remove the DO-NOT-OPERATE tag from the applicable start lever.
+<strong class="step-marker">(3)</strong> Remove the DO-NOT-OPERATE tag from the applicable start lever.
 SUBTASK 80-11-00-860-015-F00
-(4) Remove the DO-NOT-OPERATE tag from the start switch.
-G. Start Switch Installation Test
-SUBTASK 80-11-00-700-002-F00
-(1) Do this task: Start Switch Test, TASK 80-11-00-730-801-F00.</pre></div>
+<strong class="step-marker">(4)</strong> Remove the DO-NOT-OPERATE tag from the start switch.</p></section>
+<section class="field letter-field" data-letter="G"><h3>G. Start Switch Installation Test</h3><p class="section-text">SUBTASK 80-11-00-700-002-F00
+<strong class="step-marker">(1)</strong> Do this task: Start Switch Test, TASK 80-11-00-730-801-F00.</p></section>
+  </div>
 </details>
-<details class="task" id="task-80-11-00-730-801-F00" data-section="80-11-00">
-  <summary><span class="task-head"><span class="task-code">80-11-00-730-801-F00</span><span class="task-name">Start Switch Test</span></span><span class="task-page">PDF p. 15</span></summary>
-  <div class="task-body"><a class="source-link" href="file:///C:/Users/javie/Desktop/Proyecto%20B737NG/MANUALES/AMM/80_F__091.PDF#page=15" target="_blank" rel="noopener">Open original AMM PDF - page 15 <span aria-hidden="true">↗</span></a>
-    <pre class="procedure">2. Start Switch Test
-A. General
-(1) This task provides the instructions on how to test the engine start switch.
-(a) Use this test after you replace the engine start switch or to examine the operation of the
+<details class="fault" id="task-80-11-00-730-801-F00">
+  <summary>
+    <span class="fault-head"><span class="fault-code">80-11-00-730-801-F00</span><span class="fault-name">Start Switch Test</span></span>
+    <span class="task-badge">ATA 80 · Task 730-801-F00</span>
+  </summary>
+  <div class="fields">
+<section class="field description letter-field"><h3>Task Description</h3><p class="section-text">2. Start Switch Test</p></section>
+<section class="field letter-field" data-letter="A"><h3>A. General</h3><p class="section-text"><strong class="step-marker">(1)</strong> This task provides the instructions on how to test the engine start switch.
+<strong class="step-marker">(a)</strong> Use this test after you replace the engine start switch or to examine the operation of the
 switch.
-(b) The engine start switch S266 (Eng 1) or S267 (Eng 2) is located on the P5 overhead
-panel.
-B. References
-Reference Title
+<strong class="step-marker">(b)</strong> The engine start switch S266 (Eng 1) or S267 (Eng 2) is located on the P5 overhead
+panel.</p></section>
+<section class="field letter-field" data-letter="B"><h3>B. References</h3><p class="section-text">Reference Title
 36-00-00-860-801 Supply Pressure to the Pneumatic System (Selection) (P/B 201)
 36-00-00-860-806 Remove Pressure from the Pneumatic System (P/B 201)
 71-00-00-700-819-F00 Stop the Engine Procedure (Usual Engine Stop) (P/B 201)
@@ -236,9 +221,8 @@ Reference Title
 71-11-02-010-801-F00 Open the Fan Cowl Panels (P/B 201)
 71-11-02-410-801-F00 Close the Fan Cowl Panels (P/B 201)
 73-21-00-740-803-F00 EEC BITE TEST - RECENT FAULTS (P/B 501)
-SSM 74-31-11 System Schematics Manual
-C. Tools/Equipment
-NOTE: When more than one tool part number is listed under the same "Reference" number, the
+SSM 74-31-11 System Schematics Manual</p></section>
+<section class="field letter-field" data-letter="C"><h3>C. Tools/Equipment</h3><p class="section-text">NOTE: When more than one tool part number is listed under the same "Reference" number, the
 tools shown are alternates to each other within the same airplane series. Tool part numbers
 that are replaced or non-procurable are preceded by "Opt:", which stands for Optional.
 Reference Description
@@ -260,43 +244,41 @@ Opt Part #: 77 SERIES III Supplier: 89536
 Opt Part #: 87 Supplier: 89536
 Opt Part #: FLUKE 27 Supplier: 89536
 Opt Part #: MODEL 27 Supplier: 89536
-80-11-00
-D. Location Zones
-Zone Area
+80-11-00</p></section>
+<section class="field letter-field" data-letter="D"><h3>D. Location Zones</h3><p class="section-text">Zone Area
 211 Flight Compartment - Left
-212 Flight Compartment - Right
-E. Start Switch Test
-SUBTASK 80-11-00-860-001-F00
-(1) Do this task: Remove Pressure from the Pneumatic System, TASK 36-00-00-860-806.
+212 Flight Compartment - Right</p></section>
+<section class="field letter-field" data-letter="E"><h3>E. Start Switch Test</h3><p class="section-text">SUBTASK 80-11-00-860-001-F00
+<strong class="step-marker">(1)</strong> Do this task: Remove Pressure from the Pneumatic System, TASK 36-00-00-860-806.
 SUBTASK 80-11-00-860-002-F00
-(2) Move the applicable engine start switch to the GRD position and make sure that the switch
+<strong class="step-marker">(2)</strong> Move the applicable engine start switch to the GRD position and make sure that the switch
 holds in this position.
-(a) Move the switch back to the OFF position.
+<strong class="step-marker">(a)</strong> Move the switch back to the OFF position.
 SUBTASK 80-11-00-860-003-F00
-(3) Get access to the Display Electronic Unit (DEU) input monitoring of the discrete display screen
+<strong class="step-marker">(3)</strong> Get access to the Display Electronic Unit (DEU) input monitoring of the discrete display screen
 on the Flight Management Computer System (FMCS) Control Display Unit (CDU) as follows:
-(a) Push the INIT REF key two times.
-(b) Push the INDEX Line Select Key (LSK).
+<strong class="step-marker">(a)</strong> Push the INIT REF key two times.
+<strong class="step-marker">(b)</strong> Push the INDEX Line Select Key (LSK).
 NOTE: This causes the INIT REF INDEX to show.
-(c) Push the MAINT LSK.
+<strong class="step-marker">(c)</strong> Push the MAINT LSK.
 NOTE: This causes the MAINT BITE INDEX to show.
-(d) Push the CDS LSK.
+<strong class="step-marker">(d)</strong> Push the CDS LSK.
 NOTE: This causes the CDS BITE INDEX to show.
-(e) Push the LSK for one of the DEUs, DEU 1 or DEU 2.
-(f) Push the INPUT MONITORING LSK.
+<strong class="step-marker">(e)</strong> Push the LSK for one of the DEUs, DEU 1 or DEU 2.
+<strong class="step-marker">(f)</strong> Push the INPUT MONITORING LSK.
 NOTE: This causes the CDS DEU X MAINT/BITE DISCRETE STATUS MENU to show.
 SUBTASK 80-11-00-860-004-F00
-(4) Examine the parameters for the applicable engine start switch position on the applicable DEU:
-(a) For engine 1, push the INSERT B LSK.
+<strong class="step-marker">(4)</strong> Examine the parameters for the applicable engine start switch position on the applicable DEU:
+<strong class="step-marker">(a)</strong> For engine 1, push the INSERT B LSK.
 NOTE: This causes the CDS DEU X MAINT/BITE DISCRETE STATUS, INSERT B
 screen to show.
-(b) For engine 2, push the INSERT E LSK.
+<strong class="step-marker">(b)</strong> For engine 2, push the INSERT E LSK.
 NOTE: This causes the CDS DEU X MAINT/BITE DISCRETE STATUS, INSERT E
 screen to show.
-(c) Push the NEXT PAGE key.
+<strong class="step-marker">(c)</strong> Push the NEXT PAGE key.
 1) Record the values that shows in column F , row 9.
 2) Record the values that shows in column C, row 14.
-(d) Make sure that the values agree with this table for the noted switch positions:
+<strong class="step-marker">(d)</strong> Make sure that the values agree with this table for the noted switch positions:
 Table 501/80-11-00-993-801-F00
 ENGINE START SWITCH POSITION COLUMN F ROW 9 COLUMN C ROW 14
 OFF O O
@@ -312,35 +294,35 @@ steps again to record the values.
 long as two seconds to update.
 3) G is for ground, O is for open, V is for 28 Volts Direct Current (VDC), X is for invalid
 and - is for no discrete.
-(e) Push the INDEX LSK until the CDS BITE INDEX shows.
+<strong class="step-marker">(e)</strong> Push the INDEX LSK until the CDS BITE INDEX shows.
 1) Do the steps again to examine the other DEU, DEU 1 or DEU 2.
-(f) If the values agree, then the engine start switch circuit is satisfactory from the switch to
+<strong class="step-marker">(f)</strong> If the values agree, then the engine start switch circuit is satisfactory from the switch to
 the DEUs (SSM 74-31-11).
-(g) If the values do not agree and you find an O when a G is expected, then look for an open
+<strong class="step-marker">(g)</strong> If the values do not agree and you find an O when a G is expected, then look for an open
 circuit in the switch or on the wire and connector between the engine start switch and
 DEU.
-(h) If the values do not agree and you find an G when an O is expected, then look for a short
+<strong class="step-marker">(h)</strong> If the values do not agree and you find an G when an O is expected, then look for a short
 to ground in the switch, or on the wire and connector between the engine start switch and
 DEU.
 SUBTASK 80-11-00-860-014-F00
-(5) Do a wiring check of the applicable engine start switch.
-(a) For engine 1, open these circuit breakers and install safety tags:
+<strong class="step-marker">(5)</strong> Do a wiring check of the applicable engine start switch.
+<strong class="step-marker">(a)</strong> For engine 1, open these circuit breakers and install safety tags:
 CAPT Electrical System Panel, P18-2
 Row Col Number Name
 A 1 C00458 ENGINE 1 IGNITION RIGHT
 A 3 C00153 ENGINE 1 IGNITION LEFT
 A 4 C01390 ENGINE 1 ALTN PWR CHAN B
 A 5 C01314 ENGINE 1 ALTN PWR CHAN A
-(b) For engine 2, open these circuit breakers and install safety tags:
+<strong class="step-marker">(b)</strong> For engine 2, open these circuit breakers and install safety tags:
 F/O Electrical System Panel, P6-2
 Row Col Number Name
 D 4 C00459 ENGINE 2 IGNITION RIGHT
 D 6 C00151 ENGINE 2 IGNITION LEFT
 D 7 C01391 ENGINE 2 ALTN PWR CHAN B
 D 8 C01315 ENGINE 2 ALTN PWR CHAN A
-(c) For the applicable engine, open the fan cowl panels (TASK 71-11-02-010-801-F00).
-(d) Disconnect Electronic Engine Control (EEC) connector, DP0303.
-(e) With a digital/analog multimeter, COM-1793, make sure that there is continuity between
+<strong class="step-marker">(c)</strong> For the applicable engine, open the fan cowl panels (TASK 71-11-02-010-801-F00).
+<strong class="step-marker">(d)</strong> Disconnect Electronic Engine Control (EEC) connector, DP0303.
+<strong class="step-marker">(e)</strong> With a digital/analog multimeter, COM-1793, make sure that there is continuity between
 pins W and r on the airplane side of connector DP0303 with the engine start switch in
 these positions:
 NOTE: There should be no continuity with the start switch in the OFF position.
@@ -348,15 +330,15 @@ NOTE: There should be no continuity with the start switch in the OFF position.
 80-11-00
 2) CONT
 3) FLT .
-(f) Connect EEC connector, DP0303.
-(g) For engine 1, remove the safety tags and close these circuit breakers:
+<strong class="step-marker">(f)</strong> Connect EEC connector, DP0303.
+<strong class="step-marker">(g)</strong> For engine 1, remove the safety tags and close these circuit breakers:
 CAPT Electrical System Panel, P18-2
 Row Col Number Name
 A 1 C00458 ENGINE 1 IGNITION RIGHT
 A 3 C00153 ENGINE 1 IGNITION LEFT
 A 4 C01390 ENGINE 1 ALTN PWR CHAN B
 A 5 C01314 ENGINE 1 ALTN PWR CHAN A
-(h) For engine 2, remove the safety tags and close these circuit breakers:
+<strong class="step-marker">(h)</strong> For engine 2, remove the safety tags and close these circuit breakers:
 F/O Electrical System Panel, P6-2
 Row Col Number Name
 D 4 C00459 ENGINE 2 IGNITION RIGHT
@@ -364,76 +346,68 @@ D 6 C00151 ENGINE 2 IGNITION LEFT
 D 7 C01391 ENGINE 2 ALTN PWR CHAN B
 D 8 C01315 ENGINE 2 ALTN PWR CHAN A
 SUBTASK 80-11-00-860-005-F00
-(6) Do this engine operation to examine the Aeronautical Radio Incorporated (ARINC) parameters
+<strong class="step-marker">(6)</strong> Do this engine operation to examine the Aeronautical Radio Incorporated (ARINC) parameters
 of the applicable engine start switch.
-(a) Do this task: Supply Pressure to the Pneumatic System (Selection),
+<strong class="step-marker">(a)</strong> Do this task: Supply Pressure to the Pneumatic System (Selection),
 TASK 36-00-00-860-801.
-(b) Start the applicable engine with the effected engine start switch
+<strong class="step-marker">(b)</strong> Start the applicable engine with the effected engine start switch
 (TASK 71-00-00-800-808-F00).
-(c) Verify the engine start switch releases as the engine passes through 55 percent N2.
-(d) Operate the engine at idle.
-(e) Move the effected engine start switch to the CONT position for at least ten seconds.
-(f) Move the effected engine start switch to the FLT position for at least ten seconds.
-(g) Move the engine start switch to the OFF position.
-(h) Do this task: Stop the Engine Procedure (Usual Engine Stop),
+<strong class="step-marker">(c)</strong> Verify the engine start switch releases as the engine passes through 55 percent N2.
+<strong class="step-marker">(d)</strong> Operate the engine at idle.
+<strong class="step-marker">(e)</strong> Move the effected engine start switch to the CONT position for at least ten seconds.
+<strong class="step-marker">(f)</strong> Move the effected engine start switch to the FLT position for at least ten seconds.
+<strong class="step-marker">(g)</strong> Move the engine start switch to the OFF position.
+<strong class="step-marker">(h)</strong> Do this task: Stop the Engine Procedure (Usual Engine Stop),
 TASK 71-00-00-700-819-F00.
-(i) Do this task: Remove Pressure from the Pneumatic System, TASK 36-00-00-860-806.
+<strong class="step-marker">(i)</strong> Do this task: Remove Pressure from the Pneumatic System, TASK 36-00-00-860-806.
 SUBTASK 80-11-00-740-001-F00
-(7) For the applicable engine, do this task: EEC BITE TEST - RECENT FAULTS,
+<strong class="step-marker">(7)</strong> For the applicable engine, do this task: EEC BITE TEST - RECENT FAULTS,
 TASK 73-21-00-740-803-F00.
-(a) Look in Flight Leg 0 for these maintenance messages for start switch signals and ARINC
+<strong class="step-marker">(a)</strong> Look in Flight Leg 0 for these maintenance messages for start switch signals and ARINC
 Bus Data Disagree:
 1) 73-10311, 73-10312, 73-20311, 73-20312, 73-30311, or 73-30312.
-(b) If one of the above messages show, use the 73 Fault Isolation Manual (FIM) to correct
+<strong class="step-marker">(b)</strong> If one of the above messages show, use the 73 Fault Isolation Manual (FIM) to correct
 the fault.
 1) Find the fault code or description of the fault that occurred.
 2) Go to the applicable index or list in the FIM and find the FIM task number.
 3) Go to the task in the FIM and do the steps in the task.
 80-11-00
-(c) If the above messages do not show, then the start switch is satisfactory.
-F . Put the Airplane Back to Its Usual Condition
+<strong class="step-marker">(c)</strong> If the above messages do not show, then the start switch is satisfactory.
+<strong class="section-marker">F. Put the Airplane Back to Its Usual Condition</strong>
 SUBTASK 80-11-00-410-002-F00
-(1) Do this task: Close the Fan Cowl Panels, TASK 71-11-02-410-801-F00.</pre></div>
+<strong class="step-marker">(1)</strong> Do this task: Close the Fan Cowl Panels, TASK 71-11-02-410-801-F00.</p></section>
+  </div>
 </details>
   </div>
 </section>
-<section class="system-section" id="section-80-11-01">
-  <div class="section-title"><h2>ATA 80-11-01 - Section</h2><span>8 tasks</span></div>
-  <div class="task-list">
-<details class="task" id="task-80-11-01-680-801-F00" data-section="80-11-01">
-  <summary><span class="task-head"><span class="task-code">80-11-01-680-801-F00</span><span class="task-name">Starter Servicing (Oil Drain)</span></span><span class="task-page">PDF p. 21</span></summary>
-  <div class="task-body"><a class="source-link" href="file:///C:/Users/javie/Desktop/Proyecto%20B737NG/MANUALES/AMM/80_F__091.PDF#page=21" target="_blank" rel="noopener">Open original AMM PDF - page 21 <span aria-hidden="true">↗</span></a>
-    <pre class="procedure">2. Starter Servicing (Oil Drain)
-(Figure 301)
-A. General
-(1) This task provides the instructions on how to drain the starter before you remove it from the
+<section class="system-section">
+  <div class="section-title"><h2>ATA 80 · 80-11-01</h2><span>8 tasks</span></div>
+  <div class="fault-list">
+<details class="fault" id="task-80-11-01-680-801-F00">
+  <summary>
+    <span class="fault-head"><span class="fault-code">80-11-01-680-801-F00</span><span class="fault-name">Starter Servicing (Oil Drain)</span></span>
+    <span class="task-badge">ATA 80 · Task 680-801-F00</span>
+  </summary>
+  <div class="fields">
+<section class="field description letter-field"><h3>Task Description</h3><p class="section-text">2. Starter Servicing (Oil Drain)
+(Figure 301)</p></section>
+<section class="field letter-field" data-letter="A"><h3>A. General</h3><p class="section-text"><strong class="step-marker">(1)</strong> This task provides the instructions on how to drain the starter before you remove it from the
 engine.
-(2) This procedure uses a tool at the magnetic plug housing to drain the oil from the starter.
-(3) The starter is on the forward side of the accessory gearbox.
-B. References
-Reference Title
+<strong class="step-marker">(2)</strong> This procedure uses a tool at the magnetic plug housing to drain the oil from the starter.
+<strong class="step-marker">(3)</strong> The starter is on the forward side of the accessory gearbox.</p></section>
+<section class="field letter-field" data-letter="B"><h3>B. References</h3><p class="section-text">Reference Title
 71-11-02-010-801-F00 Open the Fan Cowl Panels (P/B 201)
 71-11-02-410-801-F00 Close the Fan Cowl Panels (P/B 201)
-80-11-01-200-801-F00 Starter Magnetic Plug Inspection (P/B 601)
-C. Tools/Equipment
-NOTE: When more than one tool part number is listed under the same "Reference" number, the
+80-11-01-200-801-F00 Starter Magnetic Plug Inspection (P/B 601)</p></section>
+<section class="field letter-field" data-letter="C"><h3>C. Tools/Equipment</h3><p class="section-text">NOTE: When more than one tool part number is listed under the same "Reference" number, the
 tools shown are alternates to each other within the same airplane series. Tool part numbers
 that are replaced or non-procurable are preceded by "Opt:", which stands for Optional.
 Reference Description
 COM-2464 Adapter - Starter Drain, Engine
 Part #: DB75-108 Supplier: 97484
-STD-203 Container - Oil Resistant, 1 U.S Gal (3.8 L)
-D. Consumable Materials
-Reference Description Specification
-D00599 [CP2442] Oil - Engine
-E. Expendables/Parts
-AMM Item Description AIPC Reference AIPC Effectivity
-1 Packings 80-11-01-01-062 RYR 006, 007, 013, 014,
-018, 019, 043, 044,
-056-063, 067-078, 081,
-083-103, 111-114,
-121-129, 131, 132, 135
-80-11-01
+STD-203 Container - Oil Resistant, 1 U.S Gal (3.8 L)</p></section>
+<section class="field letter-field" data-letter="D"><h3>D. Consumable Materials</h3><p class="section-text"></p></section>
+<section class="field letter-field" data-letter="E"><h3>E. Expendables/Parts</h3><p class="section-text">80-11-01
 (Continued)
 AMM Item Description AIPC Reference AIPC Effectivity
 1 (cont.) 80-11-01-01A-070 RYR 014, 068, 087, 090,
@@ -471,112 +445,101 @@ AMM Item Description AIPC Reference AIPC Effectivity
 083-103, 111-114,
 121-129, 131, 132, 135,
 143, 147, 152, 167, 177
-F . Location Zones
+<strong class="section-marker">F. Location Zones</strong>
 Zone Area
 411 Engine 1 - Engine
-421 Engine 2 - Engine
-G. Prepare for the Servicing
-SUBTASK 80-11-01-860-023-F00
-(1) For Engine 1, open this circuit breaker and install a safety tag:
+421 Engine 2 - Engine</p></section>
+<section class="field letter-field" data-letter="G"><h3>G. Prepare for the Servicing</h3><p class="section-text">SUBTASK 80-11-01-860-023-F00
+<strong class="step-marker">(1)</strong> For Engine 1, open this circuit breaker and install a safety tag:
 CAPT Electrical System Panel, P18-2
 Row Col Number Name
 B 8 C01103 ENGINE 1 START VALVE
 80-11-01
 SUBTASK 80-11-01-860-024-F00
-(2) For Engine 2, open this circuit breaker and install a safety tag:
+<strong class="step-marker">(2)</strong> For Engine 2, open this circuit breaker and install a safety tag:
 F/O Electrical System Panel, P6-2
 Row Col Number Name
 C 4 C00154 ENGINE 2 START VALVE
 SUBTASK 80-11-01-010-018-F00
-(3) Do this task: Open the Fan Cowl Panels, TASK 71-11-02-010-801-F00.
-H. Procedure
-SUBTASK 80-11-01-020-005-F00
-(1) Remove the magnetic plug [2]:
+<strong class="step-marker">(3)</strong> Do this task: Open the Fan Cowl Panels, TASK 71-11-02-010-801-F00.</p></section>
+<section class="field letter-field" data-letter="H"><h3>H. Procedure</h3><p class="section-text">SUBTASK 80-11-01-020-005-F00
+<strong class="step-marker">(1)</strong> Remove the magnetic plug [2]:
 NOTE: The magnetic plug is a bayonet type. Do not remove the magnetic plug housing and
 the safety cable to drain the oil.
-(a) Push the magnetic plug [2] with your hand and turn it counterclockwise until it stops.
-(b) Pull the magnetic plug [2] from the magnetic plug housing.
+<strong class="step-marker">(a)</strong> Push the magnetic plug [2] with your hand and turn it counterclockwise until it stops.
+<strong class="step-marker">(b)</strong> Pull the magnetic plug [2] from the magnetic plug housing.
 SUBTASK 80-11-01-210-009-F00
-(2) Examine the magnetic plug [2] for the quantity and type of contamination
+<strong class="step-marker">(2)</strong> Examine the magnetic plug [2] for the quantity and type of contamination
 (TASK 80-11-01-200-801-F00).
 SUBTASK 80-11-01-680-003-F00
 WARNING
 DO NOT LET OIL STAY ON YOUR SKIN. YOU CAN ABSORB POISONOUS
 MATERIALS FROM THE OIL THROUGH YOUR SKIN.
-(3) Drain the oil from the starter:
-(a) Put a oil resistant container, STD-203 below the starter to catch the oil.
-(b) Put the hose end of the starter drain adapter, COM-2464 into the container.
-(c) Install the adapter into the magnetic plug housing.
-(d) Drain the oil into the container.
-(e) If you will not fill the starter immediately, remove the adapter from the magnetic plug
+<strong class="step-marker">(3)</strong> Drain the oil from the starter:
+<strong class="step-marker">(a)</strong> Put a oil resistant container, STD-203 below the starter to catch the oil.
+<strong class="step-marker">(b)</strong> Put the hose end of the starter drain adapter, COM-2464 into the container.
+<strong class="step-marker">(c)</strong> Install the adapter into the magnetic plug housing.
+<strong class="step-marker">(d)</strong> Drain the oil into the container.
+<strong class="step-marker">(e)</strong> If you will not fill the starter immediately, remove the adapter from the magnetic plug
 housing.
 NOTE: The fill procedure uses the tool to pressure fill the starter.
 SUBTASK 80-11-01-420-007-F00
-(4) Install the magnetic plug [2]:
-(a) If not already done, remove and discard the old packings [1].
-(b) Apply clean oil, D00599 [CP2442], to the packings [1].
-(c) Install the two packings [1] on the magnetic plug [2].
-(d) Put the magnetic plug [2] in the magnetic plug housing and align the bayonet pins with
+<strong class="step-marker">(4)</strong> Install the magnetic plug [2]:
+<strong class="step-marker">(a)</strong> If not already done, remove and discard the old packings [1].
+<strong class="step-marker">(b)</strong> Apply clean oil, D00599 [CP2442], to the packings [1].
+<strong class="step-marker">(c)</strong> Install the two packings [1] on the magnetic plug [2].
+<strong class="step-marker">(d)</strong> Put the magnetic plug [2] in the magnetic plug housing and align the bayonet pins with
 the slots.
-(e) Push the magnetic plug [2] until the pins touch the bottom of the slots and turn the plug
-clockwise until it locks.
-I. Put the Airplane Back to Its Usual Condition
-SUBTASK 80-11-01-410-006-F00
-(1) Do this task: Close the Fan Cowl Panels, TASK 71-11-02-410-801-F00.
+<strong class="step-marker">(e)</strong> Push the magnetic plug [2] until the pins touch the bottom of the slots and turn the plug
+clockwise until it locks.</p></section>
+<section class="field letter-field" data-letter="I"><h3>I. Put the Airplane Back to Its Usual Condition</h3><p class="section-text">SUBTASK 80-11-01-410-006-F00
+<strong class="step-marker">(1)</strong> Do this task: Close the Fan Cowl Panels, TASK 71-11-02-410-801-F00.
 80-11-01
 SUBTASK 80-11-01-860-025-F00
-(2) For Engine 1, remove the safety tag and close this circuit breaker:
+<strong class="step-marker">(2)</strong> For Engine 1, remove the safety tag and close this circuit breaker:
 CAPT Electrical System Panel, P18-2
 Row Col Number Name
 B 8 C01103 ENGINE 1 START VALVE
 SUBTASK 80-11-01-860-026-F00
-(3) For Engine 2, remove the safety tag and close this circuit breaker:
+<strong class="step-marker">(3)</strong> For Engine 2, remove the safety tag and close this circuit breaker:
 F/O Electrical System Panel, P6-2
 Row Col Number Name
-C 4 C00154 ENGINE 2 START VALVE</pre></div>
+C 4 C00154 ENGINE 2 START VALVE</p></section>
+  </div>
 </details>
-<details class="task" id="task-80-11-01-610-801-F00" data-section="80-11-01">
-  <summary><span class="task-head"><span class="task-code">80-11-01-610-801-F00</span><span class="task-name">Starter Servicing (Oil Fill)</span></span><span class="task-page">PDF p. 26</span></summary>
-  <div class="task-body"><a class="source-link" href="file:///C:/Users/javie/Desktop/Proyecto%20B737NG/MANUALES/AMM/80_F__091.PDF#page=26" target="_blank" rel="noopener">Open original AMM PDF - page 26 <span aria-hidden="true">↗</span></a>
-    <pre class="procedure">3. Starter Servicing (Oil Fill)
-(Figure 301)
-A. General
-(1) This task provides the instructions on how to service the starter with oil.
-(a) The Preferred Method uses a tool installed in the magnetic plug housing.
+<details class="fault" id="task-80-11-01-610-801-F00">
+  <summary>
+    <span class="fault-head"><span class="fault-code">80-11-01-610-801-F00</span><span class="fault-name">Starter Servicing (Oil Fill)</span></span>
+    <span class="task-badge">ATA 80 · Task 610-801-F00</span>
+  </summary>
+  <div class="fields">
+<section class="field description letter-field"><h3>Task Description</h3><p class="section-text">3. Starter Servicing (Oil Fill)
+(Figure 301)</p></section>
+<section class="field letter-field" data-letter="A"><h3>A. General</h3><p class="section-text"><strong class="step-marker">(1)</strong> This task provides the instructions on how to service the starter with oil.
+<strong class="step-marker">(a)</strong> The Preferred Method uses a tool installed in the magnetic plug housing.
 1) Do this procedure after you install the starter on the engine.
-(b) The Alternate Method removes the magnetic plug housing to gravity fill the starter.
+<strong class="step-marker">(b)</strong> The Alternate Method removes the magnetic plug housing to gravity fill the starter.
 1) If the service tools are not available, do the alternate method before you install the
 starter on the engine.
 NOTE: If the alternate method is used, some oil can drain through the filter screen.
-(2) For this task, use the same type of oil that is used in the engine oil tank.
-(3) After you do this task, it is not necessary to fill the starter again unless you remove the starter
+<strong class="step-marker">(2)</strong> For this task, use the same type of oil that is used in the engine oil tank.
+<strong class="step-marker">(3)</strong> After you do this task, it is not necessary to fill the starter again unless you remove the starter
 or drain the oil. The starter is supplied engine oil from the accessory gearbox.
-(4) The starter is on the forward side of the accessory gearbox.
-B. References
-Reference Title
+<strong class="step-marker">(4)</strong> The starter is on the forward side of the accessory gearbox.</p></section>
+<section class="field letter-field" data-letter="B"><h3>B. References</h3><p class="section-text">Reference Title
 71-11-02-010-801-F00 Open the Fan Cowl Panels (P/B 201)
 71-11-02-410-801-F00 Close the Fan Cowl Panels (P/B 201)
 80-11-01-360-801-F00 Starter Magnetic Plug Housing Packing Replacement (P/B 801)
-80-11-01-400-801-F00 Starter Installation (P/B 401)
-C. Tools/Equipment
-NOTE: When more than one tool part number is listed under the same "Reference" number, the
+80-11-01-400-801-F00 Starter Installation (P/B 401)</p></section>
+<section class="field letter-field" data-letter="C"><h3>C. Tools/Equipment</h3><p class="section-text">NOTE: When more than one tool part number is listed under the same "Reference" number, the
 tools shown are alternates to each other within the same airplane series. Tool part numbers
 that are replaced or non-procurable are preceded by "Opt:", which stands for Optional.
 Reference Description
 COM-2464 Adapter - Starter Drain, Engine
 Part #: DB75-108 Supplier: 97484
-STD-4051 Dispenser - Pressurized Oil Source
-D. Consumable Materials
-Reference Description Specification
-D00599 [CP2442] Oil - Engine
-E. Expendables/Parts
-AMM Item Description AIPC Reference AIPC Effectivity
-1 Packings 80-11-01-01-062 RYR 006, 007, 013, 014,
-018, 019, 043, 044,
-056-063, 067-078, 081,
-083-103, 111-114,
-121-129, 131, 132, 135
-80-11-01
+STD-4051 Dispenser - Pressurized Oil Source</p></section>
+<section class="field letter-field" data-letter="D"><h3>D. Consumable Materials</h3><p class="section-text"></p></section>
+<section class="field letter-field" data-letter="E"><h3>E. Expendables/Parts</h3><p class="section-text">80-11-01
 (Continued)
 AMM Item Description AIPC Reference AIPC Effectivity
 1 (cont.) 80-11-01-01A-070 RYR 014, 068, 087, 090,
@@ -614,196 +577,163 @@ AMM Item Description AIPC Reference AIPC Effectivity
 083-103, 111-114,
 121-129, 131, 132, 135,
 143, 147, 152, 167, 177
-F . Location Zones
+<strong class="section-marker">F. Location Zones</strong>
 Zone Area
 411 Engine 1 - Engine
-421 Engine 2 - Engine
-G. Prepare for the Servicing
-SUBTASK 80-11-01-010-017-F00
-(1) Do this task: Open the Fan Cowl Panels, TASK 71-11-02-010-801-F00.
+421 Engine 2 - Engine</p></section>
+<section class="field letter-field" data-letter="G"><h3>G. Prepare for the Servicing</h3><p class="section-text">SUBTASK 80-11-01-010-017-F00
+<strong class="step-marker">(1)</strong> Do this task: Open the Fan Cowl Panels, TASK 71-11-02-010-801-F00.
 80-11-01
 SUBTASK 80-11-01-860-019-F00
-(2) For Engine 1, open this circuit breaker and install a safety tag:
+<strong class="step-marker">(2)</strong> For Engine 1, open this circuit breaker and install a safety tag:
 CAPT Electrical System Panel, P18-2
 Row Col Number Name
 B 8 C01103 ENGINE 1 START VALVE
 SUBTASK 80-11-01-860-020-F00
-(3) For Engine 2, open this circuit breaker and install a safety tag:
+<strong class="step-marker">(3)</strong> For Engine 2, open this circuit breaker and install a safety tag:
 F/O Electrical System Panel, P6-2
 Row Col Number Name
-C 4 C00154 ENGINE 2 START VALVE
-H. Starter Servicing (Preferred Method)
-SUBTASK 80-11-01-020-006-F00
-(1) If not already done, do these steps to remove the magnetic plug [2]:
+C 4 C00154 ENGINE 2 START VALVE</p></section>
+<section class="field letter-field" data-letter="H"><h3>H. Starter Servicing (Preferred Method)</h3><p class="section-text">SUBTASK 80-11-01-020-006-F00
+<strong class="step-marker">(1)</strong> If not already done, do these steps to remove the magnetic plug [2]:
 NOTE: Do not remove the magnetic plug housing or safety cable. The removal of the
 magnetic plug housing will drain the oil from the starter.
-(a) Push the magnetic plug [2] with your hand and turn it counterclockwise until it stops.
+<strong class="step-marker">(a)</strong> Push the magnetic plug [2] with your hand and turn it counterclockwise until it stops.
 NOTE: The magnetic plug is a bayonet type.
-(b) Pull the magnetic plug [2] from the magnetic plug housing.
+<strong class="step-marker">(b)</strong> Pull the magnetic plug [2] from the magnetic plug housing.
 SUBTASK 80-11-01-680-004-F00
 WARNING
 DO NOT LET THE OIL STAY ON YOUR SKIN. USE THE OIL IN AN AREA WITH
 GOOD VENTILATION. THE OIL IS POISONOUS AND CAN BE ABSORBED
 THROUGH YOUR SKIN. THE OIL FUMES CAN IRRITATE YOUR
 RESPIRATORY TRACT .
-(2) Fill the starter with oil, D00599 [CP2442], as follows:
-(a) Install the starter drain adapter, COM-2464, into the magnetic plug housing.
-(b) Connect the hose of the adapter to the pressurized oil source dispenser, STD-4051.
-(c) Fill the starter with oil, D00599 [CP2442], to the quantity indicated in the label of the
+<strong class="step-marker">(2)</strong> Fill the starter with oil, D00599 [CP2442], as follows:
+<strong class="step-marker">(a)</strong> Install the starter drain adapter, COM-2464, into the magnetic plug housing.
+<strong class="step-marker">(b)</strong> Connect the hose of the adapter to the pressurized oil source dispenser, STD-4051.
+<strong class="step-marker">(c)</strong> Fill the starter with oil, D00599 [CP2442], to the quantity indicated in the label of the
 starter.
 1) Use the same type of engine oil as in the engine accessory gearbox.
 NOTE: The accessory gearbox supplies engine oil to the starter.
-(d) Remove the adapter from the magnetic plug housing.
+<strong class="step-marker">(d)</strong> Remove the adapter from the magnetic plug housing.
 SUBTASK 80-11-01-420-008-F00
-(3) Install the magnetic plug [2] as follows:
-(a) If not already done, remove and discard the old packings [1].
-(b) Apply clean oil, D00599 [CP2442], to the two new packings [1].
-(c) Install the packings [1] on the magnetic plug [2].
-(d) Put the magnetic plug [2] in the magnetic plug housing and align the bayonet pins with
+<strong class="step-marker">(3)</strong> Install the magnetic plug [2] as follows:
+<strong class="step-marker">(a)</strong> If not already done, remove and discard the old packings [1].
+<strong class="step-marker">(b)</strong> Apply clean oil, D00599 [CP2442], to the two new packings [1].
+<strong class="step-marker">(c)</strong> Install the packings [1] on the magnetic plug [2].
+<strong class="step-marker">(d)</strong> Put the magnetic plug [2] in the magnetic plug housing and align the bayonet pins with
 the slots.
-(e) Push the magnetic plug [2] until the pins touch the bottom of the slots and turn the plug
+<strong class="step-marker">(e)</strong> Push the magnetic plug [2] until the pins touch the bottom of the slots and turn the plug
 clockwise until it locks.
-80-11-01
-I. Starter Servicing (Alternate Method)
-SUBTASK 80-11-01-610-003-F00
+80-11-01</p></section>
+<section class="field letter-field" data-letter="I"><h3>I. Starter Servicing (Alternate Method)</h3><p class="section-text">SUBTASK 80-11-01-610-003-F00
 WARNING
 DO NOT LET OIL STAY ON YOUR SKIN. YOU CAN ABSORB POISONOUS
 MATERIALS FROM THE OIL THROUGH YOUR SKIN.
-(1) Gravity fill the starter with oil, D00599 [CP2442], as follows:
+<strong class="step-marker">(1)</strong> Gravity fill the starter with oil, D00599 [CP2442], as follows:
 NOTE: Fill the oil to the starter before you install the starter.
-(a) Remove the magnetic plug housing (TASK 80-11-01-360-801-F00).
-(b) Fill the starter with oil, D00599 [CP2442], to the quantity indicated in the label of the
+<strong class="step-marker">(a)</strong> Remove the magnetic plug housing (TASK 80-11-01-360-801-F00).
+<strong class="step-marker">(b)</strong> Fill the starter with oil, D00599 [CP2442], to the quantity indicated in the label of the
 starter.
 1) Use the same type of engine oil as in the engine accessory gearbox.
 NOTE: The accessory gearbox supplies engine oil to the starter.
-(c) Install the magnetic plug housing with a new packing (TASK 80-11-01-360-801-F00).
-(d) Continue with the starter installation steps (TASK 80-11-01-400-801-F00).
-J. Put the Airplane Back to Its Usual Condition
-SUBTASK 80-11-01-410-005-F00
-(1) Do this task: Close the Fan Cowl Panels, TASK 71-11-02-410-801-F00.
+<strong class="step-marker">(c)</strong> Install the magnetic plug housing with a new packing (TASK 80-11-01-360-801-F00).
+<strong class="step-marker">(d)</strong> Continue with the starter installation steps (TASK 80-11-01-400-801-F00).</p></section>
+<section class="field letter-field" data-letter="J"><h3>J. Put the Airplane Back to Its Usual Condition</h3><p class="section-text">SUBTASK 80-11-01-410-005-F00
+<strong class="step-marker">(1)</strong> Do this task: Close the Fan Cowl Panels, TASK 71-11-02-410-801-F00.
 SUBTASK 80-11-01-860-021-F00
-(2) For Engine 1, remove the safety tag and close this circuit breaker:
+<strong class="step-marker">(2)</strong> For Engine 1, remove the safety tag and close this circuit breaker:
 CAPT Electrical System Panel, P18-2
 Row Col Number Name
 B 8 C01103 ENGINE 1 START VALVE
 SUBTASK 80-11-01-860-022-F00
-(3) For Engine 2, remove the safety tag and close this circuit breaker:
+<strong class="step-marker">(3)</strong> For Engine 2, remove the safety tag and close this circuit breaker:
 F/O Electrical System Panel, P6-2
 Row Col Number Name
-C 4 C00154 ENGINE 2 START VALVE</pre></div>
+C 4 C00154 ENGINE 2 START VALVE</p></section>
+  </div>
 </details>
-<details class="task" id="task-80-11-01-000-801-F00" data-section="80-11-01">
-  <summary><span class="task-head"><span class="task-code">80-11-01-000-801-F00</span><span class="task-name">Starter Removal</span></span><span class="task-page">PDF p. 31</span></summary>
-  <div class="task-body"><a class="source-link" href="file:///C:/Users/javie/Desktop/Proyecto%20B737NG/MANUALES/AMM/80_F__091.PDF#page=31" target="_blank" rel="noopener">Open original AMM PDF - page 31 <span aria-hidden="true">↗</span></a>
-    <pre class="procedure">2. Starter Removal
-(Figure 401)
-A. General
-(1) This task provides the instructions on how to remove the starter.
-B. References
-Reference Title
+<details class="fault" id="task-80-11-01-000-801-F00">
+  <summary>
+    <span class="fault-head"><span class="fault-code">80-11-01-000-801-F00</span><span class="fault-name">Starter Removal</span></span>
+    <span class="task-badge">ATA 80 · Task 000-801-F00</span>
+  </summary>
+  <div class="fields">
+<section class="field description letter-field"><h3>Task Description</h3><p class="section-text">2. Starter Removal
+(Figure 401)</p></section>
+<section class="field letter-field" data-letter="A"><h3>A. General</h3><p class="section-text"><strong class="step-marker">(1)</strong> This task provides the instructions on how to remove the starter.</p></section>
+<section class="field letter-field" data-letter="B"><h3>B. References</h3><p class="section-text">Reference Title
 71-11-02-010-801-F00 Open the Fan Cowl Panels (P/B 201)
 80-11-01-200-801-F00 Starter Magnetic Plug Inspection (P/B 601)
 80-11-01-680-801-F00 Starter Servicing (Oil Drain) (P/B 301)
 80-11-02-000-801-F00 QAD Adapter Removal (P/B 401)
-80-11-02-400-801-F00 QAD Adapter Installation (P/B 401)
-C. Location Zones
-Zone Area
+80-11-02-400-801-F00 QAD Adapter Installation (P/B 401)</p></section>
+<section class="field letter-field" data-letter="C"><h3>C. Location Zones</h3><p class="section-text">Zone Area
 411 Engine 1 - Engine
-421 Engine 2 - Engine
-D. Prepare for the Removal
-SUBTASK 80-11-01-860-027-F00
-(1) For Engine 1, open this circuit breaker and install a safety tag:
+421 Engine 2 - Engine</p></section>
+<section class="field letter-field" data-letter="D"><h3>D. Prepare for the Removal</h3><p class="section-text">SUBTASK 80-11-01-860-027-F00
+<strong class="step-marker">(1)</strong> For Engine 1, open this circuit breaker and install a safety tag:
 CAPT Electrical System Panel, P18-2
 Row Col Number Name
 B 8 C01103 ENGINE 1 START VALVE
 SUBTASK 80-11-01-860-028-F00
-(2) For Engine 2, open this circuit breaker and install a safety tag:
+<strong class="step-marker">(2)</strong> For Engine 2, open this circuit breaker and install a safety tag:
 F/O Electrical System Panel, P6-2
 Row Col Number Name
 C 4 C00154 ENGINE 2 START VALVE
 SUBTASK 80-11-01-010-015-F00
-(3) Do this task: Open the Fan Cowl Panels, TASK 71-11-02-010-801-F00.
-80-11-01
-E. Starter Removal
-SUBTASK 80-11-01-200-001-F00
+<strong class="step-marker">(3)</strong> Do this task: Open the Fan Cowl Panels, TASK 71-11-02-010-801-F00.
+80-11-01</p></section>
+<section class="field letter-field" data-letter="E"><h3>E. Starter Removal</h3><p class="section-text">SUBTASK 80-11-01-200-001-F00
 WARNING
 DO NOT LET OIL STAY ON YOUR SKIN. YOU CAN ABSORB POISONOUS
 MATERIALS FROM THE OIL THROUGH YOUR SKIN.
-(1) If you remove the starter for a cause, examine the starter magnetic plug to find if the engine oil
+<strong class="step-marker">(1)</strong> If you remove the starter for a cause, examine the starter magnetic plug to find if the engine oil
 has contamination (TASK 80-11-01-200-801-F00).
 SUBTASK 80-11-01-680-001-F00
-(2) Do this task: Starter Servicing (Oil Drain), TASK 80-11-01-680-801-F00.
+<strong class="step-marker">(2)</strong> Do this task: Starter Servicing (Oil Drain), TASK 80-11-01-680-801-F00.
 SUBTASK 80-11-01-010-006-F00
-(3) Remove the coupling [2] to disconnect the starter duct [1] from the starter [9].
+<strong class="step-marker">(3)</strong> Remove the coupling [2] to disconnect the starter duct [1] from the starter [9].
 SUBTASK 80-11-01-020-002-F00
-(4) Remove the starter [9] from the AGB [6]:
-(a) Remove the clamp [7] that attaches the starter [9] to the QAD adapter [5].
-(b) Pull the starter [9] forward until the splines of the shaft disengage from the AGB [6].
+<strong class="step-marker">(4)</strong> Remove the starter [9] from the AGB [6]:
+<strong class="step-marker">(a)</strong> Remove the clamp [7] that attaches the starter [9] to the QAD adapter [5].
+<strong class="step-marker">(b)</strong> Pull the starter [9] forward until the splines of the shaft disengage from the AGB [6].
 NOTE: You can lightly push the starter duct up to disengage the duct flanges.
-(c) Remove the seal [10] from the starter duct [1].
+<strong class="step-marker">(c)</strong> Remove the seal [10] from the starter duct [1].
 NOTE: Keep the seal for the installation.
-(d) Remove the packing [3] and the packing [4] from the starter shaft and the starter flange.
+<strong class="step-marker">(d)</strong> Remove the packing [3] and the packing [4] from the starter shaft and the starter flange.
 1) Discard the packing [3] and the packing [4].
-(e) Install the protective covers on all the pneumatic openings.
+<strong class="step-marker">(e)</strong> Install the protective covers on all the pneumatic openings.
 SUBTASK 80-11-01-020-007-F00
-(5) If you remove the starter for damage or the results of a starter magnetic plug inspection,
+<strong class="step-marker">(5)</strong> If you remove the starter for damage or the results of a starter magnetic plug inspection,
 remove the QAD adapter (TASK 80-11-02-000-801-F00).
 NOTE: If the starter is removed for external damage only, such as broken bolts, case damage
 or surface defects, removal of QAD adapter is not necessary.
 NOTE: If oil leakage is the cause to remove the starter, do a check of the starter magnetic
 plug. The removal of the QAD adapter is not necessary if the magnetic plug is clean.
-(a) Examine the area behind the QAD adapter for debris or the magnetic particles.
-(b) If you find debris behind the QAD adapter, do this task: Starter Magnetic Plug Inspection,
+<strong class="step-marker">(a)</strong> Examine the area behind the QAD adapter for debris or the magnetic particles.
+<strong class="step-marker">(b)</strong> If you find debris behind the QAD adapter, do this task: Starter Magnetic Plug Inspection,
 TASK 80-11-01-200-801-F00.
-(c) If you did not find debris or the magnetic particles, install the QAD adapter
-(TASK 80-11-02-400-801-F00).</pre></div>
+<strong class="step-marker">(c)</strong> If you did not find debris or the magnetic particles, install the QAD adapter
+(TASK 80-11-02-400-801-F00).</p></section>
+  </div>
 </details>
-<details class="task" id="task-80-11-01-400-801-F00" data-section="80-11-01">
-  <summary><span class="task-head"><span class="task-code">80-11-01-400-801-F00</span><span class="task-name">Starter Installation</span></span><span class="task-page">PDF p. 34</span></summary>
-  <div class="task-body"><a class="source-link" href="file:///C:/Users/javie/Desktop/Proyecto%20B737NG/MANUALES/AMM/80_F__091.PDF#page=34" target="_blank" rel="noopener">Open original AMM PDF - page 34 <span aria-hidden="true">↗</span></a>
-    <pre class="procedure">3. Starter Installation
-(Figure 401)
-A. General
-(1) This task provides the instructions on how to install the starter.
-B. References
-Reference Title
+<details class="fault" id="task-80-11-01-400-801-F00">
+  <summary>
+    <span class="fault-head"><span class="fault-code">80-11-01-400-801-F00</span><span class="fault-name">Starter Installation</span></span>
+    <span class="task-badge">ATA 80 · Task 400-801-F00</span>
+  </summary>
+  <div class="fields">
+<section class="field description letter-field"><h3>Task Description</h3><p class="section-text">3. Starter Installation
+(Figure 401)</p></section>
+<section class="field letter-field" data-letter="A"><h3>A. General</h3><p class="section-text"><strong class="step-marker">(1)</strong> This task provides the instructions on how to install the starter.</p></section>
+<section class="field letter-field" data-letter="B"><h3>B. References</h3><p class="section-text">Reference Title
 71-00-00-800-811-F00 Power Plant Test Reference Table (P/B 501)
 71-11-02-410-801-F00 Close the Fan Cowl Panels (P/B 201)
-80-11-01-610-801-F00 Starter Servicing (Oil Fill) (P/B 301)
-C. Tools/Equipment
-Reference Description
-STD-3906 Mallet - Rubber
-D. Consumable Materials
-Reference Description Specification
-D00599 [CP2442] Oil - Engine
-E. Expendables/Parts
-AMM Item Description AIPC Reference AIPC Effectivity
-3 Packing 80-11-01-01-080 RYR 006, 007, 013, 014,
-018, 019, 043, 044,
-056-063, 067-078, 081,
-083-103, 111-114,
-121-129, 131, 132, 135
-80-11-01-01A-090 RYR 014, 068, 087, 090,
-111, 125, 128, 138-168,
-174-179, 182-187,
-189-203, 205-209,
-212-220, 223, 224,
-231-236, 239-298,
-301-304, 306, 308,
-315-317, 322-341, 343,
-346-999
-80-11-01-01B-080 RYR 006, 007, 013, 014,
-018, 019, 043, 044,
-056-063, 067-078, 081,
-083-103, 111-114,
-121-129, 131, 132, 135,
-143, 147, 152, 167, 177
-4 Packing 80-11-01-01-075 RYR 006, 007, 013, 014,
-018, 019, 043, 044,
-056-063, 067-078, 081,
-083-103, 111-114,
-121-129, 131, 132, 135
-80-11-01
+80-11-01-610-801-F00 Starter Servicing (Oil Fill) (P/B 301)</p></section>
+<section class="field letter-field" data-letter="C"><h3>C. Tools/Equipment</h3><p class="section-text">Reference Description
+STD-3906 Mallet - Rubber</p></section>
+<section class="field letter-field" data-letter="D"><h3>D. Consumable Materials</h3><p class="section-text"></p></section>
+<section class="field letter-field" data-letter="E"><h3>E. Expendables/Parts</h3><p class="section-text">80-11-01
 (Continued)
 AMM Item Description AIPC Reference AIPC Effectivity
 4 (cont.) 80-11-01-01A-085 RYR 014, 068, 087, 090,
@@ -855,43 +785,42 @@ AMM Item Description AIPC Reference AIPC Effectivity
 315-317, 322-341, 343,
 346-999
 80-11-01
-F . Location Zones
+<strong class="section-marker">F. Location Zones</strong>
 Zone Area
 411 Engine 1 - Engine
-421 Engine 2 - Engine
-G. Starter Installation
-SUBTASK 80-11-01-020-003-F00
-(1) Remove the protective covers from the starter [9] and the starter duct [1].
+421 Engine 2 - Engine</p></section>
+<section class="field letter-field" data-letter="G"><h3>G. Starter Installation</h3><p class="section-text">SUBTASK 80-11-01-020-003-F00
+<strong class="step-marker">(1)</strong> Remove the protective covers from the starter [9] and the starter duct [1].
 SUBTASK 80-11-01-210-008-F00
-(2) Examine the seal [10] for damage.
-(a) If you find cracks, dents or other damage, replace the seal [10].
+<strong class="step-marker">(2)</strong> Examine the seal [10] for damage.
+<strong class="step-marker">(a)</strong> If you find cracks, dents or other damage, replace the seal [10].
 SUBTASK 80-11-01-610-004-F00
 CAUTION
 MAKE SURE THAT YOU FILL THE STARTER WITH OIL BEFORE OPERATION.
 IF YOU DO NOT OBEY THIS INSTRUCTION, DAMAGE TO THE STARTER
 CAN OCCUR.
-(3) Do this task before or after the starter installation: Starter Servicing (Oil Fill),
+<strong class="step-marker">(3)</strong> Do this task before or after the starter installation: Starter Servicing (Oil Fill),
 TASK 80-11-01-610-801-F00.
 SUBTASK 80-11-01-420-002-F00
-(4) Install the seal [10] on the bottom flange of the starter duct [1].
+<strong class="step-marker">(4)</strong> Install the seal [10] on the bottom flange of the starter duct [1].
 NOTE: The seal [10] has an oval shape and will "snap" into its position.
 SUBTASK 80-11-01-420-003-F00
 WARNING
 DO NOT LET OIL STAY ON YOUR SKIN. YOU CAN ABSORB POISONOUS
 MATERIALS FROM THE OIL THROUGH YOUR SKIN.
-(5) Install the packing [3] and the packing [4] on the starter [9] as follows:
-(a) Lubricate the packing [3] and the packing [4] with oil, D00599 [CP2442].
-(b) Install the packing [3] on the starter flange.
-(c) Install the packing [4] on the starter shaft.
+<strong class="step-marker">(5)</strong> Install the packing [3] and the packing [4] on the starter [9] as follows:
+<strong class="step-marker">(a)</strong> Lubricate the packing [3] and the packing [4] with oil, D00599 [CP2442].
+<strong class="step-marker">(b)</strong> Install the packing [3] on the starter flange.
+<strong class="step-marker">(c)</strong> Install the packing [4] on the starter shaft.
 SUBTASK 80-11-01-420-004-F00
-(6) Install the starter [9] on the AGB [6] as follows:
+<strong class="step-marker">(6)</strong> Install the starter [9] on the AGB [6] as follows:
 NOTE: The dowel pins of the QAD adapter and the pin holes of the starter will only align one
 way.
-(a) Align the starter shaft with the splines of the AGB [6].
-(b) Align the dowel pins on the QAD adapter [5] with the pin holes in the starter [9].
-(c) Put the starter shaft into the AGB [6] until the starter flange engages the QAD adapter [5].
+<strong class="step-marker">(a)</strong> Align the starter shaft with the splines of the AGB [6].
+<strong class="step-marker">(b)</strong> Align the dowel pins on the QAD adapter [5] with the pin holes in the starter [9].
+<strong class="step-marker">(c)</strong> Put the starter shaft into the AGB [6] until the starter flange engages the QAD adapter [5].
 NOTE: You can lightly push the starter duct up to engage the duct flanges.
-(d) Install the clamp [7] to attach the starter [9] to the QAD adapter [5] as follows:
+<strong class="step-marker">(d)</strong> Install the clamp [7] to attach the starter [9] to the QAD adapter [5] as follows:
 NOTE: There are two types of starter clamps used in the fleet. One type is a V-band
 clamp which is a sheet metal design and uses spot weld connections. The
 second type, released by CFM56–7B SB80–0016, has fully machined
@@ -904,162 +833,151 @@ RYR ALL PRE SB 737-CFM56-7B-80-0016
 CAUTION
 DO NOT TIGHTEN THE NUT TO MORE THAN THE MAXIMUM TORQUE.
 DAMAGE TO THE PARTS CAN OCCUR.
-(e) Tighten the nut on the clamp [7] to 49-55 pound-inches (5.5-6.2 Newton-meters).
+<strong class="step-marker">(e)</strong> Tighten the nut on the clamp [7] to 49-55 pound-inches (5.5-6.2 Newton-meters).
 RYR ALL POST SB 737-CFM56-7B-80-0016
 CAUTION
 DO NOT TIGHTEN THE NUT TO MORE THAN THE MAXIMUM TORQUE.
 DAMAGE TO THE PARTS CAN OCCUR.
-(f) Tighten the nut on the clamp [7] to 115–125 pound-inches (13.0-14.1 Newton-meters), as
+<strong class="step-marker">(f)</strong> Tighten the nut on the clamp [7] to 115–125 pound-inches (13.0-14.1 Newton-meters), as
 shown on the clamp.
 RYR ALL
 SUBTASK 80-11-01-420-005-F00
-(7) Connect the starter duct [1] to the starter [9] as follows:
-(a) Attach the starter duct [1] to the starter [9] with the coupling [2].
+<strong class="step-marker">(7)</strong> Connect the starter duct [1] to the starter [9] as follows:
+<strong class="step-marker">(a)</strong> Attach the starter duct [1] to the starter [9] with the coupling [2].
 NOTE: Make sure that the key on the starter is aligned with the keyway on the duct.
-(b) Tighten the nut on the coupling [2] to the torque given on the part.
-(c) Lightly hit the outer surface of the coupling [2] with a rubber mallet, STD-3906.
-(d) Tighten the nut on the coupling [2] again to the torque given on the part.
+<strong class="step-marker">(b)</strong> Tighten the nut on the coupling [2] to the torque given on the part.
+<strong class="step-marker">(c)</strong> Lightly hit the outer surface of the coupling [2] with a rubber mallet, STD-3906.
+<strong class="step-marker">(d)</strong> Tighten the nut on the coupling [2] again to the torque given on the part.
 SUBTASK 80-11-01-610-001-F00
-(8) If it has not done so, do this task: Starter Servicing (Oil Fill), TASK 80-11-01-610-801-F00.
+<strong class="step-marker">(8)</strong> If it has not done so, do this task: Starter Servicing (Oil Fill), TASK 80-11-01-610-801-F00.
 NOTE: If the starter servicing is done at this step, after the starter installation, the preferred
-method of the starter servicing must be used.
-H. Put the Airplane Back to Its Usual Condition
-SUBTASK 80-11-01-410-004-F00
-(1) Do this task: Close the Fan Cowl Panels, TASK 71-11-02-410-801-F00.
+method of the starter servicing must be used.</p></section>
+<section class="field letter-field" data-letter="H"><h3>H. Put the Airplane Back to Its Usual Condition</h3><p class="section-text">SUBTASK 80-11-01-410-004-F00
+<strong class="step-marker">(1)</strong> Do this task: Close the Fan Cowl Panels, TASK 71-11-02-410-801-F00.
 SUBTASK 80-11-01-860-042-F00
-(2) For Engine 1, remove the safety tag and close this circuit breaker:
+<strong class="step-marker">(2)</strong> For Engine 1, remove the safety tag and close this circuit breaker:
 CAPT Electrical System Panel, P18-2
 Row Col Number Name
 B 8 C01103 ENGINE 1 START VALVE
 80-11-01
 SUBTASK 80-11-01-860-043-F00
-(3) For Engine 2, remove the safety tag and close this circuit breaker:
+<strong class="step-marker">(3)</strong> For Engine 2, remove the safety tag and close this circuit breaker:
 F/O Electrical System Panel, P6-2
 Row Col Number Name
-C 4 C00154 ENGINE 2 START VALVE
-I. Starter Installation Test
-SUBTASK 80-11-01-700-002-F00
-(1) Do the test(s) listed in the Power Plant Test Reference Table (TASK 71-00-00-800-811-F00).</pre></div>
+C 4 C00154 ENGINE 2 START VALVE</p></section>
+<section class="field letter-field" data-letter="I"><h3>I. Starter Installation Test</h3><p class="section-text">SUBTASK 80-11-01-700-002-F00
+<strong class="step-marker">(1)</strong> Do the test(s) listed in the Power Plant Test Reference Table (TASK 71-00-00-800-811-F00).</p></section>
+  </div>
 </details>
-<details class="task" id="task-80-11-01-200-802-F00" data-section="80-11-01">
-  <summary><span class="task-head"><span class="task-code">80-11-01-200-802-F00</span><span class="task-name">Starter Inspection</span></span><span class="task-page">PDF p. 39</span></summary>
-  <div class="task-body"><a class="source-link" href="file:///C:/Users/javie/Desktop/Proyecto%20B737NG/MANUALES/AMM/80_F__091.PDF#page=39" target="_blank" rel="noopener">Open original AMM PDF - page 39 <span aria-hidden="true">↗</span></a>
-    <pre class="procedure">2. Starter Inspection
-(Figure 601)
-A. General
-(1) This task provides the instructions to examine the starter for oil leaks, sheared housing bolts
+<details class="fault" id="task-80-11-01-200-802-F00">
+  <summary>
+    <span class="fault-head"><span class="fault-code">80-11-01-200-802-F00</span><span class="fault-name">Starter Inspection</span></span>
+    <span class="task-badge">ATA 80 · Task 200-802-F00</span>
+  </summary>
+  <div class="fields">
+<section class="field description letter-field"><h3>Task Description</h3><p class="section-text">2. Starter Inspection
+(Figure 601)</p></section>
+<section class="field letter-field" data-letter="A"><h3>A. General</h3><p class="section-text"><strong class="step-marker">(1)</strong> This task provides the instructions to examine the starter for oil leaks, sheared housing bolts
 and also to examine the magnetic plug on the starter.
-(2) The starter is on the forward side of the accessory gearbox.
-B. References
-Reference Title
+<strong class="step-marker">(2)</strong> The starter is on the forward side of the accessory gearbox.</p></section>
+<section class="field letter-field" data-letter="B"><h3>B. References</h3><p class="section-text">Reference Title
 71-11-02-010-801-F00 Open the Fan Cowl Panels (P/B 201)
 71-11-02-410-801-F00 Close the Fan Cowl Panels (P/B 201)
 80-11-01-000-801-F00 Starter Removal (P/B 401)
 80-11-01-360-801-F00 Starter Magnetic Plug Housing Packing Replacement (P/B 801)
 80-11-01-360-802-F00 Starter Housing Bolts Replacement (P/B 801)
-80-11-01-400-801-F00 Starter Installation (P/B 401)
-C. Location Zones
-Zone Area
+80-11-01-400-801-F00 Starter Installation (P/B 401)</p></section>
+<section class="field letter-field" data-letter="C"><h3>C. Location Zones</h3><p class="section-text">Zone Area
 411 Engine 1 - Engine
-421 Engine 2 - Engine
-D. Prepare for the Inspection
-SUBTASK 80-11-01-860-038-F00
-(1) For Engine 1, open this circuit breaker and install a safety tag:
+421 Engine 2 - Engine</p></section>
+<section class="field letter-field" data-letter="D"><h3>D. Prepare for the Inspection</h3><p class="section-text">SUBTASK 80-11-01-860-038-F00
+<strong class="step-marker">(1)</strong> For Engine 1, open this circuit breaker and install a safety tag:
 CAPT Electrical System Panel, P18-2
 Row Col Number Name
 B 8 C01103 ENGINE 1 START VALVE
 SUBTASK 80-11-01-860-039-F00
-(2) For Engine 2, open this circuit breaker and install a safety tag:
+<strong class="step-marker">(2)</strong> For Engine 2, open this circuit breaker and install a safety tag:
 F/O Electrical System Panel, P6-2
 Row Col Number Name
 C 4 C00154 ENGINE 2 START VALVE
 SUBTASK 80-11-01-010-019-F00
-(3) Do this task: Open the Fan Cowl Panels, TASK 71-11-02-010-801-F00.
-E. Starter Inspection
-SUBTASK 80-11-01-210-002-F00
-(1) Examine the starter gear housing and the exhaust housing for oil leaks.
+<strong class="step-marker">(3)</strong> Do this task: Open the Fan Cowl Panels, TASK 71-11-02-010-801-F00.</p></section>
+<section class="field letter-field" data-letter="E"><h3>E. Starter Inspection</h3><p class="section-text">SUBTASK 80-11-01-210-002-F00
+<strong class="step-marker">(1)</strong> Examine the starter gear housing and the exhaust housing for oil leaks.
 80-11-01
-(a) Oil leaks are not serviceable, replace the starter (TASK 80-11-01-000-801-F00 and
+<strong class="step-marker">(a)</strong> Oil leaks are not serviceable, replace the starter (TASK 80-11-01-000-801-F00 and
 TASK 80-11-01-400-801-F00).
 SUBTASK 80-11-01-210-003-F00
-(2) Examine for oil leaks between the starter gear housing and the magnetic plug housing.
-(a) Oil leaks are not serviceable, do this task: Starter Magnetic Plug Housing Packing
+<strong class="step-marker">(2)</strong> Examine for oil leaks between the starter gear housing and the magnetic plug housing.
+<strong class="step-marker">(a)</strong> Oil leaks are not serviceable, do this task: Starter Magnetic Plug Housing Packing
 Replacement, TASK 80-11-01-360-801-F00.
 SUBTASK 80-11-01-210-004-F00
-(3) Examine for oil leaks between the starter gear housing and the QAD adapter.
-(a) Carefully examine the weld joints and adjacent metal of the starter clamp [4] for cracks.
+<strong class="step-marker">(3)</strong> Examine for oil leaks between the starter gear housing and the QAD adapter.
+<strong class="step-marker">(a)</strong> Carefully examine the weld joints and adjacent metal of the starter clamp [4] for cracks.
 1) If you find cracks, remove and replace the starter clamp [4].
-(b) Oil leaks are not serviceable, replace the packing on the starter flange
+<strong class="step-marker">(b)</strong> Oil leaks are not serviceable, replace the packing on the starter flange
 (TASK 80-11-01-000-801-F00 and TASK 80-11-01-400-801-F00).
 SUBTASK 80-11-01-210-005-F00
-(4) Examine the exhaust housing diffuser for wet areas with oil.
-(a) If the exhaust area has accumulated enough oil to drip from the housing (formation of
+<strong class="step-marker">(4)</strong> Examine the exhaust housing diffuser for wet areas with oil.
+<strong class="step-marker">(a)</strong> If the exhaust area has accumulated enough oil to drip from the housing (formation of
 droplets), the turbine seal can be damaged.
-(b) If the exhaust area is wet with oil, but oil drops do not form, no action is necessary.
+<strong class="step-marker">(b)</strong> If the exhaust area is wet with oil, but oil drops do not form, no action is necessary.
 NOTE: After so many cycles, the exhaust area will usually be dirty because of
 contamination in the air supply. Make sure that it is oil that you find and not dirt.
-(c) A damaged turbine seal is not serviceable, replace the starter
+<strong class="step-marker">(c)</strong> A damaged turbine seal is not serviceable, replace the starter
 (TASK 80-11-01-000-801-F00 and TASK 80-11-01-400-801-F00).
 SUBTASK 80-11-01-210-006-F00
-(5) Examine for oil leaks between the magnetic plug housing and the magnetic plug.
-(a) Oil leaks are not serviceable, replace the packing on the magnetic plug
+<strong class="step-marker">(5)</strong> Examine for oil leaks between the magnetic plug housing and the magnetic plug.
+<strong class="step-marker">(a)</strong> Oil leaks are not serviceable, replace the packing on the magnetic plug
 (TASK 80-11-01-200-801-F00).
 SUBTASK 80-11-01-210-007-F00
-(6) To look for internal damage of the starter, do this task: Starter Magnetic Plug Inspection,
+<strong class="step-marker">(6)</strong> To look for internal damage of the starter, do this task: Starter Magnetic Plug Inspection,
 TASK 80-11-01-200-801-F00.
 SUBTASK 80-11-01-210-011-F00
-(7) Examine the housing for sheared/missing bolts.
-(a) A total of nine bolts are installed on the circumference, that attach the starter inlet
+<strong class="step-marker">(7)</strong> Examine the housing for sheared/missing bolts.
+<strong class="step-marker">(a)</strong> A total of nine bolts are installed on the circumference, that attach the starter inlet
 housing with the gear housing.
-(b) Sheared/missing bolts are not serviceable, do this task: Starter Housing Bolts
+<strong class="step-marker">(b)</strong> Sheared/missing bolts are not serviceable, do this task: Starter Housing Bolts
 Replacement, TASK 80-11-01-360-802-F00.
-F . Put the Airplane Back to Its Usual Condition
+<strong class="section-marker">F. Put the Airplane Back to Its Usual Condition</strong>
 SUBTASK 80-11-01-410-007-F00
-(1) Do this task: Close the Fan Cowl Panels, TASK 71-11-02-410-801-F00.
+<strong class="step-marker">(1)</strong> Do this task: Close the Fan Cowl Panels, TASK 71-11-02-410-801-F00.
 SUBTASK 80-11-01-860-040-F00
-(2) For Engine 1, remove the safety tag and close this circuit breaker:
+<strong class="step-marker">(2)</strong> For Engine 1, remove the safety tag and close this circuit breaker:
 CAPT Electrical System Panel, P18-2
 Row Col Number Name
 B 8 C01103 ENGINE 1 START VALVE
 80-11-01
 SUBTASK 80-11-01-860-041-F00
-(3) For Engine 2, remove the safety tag and close this circuit breaker:
+<strong class="step-marker">(3)</strong> For Engine 2, remove the safety tag and close this circuit breaker:
 F/O Electrical System Panel, P6-2
 Row Col Number Name
-C 4 C00154 ENGINE 2 START VALVE</pre></div>
+C 4 C00154 ENGINE 2 START VALVE</p></section>
+  </div>
 </details>
-<details class="task" id="task-80-11-01-200-801-F00" data-section="80-11-01">
-  <summary><span class="task-head"><span class="task-code">80-11-01-200-801-F00</span><span class="task-name">Starter Magnetic Plug Inspection</span></span><span class="task-page">PDF p. 41</span></summary>
-  <div class="task-body"><a class="source-link" href="file:///C:/Users/javie/Desktop/Proyecto%20B737NG/MANUALES/AMM/80_F__091.PDF#page=41" target="_blank" rel="noopener">Open original AMM PDF - page 41 <span aria-hidden="true">↗</span></a>
-    <pre class="procedure">3. Starter Magnetic Plug Inspection
+<details class="fault" id="task-80-11-01-200-801-F00">
+  <summary>
+    <span class="fault-head"><span class="fault-code">80-11-01-200-801-F00</span><span class="fault-name">Starter Magnetic Plug Inspection</span></span>
+    <span class="task-badge">ATA 80 · Task 200-801-F00</span>
+  </summary>
+  <div class="fields">
+<section class="field description letter-field"><h3>Task Description</h3><p class="section-text">3. Starter Magnetic Plug Inspection
 (Figure 601 and Figure 602)
-NOTE: This procedure is a scheduled maintenance task.
-A. General
-(1) This task provides the instructions on how to examine and identify possible internal damage to
+NOTE: This procedure is a scheduled maintenance task.</p></section>
+<section class="field letter-field" data-letter="A"><h3>A. General</h3><p class="section-text"><strong class="step-marker">(1)</strong> This task provides the instructions on how to examine and identify possible internal damage to
 the starter.
-(2) The starter is on the forward side of the accessory gearbox.
-B. References
-Reference Title
+<strong class="step-marker">(2)</strong> The starter is on the forward side of the accessory gearbox.</p></section>
+<section class="field letter-field" data-letter="B"><h3>B. References</h3><p class="section-text">Reference Title
 71-11-02-010-801-F00 Open the Fan Cowl Panels (P/B 201)
 71-11-02-410-801-F00 Close the Fan Cowl Panels (P/B 201)
 80-11-01-000-801-F00 Starter Removal (P/B 401)
 80-11-01-400-801-F00 Starter Installation (P/B 401)
 80-11-02-000-801-F00 QAD Adapter Removal (P/B 401)
-80-11-02-400-801-F00 QAD Adapter Installation (P/B 401)
-C. Tools/Equipment
-Reference Description
-STD-1070 Lens - Magnifying, 10X, Hand Held
-D. Consumable Materials
-Reference Description Specification
-D00599 [CP2442] Oil - Engine
-E. Expendables/Parts
-AMM Item Description AIPC Reference AIPC Effectivity
-1 Magnetic plug 80-11-01-01-058 RYR 006, 007, 013, 014,
-018, 019, 043, 044,
-056-063, 067-078, 081,
-083-103, 111-114,
-121-129, 131, 132, 135
-80-11-01
+80-11-02-400-801-F00 QAD Adapter Installation (P/B 401)</p></section>
+<section class="field letter-field" data-letter="C"><h3>C. Tools/Equipment</h3><p class="section-text">Reference Description
+STD-1070 Lens - Magnifying, 10X, Hand Held</p></section>
+<section class="field letter-field" data-letter="D"><h3>D. Consumable Materials</h3><p class="section-text"></p></section>
+<section class="field letter-field" data-letter="E"><h3>E. Expendables/Parts</h3><p class="section-text">80-11-01
 (Continued)
 AMM Item Description AIPC Reference AIPC Effectivity
 1 (cont.) 80-11-01-01A-060 RYR 014, 068, 087, 090,
@@ -1097,44 +1015,42 @@ AMM Item Description AIPC Reference AIPC Effectivity
 083-103, 111-114,
 121-129, 131, 132, 135,
 143, 147, 152, 167, 177
-F . Location Zones
+<strong class="section-marker">F. Location Zones</strong>
 Zone Area
 411 Engine 1 - Engine
-421 Engine 2 - Engine
-G. Prepare for the Inspection
-SUBTASK 80-11-01-860-031-F00
-(1) For Engine 1, open this circuit breaker and install a safety tag:
+421 Engine 2 - Engine</p></section>
+<section class="field letter-field" data-letter="G"><h3>G. Prepare for the Inspection</h3><p class="section-text">SUBTASK 80-11-01-860-031-F00
+<strong class="step-marker">(1)</strong> For Engine 1, open this circuit breaker and install a safety tag:
 CAPT Electrical System Panel, P18-2
 Row Col Number Name
 B 8 C01103 ENGINE 1 START VALVE
 80-11-01
 SUBTASK 80-11-01-860-032-F00
-(2) For Engine 2, open this circuit breaker and install a safety tag:
+<strong class="step-marker">(2)</strong> For Engine 2, open this circuit breaker and install a safety tag:
 F/O Electrical System Panel, P6-2
 Row Col Number Name
 C 4 C00154 ENGINE 2 START VALVE
 SUBTASK 80-11-01-010-016-F00
-(3) Do this task: Open the Fan Cowl Panels, TASK 71-11-02-010-801-F00.
-H. Starter Magnetic Plug Inspection
-SUBTASK 80-11-01-020-001-F00
+<strong class="step-marker">(3)</strong> Do this task: Open the Fan Cowl Panels, TASK 71-11-02-010-801-F00.</p></section>
+<section class="field letter-field" data-letter="H"><h3>H. Starter Magnetic Plug Inspection</h3><p class="section-text">SUBTASK 80-11-01-020-001-F00
 CAUTION
 DO NOT REMOVE THE MAGNETIC PLUG HOUSING OR THE SAFETY
 CABLE. THE REMOVAL OF THE MAGNETIC PLUG HOUSING WILL DRAIN
 THE OIL FROM THE STARTER. THE OPERATION OF THE STARTER
 WITHOUT OIL CAN CAUSE DAMAGE TO THE STARTER.
-(1) Remove the magnetic plug [1] as follows:
+<strong class="step-marker">(1)</strong> Remove the magnetic plug [1] as follows:
 NOTE: The magnetic plug is a bayonet type.
-(a) Push the magnetic plug [1] with your hand and turn it counterclockwise until it stops.
-(b) Pull the magnetic plug [1] from the magnetic plug housing.
+<strong class="step-marker">(a)</strong> Push the magnetic plug [1] with your hand and turn it counterclockwise until it stops.
+<strong class="step-marker">(b)</strong> Pull the magnetic plug [1] from the magnetic plug housing.
 SUBTASK 80-11-01-210-012-F00
-(2) Inspect the magnetic plug [1] for particles and debris:
-(a) If the plug is clean and debris free, do the Starter Magnetic Plug inspection at the next
+<strong class="step-marker">(2)</strong> Inspect the magnetic plug [1] for particles and debris:
+<strong class="step-marker">(a)</strong> If the plug is clean and debris free, do the Starter Magnetic Plug inspection at the next
 Maintenance Planning Data (or Document) (MPD) interval (Figure 602).
-(b) Continue at the step: Install the magnetic plug [1] as follows:
-(c) If you find particles or debris on the magnetic plug [1], continue with the inspection.
+<strong class="step-marker">(b)</strong> Continue at the step: Install the magnetic plug [1] as follows:
+<strong class="step-marker">(c)</strong> If you find particles or debris on the magnetic plug [1], continue with the inspection.
 SUBTASK 80-11-01-211-001-F00
-(3) Examine the magnetic plug [1] for the type and quantity of contamination:
-(a) Use the 10x hand held magnifying lens, STD-1070, to examine the particles:
+<strong class="step-marker">(3)</strong> Examine the magnetic plug [1] for the type and quantity of contamination:
+<strong class="step-marker">(a)</strong> Use the 10x hand held magnifying lens, STD-1070, to examine the particles:
 1) If the there are small (less than moderate) amounts of magnetic particles, smaller
 than 0.10 in. (2.54 mm), this is a permitted condition (Figure 602).
 a) The Starter Magnetic Plug can be inspected at the next MPD interval.
@@ -1170,66 +1086,45 @@ h) If after four inspection intervals, debris/magnetic particles are still prese
 the magnetic plug [1], replace the starter (TASK 80-11-01-000-801-F00 and
 TASK 80-11-01-400-801-F00).
 SUBTASK 80-11-01-420-001-F00
-(4) Install the magnetic plug [1] as follows:
-(a) Remove and discard the two packings [2] on the magnetic plug [1].
-(b) Apply clean oil, D00599 [CP2442], to the two packings [2].
-(c) Install the two packing [2] on the magnetic plug [1].
-(d) Put the magnetic plug [1] in the magnetic plug housing and align the bayonet pins with
+<strong class="step-marker">(4)</strong> Install the magnetic plug [1] as follows:
+<strong class="step-marker">(a)</strong> Remove and discard the two packings [2] on the magnetic plug [1].
+<strong class="step-marker">(b)</strong> Apply clean oil, D00599 [CP2442], to the two packings [2].
+<strong class="step-marker">(c)</strong> Install the two packing [2] on the magnetic plug [1].
+<strong class="step-marker">(d)</strong> Put the magnetic plug [1] in the magnetic plug housing and align the bayonet pins with
 the slots.
-(e) Push the magnetic plug [1] until the pins touch the bottom of the slots and turn the plug
-clockwise until it locks.
-I. Put the Airplane Back to Its Usual Condition
-SUBTASK 80-11-01-410-003-F00
-(1) Do this task: Close the Fan Cowl Panels, TASK 71-11-02-410-801-F00.
+<strong class="step-marker">(e)</strong> Push the magnetic plug [1] until the pins touch the bottom of the slots and turn the plug
+clockwise until it locks.</p></section>
+<section class="field letter-field" data-letter="I"><h3>I. Put the Airplane Back to Its Usual Condition</h3><p class="section-text">SUBTASK 80-11-01-410-003-F00
+<strong class="step-marker">(1)</strong> Do this task: Close the Fan Cowl Panels, TASK 71-11-02-410-801-F00.
 SUBTASK 80-11-01-860-033-F00
-(2) For Engine 1, remove the safety tag and close this circuit breaker:
+<strong class="step-marker">(2)</strong> For Engine 1, remove the safety tag and close this circuit breaker:
 CAPT Electrical System Panel, P18-2
 Row Col Number Name
 B 8 C01103 ENGINE 1 START VALVE
 SUBTASK 80-11-01-860-034-F00
-(3) For Engine 2, remove the safety tag and close this circuit breaker:
+<strong class="step-marker">(3)</strong> For Engine 2, remove the safety tag and close this circuit breaker:
 F/O Electrical System Panel, P6-2
 Row Col Number Name
-C 4 C00154 ENGINE 2 START VALVE</pre></div>
+C 4 C00154 ENGINE 2 START VALVE</p></section>
+  </div>
 </details>
-<details class="task" id="task-80-11-01-360-801-F00" data-section="80-11-01">
-  <summary><span class="task-head"><span class="task-code">80-11-01-360-801-F00</span><span class="task-name">Starter Magnetic Plug Housing Packing Replacement</span></span><span class="task-page">PDF p. 47</span></summary>
-  <div class="task-body"><a class="source-link" href="file:///C:/Users/javie/Desktop/Proyecto%20B737NG/MANUALES/AMM/80_F__091.PDF#page=47" target="_blank" rel="noopener">Open original AMM PDF - page 47 <span aria-hidden="true">↗</span></a>
-    <pre class="procedure">2. Starter Magnetic Plug Housing Packing Replacement
-(Figure 801)
-A. General
-(1) This task provides the instructions on how to replace the packing on the magnetic plug
+<details class="fault" id="task-80-11-01-360-801-F00">
+  <summary>
+    <span class="fault-head"><span class="fault-code">80-11-01-360-801-F00</span><span class="fault-name">Starter Magnetic Plug Housing Packing Replacement</span></span>
+    <span class="task-badge">ATA 80 · Task 360-801-F00</span>
+  </summary>
+  <div class="fields">
+<section class="field description letter-field"><h3>Task Description</h3><p class="section-text">2. Starter Magnetic Plug Housing Packing Replacement
+(Figure 801)</p></section>
+<section class="field letter-field" data-letter="A"><h3>A. General</h3><p class="section-text"><strong class="step-marker">(1)</strong> This task provides the instructions on how to replace the packing on the magnetic plug
 housing.
-(2) Do this task if you find an oil leak between the magnetic plug housing and the starter housing.
-B. References
-Reference Title
+<strong class="step-marker">(2)</strong> Do this task if you find an oil leak between the magnetic plug housing and the starter housing.</p></section>
+<section class="field letter-field" data-letter="B"><h3>B. References</h3><p class="section-text">Reference Title
 71-00-00-800-811-F00 Power Plant Test Reference Table (P/B 501)
 80-11-01-610-801-F00 Starter Servicing (Oil Fill) (P/B 301)
-80-11-01-680-801-F00 Starter Servicing (Oil Drain) (P/B 301)
-C. Consumable Materials
-Reference Description Specification
-D00599 [CP2442] Oil - Engine
-G02345 [CP8001] Wire - Safety, 0.032 Inch (0.8 mm) Diameter AMS 5687
-G50065 [CP8006] Cable, Safety, Stainless Steel, 0.032 inch (0.8
-mm) Diameter
-M50 TF 9 CL-A
-D. Expendables/Parts
-AMM Item Description AIPC Reference AIPC Effectivity
-2 Packing 80-11-01-01-066 RYR 006, 007, 013, 014,
-018, 019, 043, 044,
-056-063, 067-078, 081,
-083-103, 111-114,
-121-129, 131, 132, 135
-80-11-01-01A-075 RYR 014, 068, 087, 090,
-111, 125, 128, 138-168,
-174-179, 182-187,
-189-203, 205-209,
-212-220, 223, 224,
-231-236, 239-298,
-301-304, 306, 308,
-315-317, 322-341, 343,
-346-999
-80-11-01
+80-11-01-680-801-F00 Starter Servicing (Oil Drain) (P/B 301)</p></section>
+<section class="field letter-field" data-letter="C"><h3>C. Consumable Materials</h3><p class="section-text"></p></section>
+<section class="field letter-field" data-letter="D"><h3>D. Expendables/Parts</h3><p class="section-text">80-11-01
 (Continued)
 AMM Item Description AIPC Reference AIPC Effectivity
 2 (cont.) 80-11-01-01B-066 RYR 006, 007, 013, 014,
@@ -1257,98 +1152,65 @@ AMM Item Description AIPC Reference AIPC Effectivity
 056-063, 067-078, 081,
 083-103, 111-114,
 121-129, 131, 132, 135,
-143, 147, 152, 167, 177
-E. Location Zones
-Zone Area
+143, 147, 152, 167, 177</p></section>
+<section class="field letter-field" data-letter="E"><h3>E. Location Zones</h3><p class="section-text">Zone Area
 411 Engine 1 - Engine
 421 Engine 2 - Engine
-F . Prepare for the Replacement
+<strong class="section-marker">F. Prepare for the Replacement</strong>
 SUBTASK 80-11-01-680-002-F00
-(1) Do this task: Starter Servicing (Oil Drain), TASK 80-11-01-680-801-F00.
+<strong class="step-marker">(1)</strong> Do this task: Starter Servicing (Oil Drain), TASK 80-11-01-680-801-F00.
 SUBTASK 80-11-01-860-035-F00
-(2) For Engine 1, open this circuit breaker and install a safety tag:
+<strong class="step-marker">(2)</strong> For Engine 1, open this circuit breaker and install a safety tag:
 CAPT Electrical System Panel, P18-2
 Row Col Number Name
 B 8 C01103 ENGINE 1 START VALVE
 SUBTASK 80-11-01-860-036-F00
-(3) For Engine 2, open this circuit breaker and install a safety tag:
+<strong class="step-marker">(3)</strong> For Engine 2, open this circuit breaker and install a safety tag:
 F/O Electrical System Panel, P6-2
 Row Col Number Name
 C 4 C00154 ENGINE 2 START VALVE
-80-11-01
-G. Magnetic Plug Housing Packing Replacement
-SUBTASK 80-11-01-020-004-F00
-(1) Remove the magnetic plug housing [3] from the starter [1] as follows:
-(a) Cut and remove the safety cable from the magnetic plug housing [3].
-(b) Remove the magnetic plug housing [3].
-(c) Remove and discard the packing [2].
+80-11-01</p></section>
+<section class="field letter-field" data-letter="G"><h3>G. Magnetic Plug Housing Packing Replacement</h3><p class="section-text">SUBTASK 80-11-01-020-004-F00
+<strong class="step-marker">(1)</strong> Remove the magnetic plug housing [3] from the starter [1] as follows:
+<strong class="step-marker">(a)</strong> Cut and remove the safety cable from the magnetic plug housing [3].
+<strong class="step-marker">(b)</strong> Remove the magnetic plug housing [3].
+<strong class="step-marker">(c)</strong> Remove and discard the packing [2].
 SUBTASK 80-11-01-420-006-F00
 WARNING
 DO NOT LET OIL STAY ON YOUR SKIN. YOU CAN ABSORB POISONOUS
 MATERIALS FROM THE OIL THROUGH YOUR SKIN.
-(2) Install the magnetic plug housing [3] as follows:
-(a) Apply clean oil, D00599 [CP2442] to a new packing [2].
-(b) Install the new packing [2] on the magnetic plug housing [3].
-(c) Install the magnetic plug housing [3] into the starter gear housing.
+<strong class="step-marker">(2)</strong> Install the magnetic plug housing [3] as follows:
+<strong class="step-marker">(a)</strong> Apply clean oil, D00599 [CP2442] to a new packing [2].
+<strong class="step-marker">(b)</strong> Install the new packing [2] on the magnetic plug housing [3].
+<strong class="step-marker">(c)</strong> Install the magnetic plug housing [3] into the starter gear housing.
 1) Tighten the magnetic plug housing [3] to 20 in-lb (2.3 N·m) - 40 in-lb (4.5 N·m).
-(d) Install the safety wire, G02345 [CP8001] or the safety cable, G50065 [CP8006] on the
-magnetic plug housing [3].
-H. Put the Airplane Back to Its Usual Condition
-SUBTASK 80-11-01-610-002-F00
-(1) Do this task: Starter Servicing (Oil Fill), TASK 80-11-01-610-801-F00.
-I. Starter Magnetic Plug Housing (Packing) Test
-SUBTASK 80-11-01-860-037-F00
-(1) Do the test(s) listed in the Power Plant Test Reference Table (TASK 71-00-00-800-811-F00).</pre></div>
+<strong class="step-marker">(d)</strong> Install the safety wire, G02345 [CP8001] or the safety cable, G50065 [CP8006] on the
+magnetic plug housing [3].</p></section>
+<section class="field letter-field" data-letter="H"><h3>H. Put the Airplane Back to Its Usual Condition</h3><p class="section-text">SUBTASK 80-11-01-610-002-F00
+<strong class="step-marker">(1)</strong> Do this task: Starter Servicing (Oil Fill), TASK 80-11-01-610-801-F00.</p></section>
+<section class="field letter-field" data-letter="I"><h3>I. Starter Magnetic Plug Housing (Packing) Test</h3><p class="section-text">SUBTASK 80-11-01-860-037-F00
+<strong class="step-marker">(1)</strong> Do the test(s) listed in the Power Plant Test Reference Table (TASK 71-00-00-800-811-F00).</p></section>
+  </div>
 </details>
-<details class="task" id="task-80-11-01-360-802-F00" data-section="80-11-01">
-  <summary><span class="task-head"><span class="task-code">80-11-01-360-802-F00</span><span class="task-name">Starter Housing Bolts Replacement</span></span><span class="task-page">PDF p. 51</span></summary>
-  <div class="task-body"><a class="source-link" href="file:///C:/Users/javie/Desktop/Proyecto%20B737NG/MANUALES/AMM/80_F__091.PDF#page=51" target="_blank" rel="noopener">Open original AMM PDF - page 51 <span aria-hidden="true">↗</span></a>
-    <pre class="procedure">3. Starter Housing Bolts Replacement
-(Figure 802)
-A. General
-(1) This task provides the instructions on how to replace the sheared bolts on the starter housing.
-(2) Do this task if any missing/sheared bolt(s) is/are found on the starter housing.
-B. References
-Reference Title
+<details class="fault" id="task-80-11-01-360-802-F00">
+  <summary>
+    <span class="fault-head"><span class="fault-code">80-11-01-360-802-F00</span><span class="fault-name">Starter Housing Bolts Replacement</span></span>
+    <span class="task-badge">ATA 80 · Task 360-802-F00</span>
+  </summary>
+  <div class="fields">
+<section class="field description letter-field"><h3>Task Description</h3><p class="section-text">3. Starter Housing Bolts Replacement
+(Figure 802)</p></section>
+<section class="field letter-field" data-letter="A"><h3>A. General</h3><p class="section-text"><strong class="step-marker">(1)</strong> This task provides the instructions on how to replace the sheared bolts on the starter housing.
+<strong class="step-marker">(2)</strong> Do this task if any missing/sheared bolt(s) is/are found on the starter housing.</p></section>
+<section class="field letter-field" data-letter="B"><h3>B. References</h3><p class="section-text">Reference Title
 70-50-00-350-802-F00 Removal of Broken Bolts (P/B 801)
 71-00-00-800-811-F00 Power Plant Test Reference Table (P/B 501)
 71-11-02-010-801-F00 Open the Fan Cowl Panels (P/B 201)
 71-11-02-410-801-F00 Close the Fan Cowl Panels (P/B 201)
 80-11-01-200-802-F00 Starter Inspection (P/B 601)
-80-11-01-610-801-F00 Starter Servicing (Oil Fill) (P/B 301)
-C. Consumable Materials
-Reference Description Specification
-B00130 Alcohol - Isopropyl TT-I-735
-D50179 Compound - Lubricating (Lockrey Liqui-Moly
-NV Thread Compound)
-D. Expendables/Parts
-AMM Item Description AIPC Reference AIPC Effectivity
-5 Bolt 80-11-01-01-072 RYR 006, 007, 013, 014,
-018, 019, 043, 044,
-056-063, 067-078, 081,
-083-103, 111-114,
-121-129, 131, 132, 135
-80-11-01-01A-080 RYR 014, 068, 087, 090,
-111, 125, 128, 138-168,
-174-179, 182-187,
-189-203, 205-209,
-212-220, 223, 224,
-231-236, 239-298,
-301-304, 306, 308,
-315-317, 322-341, 343,
-346-999
-80-11-01-01B-072 RYR 006, 007, 013, 014,
-018, 019, 043, 044,
-056-063, 067-078, 081,
-083-103, 111-114,
-121-129, 131, 132, 135,
-143, 147, 152, 167, 177
-6 Washer 80-11-01-01-073 RYR 006, 007, 013, 014,
-018, 019, 043, 044,
-056-063, 067-078, 081,
-083-103, 111-114,
-121-129, 131, 132, 135
-80-11-01
+80-11-01-610-801-F00 Starter Servicing (Oil Fill) (P/B 301)</p></section>
+<section class="field letter-field" data-letter="C"><h3>C. Consumable Materials</h3><p class="section-text"></p></section>
+<section class="field letter-field" data-letter="D"><h3>D. Expendables/Parts</h3><p class="section-text">80-11-01
 (Continued)
 AMM Item Description AIPC Reference AIPC Effectivity
 6 (cont.) 80-11-01-01A-082 RYR 014, 068, 087, 090,
@@ -1365,119 +1227,105 @@ AMM Item Description AIPC Reference AIPC Effectivity
 056-063, 067-078, 081,
 083-103, 111-114,
 121-129, 131, 132, 135,
-143, 147, 152, 167, 177
-E. Location Zones
-Zone Area
+143, 147, 152, 167, 177</p></section>
+<section class="field letter-field" data-letter="E"><h3>E. Location Zones</h3><p class="section-text">Zone Area
 411 Engine 1 - Engine
 421 Engine 2 - Engine
-F . Prepare for the Replacement
+<strong class="section-marker">F. Prepare for the Replacement</strong>
 SUBTASK 80-11-01-860-044-F00
-(1) For Engine 1, open this circuit breaker and install a safety tag:
+<strong class="step-marker">(1)</strong> For Engine 1, open this circuit breaker and install a safety tag:
 CAPT Electrical System Panel, P18-2
 Row Col Number Name
 B 8 C01103 ENGINE 1 START VALVE
 SUBTASK 80-11-01-860-045-F00
-(2) For Engine 2, open this circuit breaker and install a safety tag:
+<strong class="step-marker">(2)</strong> For Engine 2, open this circuit breaker and install a safety tag:
 F/O Electrical System Panel, P6-2
 Row Col Number Name
 C 4 C00154 ENGINE 2 START VALVE
 SUBTASK 80-11-01-010-020-F00
-(3) Do this task: Open the Fan Cowl Panels, TASK 71-11-02-010-801-F00.
-G. Sheared/Missing Starter Housing Bolts Replacement
-NOTE: For sheared bolts replacement on-wing, it is required to do a starter check to make sure that
+<strong class="step-marker">(3)</strong> Do this task: Open the Fan Cowl Panels, TASK 71-11-02-010-801-F00.</p></section>
+<section class="field letter-field" data-letter="G"><h3>G. Sheared/Missing Starter Housing Bolts Replacement</h3><p class="section-text">NOTE: For sheared bolts replacement on-wing, it is required to do a starter check to make sure that
 the starter passes all inspection/check requirements indicated in
 TASK 80-11-01-200-802-F00. If any of the indicated AMM criteria is not met, the starter
 must be replaced.
 SUBTASK 80-11-01-020-013-F00
-(1) Remove missing/sheared bolts from the starter, refer to Removal of Broken Bolts,
+<strong class="step-marker">(1)</strong> Remove missing/sheared bolts from the starter, refer to Removal of Broken Bolts,
 TASK 70-50-00-350-802-F00.
 NOTE: The starter uses nine bolts and nine washers.
 SUBTASK 80-11-01-100-001-F00
-(2) Clean the mating surface with isopropyl alcohol, B00130.
+<strong class="step-marker">(2)</strong> Clean the mating surface with isopropyl alcohol, B00130.
 80-11-01
 SUBTASK 80-11-01-420-015-F00
-(3) Install missing/sheared bolts [5] and washers [6] as necessary and tighten them by hand.
-(a) Lubricate the threads of replacement bolts with Liqui-Moly NV Thread Compound,
+<strong class="step-marker">(3)</strong> Install missing/sheared bolts [5] and washers [6] as necessary and tighten them by hand.
+<strong class="step-marker">(a)</strong> Lubricate the threads of replacement bolts with Liqui-Moly NV Thread Compound,
 D50179, or equivalent.
-(b) Break the torque of all other installed bolts.
+<strong class="step-marker">(b)</strong> Break the torque of all other installed bolts.
 1) Make sure that the loosened bolts are not removed from the starter housing (do not
 disengage from the threads).
 NOTE: The intent is to break the torque and let them be tightened again to correct
 torque value.
-(c) Tighten all nine bolts [5] to 50 in-lb (5.6 N·m) - 55 in-lb (6.2 N·m).
+<strong class="step-marker">(c)</strong> Tighten all nine bolts [5] to 50 in-lb (5.6 N·m) - 55 in-lb (6.2 N·m).
 1) Tighten them in a cross pattern.
 SUBTASK 80-11-01-610-006-F00
-(4) If not done before, do this task: Starter Servicing (Oil Fill), TASK 80-11-01-610-801-F00.
-H. Put the Airplane Back to Its Usual Condition
-SUBTASK 80-11-01-860-046-F00
-(1) Do this task: Close the Fan Cowl Panels, TASK 71-11-02-410-801-F00.
+<strong class="step-marker">(4)</strong> If not done before, do this task: Starter Servicing (Oil Fill), TASK 80-11-01-610-801-F00.</p></section>
+<section class="field letter-field" data-letter="H"><h3>H. Put the Airplane Back to Its Usual Condition</h3><p class="section-text">SUBTASK 80-11-01-860-046-F00
+<strong class="step-marker">(1)</strong> Do this task: Close the Fan Cowl Panels, TASK 71-11-02-410-801-F00.
 SUBTASK 80-11-01-860-047-F00
-(2) For Engine 1, remove the safety tag and close this circuit breaker:
+<strong class="step-marker">(2)</strong> For Engine 1, remove the safety tag and close this circuit breaker:
 CAPT Electrical System Panel, P18-2
 Row Col Number Name
 B 8 C01103 ENGINE 1 START VALVE
 SUBTASK 80-11-01-860-048-F00
-(3) For Engine 2, remove the safety tag and close this circuit breaker:
+<strong class="step-marker">(3)</strong> For Engine 2, remove the safety tag and close this circuit breaker:
 F/O Electrical System Panel, P6-2
 Row Col Number Name
-C 4 C00154 ENGINE 2 START VALVE
-I. Starter Test
-SUBTASK 80-11-01-700-003-F00
-(1) Do the test(s) listed in the Power Plant Test Reference Table, TASK 71-00-00-800-811-F00, for
+C 4 C00154 ENGINE 2 START VALVE</p></section>
+<section class="field letter-field" data-letter="I"><h3>I. Starter Test</h3><p class="section-text">SUBTASK 80-11-01-700-003-F00
+<strong class="step-marker">(1)</strong> Do the test(s) listed in the Power Plant Test Reference Table, TASK 71-00-00-800-811-F00, for
 starter replacement.
-NOTE: Even when the starter is not replaced, the functionality must be tested.</pre></div>
+NOTE: Even when the starter is not replaced, the functionality must be tested.</p></section>
+  </div>
 </details>
   </div>
 </section>
-<section class="system-section" id="section-80-11-02">
-  <div class="section-title"><h2>ATA 80-11-02 - Section</h2><span>2 tasks</span></div>
-  <div class="task-list">
-<details class="task" id="task-80-11-02-000-801-F00" data-section="80-11-02">
-  <summary><span class="task-head"><span class="task-code">80-11-02-000-801-F00</span><span class="task-name">QAD Adapter Removal</span></span><span class="task-page">PDF p. 55</span></summary>
-  <div class="task-body"><a class="source-link" href="file:///C:/Users/javie/Desktop/Proyecto%20B737NG/MANUALES/AMM/80_F__091.PDF#page=55" target="_blank" rel="noopener">Open original AMM PDF - page 55 <span aria-hidden="true">↗</span></a>
-    <pre class="procedure">2. QAD Adapter Removal
-(Figure 401)
-A. General
-(1) This task provides the instructions on how to remove the QAD adapter.
-B. References
-Reference Title
+<section class="system-section">
+  <div class="section-title"><h2>ATA 80 · 80-11-02</h2><span>2 tasks</span></div>
+  <div class="fault-list">
+<details class="fault" id="task-80-11-02-000-801-F00">
+  <summary>
+    <span class="fault-head"><span class="fault-code">80-11-02-000-801-F00</span><span class="fault-name">QAD Adapter Removal</span></span>
+    <span class="task-badge">ATA 80 · Task 000-801-F00</span>
+  </summary>
+  <div class="fields">
+<section class="field description letter-field"><h3>Task Description</h3><p class="section-text">2. QAD Adapter Removal
+(Figure 401)</p></section>
+<section class="field letter-field" data-letter="A"><h3>A. General</h3><p class="section-text"><strong class="step-marker">(1)</strong> This task provides the instructions on how to remove the QAD adapter.</p></section>
+<section class="field letter-field" data-letter="B"><h3>B. References</h3><p class="section-text">Reference Title
 71-11-02-010-801-F00 Open the Fan Cowl Panels (P/B 201)
-80-11-01-000-801-F00 Starter Removal (P/B 401)
-C. Tools/Equipment
-Reference Description
-STD-1280 Source - Air, Regulated, Dry Filtered, 0-30 PSIG
-D. Consumable Materials
-Reference Description Specification
-B00682 [CP2011] Solvent - Stoddard MIL-PRF-680 Type I, II
-or III
-G00034 Cotton Wiper - Process Cleaning Absorbent
-Wiper (Cheesecloth, Gauze)
-AMS3819 Class 1
-Grade A or B Form 1
-(Supersede BMS15-5
-CL A)
-E. Location Zones
-Zone Area
+80-11-01-000-801-F00 Starter Removal (P/B 401)</p></section>
+<section class="field letter-field" data-letter="C"><h3>C. Tools/Equipment</h3><p class="section-text">Reference Description
+STD-1280 Source - Air, Regulated, Dry Filtered, 0-30 PSIG</p></section>
+<section class="field letter-field" data-letter="D"><h3>D. Consumable Materials</h3><p class="section-text"></p></section>
+<section class="field letter-field" data-letter="E"><h3>E. Location Zones</h3><p class="section-text">Zone Area
 411 Engine 1 - Engine
 421 Engine 2 - Engine
-F . Prepare for the Removal
+<strong class="section-marker">F. Prepare for the Removal</strong>
 SUBTASK 80-11-02-010-002-F00
-(1) Do this task: Open the Fan Cowl Panels, TASK 71-11-02-010-801-F00.
+<strong class="step-marker">(1)</strong> Do this task: Open the Fan Cowl Panels, TASK 71-11-02-010-801-F00.
 SUBTASK 80-11-02-020-001-F00
-(2) Do this task: Starter Removal, TASK 80-11-01-000-801-F00.
-G. QAD Adapter Removal
-SUBTASK 80-11-02-000-001-F00
-(1) Remove the QAD adapter [1]:
-(a) Remove the eight bolts [4] and the washers [3] that attach the QAD adapter [1] to the
+<strong class="step-marker">(2)</strong> Do this task: Starter Removal, TASK 80-11-01-000-801-F00.</p></section>
+<section class="field letter-field" data-letter="G"><h3>G. QAD Adapter Removal</h3><p class="section-text">SUBTASK 80-11-02-000-001-F00
+<strong class="step-marker">(1)</strong> Remove the QAD adapter [1]:
+<strong class="step-marker">(a)</strong> Remove the eight bolts [4] and the washers [3] that attach the QAD adapter [1] to the
 AGB.
-(b) Remove the QAD adapter [1] from the AGB.
-(c) Remove and discard the packing [2].
+<strong class="step-marker">(b)</strong> Remove the QAD adapter [1] from the AGB.
+<strong class="step-marker">(c)</strong> Remove and discard the packing [2].
 80-11-02
 SUBTASK 80-11-02-210-001-F00
-(2) Examine the QAD adapter area for metal chips:
-(a) If the particles are found, carefully remove and keep the particles with a cotton wiper,
+<strong class="step-marker">(2)</strong> Examine the QAD adapter area for metal chips:
+<strong class="step-marker">(a)</strong> If the particles are found, carefully remove and keep the particles with a cotton wiper,
 G00034 or thin sheet of paper.
-(b) Send the particles to the laboratory for analysis.
+<strong class="step-marker">(b)</strong> Send the particles to the laboratory for analysis.
 SUBTASK 80-11-02-110-001-F00
 WARNING
 DO NOT GET SOLVENT IN YOUR MOUTH OR EYES, OR ON YOUR SKIN. DO
@@ -1486,61 +1334,26 @@ SPLASH GOGGLE AND GLOVES WHEN YOU USE THE SOLVENT . KEEP THE
 SOLVENT AWAY FROM SPARKS, FLAME AND HEAT . SOLVENT IS
 POISONOUS AND FLAMMABLE WHICH CAN CAUSE INJURIES TO
 PERSONS OR DAMAGE TO EQUIPMENT .
-(3) After you remove all of the particles, clean the QAD adapter [1] with the solvent, B00682
+<strong class="step-marker">(3)</strong> After you remove all of the particles, clean the QAD adapter [1] with the solvent, B00682
 [CP2011].
-(a) Dry the QAD adapter [1] with an 0-30 psig dry filtered regulated air source, STD-1280.
-(b) Make sure that the QAD adapter [1] is free of all particles.</pre></div>
+<strong class="step-marker">(a)</strong> Dry the QAD adapter [1] with an 0-30 psig dry filtered regulated air source, STD-1280.
+<strong class="step-marker">(b)</strong> Make sure that the QAD adapter [1] is free of all particles.</p></section>
+  </div>
 </details>
-<details class="task" id="task-80-11-02-400-801-F00" data-section="80-11-02">
-  <summary><span class="task-head"><span class="task-code">80-11-02-400-801-F00</span><span class="task-name">QAD Adapter Installation</span></span><span class="task-page">PDF p. 58</span></summary>
-  <div class="task-body"><a class="source-link" href="file:///C:/Users/javie/Desktop/Proyecto%20B737NG/MANUALES/AMM/80_F__091.PDF#page=58" target="_blank" rel="noopener">Open original AMM PDF - page 58 <span aria-hidden="true">↗</span></a>
-    <pre class="procedure">3. QAD Adapter Installation
-(Figure 401)
-A. General
-(1) This task provides the instructions on how to install the QAD adapter.
-B. References
-Reference Title
+<details class="fault" id="task-80-11-02-400-801-F00">
+  <summary>
+    <span class="fault-head"><span class="fault-code">80-11-02-400-801-F00</span><span class="fault-name">QAD Adapter Installation</span></span>
+    <span class="task-badge">ATA 80 · Task 400-801-F00</span>
+  </summary>
+  <div class="fields">
+<section class="field description letter-field"><h3>Task Description</h3><p class="section-text">3. QAD Adapter Installation
+(Figure 401)</p></section>
+<section class="field letter-field" data-letter="A"><h3>A. General</h3><p class="section-text"><strong class="step-marker">(1)</strong> This task provides the instructions on how to install the QAD adapter.</p></section>
+<section class="field letter-field" data-letter="B"><h3>B. References</h3><p class="section-text">Reference Title
 71-11-02-410-801-F00 Close the Fan Cowl Panels (P/B 201)
-80-11-01-400-801-F00 Starter Installation (P/B 401)
-C. Consumable Materials
-Reference Description Specification
-D00599 [CP2442] Oil - Engine
-D00601 [CP2101] Vaseline - Graphite Mineral
-D. Expendables/Parts
-AMM Item Description AIPC Reference AIPC Effectivity
-1 QAD adapter 80-11-01-01-095 RYR 006, 007, 013, 014,
-018, 019, 043, 044,
-056-063, 067-078, 081,
-083-103, 111-114,
-121-129, 131, 132, 135
-80-11-01-01A-105 RYR 014, 068, 087, 090,
-111, 125, 128, 138-168,
-174-179, 182-187,
-189-203, 205-209,
-212-220, 223, 224,
-231-236, 239-298,
-301-304, 306, 308,
-315-317, 322-341, 343,
-346-999
-80-11-01-01B-095 RYR 006, 007, 013, 014,
-018, 019, 043, 044,
-056-063, 067-078, 081,
-083-103, 111-114,
-121-129, 131, 132, 135,
-143, 147, 152, 167, 177
-2 Packing 80-11-01-01-100 RYR 006, 007, 013, 014,
-018, 019, 043, 044,
-056-063, 067-078, 081,
-083-103, 111-114,
-121-129, 131, 132, 135
-80-11-01-01A-110 RYR 138-168, 174-179,
-182-187, 189-203,
-205-209, 212-220, 223,
-224, 231-236, 239-298,
-301-304, 306, 308,
-315-317, 322-341, 343,
-346-999
-80-11-02
+80-11-01-400-801-F00 Starter Installation (P/B 401)</p></section>
+<section class="field letter-field" data-letter="C"><h3>C. Consumable Materials</h3><p class="section-text"></p></section>
+<section class="field letter-field" data-letter="D"><h3>D. Expendables/Parts</h3><p class="section-text">80-11-02
 (Continued)
 AMM Item Description AIPC Reference AIPC Effectivity
 2 (cont.) 80-11-01-01B-100 RYR 006, 007, 013, 014,
@@ -1548,126 +1361,124 @@ AMM Item Description AIPC Reference AIPC Effectivity
 056-063, 067-078, 081,
 083-103, 111-114,
 121-129, 131, 132, 135,
-143, 147, 152, 167, 177
-E. Location Zones
-Zone Area
+143, 147, 152, 167, 177</p></section>
+<section class="field letter-field" data-letter="E"><h3>E. Location Zones</h3><p class="section-text">Zone Area
 411 Engine 1 - Engine
 421 Engine 2 - Engine
-F . QAD Adapter Installation
+<strong class="section-marker">F. QAD Adapter Installation</strong>
 SUBTASK 80-11-02-400-001-F00
-(1) Install the QAD adapter [1] as follows:
+<strong class="step-marker">(1)</strong> Install the QAD adapter [1] as follows:
 WARNING
 DO NOT LET OIL STAY ON YOUR SKIN. YOU CAN ABSORB
 POISONOUS MATERIALS FROM THE OIL THROUGH YOUR SKIN.
-(a) Lightly lubricate a new packing [2] with the oil, D00599 [CP2442].
-(b) Install the packing [2] in the QAD adapter [1].
-(c) Install the QAD adapter [1] in the AGB.
-(d) Lightly lubricate the threads of the bolts [4] with the graphite mineral vaseline, D00601
+<strong class="step-marker">(a)</strong> Lightly lubricate a new packing [2] with the oil, D00599 [CP2442].
+<strong class="step-marker">(b)</strong> Install the packing [2] in the QAD adapter [1].
+<strong class="step-marker">(c)</strong> Install the QAD adapter [1] in the AGB.
+<strong class="step-marker">(d)</strong> Lightly lubricate the threads of the bolts [4] with the graphite mineral vaseline, D00601
 [CP2101].
-(e) Install the eight bolts [4] and the washers [3] in the AGB.
-(f) Tighten the bolts [4] to 209-231 inch-pounds (23.75-26.25 Newton-meters).
-G. Put the Airplane Back to Its Usual Condition
-SUBTASK 80-11-02-410-001-F00
-(1) Do this task: Starter Installation, TASK 80-11-01-400-801-F00.
+<strong class="step-marker">(e)</strong> Install the eight bolts [4] and the washers [3] in the AGB.
+<strong class="step-marker">(f)</strong> Tighten the bolts [4] to 209-231 inch-pounds (23.75-26.25 Newton-meters).</p></section>
+<section class="field letter-field" data-letter="G"><h3>G. Put the Airplane Back to Its Usual Condition</h3><p class="section-text">SUBTASK 80-11-02-410-001-F00
+<strong class="step-marker">(1)</strong> Do this task: Starter Installation, TASK 80-11-01-400-801-F00.
 SUBTASK 80-11-02-410-003-F00
-(2) Do this task: Close the Fan Cowl Panels, TASK 71-11-02-410-801-F00.</pre></div>
+<strong class="step-marker">(2)</strong> Do this task: Close the Fan Cowl Panels, TASK 71-11-02-410-801-F00.</p></section>
+  </div>
 </details>
   </div>
 </section>
-<section class="system-section" id="section-80-11-03">
-  <div class="section-title"><h2>ATA 80-11-03 - Section</h2><span>2 tasks</span></div>
-  <div class="task-list">
-<details class="task" id="task-80-11-03-000-801-F00" data-section="80-11-03">
-  <summary><span class="task-head"><span class="task-code">80-11-03-000-801-F00</span><span class="task-name">Start Valve Removal</span></span><span class="task-page">PDF p. 61</span></summary>
-  <div class="task-body"><a class="source-link" href="file:///C:/Users/javie/Desktop/Proyecto%20B737NG/MANUALES/AMM/80_F__091.PDF#page=61" target="_blank" rel="noopener">Open original AMM PDF - page 61 <span aria-hidden="true">↗</span></a>
-    <pre class="procedure">2. Start Valve Removal
-(Figure 401)
-A. General
-(1) This task provides the instructions on how remove the start valve.
-B. References
-Reference Title
+<section class="system-section">
+  <div class="section-title"><h2>ATA 80 · 80-11-03</h2><span>2 tasks</span></div>
+  <div class="fault-list">
+<details class="fault" id="task-80-11-03-000-801-F00">
+  <summary>
+    <span class="fault-head"><span class="fault-code">80-11-03-000-801-F00</span><span class="fault-name">Start Valve Removal</span></span>
+    <span class="task-badge">ATA 80 · Task 000-801-F00</span>
+  </summary>
+  <div class="fields">
+<section class="field description letter-field"><h3>Task Description</h3><p class="section-text">2. Start Valve Removal
+(Figure 401)</p></section>
+<section class="field letter-field" data-letter="A"><h3>A. General</h3><p class="section-text"><strong class="step-marker">(1)</strong> This task provides the instructions on how remove the start valve.</p></section>
+<section class="field letter-field" data-letter="B"><h3>B. References</h3><p class="section-text">Reference Title
 36-00-00-860-806 Remove Pressure from the Pneumatic System (P/B 201)
 70-10-02-910-801-F00 General Precautions during the Removal and Installation of
 Engine Components (P/B 201)
-71-11-02-010-801-F00 Open the Fan Cowl Panels (P/B 201)
-C. Tools/Equipment
-Reference Description
-STD-858 Tag - DO NOT OPERATE
-D. Location Zones
-Zone Area
+71-11-02-010-801-F00 Open the Fan Cowl Panels (P/B 201)</p></section>
+<section class="field letter-field" data-letter="C"><h3>C. Tools/Equipment</h3><p class="section-text">Reference Description
+STD-858 Tag - DO NOT OPERATE</p></section>
+<section class="field letter-field" data-letter="D"><h3>D. Location Zones</h3><p class="section-text">Zone Area
 411 Engine 1 - Engine
-421 Engine 2 - Engine
-E. Prepare for the Removal
-SUBTASK 80-11-03-000-001-F00
-(1) Make sure that the pneumatic system pressure is removed.
-(a) If the pneumatic system pressure is not removed, do this task: Remove Pressure from
+421 Engine 2 - Engine</p></section>
+<section class="field letter-field" data-letter="E"><h3>E. Prepare for the Removal</h3><p class="section-text">SUBTASK 80-11-03-000-001-F00
+<strong class="step-marker">(1)</strong> Make sure that the pneumatic system pressure is removed.
+<strong class="step-marker">(a)</strong> If the pneumatic system pressure is not removed, do this task: Remove Pressure from
 the Pneumatic System, TASK 36-00-00-860-806.
 SUBTASK 80-11-03-860-013-F00
-(2) For Engine 1, open this circuit breaker and install a safety tag:
+<strong class="step-marker">(2)</strong> For Engine 1, open this circuit breaker and install a safety tag:
 CAPT Electrical System Panel, P18-2
 Row Col Number Name
 B 8 C01103 ENGINE 1 START VALVE
 SUBTASK 80-11-03-860-014-F00
-(3) For Engine 2, open this circuit breaker and install a safety tag:
+<strong class="step-marker">(3)</strong> For Engine 2, open this circuit breaker and install a safety tag:
 F/O Electrical System Panel, P6-2
 Row Col Number Name
 C 4 C00154 ENGINE 2 START VALVE
 SUBTASK 80-11-03-860-003-F00
-(4) Make sure that the start lever is in the CUTOFF position.
-(a) Install the DO NOT OPERATE tag, STD-858, on the start lever.
+<strong class="step-marker">(4)</strong> Make sure that the start lever is in the CUTOFF position.
+<strong class="step-marker">(a)</strong> Install the DO NOT OPERATE tag, STD-858, on the start lever.
 80-11-03
 SUBTASK 80-11-03-860-004-F00
-(5) Make sure that the engine start switch is off.
-(a) Install the DO NOT OPERATE tag, STD-858, on the engine start switch.
+<strong class="step-marker">(5)</strong> Make sure that the engine start switch is off.
+<strong class="step-marker">(a)</strong> Install the DO NOT OPERATE tag, STD-858, on the engine start switch.
 SUBTASK 80-11-03-860-005-F00
-(6) Make sure that the BLEED ISOLATION VALVE switch, on the P5 Forward Overhead Panel, is
+<strong class="step-marker">(6)</strong> Make sure that the BLEED ISOLATION VALVE switch, on the P5 Forward Overhead Panel, is
 in the CLOSED position.
-(a) Install the DO NOT OPERATE tag, STD-858, on the BLEED ISOLATION VALVE switch.
+<strong class="step-marker">(a)</strong> Install the DO NOT OPERATE tag, STD-858, on the BLEED ISOLATION VALVE switch.
 SUBTASK 80-11-03-840-001-F00
-(7) If you remove the Engine 1 start valve [10], make sure that the BLEED APU switch, on the P5
+<strong class="step-marker">(7)</strong> If you remove the Engine 1 start valve [10], make sure that the BLEED APU switch, on the P5
 Forward Overhead Panel, is in the OFF position.
-(a) Install the DO NOT OPERATE tag, STD-858, on the BLEED APU switch.
+<strong class="step-marker">(a)</strong> Install the DO NOT OPERATE tag, STD-858, on the BLEED APU switch.
 SUBTASK 80-11-03-860-006-F00
-(8) If you remove the Engine 2 start valve [10], make sure that ground pneumatic power is not
+<strong class="step-marker">(8)</strong> If you remove the Engine 2 start valve [10], make sure that ground pneumatic power is not
 applied.
 SUBTASK 80-11-03-010-004-F00
-(9) On the applicable engine, open the left fan cowl panel (TASK 71-11-02-010-801-F00).
-F . Start Valve Removal
+<strong class="step-marker">(9)</strong> On the applicable engine, open the left fan cowl panel (TASK 71-11-02-010-801-F00).
+<strong class="section-marker">F. Start Valve Removal</strong>
 SUBTASK 80-11-03-020-001-F00
-(1) Disconnect the MWO312 harness electrical connector [4] from the start valve [10] receptacle.
+<strong class="step-marker">(1)</strong> Disconnect the MWO312 harness electrical connector [4] from the start valve [10] receptacle.
 SUBTASK 80-11-03-020-002-F00
-(2) Disconnect the bonding jumper [6] from the start valve [10].
-(a) Remove the bolt [8], washer [7], and nut [5] from the bonding jumper [6].
+<strong class="step-marker">(2)</strong> Disconnect the bonding jumper [6] from the start valve [10].
+<strong class="step-marker">(a)</strong> Remove the bolt [8], washer [7], and nut [5] from the bonding jumper [6].
 SUBTASK 80-11-03-010-002-F00
-(3) Remove the couplings [2] from the upper pneumatic starter duct [3] and lower pneumatic
+<strong class="step-marker">(3)</strong> Remove the couplings [2] from the upper pneumatic starter duct [3] and lower pneumatic
 starter duct [9].
 SUBTASK 80-11-03-020-003-F00
-(4) Remove the start valve [10].
+<strong class="step-marker">(4)</strong> Remove the start valve [10].
 SUBTASK 80-11-03-020-004-F00
-(5) Remove the seal rings [1].
+<strong class="step-marker">(5)</strong> Remove the seal rings [1].
 NOTE: The seal rings are in the Inside Diameter (ID) between the start valve and duct flanges.
-(a) Examine the seal rings [1] for damage.
+<strong class="step-marker">(a)</strong> Examine the seal rings [1] for damage.
 1) If you find cracks, dents or other damage, replace the seal ring [1].
 2) If the seal ring [1] is serviceable, keep it for the installation with the replacement
 valve.
 SUBTASK 80-11-03-860-007-F00
-(6) Put the protective covers on the openings to the start valve and ducts
-(TASK 70-10-02-910-801-F00).</pre></div>
+<strong class="step-marker">(6)</strong> Put the protective covers on the openings to the start valve and ducts
+(TASK 70-10-02-910-801-F00).</p></section>
+  </div>
 </details>
-<details class="task" id="task-80-11-03-400-801-F00" data-section="80-11-03">
-  <summary><span class="task-head"><span class="task-code">80-11-03-400-801-F00</span><span class="task-name">Start Valve Installation</span></span><span class="task-page">PDF p. 65</span></summary>
-  <div class="task-body"><a class="source-link" href="file:///C:/Users/javie/Desktop/Proyecto%20B737NG/MANUALES/AMM/80_F__091.PDF#page=65" target="_blank" rel="noopener">Open original AMM PDF - page 65 <span aria-hidden="true">↗</span></a>
-    <pre class="procedure">3. Start Valve Installation
-(Figure 401)
-A. General
-(1) This task provides the instructions on how to install the start valve.
-B. References
-Reference Title
+<details class="fault" id="task-80-11-03-400-801-F00">
+  <summary>
+    <span class="fault-head"><span class="fault-code">80-11-03-400-801-F00</span><span class="fault-name">Start Valve Installation</span></span>
+    <span class="task-badge">ATA 80 · Task 400-801-F00</span>
+  </summary>
+  <div class="fields">
+<section class="field description letter-field"><h3>Task Description</h3><p class="section-text">3. Start Valve Installation
+(Figure 401)</p></section>
+<section class="field letter-field" data-letter="A"><h3>A. General</h3><p class="section-text"><strong class="step-marker">(1)</strong> This task provides the instructions on how to install the start valve.</p></section>
+<section class="field letter-field" data-letter="B"><h3>B. References</h3><p class="section-text">Reference Title
 71-00-00-800-811-F00 Power Plant Test Reference Table (P/B 501)
 71-11-02-410-801-F00 Close the Fan Cowl Panels (P/B 201)
-SWPM 20-20-00 ELECTRICAL BONDING PROCESSES
-C. Tools/Equipment
-NOTE: When more than one tool part number is listed under the same "Reference" number, the
+SWPM 20-20-00 ELECTRICAL BONDING PROCESSES</p></section>
+<section class="field letter-field" data-letter="C"><h3>C. Tools/Equipment</h3><p class="section-text">NOTE: When more than one tool part number is listed under the same "Reference" number, the
 tools shown are alternates to each other within the same airplane series. Tool part numbers
 that are replaced or non-procurable are preceded by "Opt:", which stands for Optional.
 Reference Description
@@ -1680,128 +1491,124 @@ Part #: 720A-BK-KIT Supplier: 49374
 Part #: M1 Supplier: 3AD17
 Part #: M1B Supplier: 3AD17
 Part #: T477W (C15292) Supplier: 06659
-STD-583 Mallet - Non-metallic
-D. Expendables/Parts
-AMM Item Description AIPC Reference AIPC Effectivity
-1 Seal ring 80-11-03-01A-010 RYR ALL
-10 Start valve 80-11-03-01A-030 RYR ALL
-E. Location Zones
-Zone Area
+STD-583 Mallet - Non-metallic</p></section>
+<section class="field letter-field" data-letter="D"><h3>D. Expendables/Parts</h3><p class="section-text"></p></section>
+<section class="field letter-field" data-letter="E"><h3>E. Location Zones</h3><p class="section-text">Zone Area
 411 Engine 1 - Engine
 421 Engine 2 - Engine
-F . Start Valve Installation
+<strong class="section-marker">F. Start Valve Installation</strong>
 SUBTASK 80-11-03-020-005-F00
-(1) Remove the protective covers from the start valve [10], upper pneumatic starter duct [3], and
+<strong class="step-marker">(1)</strong> Remove the protective covers from the start valve [10], upper pneumatic starter duct [3], and
 lower pneumatic starter duct [9].
 SUBTASK 80-11-03-160-001-F00
-(2) Clean the flanges on the upper pneumatic starter duct [3] and lower pneumatic starter duct [9].
+<strong class="step-marker">(2)</strong> Clean the flanges on the upper pneumatic starter duct [3] and lower pneumatic starter duct [9].
 SUBTASK 80-11-03-160-002-F00
-(3) Clean the flanges on the start valve [10].
+<strong class="step-marker">(3)</strong> Clean the flanges on the start valve [10].
 SUBTASK 80-11-03-410-001-F00
-(4) Install the start valve [10] as follows:
+<strong class="step-marker">(4)</strong> Install the start valve [10] as follows:
 80-11-03
-(a) Install the seal ring [1] in the Inside Diameter (ID) between the start valve [10] and upper
+<strong class="step-marker">(a)</strong> Install the seal ring [1] in the Inside Diameter (ID) between the start valve [10] and upper
 pneumatic starter duct [3].
-(b) Install the seal ring [1] in the ID between the start valve [10] and lower pneumatic starter
+<strong class="step-marker">(b)</strong> Install the seal ring [1] in the ID between the start valve [10] and lower pneumatic starter
 duct [9].
-(c) Install the start valve [10] between the upper pneumatic starter duct [3] and lower
+<strong class="step-marker">(c)</strong> Install the start valve [10] between the upper pneumatic starter duct [3] and lower
 pneumatic starter duct [9].
-(d) Make sure that the key-slot in the valve flange mates with the key on the duct flange.
+<strong class="step-marker">(d)</strong> Make sure that the key-slot in the valve flange mates with the key on the duct flange.
 NOTE: A maximum clearance of 0.03 in. (0.76 mm) is necessary at all points around the
 flange before the coupling is installed.
 SUBTASK 80-11-03-410-002-F00
-(5) Install the couplings [2] as follows:
-(a) Loosely install the couplings [2] on the upper pneumatic starter duct [3] and lower
+<strong class="step-marker">(5)</strong> Install the couplings [2] as follows:
+<strong class="step-marker">(a)</strong> Loosely install the couplings [2] on the upper pneumatic starter duct [3] and lower
 pneumatic starter duct [9].
-(b) Make sure that the couplings [2] position and direction will give the maximum clearance
+<strong class="step-marker">(b)</strong> Make sure that the couplings [2] position and direction will give the maximum clearance
 between the adjacent equipment.
 CAUTION
 DO NOT TORQUE THE COUPLINGS MORE THAN THE SPECIFIED
 VALUE. IF YOU DO NOT OBEY , YOU CAN CAUSE DEFORMATION
 DAMAGE OF THE UPPER PNEUMATIC STARTER DUCT AND THE
 LOWER PNEUMATIC STARTER DUCT .
-(c) Tighten the couplings [2] to the torque specified on the part.
+<strong class="step-marker">(c)</strong> Tighten the couplings [2] to the torque specified on the part.
 1) If the torque range is not specified on the part, or it is illegible, tighten the
 couplings [2] to 85 in-lb (9.6 N·m) - 100 in-lb (11.3 N·m).
-(d) Lightly tap the outer surface of the couplings [2] with a non-metallic mallet, STD-583.
-(e) Tighten the couplings [2] again to the torque specified on the part.
+<strong class="step-marker">(d)</strong> Lightly tap the outer surface of the couplings [2] with a non-metallic mallet, STD-583.
+<strong class="step-marker">(e)</strong> Tighten the couplings [2] again to the torque specified on the part.
 1) If the torque range is not specified on the part, or it is illegible, tighten the
 couplings [2] again to 85 in-lb (9.6 N·m) - 100 in-lb (11.3 N·m).
 SUBTASK 80-11-03-020-006-F00
-(6) Connect the MWO312 harness electrical connector [4] to the receptacle of the start valve [10].
+<strong class="step-marker">(6)</strong> Connect the MWO312 harness electrical connector [4] to the receptacle of the start valve [10].
 SUBTASK 80-11-03-410-003-F00
-(7) Connect the bonding jumper [6] to the start valve [10].
-(a) Install the bolt [8], bonding jumper [6], washer [7], and nut [5] to the start valve [10].
-(b) Tighten the nut [5] to 33 in-lb (3.7 N·m) - 40 in-lb (4.5 N·m).
+<strong class="step-marker">(7)</strong> Connect the bonding jumper [6] to the start valve [10].
+<strong class="step-marker">(a)</strong> Install the bolt [8], bonding jumper [6], washer [7], and nut [5] to the start valve [10].
+<strong class="step-marker">(b)</strong> Tighten the nut [5] to 33 in-lb (3.7 N·m) - 40 in-lb (4.5 N·m).
 SUBTASK 80-11-03-700-001-F00
-(8) Measure the electrical bonding resistance of the bonding jumper [6] from the start valve to the
+<strong class="step-marker">(8)</strong> Measure the electrical bonding resistance of the bonding jumper [6] from the start valve to the
 engine bracket (SWPM 20-20-00).
-(a) Use an intrinsically safe approved bonding meter, COM-1550.
-(b) Make sure that the electrical bonding resistance is 0.008 ohm (8 milliohms) or less.
-G. Put the Airplane Back to Its Usual Condition
-SUBTASK 80-11-03-860-008-F00
-(1) If you removed and installed the Engine 2 start valve [10], you can connect the ground
+<strong class="step-marker">(a)</strong> Use an intrinsically safe approved bonding meter, COM-1550.
+<strong class="step-marker">(b)</strong> Make sure that the electrical bonding resistance is 0.008 ohm (8 milliohms) or less.</p></section>
+<section class="field letter-field" data-letter="G"><h3>G. Put the Airplane Back to Its Usual Condition</h3><p class="section-text">SUBTASK 80-11-03-860-008-F00
+<strong class="step-marker">(1)</strong> If you removed and installed the Engine 2 start valve [10], you can connect the ground
 pneumatic power.
 80-11-03
 SUBTASK 80-11-03-860-018-F00
-(2) If you removed and installed the Engine 1 start valve [10], remove the DO NOT OPERATE tag
+<strong class="step-marker">(2)</strong> If you removed and installed the Engine 1 start valve [10], remove the DO NOT OPERATE tag
 from the BLEED APU switch, on the P5 forward overhead panel.
 SUBTASK 80-11-03-860-019-F00
-(3) Remove the DO NOT OPERATE tag from the BLEED ISOLATION VALVE switch, on the P5
+<strong class="step-marker">(3)</strong> Remove the DO NOT OPERATE tag from the BLEED ISOLATION VALVE switch, on the P5
 forward overhead panel.
 SUBTASK 80-11-03-860-015-F00
-(4) For Engine 1, remove the safety tag and close this circuit breaker:
+<strong class="step-marker">(4)</strong> For Engine 1, remove the safety tag and close this circuit breaker:
 CAPT Electrical System Panel, P18-2
 Row Col Number Name
 B 8 C01103 ENGINE 1 START VALVE
 SUBTASK 80-11-03-860-016-F00
-(5) For Engine 2, remove the safety tag and close this circuit breaker:
+<strong class="step-marker">(5)</strong> For Engine 2, remove the safety tag and close this circuit breaker:
 F/O Electrical System Panel, P6-2
 Row Col Number Name
 C 4 C00154 ENGINE 2 START VALVE
 SUBTASK 80-11-03-410-005-F00
-(6) On the applicable engine, close the left fan cowl panel (TASK 71-11-02-410-801-F00).
+<strong class="step-marker">(6)</strong> On the applicable engine, close the left fan cowl panel (TASK 71-11-02-410-801-F00).
 SUBTASK 80-11-03-860-012-F00
 CAUTION
 DO NOT OPERATE THE MANUAL OVERRIDE WITH NO AIR PRESSURE
 APPLIED TO THE VALVE. IF YOU DO NOT OBEY , DAMAGE TO THE
 ACTUATOR DIAPHRAGMS CAN OCCUR.
-(7) Make sure that the manual override to the start valve is aligned with the guide port on the fan
+<strong class="step-marker">(7)</strong> Make sure that the manual override to the start valve is aligned with the guide port on the fan
 cowl.
-(a) If necessary, make sure that the installation of the starter valve and the upper and lower
+<strong class="step-marker">(a)</strong> If necessary, make sure that the installation of the starter valve and the upper and lower
 pneumatic starter duct is correct.
 NOTE: An incorrectly installed starter valve or pneumatic starter duct can prevent the
 manual override operation.
 SUBTASK 80-11-03-860-017-F00
-(8) Make sure that the manual override to the start valve is in the CLOSED position.
-(a) If it is necessary, push a ⅜ in. (10 mm) square drive extension through the guide port to
+<strong class="step-marker">(8)</strong> Make sure that the manual override to the start valve is in the CLOSED position.
+<strong class="step-marker">(a)</strong> If it is necessary, push a ⅜ in. (10 mm) square drive extension through the guide port to
 the start valve manual override to turn the start valve.
-(b) Turn the start valve counterclockwise to the CLOSED position.
-(c) Remove the ⅜ in. (10 mm) square drive extension.
+<strong class="step-marker">(b)</strong> Turn the start valve counterclockwise to the CLOSED position.
+<strong class="step-marker">(c)</strong> Remove the ⅜ in. (10 mm) square drive extension.
 SUBTASK 80-11-03-860-011-F00
-(9) Remove the DO NOT OPERATE tags from the start lever and engine start switch.
-H. Start Valve Test
-SUBTASK 80-11-03-700-002-F00
-(1) Do the test(s) listed in the Power Plant Test Reference Table (TASK 71-00-00-800-811-F00).</pre></div>
+<strong class="step-marker">(9)</strong> Remove the DO NOT OPERATE tags from the start lever and engine start switch.</p></section>
+<section class="field letter-field" data-letter="H"><h3>H. Start Valve Test</h3><p class="section-text">SUBTASK 80-11-03-700-002-F00
+<strong class="step-marker">(1)</strong> Do the test(s) listed in the Power Plant Test Reference Table (TASK 71-00-00-800-811-F00).</p></section>
+  </div>
 </details>
   </div>
 </section>
-  </div>
-  <div class="empty" id="empty">No tasks match this search.</div>
-  <footer class="footer">Source: supplied 737 AMM chapter. Task procedures retain the extracted source line breaks. The source links open the original PDF at the task page.</footer>
 </main>
+<div class="empty" id="empty">No tasks match this search.</div>
+<footer class="footer">Lettered sections follow the structure of the supplied AMM manual. Each lettered section contains one paragraph with its procedure steps grouped together.</footer>
+</div>
 <script>
+
 (()=>{
  const input=document.getElementById('search');
- const cards=[...document.querySelectorAll('.task')];
- const sections=[...document.querySelectorAll('.system-section')];
+ const cards=[...document.querySelectorAll('.fault')];
+ const groups=[...document.querySelectorAll('.system-section')];
  const count=document.getElementById('count');
  const empty=document.getElementById('empty');
  function filter(){
    const q=input.value.trim().toLocaleLowerCase();let shown=0;
    for(const card of cards){const match=!q||card.textContent.toLocaleLowerCase().includes(q);card.hidden=!match;if(match)shown++;}
-   for(const section of sections)section.hidden=!section.querySelector('.task:not([hidden])');
-   count.textContent=`Showing ${shown.toLocaleString()} of ${cards.length.toLocaleString()} tasks`;
+   for(const group of groups)group.hidden=!group.querySelector('.fault:not([hidden])');
+   count.textContent=`Showing ${shown.toLocaleString()} of ${cards.length.toLocaleString()} maintenance tasks`;
    empty.classList.toggle('visible',shown===0);
  }
  input.addEventListener('input',filter);
@@ -1809,6 +1616,7 @@ SUBTASK 80-11-03-700-002-F00
  document.getElementById('collapse').addEventListener('click',()=>cards.forEach(c=>c.open=false));
  filter();
 })();
+
 </script>
 </body>
 </html>

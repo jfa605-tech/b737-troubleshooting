@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Searchable Boeing 737NG AMM task library for ATA 77.">
+<meta name="description" content="B737NG ATA 77 AMM task library with lettered source sections and paragraph cards.">
 <title>B737NG ATA 77 | AMM Task Library</title>
 <style>
 :root{--navy:#102a43;--blue:#155e8a;--teal:#159a9c;--paper:#f4f7fa;--ink:#1d2935;--muted:#607080;--line:#d9e2ec;--white:#fff;--amber:#fff4d6;--shadow:0 8px 24px rgba(16,42,67,.08)}
@@ -13,76 +13,70 @@
 .nav-label{font-size:.78rem;text-transform:uppercase;letter-spacing:.09em;font-weight:800;color:#d4eaf5;margin:22px 0 9px}.nav{display:flex;flex-wrap:wrap;gap:9px}.nav a{color:#fff;text-decoration:none;padding:9px 13px;border:1px solid rgba(255,255,255,.42);border-radius:999px;font-weight:700;font-size:.9rem;background:rgba(255,255,255,.1);transition:.15s}.nav a:hover,.nav a:focus{background:#fff;color:var(--navy);outline:none}
 .notice{margin:18px 0 14px;border:1px solid #f0d286;background:var(--amber);padding:13px 16px;border-radius:12px;color:#57451b;font-size:.92rem}.toolbar{display:grid;grid-template-columns:minmax(240px,1fr) auto auto;gap:10px;align-items:center;margin:18px 0 10px}.search-wrap{position:relative}.search-wrap label{display:block;font-size:.78rem;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin:0 0 6px}.search-wrap input{width:100%;padding:13px 15px;border:1px solid #b8c7d6;border-radius:12px;font:inherit;background:#fff;box-shadow:0 2px 5px rgba(16,42,67,.03)}.search-wrap input:focus{outline:3px solid rgba(21,154,156,.22);border-color:var(--teal)}
 .toolbar button{align-self:end;border:1px solid #b8c7d6;background:#fff;color:var(--navy);padding:11px 14px;border-radius:10px;font:inherit;font-weight:700;cursor:pointer}.toolbar button:hover{border-color:var(--blue);background:#eef7fb}.count{color:var(--muted);font-weight:700;font-size:.9rem;margin:8px 2px 18px}
-.section-title{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:24px 2px 9px;border-bottom:2px solid var(--line);margin-top:8px}.section-title h2{font-size:1.24rem;color:var(--navy);margin:0}.section-title span{color:var(--muted);font-size:.86rem;font-weight:700}.task-list{display:grid;gap:12px;margin-top:13px}.task{background:var(--white);border:1px solid var(--line);border-radius:14px;box-shadow:0 2px 9px rgba(16,42,67,.035);overflow:hidden}.task[hidden]{display:none}.task>summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:14px;padding:17px 19px;cursor:pointer}.task>summary::-webkit-details-marker{display:none}.task>summary:after{content:"＋";font-weight:800;color:var(--blue);font-size:1.1rem;margin-left:3px}.task[open]>summary:after{content:"−"}.task>summary:hover{background:#f8fbfd}.task-head{display:flex;gap:12px;align-items:flex-start;min-width:0}.task-code{font-size:.76rem;white-space:nowrap;background:#e8f1f7;color:#164365;border-radius:7px;padding:4px 7px;font-weight:800}.task-name{white-space:pre-line;font-weight:700;color:#213547}.task-page{flex:none;background:#e8f7f6;color:#126669;border:1px solid #c7eae7;border-radius:999px;padding:5px 9px;font-size:.78rem;font-weight:800}
+.section-title{display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:24px 2px 9px;border-bottom:2px solid var(--line);margin-top:8px}.section-title h2{font-size:1.24rem;color:var(--navy);margin:0}.section-title span{color:var(--muted);font-size:.86rem;font-weight:700}.fault-list{display:grid;gap:12px;margin-top:13px}.fault{background:var(--white);border:1px solid var(--line);border-radius:14px;box-shadow:0 2px 9px rgba(16,42,67,.035);overflow:hidden}.fault[hidden]{display:none}.fault>summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:14px;padding:17px 19px;cursor:pointer}.fault>summary::-webkit-details-marker{display:none}.fault>summary:after{content:"＋";font-weight:800;color:var(--blue);font-size:1.1rem;margin-left:3px}.fault[open]>summary:after{content:"−"}.fault>summary:hover{background:#f8fbfd}.fault-head{display:flex;gap:12px;align-items:flex-start;min-width:0}.fault-code{font-size:.76rem;white-space:nowrap;background:#e8f1f7;color:#164365;border-radius:7px;padding:4px 7px;font-weight:800}.fault-name{white-space:pre-line;font-weight:700;color:#213547}.task-badge{flex:none;background:#e8f7f6;color:#126669;border:1px solid #c7eae7;border-radius:999px;padding:5px 9px;font-size:.78rem;font-weight:800}
 .fields{padding:0 18px 18px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}.field{border:1px solid #e6edf2;border-radius:10px;padding:12px 13px;background:#fbfcfd;min-width:0}.field.description{grid-column:1/-1;background:#f3f8fc}.field h3{font-size:.79rem;text-transform:uppercase;letter-spacing:.07em;color:#356078;margin:0 0 7px}.field p{white-space:pre-line;margin:0;font-size:.91rem;color:#2c3945}.field p:empty:after{content:"Not available in the referenced task.";color:var(--muted);font-style:italic}
 .figure-gallery{margin:0 18px 18px;border:1px solid #cbdbe6;border-radius:11px;background:#f7fbfd;overflow:hidden}.figure-gallery>summary{cursor:pointer;padding:11px 14px;color:#164365;font-weight:800}.figure-gallery>summary:hover{background:#eef7fb}.figure-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(195px,1fr));gap:10px;padding:0 12px 13px}.figure-link{display:flex;flex-direction:column;gap:6px;background:#fff;border:1px solid var(--line);border-radius:8px;padding:7px;color:#25506d;text-decoration:none;font-size:.78rem;font-weight:700}.figure-link:hover{border-color:var(--teal);box-shadow:0 3px 12px rgba(21,154,156,.12)}.figure-link img{width:100%;height:155px;object-fit:contain;background:#edf2f6;border-radius:5px}.figure-note{font-weight:500;color:var(--muted);font-size:.78rem;padding:0 13px 12px}.footer{margin-top:30px;border-top:1px solid var(--line);padding:16px 2px;color:var(--muted);font-size:.82rem}
-@media(max-width:760px){.page{padding:15px 12px 36px}.hero{padding:23px 20px;border-radius:16px}.toolbar{grid-template-columns:1fr 1fr}.search-wrap{grid-column:1/-1}.fields{grid-template-columns:1fr;padding:0 12px 13px}.field.description{grid-column:auto}.task>summary{padding:14px;flex-wrap:wrap}.task-page{margin-left:44px}.figure-gallery{margin:0 12px 13px}.section-title{align-items:flex-start;flex-direction:column;gap:2px}}
+@media(max-width:760px){.page{padding:15px 12px 36px}.hero{padding:23px 20px;border-radius:16px}.toolbar{grid-template-columns:1fr 1fr}.search-wrap{grid-column:1/-1}.fields{grid-template-columns:1fr;padding:0 12px 13px}.field.description{grid-column:auto}.fault>summary{padding:14px;flex-wrap:wrap}.task-badge{margin-left:44px}.figure-gallery{margin:0 12px 13px}.section-title{align-items:flex-start;flex-direction:column;gap:2px}}
 
-.task-body{padding:0 18px 18px}
-.source-link{display:inline-flex;align-items:center;gap:7px;margin:0 0 13px;padding:8px 11px;border-radius:9px;background:#edf6fa;border:1px solid #cbdde7;color:#164365;text-decoration:none;font-size:.86rem;font-weight:800}
-.source-link:hover,.source-link:focus{background:#dceef5;outline:2px solid rgba(21,154,156,.2)}
-.procedure{margin:0;padding:12px 13px;border:1px solid #e6edf2;border-radius:10px;background:#fbfcfd;color:#2c3945;font:15px/1.55 "Segoe UI",Arial,sans-serif;white-space:pre-wrap;overflow-wrap:anywhere;tab-size:4}
+.letter-field{grid-column:1/-1}
+.field p strong.step-marker{font-weight:800;color:#159a9c}
+.field p strong.section-marker,.field.letter-field h3{font-weight:800;color:#155e8a}
 .empty{display:none;margin:24px 0;padding:28px;text-align:center;color:var(--muted);background:#fff;border:1px dashed #b8c7d6;border-radius:14px}.empty.visible{display:block}
-.hero .approval-warning{margin-left:320px;font-size:40px;color:#FFF4D6}
-@media(max-width:760px){.task-body{padding:0 12px 13px}.hero .approval-warning{margin-left:0;font-size:clamp(1.25rem,8vw,2.5rem)}}
+#content>section[hidden]{display:none}
 
 </style>
 </head>
 <body>
-<main class="page">
-  <header class="hero">
+<div class="page">
+<header class="hero">
   <div class="eyebrow">Boeing 737-600/700/800/900 · Aircraft Maintenance Manual</div>
   <h1>ATA 77 AMM Task Library</h1>
   <br>
   <br>
-  <p class="approval-warning">NON APPROVED DATA</p>
+  <p style="margin-left: 320px; font-size: 40px; color:#FFF4D6;">NON APPROVED DATA</p>
 </header>
-  <div style="color:#435CCC;" class="nav-label">Related reference pages</div>
+<div style="color:#435CCC;" class="nav-label">Related reference pages</div>
 <nav class="nav" aria-label="Related reference pages">
-    <a style="background-color:#C28029;" href="b737ng_ssm_ata77.html">SCHEMATICS</a>
-    <a style="background-color:#C28029;" href="siglas.html">Siglas</a>
-    <a style="background-color:#C28029;" href="b737ng_amm_ata77.html">AMM</a>
-    <a style="background-color:#C28029;" href="test.html">TESTS &amp; CHECKS</a>
-    <a style="background-color:#C28029;" href="b737ng_mel_ata77.html">MEL</a>
+<a style="background-color:#C28029;" href="b737ng_ssm_ata77.html">SCHEMATICS</a>
+<a style="background-color:#C28029;" href="siglas.html">Siglas</a>
+<a style="background-color:#C28029;" href="b737ng_amm_ata77.html">AMM</a>
+<a style="background-color:#C28029;" href="test.html">TESTS &amp; CHECKS</a>
+<a style="background-color:#C28029;" href="b737ng_mel_ata77.html">MEL</a>
 </nav>
-  <div class="toolbar">
-    <div class="search-wrap"><label for="search">Search task number, title, section, or procedure text</label><input id="search" type="search" autocomplete="off" placeholder="Example: 22-11-00-700-801, autopilot, TASK 801…"></div>
-    <button id="expand" type="button">Expand visible</button>
-    <button id="collapse" type="button">Collapse all</button>
-  </div>
-  <div class="count" id="count" aria-live="polite"></div>
-  <div id="catalog">
-<section class="system-section" id="section-77-11-01">
-  <div class="section-title"><h2>ATA 77-11-01 - Section</h2><span>2 tasks</span></div>
-  <div class="task-list">
-<details class="task" id="task-77-11-01-000-801-F00" data-section="77-11-01">
-  <summary><span class="task-head"><span class="task-code">77-11-01-000-801-F00</span><span class="task-name">N1 Speed Sensor Removal</span></span><span class="task-page">PDF p. 7</span></summary>
-  <div class="task-body"><a class="source-link" href="file:///C:/Users/javie/Desktop/Proyecto%20B737NG/MANUALES/AMM/77_F__091.PDF#page=7" target="_blank" rel="noopener">Open original AMM PDF - page 7 <span aria-hidden="true">↗</span></a>
-    <pre class="procedure">2. N1 Speed Sensor Removal
-(Figure 401)
-A. General
-(1) This task is the removal procedure for the N1 speed sensor (referred to as the sensor).
-(2) The N1 speed sensor is located on the fan frame at the 4:00 o'clock position.
-(a) The probe is engaged in the fan frame strut 4.
-B. References
-Reference Title
+<div class="toolbar">
+  <div class="search-wrap"><label for="search">Search task number, title, section, or procedure text</label><input id="search" type="search" placeholder="Example: 77-11-00, procedure, TASK 801…" autocomplete="off"></div>
+  <button id="expand" type="button">Expand visible</button>
+  <button id="collapse" type="button">Collapse all</button>
+</div>
+<div id="count" class="count" aria-live="polite"></div>
+<main id="content">
+<section class="system-section">
+  <div class="section-title"><h2>ATA 77 · 77-11-01</h2><span>2 tasks</span></div>
+  <div class="fault-list">
+<details class="fault" id="task-77-11-01-000-801-F00">
+  <summary>
+    <span class="fault-head"><span class="fault-code">77-11-01-000-801-F00</span><span class="fault-name">N1 Speed Sensor Removal</span></span>
+    <span class="task-badge">ATA 77 · Task 000-801-F00</span>
+  </summary>
+  <div class="fields">
+<section class="field description letter-field"><h3>Task Description</h3><p class="section-text">2. N1 Speed Sensor Removal
+(Figure 401)</p></section>
+<section class="field letter-field" data-letter="A"><h3>A. General</h3><p class="section-text"><strong class="step-marker">(1)</strong> This task is the removal procedure for the N1 speed sensor (referred to as the sensor).
+<strong class="step-marker">(2)</strong> The N1 speed sensor is located on the fan frame at the 4:00 o'clock position.
+<strong class="step-marker">(a)</strong> The probe is engaged in the fan frame strut 4.</p></section>
+<section class="field letter-field" data-letter="B"><h3>B. References</h3><p class="section-text">Reference Title
 70-10-02-910-801-F00 General Precautions during the Removal and Installation of
 Engine Components (P/B 201)
-71-11-02-010-801-F00 Open the Fan Cowl Panels (P/B 201)
-C. Tools/Equipment
-Reference Description
-STD-195 Container - 1 Quart, Oil/Fuel Resistant
-D. Consumable Materials
-Reference Description Specification
-G00270 T ape - Scotch Flatback Masking 250 ASTM D6123
-(Supersedes A-A-883)
-E. Location Zones
-Zone Area
+71-11-02-010-801-F00 Open the Fan Cowl Panels (P/B 201)</p></section>
+<section class="field letter-field" data-letter="C"><h3>C. Tools/Equipment</h3><p class="section-text">Reference Description
+STD-195 Container - 1 Quart, Oil/Fuel Resistant</p></section>
+<section class="field letter-field" data-letter="D"><h3>D. Consumable Materials</h3><p class="section-text"></p></section>
+<section class="field letter-field" data-letter="E"><h3>E. Location Zones</h3><p class="section-text">Zone Area
 411 Engine 1 - Engine
 421 Engine 2 - Engine
-F . Prepare for the Removal
+<strong class="section-marker">F. Prepare for the Removal</strong>
 SUBTASK 77-11-01-860-001-F00
-(1) For Engine 1, open these circuit breakers and install safety tags:
+<strong class="step-marker">(1)</strong> For Engine 1, open these circuit breakers and install safety tags:
 CAPT Electrical System Panel, P18-2
 Row Col Number Name
 A 4 C01390 ENGINE 1 ALTN PWR CHAN B
@@ -93,7 +87,7 @@ Row Col Number Name
 D 10 C01361 DISPLAY DEU 1 HOLDUP
 77-11-01
 SUBTASK 77-11-01-860-002-F00
-(2) For Engine 2, open these circuit breakers and install safety tags:
+<strong class="step-marker">(2)</strong> For Engine 2, open these circuit breakers and install safety tags:
 F/O Electrical System Panel, P6-1
 Row Col Number Name
 D 9 C01362 DISPLAY DEU 2 HOLDUP
@@ -103,72 +97,45 @@ Row Col Number Name
 D 7 C01391 ENGINE 2 ALTN PWR CHAN B
 D 8 C01315 ENGINE 2 ALTN PWR CHAN A
 SUBTASK 77-11-01-010-001-F00
-(3) Do this task: Open the Fan Cowl Panels, TASK 71-11-02-010-801-F00.
-G. N1 Speed Sensor Removal
-SUBTASK 77-11-01-020-002-F00
-(1) Remove the sensor [5]:
-(a) Disconnect the electrical connectors, DP0701 (CH A) [7], DP0801 [8] (CH B) and DP0103
+<strong class="step-marker">(3)</strong> Do this task: Open the Fan Cowl Panels, TASK 71-11-02-010-801-F00.</p></section>
+<section class="field letter-field" data-letter="G"><h3>G. N1 Speed Sensor Removal</h3><p class="section-text">SUBTASK 77-11-01-020-002-F00
+<strong class="step-marker">(1)</strong> Remove the sensor [5]:
+<strong class="step-marker">(a)</strong> Disconnect the electrical connectors, DP0701 (CH A) [7], DP0801 [8] (CH B) and DP0103
 [10] from the sensor receptacles.
-(b) Put a 1 quart oil/fuel resistant container, STD-195, below the guide tube.
+<strong class="step-marker">(b)</strong> Put a 1 quart oil/fuel resistant container, STD-195, below the guide tube.
 NOTE: Oil leakage can occur, when you remove the sensor probe [3] from the guide
 tube.
 CAUTION
 BE CAREFUL WHEN YOU REMOVE THE N1 SPEED SENSOR. THE N1
 SPEED SENSOR IS VERY LONG AND DAMAGE CAN OCCUR.
-(c) Remove the two bolts [12] that attach the sensor mounting flange to the guide tube
+<strong class="step-marker">(c)</strong> Remove the two bolts [12] that attach the sensor mounting flange to the guide tube
 flange.
-(d) Slowly and carefully pull the sensor [5] out of the guide tube.
+<strong class="step-marker">(d)</strong> Slowly and carefully pull the sensor [5] out of the guide tube.
 1) Let the oil drain in the container.
-(e) Remove the sensor [5].
-(f) Remove and discard the packing [1] from the guide tube groove.
-(g) Put a protective cover on the probe tip [2] (TASK 70-10-02-910-801-F00).
-(h) Put Scotch Flatback Masking T ape 250, G00270, on the guide tube port.</pre></div>
+<strong class="step-marker">(e)</strong> Remove the sensor [5].
+<strong class="step-marker">(f)</strong> Remove and discard the packing [1] from the guide tube groove.
+<strong class="step-marker">(g)</strong> Put a protective cover on the probe tip [2] (TASK 70-10-02-910-801-F00).
+<strong class="step-marker">(h)</strong> Put Scotch Flatback Masking T ape 250, G00270, on the guide tube port.</p></section>
+  </div>
 </details>
-<details class="task" id="task-77-11-01-400-801-F00" data-section="77-11-01">
-  <summary><span class="task-head"><span class="task-code">77-11-01-400-801-F00</span><span class="task-name">N1 Speed Sensor Installation</span></span><span class="task-page">PDF p. 11</span></summary>
-  <div class="task-body"><a class="source-link" href="file:///C:/Users/javie/Desktop/Proyecto%20B737NG/MANUALES/AMM/77_F__091.PDF#page=11" target="_blank" rel="noopener">Open original AMM PDF - page 11 <span aria-hidden="true">↗</span></a>
-    <pre class="procedure">3. N1 Speed Sensor Installation
-(Figure 401)
-A. General
-(1) This task is the installation procedure for the N1 speed sensor (referred to as the sensor).
-B. References
-Reference Title
+<details class="fault" id="task-77-11-01-400-801-F00">
+  <summary>
+    <span class="fault-head"><span class="fault-code">77-11-01-400-801-F00</span><span class="fault-name">N1 Speed Sensor Installation</span></span>
+    <span class="task-badge">ATA 77 · Task 400-801-F00</span>
+  </summary>
+  <div class="fields">
+<section class="field description letter-field"><h3>Task Description</h3><p class="section-text">3. N1 Speed Sensor Installation
+(Figure 401)</p></section>
+<section class="field letter-field" data-letter="A"><h3>A. General</h3><p class="section-text"><strong class="step-marker">(1)</strong> This task is the installation procedure for the N1 speed sensor (referred to as the sensor).</p></section>
+<section class="field letter-field" data-letter="B"><h3>B. References</h3><p class="section-text">Reference Title
 70-10-02-910-801-F00 General Precautions during the Removal and Installation of
 Engine Components (P/B 201)
 71-00-00-800-811-F00 Power Plant Test Reference Table (P/B 501)
-71-11-02-410-801-F00 Close the Fan Cowl Panels (P/B 201)
-C. Tools/Equipment
-Reference Description
-STD-1107 Gauge - Feeler, 0.0 - 0.5 Inch, Readable to 1/1000th
-D. Consumable Materials
-Reference Description Specification
-A50464 T ape - Vinyl, Adhesive Coated BMS5-179
-D00599 [CP2442] Oil - Engine
-D00601 [CP2101] Vaseline - Graphite Mineral
-D00672 [CP5070] Vaseline - Pure Mineral V V-P-236
-G00034 Cotton Wiper - Process Cleaning Absorbent
-Wiper (Cheesecloth, Gauze)
-AMS3819 Class 1
-Grade A or B Form 1
-(Supersede BMS15-5
-CL A)
-G02129 T ape - 223S (use until stock depleted)
-G02352 [CP2179] Lanolin - Industrial
-E. Expendables/Parts
-AMM Item Description AIPC Reference AIPC Effectivity
-1 Packing 77-11-01-01-020 RYR 006, 007, 013, 014,
-018, 019, 043, 044,
-056-063, 067-078, 081,
-083-103, 111-114,
-121-129, 131, 132, 135,
-138-168, 174-179,
-182-187, 189-203,
-205-209, 212-220, 223,
-224, 231-236, 239-298,
-301-304, 306, 308,
-315-317, 322-341, 343,
-346-999
-77-11-01
+71-11-02-410-801-F00 Close the Fan Cowl Panels (P/B 201)</p></section>
+<section class="field letter-field" data-letter="C"><h3>C. Tools/Equipment</h3><p class="section-text">Reference Description
+STD-1107 Gauge - Feeler, 0.0 - 0.5 Inch, Readable to 1/1000th</p></section>
+<section class="field letter-field" data-letter="D"><h3>D. Consumable Materials</h3><p class="section-text"></p></section>
+<section class="field letter-field" data-letter="E"><h3>E. Expendables/Parts</h3><p class="section-text">77-11-01
 (Continued)
 AMM Item Description AIPC Reference AIPC Effectivity
 5 Sensor 77-11-01-01-010 RYR 006, 007, 013, 014,
@@ -183,46 +150,45 @@ AMM Item Description AIPC Reference AIPC Effectivity
 301-304, 306, 308,
 315-317, 322-341, 343,
 346-999
-F . Location Zones
+<strong class="section-marker">F. Location Zones</strong>
 Zone Area
 411 Engine 1 - Engine
-421 Engine 2 - Engine
-G. N1 Speed Sensor Installation
-SUBTASK 77-11-01-640-001-F00
-(1) Do these steps to prepare the sensor [5] for the installation (TASK 70-10-02-910-801-F00)
+421 Engine 2 - Engine</p></section>
+<section class="field letter-field" data-letter="G"><h3>G. N1 Speed Sensor Installation</h3><p class="section-text">SUBTASK 77-11-01-640-001-F00
+<strong class="step-marker">(1)</strong> Do these steps to prepare the sensor [5] for the installation (TASK 70-10-02-910-801-F00)
 (Figure 401):
-(a) Remove the protective cover from the probe tip [2].
-(b) Remove the tape from the guide tube port.
-(c) Use a piece of Nitto 223S T ape, G02129 or tape, A50464, to remove all the magnetic
+<strong class="step-marker">(a)</strong> Remove the protective cover from the probe tip [2].
+<strong class="step-marker">(b)</strong> Remove the tape from the guide tube port.
+<strong class="step-marker">(c)</strong> Use a piece of Nitto 223S T ape, G02129 or tape, A50464, to remove all the magnetic
 particles from the probe tip [2].
-(d) Carefully clean the three sensor probe poles [13] at the probe tip [2] with a cotton wiper,
+<strong class="step-marker">(d)</strong> Carefully clean the three sensor probe poles [13] at the probe tip [2] with a cotton wiper,
 G00034.
-(e) Lubricate a new packing [1] with oil, D00599 [CP2442].
+<strong class="step-marker">(e)</strong> Lubricate a new packing [1] with oil, D00599 [CP2442].
 CAUTION
 MAKE SURE YOU INSTALL THE PACKING CORRECTLY ON THE GUIDE
 TUBE GROOVE. IF YOU DO NOT INSTALL THE PACKING CORRECTLY ,
 OIL LOSS CAN OCCUR DURING ENGINE OPERATION AND CAN CAUSE
 DAMAGE TO THE ENGINE.
-(f) Install the packing [1] on the guide tube groove.
-(g) Lubricate the dampers [4] with a thin layer of vaseline, D00672 [CP5070], or lanolin,
+<strong class="step-marker">(f)</strong> Install the packing [1] on the guide tube groove.
+<strong class="step-marker">(g)</strong> Lubricate the dampers [4] with a thin layer of vaseline, D00672 [CP5070], or lanolin,
 G02352 [CP2179].
 SUBTASK 77-11-01-420-001-F00
-(2) Install the sensor [5] in the guide tube (Figure 401):
+<strong class="step-marker">(2)</strong> Install the sensor [5] in the guide tube (Figure 401):
 CAUTION
 BE CAREFUL NOT TO USE TOO MUCH FORCE WHEN YOU ENGAGE
 THE N1 SPEED SENSOR IN THE GUIDE TUBE. IF YOU USE TOO MUCH
 FORCE, DAMAGE TO THE N1 SPEED SENSOR CAN OCCUR.
-(a) Align the probe tip [2] with the guide tube.
-(b) Engage the probe tip [2] in the guide tube.
+<strong class="step-marker">(a)</strong> Align the probe tip [2] with the guide tube.
+<strong class="step-marker">(b)</strong> Engage the probe tip [2] in the guide tube.
 77-11-01
-(c) Slowly, push the sensor [5] down the guide tube.
-(d) Be careful to keep the axial alignment and to use a smooth movement when you engage
+<strong class="step-marker">(c)</strong> Slowly, push the sensor [5] down the guide tube.
+<strong class="step-marker">(d)</strong> Be careful to keep the axial alignment and to use a smooth movement when you engage
 the sensor [5].
-(e) When you feel the sensor [5] touch the bottom of its recess, stop and do not push the
+<strong class="step-marker">(e)</strong> When you feel the sensor [5] touch the bottom of its recess, stop and do not push the
 sensor [5] in more.
 SUBTASK 77-11-01-220-001-F00
-(3) Make sure that the sensor [5] has the correct clearance (Figure 401):
-(a) With no bolts [12] installed, measure the clearance of GAP "G" between the machined
+<strong class="step-marker">(3)</strong> Make sure that the sensor [5] has the correct clearance (Figure 401):
+<strong class="step-marker">(a)</strong> With no bolts [12] installed, measure the clearance of GAP "G" between the machined
 surfaces of the sensor mounting flange and the guide tube flange.
 CAUTION
 THE SENSOR PROBE IS SPRING-LOADED TO KEEP ITS INNER END
@@ -230,30 +196,29 @@ SHOULDER IN CONTACT WITH THE BOTTOM OF THE GUIDE TUBE
 RECESS. IF YOU DO NOT OBEY THE SPECIFIED GAP "G" LIMITS WITH
 ABOVE CONDITION, DAMAGE TO THE N1 SPEED SENSOR CAN
 OCCUR.
-(b) If the GAP "G" clearance is not 0.051-0.169 inch (1.30-4.30 mm), remove the sensor [5].
+<strong class="step-marker">(b)</strong> If the GAP "G" clearance is not 0.051-0.169 inch (1.30-4.30 mm), remove the sensor [5].
 1) Measure the GAP “G”clearance with a 0.0 - 0.5 Inch feeler gauge, STD-1107.
 2) Look for damage to the sensor [5] (distortion of the sensor probe [3], not positioned
 correctly, etc).
-(c) If you cannot install the sensor [5] with the correct GAP "G" clearance, replace the sensor
+<strong class="step-marker">(c)</strong> If you cannot install the sensor [5] with the correct GAP "G" clearance, replace the sensor
 [5].
 SUBTASK 77-11-01-420-002-F00
-(4) Tighten the sensor [5] (Figure 401):
-(a) Lubricate the threads of the two bolts [12] with graphite mineral vaseline, D00601
+<strong class="step-marker">(4)</strong> Tighten the sensor [5] (Figure 401):
+<strong class="step-marker">(a)</strong> Lubricate the threads of the two bolts [12] with graphite mineral vaseline, D00601
 [CP2101].
 CAUTION
 TIGHTEN ONE BOLT AND THEN THE OTHER BOLT IN SMALL
 INCREMENTS TO PREVENT DISTORTION OF THE SENSOR PROBE. IF
 IT IS POSSIBLE, USE TWO RATCHET WRENCHES TO TIGHTEN THE
 BOLTS AT THE SAME TIME.
-(b) Install the two bolts [12].
+<strong class="step-marker">(b)</strong> Install the two bolts [12].
 1) Tighten the bolts [12] to 110-120 pound-inches (12.5-13.5 Newton meters).
-(c) Connect the electrical connectors, DP0701 (CH A) [7], DP0801 (CH B) [8] and DP0103
-[10] to the applicable sensor receptacles, CH A, CH B, and CH A/C.
-H. Put the Airplane Back to Its Usual Condition
-SUBTASK 77-11-01-410-002-F00
-(1) Do this task: Close the Fan Cowl Panels, TASK 71-11-02-410-801-F00.
+<strong class="step-marker">(c)</strong> Connect the electrical connectors, DP0701 (CH A) [7], DP0801 (CH B) [8] and DP0103
+[10] to the applicable sensor receptacles, CH A, CH B, and CH A/C.</p></section>
+<section class="field letter-field" data-letter="H"><h3>H. Put the Airplane Back to Its Usual Condition</h3><p class="section-text">SUBTASK 77-11-01-410-002-F00
+<strong class="step-marker">(1)</strong> Do this task: Close the Fan Cowl Panels, TASK 71-11-02-410-801-F00.
 SUBTASK 77-11-01-860-003-F00
-(2) For Engine 1, remove the safety tags and close these circuit breakers:
+<strong class="step-marker">(2)</strong> For Engine 1, remove the safety tags and close these circuit breakers:
 CAPT Electrical System Panel, P18-2
 Row Col Number Name
 A 4 C01390 ENGINE 1 ALTN PWR CHAN B
@@ -264,7 +229,7 @@ F/O Electrical System Panel, P6-1
 Row Col Number Name
 D 10 C01361 DISPLAY DEU 1 HOLDUP
 SUBTASK 77-11-01-860-004-F00
-(3) For Engine 2, remove the safety tags and close these circuit breakers:
+<strong class="step-marker">(3)</strong> For Engine 2, remove the safety tags and close these circuit breakers:
 F/O Electrical System Panel, P6-1
 Row Col Number Name
 D 9 C01362 DISPLAY DEU 2 HOLDUP
@@ -272,42 +237,38 @@ D 11 C01360 DISPLAY DEU 2 PRI
 F/O Electrical System Panel, P6-2
 Row Col Number Name
 D 7 C01391 ENGINE 2 ALTN PWR CHAN B
-D 8 C01315 ENGINE 2 ALTN PWR CHAN A
-I. N1 Speed Sensor Installation Test
-SUBTASK 77-11-01-800-001-F00
-(1) Do the tests that are listed in the Power Plant Test Reference Table
-(TASK 71-00-00-800-811-F00).</pre></div>
+D 8 C01315 ENGINE 2 ALTN PWR CHAN A</p></section>
+<section class="field letter-field" data-letter="I"><h3>I. N1 Speed Sensor Installation Test</h3><p class="section-text">SUBTASK 77-11-01-800-001-F00
+<strong class="step-marker">(1)</strong> Do the tests that are listed in the Power Plant Test Reference Table
+(TASK 71-00-00-800-811-F00).</p></section>
+  </div>
 </details>
   </div>
 </section>
-<section class="system-section" id="section-77-11-02">
-  <div class="section-title"><h2>ATA 77-11-02 - Section</h2><span>2 tasks</span></div>
-  <div class="task-list">
-<details class="task" id="task-77-11-02-000-801-F00" data-section="77-11-02">
-  <summary><span class="task-head"><span class="task-code">77-11-02-000-801-F00</span><span class="task-name">N2 Speed Sensor Removal</span></span><span class="task-page">PDF p. 15</span></summary>
-  <div class="task-body"><a class="source-link" href="file:///C:/Users/javie/Desktop/Proyecto%20B737NG/MANUALES/AMM/77_F__091.PDF#page=15" target="_blank" rel="noopener">Open original AMM PDF - page 15 <span aria-hidden="true">↗</span></a>
-    <pre class="procedure">2. N2 Speed Sensor Removal
-(Figure 401)
-A. General
-(1) This task is the removal procedure for the N2 speed sensor (referred to as the sensor).
-(2) The N2 speed sensor is located on the forward side of the accessory gearbox (AGB), between
-the EEC alternator and the engine air starter.
-B. References
-Reference Title
+<section class="system-section">
+  <div class="section-title"><h2>ATA 77 · 77-11-02</h2><span>2 tasks</span></div>
+  <div class="fault-list">
+<details class="fault" id="task-77-11-02-000-801-F00">
+  <summary>
+    <span class="fault-head"><span class="fault-code">77-11-02-000-801-F00</span><span class="fault-name">N2 Speed Sensor Removal</span></span>
+    <span class="task-badge">ATA 77 · Task 000-801-F00</span>
+  </summary>
+  <div class="fields">
+<section class="field description letter-field"><h3>Task Description</h3><p class="section-text">2. N2 Speed Sensor Removal
+(Figure 401)</p></section>
+<section class="field letter-field" data-letter="A"><h3>A. General</h3><p class="section-text"><strong class="step-marker">(1)</strong> This task is the removal procedure for the N2 speed sensor (referred to as the sensor).
+<strong class="step-marker">(2)</strong> The N2 speed sensor is located on the forward side of the accessory gearbox (AGB), between
+the EEC alternator and the engine air starter.</p></section>
+<section class="field letter-field" data-letter="B"><h3>B. References</h3><p class="section-text">Reference Title
 70-10-02-910-801-F00 General Precautions during the Removal and Installation of
 Engine Components (P/B 201)
-71-11-02-010-801-F00 Open the Fan Cowl Panels (P/B 201)
-C. Consumable Materials
-Reference Description Specification
-G00270 T ape - Scotch Flatback Masking 250 ASTM D6123
-(Supersedes A-A-883)
-D. Location Zones
-Zone Area
+71-11-02-010-801-F00 Open the Fan Cowl Panels (P/B 201)</p></section>
+<section class="field letter-field" data-letter="C"><h3>C. Consumable Materials</h3><p class="section-text"></p></section>
+<section class="field letter-field" data-letter="D"><h3>D. Location Zones</h3><p class="section-text">Zone Area
 411 Engine 1 - Engine
-421 Engine 2 - Engine
-E. Prepare for the Removal
-SUBTASK 77-11-02-860-001-F00
-(1) For Engine 1, open these circuit breakers and install safety tags:
+421 Engine 2 - Engine</p></section>
+<section class="field letter-field" data-letter="E"><h3>E. Prepare for the Removal</h3><p class="section-text">SUBTASK 77-11-02-860-001-F00
+<strong class="step-marker">(1)</strong> For Engine 1, open these circuit breakers and install safety tags:
 CAPT Electrical System Panel, P18-2
 Row Col Number Name
 A 4 C01390 ENGINE 1 ALTN PWR CHAN B
@@ -318,7 +279,7 @@ Row Col Number Name
 D 10 C01361 DISPLAY DEU 1 HOLDUP
 77-11-02
 SUBTASK 77-11-02-860-002-F00
-(2) For Engine 2, open these circuit breakers and install safety tags:
+<strong class="step-marker">(2)</strong> For Engine 2, open these circuit breakers and install safety tags:
 F/O Electrical System Panel, P6-1
 Row Col Number Name
 D 9 C01362 DISPLAY DEU 2 HOLDUP
@@ -328,66 +289,35 @@ Row Col Number Name
 D 7 C01391 ENGINE 2 ALTN PWR CHAN B
 D 8 C01315 ENGINE 2 ALTN PWR CHAN A
 SUBTASK 77-11-02-010-001-F00
-(3) Do this task: Open the Fan Cowl Panels, TASK 71-11-02-010-801-F00.
-F . N2 Speed Sensor Removal
+<strong class="step-marker">(3)</strong> Do this task: Open the Fan Cowl Panels, TASK 71-11-02-010-801-F00.
+<strong class="section-marker">F. N2 Speed Sensor Removal</strong>
 SUBTASK 77-11-02-020-002-F00
-(1) Remove the sensor [4]:
-(a) Disconnect the electrical connectors, DP0503 (CH A) [9], DP0603 (CH B) [10] and
+<strong class="step-marker">(1)</strong> Remove the sensor [4]:
+<strong class="step-marker">(a)</strong> Disconnect the electrical connectors, DP0503 (CH A) [9], DP0603 (CH B) [10] and
 DP1201 [1] from the sensor receptacles.
-(b) Remove the two bolts [2] that attach the sensor [4] to the AGB boss.
-(c) Remove the sensor [4] from the AGB recess.
-(d) Remove and discard the packing [5].
-(e) Put a protective cover on the probe tip [6] (TASK 70-10-02-910-801-F00).
-(f) Put Scotch Flatback Masking T ape 250, G00270, on the AGB orifice.</pre></div>
+<strong class="step-marker">(b)</strong> Remove the two bolts [2] that attach the sensor [4] to the AGB boss.
+<strong class="step-marker">(c)</strong> Remove the sensor [4] from the AGB recess.
+<strong class="step-marker">(d)</strong> Remove and discard the packing [5].
+<strong class="step-marker">(e)</strong> Put a protective cover on the probe tip [6] (TASK 70-10-02-910-801-F00).
+<strong class="step-marker">(f)</strong> Put Scotch Flatback Masking T ape 250, G00270, on the AGB orifice.</p></section>
+  </div>
 </details>
-<details class="task" id="task-77-11-02-400-801-F00" data-section="77-11-02">
-  <summary><span class="task-head"><span class="task-code">77-11-02-400-801-F00</span><span class="task-name">N2 Speed Sensor Installation</span></span><span class="task-page">PDF p. 18</span></summary>
-  <div class="task-body"><a class="source-link" href="file:///C:/Users/javie/Desktop/Proyecto%20B737NG/MANUALES/AMM/77_F__091.PDF#page=18" target="_blank" rel="noopener">Open original AMM PDF - page 18 <span aria-hidden="true">↗</span></a>
-    <pre class="procedure">3. N2 Speed Sensor Installation
-(Figure 401)
-A. General
-(1) This task is the installation procedure for the N2 speed sensor (referred to as the sensor).
-B. References
-Reference Title
+<details class="fault" id="task-77-11-02-400-801-F00">
+  <summary>
+    <span class="fault-head"><span class="fault-code">77-11-02-400-801-F00</span><span class="fault-name">N2 Speed Sensor Installation</span></span>
+    <span class="task-badge">ATA 77 · Task 400-801-F00</span>
+  </summary>
+  <div class="fields">
+<section class="field description letter-field"><h3>Task Description</h3><p class="section-text">3. N2 Speed Sensor Installation
+(Figure 401)</p></section>
+<section class="field letter-field" data-letter="A"><h3>A. General</h3><p class="section-text"><strong class="step-marker">(1)</strong> This task is the installation procedure for the N2 speed sensor (referred to as the sensor).</p></section>
+<section class="field letter-field" data-letter="B"><h3>B. References</h3><p class="section-text">Reference Title
 70-10-02-910-801-F00 General Precautions during the Removal and Installation of
 Engine Components (P/B 201)
 71-00-00-800-811-F00 Power Plant Test Reference Table (P/B 501)
-71-11-02-410-801-F00 Close the Fan Cowl Panels (P/B 201)
-C. Consumable Materials
-Reference Description Specification
-A50464 T ape - Vinyl, Adhesive Coated BMS5-179
-D00599 [CP2442] Oil - Engine
-D00601 [CP2101] Vaseline - Graphite Mineral
-G00034 Cotton Wiper - Process Cleaning Absorbent
-Wiper (Cheesecloth, Gauze)
-AMS3819 Class 1
-Grade A or B Form 1
-(Supersede BMS15-5
-CL A)
-G02129 T ape - 223S (use until stock depleted)
-D. Expendables/Parts
-AMM Item Description AIPC Reference AIPC Effectivity
-4 Sensor 77-11-02-01-060 RYR 006, 007, 013, 014,
-018, 019, 043, 044,
-056-063, 067-078, 081,
-083-103, 111-114,
-121-129, 131, 132, 135
-77-11-02-01A-060 RYR 014, 068, 087, 090,
-111, 125, 128, 138-168,
-174-179, 182-187,
-189-203, 205-209,
-212-220, 223, 224,
-231-236, 239-298,
-301-304, 306, 308,
-315-317, 322-341, 343,
-346-999
-77-11-02-01B-060 RYR 006, 007, 013, 014,
-018, 019, 043, 044,
-056-063, 067-078, 081,
-083-103, 111-114,
-121-129, 131, 132, 135,
-143, 147, 152, 167, 177
-77-11-02
+71-11-02-410-801-F00 Close the Fan Cowl Panels (P/B 201)</p></section>
+<section class="field letter-field" data-letter="C"><h3>C. Consumable Materials</h3><p class="section-text"></p></section>
+<section class="field letter-field" data-letter="D"><h3>D. Expendables/Parts</h3><p class="section-text">77-11-02
 (Continued)
 AMM Item Description AIPC Reference AIPC Effectivity
 5 Packing 77-11-02-01-055 RYR 006, 007, 013, 014,
@@ -409,47 +339,45 @@ AMM Item Description AIPC Reference AIPC Effectivity
 056-063, 067-078, 081,
 083-103, 111-114,
 121-129, 131, 132, 135,
-143, 147, 152, 167, 177
-E. Location Zones
-Zone Area
+143, 147, 152, 167, 177</p></section>
+<section class="field letter-field" data-letter="E"><h3>E. Location Zones</h3><p class="section-text">Zone Area
 411 Engine 1 - Engine
 421 Engine 2 - Engine
-F . N2 Speed Sensor Installation
+<strong class="section-marker">F. N2 Speed Sensor Installation</strong>
 SUBTASK 77-11-02-840-001-F00
-(1) Do these steps to prepare the sensor [4] for the installation (TASK 70-10-02-910-801-F00)
+<strong class="step-marker">(1)</strong> Do these steps to prepare the sensor [4] for the installation (TASK 70-10-02-910-801-F00)
 (Figure 401):
-(a) Remove the protective cover from the probe tip [6].
-(b) Remove the tape from the AGB orifice.
-(c) Use a piece of Nitto 223S T ape, G02129 or tape, A50464, to remove all the magnetic
+<strong class="step-marker">(a)</strong> Remove the protective cover from the probe tip [6].
+<strong class="step-marker">(b)</strong> Remove the tape from the AGB orifice.
+<strong class="step-marker">(c)</strong> Use a piece of Nitto 223S T ape, G02129 or tape, A50464, to remove all the magnetic
 particles from the probe tip [6].
-(d) Carefully, clean the three sensor probe poles [11] with a cotton wiper, G00034.
-(e) Lubricate a new packing [5] with oil, D00599 [CP2442].
+<strong class="step-marker">(d)</strong> Carefully, clean the three sensor probe poles [11] with a cotton wiper, G00034.
+<strong class="step-marker">(e)</strong> Lubricate a new packing [5] with oil, D00599 [CP2442].
 CAUTION
 MAKE SURE YOU INSTALL THE PACKING CORRECTLY ON THE
 SENSOR GROOVE. IF YOU DO NOT INSTALL THE PACKING
 CORRECTLY , OIL LOSS CAN OCCUR DURING ENGINE OPERATION
 AND CAN CAUSE DAMAGE TO THE ENGINE.
-(f) Install the packing [5] on the sensor groove.
+<strong class="step-marker">(f)</strong> Install the packing [5] on the sensor groove.
 SUBTASK 77-11-02-420-001-F00
-(2) Install the sensor [4] (Figure 401):
-(a) Carefully put the sensor [4] into the AGB orifice.
+<strong class="step-marker">(2)</strong> Install the sensor [4] (Figure 401):
+<strong class="step-marker">(a)</strong> Carefully put the sensor [4] into the AGB orifice.
 77-11-02
-(b) Lubricate the threads of the two bolts [2] with graphite mineral vaseline, D00601
+<strong class="step-marker">(b)</strong> Lubricate the threads of the two bolts [2] with graphite mineral vaseline, D00601
 [CP2101].
 CAUTION
 TIGHTEN ONE BOLT AND THEN THE OTHER BOLT IN SMALL
 INCREMENTS TO PREVENT DISTORTION OF THE N2 SPEED SENSOR.
 IF IT IS POSSIBLE, USE TWO WRENCHES TO TIGHTEN THE BOLTS AT
 THE SAME TIME.
-(c) Install the two bolts [2].
+<strong class="step-marker">(c)</strong> Install the two bolts [2].
 1) Tighten the bolts [2] to 98-110 pound-inches (11-12.5 Newton meters).
-(d) Connect the electrical connectors, DP0503 (CH A) [9], DP0603 (CH B) [10] and DP1201
-(A/C) [1] to the applicable sensor receptacles CH A, CH B, and A/C.
-G. Put the Airplane Back to Its Usual Condition
-SUBTASK 77-11-02-410-001-F00
-(1) Do this task: Close the Fan Cowl Panels, TASK 71-11-02-410-801-F00.
+<strong class="step-marker">(d)</strong> Connect the electrical connectors, DP0503 (CH A) [9], DP0603 (CH B) [10] and DP1201
+(A/C) [1] to the applicable sensor receptacles CH A, CH B, and A/C.</p></section>
+<section class="field letter-field" data-letter="G"><h3>G. Put the Airplane Back to Its Usual Condition</h3><p class="section-text">SUBTASK 77-11-02-410-001-F00
+<strong class="step-marker">(1)</strong> Do this task: Close the Fan Cowl Panels, TASK 71-11-02-410-801-F00.
 SUBTASK 77-11-02-860-003-F00
-(2) For Engine 1, remove the safety tags and close these circuit breakers:
+<strong class="step-marker">(2)</strong> For Engine 1, remove the safety tags and close these circuit breakers:
 CAPT Electrical System Panel, P18-2
 Row Col Number Name
 A 4 C01390 ENGINE 1 ALTN PWR CHAN B
@@ -459,7 +387,7 @@ F/O Electrical System Panel, P6-1
 Row Col Number Name
 D 10 C01361 DISPLAY DEU 1 HOLDUP
 SUBTASK 77-11-02-860-004-F00
-(3) For Engine 2, remove the safety tags and close these circuit breakers:
+<strong class="step-marker">(3)</strong> For Engine 2, remove the safety tags and close these circuit breakers:
 F/O Electrical System Panel, P6-1
 Row Col Number Name
 D 9 C01362 DISPLAY DEU 2 HOLDUP
@@ -467,48 +395,44 @@ D 11 C01360 DISPLAY DEU 2 PRI
 F/O Electrical System Panel, P6-2
 Row Col Number Name
 D 7 C01391 ENGINE 2 ALTN PWR CHAN B
-D 8 C01315 ENGINE 2 ALTN PWR CHAN A
-H. N2 Speed Sensor Installation Test
-SUBTASK 77-11-02-800-001-F00
-(1) Do the tests that are listed in the Power Plant Test Reference Table
-(TASK 71-00-00-800-811-F00).</pre></div>
+D 8 C01315 ENGINE 2 ALTN PWR CHAN A</p></section>
+<section class="field letter-field" data-letter="H"><h3>H. N2 Speed Sensor Installation Test</h3><p class="section-text">SUBTASK 77-11-02-800-001-F00
+<strong class="step-marker">(1)</strong> Do the tests that are listed in the Power Plant Test Reference Table
+(TASK 71-00-00-800-811-F00).</p></section>
+  </div>
 </details>
   </div>
 </section>
-<section class="system-section" id="section-77-21-01">
-  <div class="section-title"><h2>ATA 77-21-01 - Section</h2><span>3 tasks</span></div>
-  <div class="task-list">
-<details class="task" id="task-77-21-01-000-801-F00" data-section="77-21-01">
-  <summary><span class="task-head"><span class="task-code">77-21-01-000-801-F00</span><span class="task-name">T49.5 Probe Removal</span></span><span class="task-page">PDF p. 21</span></summary>
-  <div class="task-body"><a class="source-link" href="file:///C:/Users/javie/Desktop/Proyecto%20B737NG/MANUALES/AMM/77_F__091.PDF#page=21" target="_blank" rel="noopener">Open original AMM PDF - page 21 <span aria-hidden="true">↗</span></a>
-    <pre class="procedure">2. T49.5 Probe Removal
-(Figure 401)
-A. General
-(1) This task is the removal procedure for the T49.5 probes (and thermocouples) of the Exhaust
+<section class="system-section">
+  <div class="section-title"><h2>ATA 77 · 77-21-01</h2><span>3 tasks</span></div>
+  <div class="fault-list">
+<details class="fault" id="task-77-21-01-000-801-F00">
+  <summary>
+    <span class="fault-head"><span class="fault-code">77-21-01-000-801-F00</span><span class="fault-name">T49.5 Probe Removal</span></span>
+    <span class="task-badge">ATA 77 · Task 000-801-F00</span>
+  </summary>
+  <div class="fields">
+<section class="field description letter-field"><h3>Task Description</h3><p class="section-text">2. T49.5 Probe Removal
+(Figure 401)</p></section>
+<section class="field letter-field" data-letter="A"><h3>A. General</h3><p class="section-text"><strong class="step-marker">(1)</strong> This task is the removal procedure for the T49.5 probes (and thermocouples) of the Exhaust
 Gas T emperature (EGT) indication system.
-(2) The engine has four T49.5 probes, each T49.5 probe has two thermocouples, a high
+<strong class="step-marker">(2)</strong> The engine has four T49.5 probes, each T49.5 probe has two thermocouples, a high
 temperature receptacle which is connected by a connector nut on the left or right harnesses,
 CJ10 or CJ9.
-(3) The T49.5 probes are installed on the Low Pressure Turbine (LPT) case at the 2:00, 5:00, 7:30
+<strong class="step-marker">(3)</strong> The T49.5 probes are installed on the Low Pressure Turbine (LPT) case at the 2:00, 5:00, 7:30
 and 10:00 o'clock positions.
-(4) The removal and installation tasks for all four T49.5 probes are equivalent; but, for the
+<strong class="step-marker">(4)</strong> The removal and installation tasks for all four T49.5 probes are equivalent; but, for the
 references to the connectors, top left DP1013 (CH B), bottom left DP1012 (CH B), top right
 DP0912 (CH A) and bottom right DP0913 (CH A) and harnesses, left CJ10 (CH B) and right
-CJ9 (CH A).
-B. References
-Reference Title
-78-31-00-010-801-F00 Open the Thrust Reverser (Selection) (P/B 201)
-C. Consumable Materials
-Reference Description Specification
-G00270 T ape - Scotch Flatback Masking 250 ASTM D6123
-(Supersedes A-A-883)
-D. Location Zones
-Zone Area
+CJ9 (CH A).</p></section>
+<section class="field letter-field" data-letter="B"><h3>B. References</h3><p class="section-text">Reference Title
+78-31-00-010-801-F00 Open the Thrust Reverser (Selection) (P/B 201)</p></section>
+<section class="field letter-field" data-letter="C"><h3>C. Consumable Materials</h3><p class="section-text"></p></section>
+<section class="field letter-field" data-letter="D"><h3>D. Location Zones</h3><p class="section-text">Zone Area
 411 Engine 1 - Engine
-421 Engine 2 - Engine
-E. Prepare for the T49.5 Probe Removal
-SUBTASK 77-21-01-860-001-F00
-(1) For Engine 1, open these circuit breakers and install safety tags:
+421 Engine 2 - Engine</p></section>
+<section class="field letter-field" data-letter="E"><h3>E. Prepare for the T49.5 Probe Removal</h3><p class="section-text">SUBTASK 77-21-01-860-001-F00
+<strong class="step-marker">(1)</strong> For Engine 1, open these circuit breakers and install safety tags:
 CAPT Electrical System Panel, P18-2
 Row Col Number Name
 A 1 C00458 ENGINE 1 IGNITION RIGHT
@@ -522,7 +446,7 @@ F/O Electrical System Panel, P6-1
 Row Col Number Name
 D 10 C01361 DISPLAY DEU 1 HOLDUP
 SUBTASK 77-21-01-860-002-F00
-(2) For Engine 2, open these circuit breakers and install safety tags:
+<strong class="step-marker">(2)</strong> For Engine 2, open these circuit breakers and install safety tags:
 F/O Electrical System Panel, P6-1
 Row Col Number Name
 D 9 C01362 DISPLAY DEU 2 HOLDUP
@@ -542,91 +466,61 @@ DEACTIVATION PROCEDURES FOR THE LEADING EDGE AND THE THRUST
 REVERSER (FOR GROUND MAINTENANCE), AND OPEN THE FAN COWL
 PANELS. IF YOU DO NOT OBEY THE ABOVE SEQUENCE, INJURIES TO
 PERSONS AND DAMAGE TO EQUIPMENT CAN OCCUR.
-(3) Do this task: Open the Thrust Reverser (Selection), TASK 78-31-00-010-801-F00.
-F . T49.5 Probe Removal
+<strong class="step-marker">(3)</strong> Do this task: Open the Thrust Reverser (Selection), TASK 78-31-00-010-801-F00.
+<strong class="section-marker">F. T49.5 Probe Removal</strong>
 SUBTASK 77-21-01-020-001-F00
 CAUTION
 BE CAREFUL OF THE FIRE DETECTOR HARNESSES. DAMAGE TO
 EQUIPMENT CAN OCCUR WHEN YOU INSTALL THE T49.5 PROBE.
-(1) Do these steps to remove the T49.5 probe [3]:
-(a) Disconnect the applicable connector nut [2], DP1013 (top left), DP1012 (bottom left),
+<strong class="step-marker">(1)</strong> Do these steps to remove the T49.5 probe [3]:
+<strong class="step-marker">(a)</strong> Disconnect the applicable connector nut [2], DP1013 (top left), DP1012 (bottom left),
 DP0912 (top right) or DP0913 (bottom right) from the applicable receptacle.
 RYR ALL PRE SB CFM56-7B-72-088
-(b) Remove the two nuts [4], washers [5], bolts [8] and washers [7] that attach the receptacle
+<strong class="step-marker">(b)</strong> Remove the two nuts [4], washers [5], bolts [8] and washers [7] that attach the receptacle
 to the bracket.
 RYR ALL POST SB CFM56-7B-72-088
-(c) For the top-right T49.5 probe, do this step:
+<strong class="step-marker">(c)</strong> For the top-right T49.5 probe, do this step:
 1) Remove the two bolts [8] and washers [7] that attach the receptacle to the bracket.
-(d) For the top-left, bottom-left and bottom-right T49.5 probes, do this step:
+<strong class="step-marker">(d)</strong> For the top-left, bottom-left and bottom-right T49.5 probes, do this step:
 77-21-01
 RYR ALL POST SB CFM56-7B-72-088 (Continued)
 1) Remove the two nuts [4], washers [5], bolts [8] and washers [7] that attach the
 receptacle to the bracket.
 RYR ALL PRE SB CFM56-7B-72-0423
-(e) Remove the four nuts [6] that attach the T49.5 probe [3] to the LPT case studs.
+<strong class="step-marker">(e)</strong> Remove the four nuts [6] that attach the T49.5 probe [3] to the LPT case studs.
 RYR ALL POST SB CFM56-7B-72-0423
-(f) Cut and remove the lockwire which attaches the bolt [9] to the specific washer [10].
+<strong class="step-marker">(f)</strong> Cut and remove the lockwire which attaches the bolt [9] to the specific washer [10].
 NOTE: For the engine with T49.5 probe brackets repaired, you find a bolt [9] which
 replaces a stud and a nut [6]. A lockwire safeties the bolt to a specific washer [10]
 located on the nut [6].
 Write on the specific washer mark area, the number of SB CFM56-7B 72-0423.
-(g) Remove and keep the bolt [9] which attaches the T49.5 probe [3] to the bracket assembly
+<strong class="step-marker">(g)</strong> Remove and keep the bolt [9] which attaches the T49.5 probe [3] to the bracket assembly
 on the turbine frame.
-(h) Remove the nut [6] which attaches the T49.5 probe [3] to the turbine frame.
-(i) Remove and keep the specific washer [10].
+<strong class="step-marker">(h)</strong> Remove the nut [6] which attaches the T49.5 probe [3] to the turbine frame.
+<strong class="step-marker">(i)</strong> Remove and keep the specific washer [10].
 RYR ALL
-(j) Carefully, remove the T49.5 probes [3] from the engine.
-(k) Put protective covers on the thermocouples.
-(l) Put a protective cover on the connector nut and receptacle.
-(m) Put Scotch Flatback Masking T ape 250, G00270 (metal tape) or protective covers on the
-two LPT case ports.</pre></div>
+<strong class="step-marker">(j)</strong> Carefully, remove the T49.5 probes [3] from the engine.
+<strong class="step-marker">(k)</strong> Put protective covers on the thermocouples.
+<strong class="step-marker">(l)</strong> Put a protective cover on the connector nut and receptacle.
+<strong class="step-marker">(m)</strong> Put Scotch Flatback Masking T ape 250, G00270 (metal tape) or protective covers on the
+two LPT case ports.</p></section>
+  </div>
 </details>
-<details class="task" id="task-77-21-01-400-801-F00" data-section="77-21-01">
-  <summary><span class="task-head"><span class="task-code">77-21-01-400-801-F00</span><span class="task-name">T49.5 Probe Installation</span></span><span class="task-page">PDF p. 30</span></summary>
-  <div class="task-body"><a class="source-link" href="file:///C:/Users/javie/Desktop/Proyecto%20B737NG/MANUALES/AMM/77_F__091.PDF#page=30" target="_blank" rel="noopener">Open original AMM PDF - page 30 <span aria-hidden="true">↗</span></a>
-    <pre class="procedure">3. T49.5 Probe Installation
-(Figure 401)
-A. General
-(1) This task is the installation procedure for the T49.5 probes.
-B. References
-Reference Title
+<details class="fault" id="task-77-21-01-400-801-F00">
+  <summary>
+    <span class="fault-head"><span class="fault-code">77-21-01-400-801-F00</span><span class="fault-name">T49.5 Probe Installation</span></span>
+    <span class="task-badge">ATA 77 · Task 400-801-F00</span>
+  </summary>
+  <div class="fields">
+<section class="field description letter-field"><h3>Task Description</h3><p class="section-text">3. T49.5 Probe Installation
+(Figure 401)</p></section>
+<section class="field letter-field" data-letter="A"><h3>A. General</h3><p class="section-text"><strong class="step-marker">(1)</strong> This task is the installation procedure for the T49.5 probes.</p></section>
+<section class="field letter-field" data-letter="B"><h3>B. References</h3><p class="section-text">Reference Title
 70-20-01-800-804-F00 Lockwire Installation (P/B 201)
 71-00-00-800-811-F00 Power Plant Test Reference Table (P/B 501)
-78-31-00-010-804-F00 Close the Thrust Reverser (Selection) (P/B 201)
-C. Consumable Materials
-Reference Description Specification
-D00601 [CP2101] Vaseline - Graphite Mineral
-D50068 [CP2544] Lubricant - Molykote P37, Paste
-G02345 [CP8001] Wire - Safety, 0.032 Inch (0.8 mm) Diameter AMS 5687
-G50065 [CP8006] Cable, Safety, Stainless Steel, 0.032 inch (0.8
-mm) Diameter
-M50 TF 9 CL-A
-D. Expendables/Parts
-AMM Item Description AIPC Reference AIPC Effectivity
-3 Probe 77-21-01-01-130 RYR 006, 007, 013, 014,
-018, 019, 043, 044,
-056-063, 067-078, 081,
-083-103, 111-114,
-121-129, 131, 132, 135
-77-21-01-01A-080 RYR 014, 068, 087, 090,
-111, 125, 128, 138-168,
-174-179, 182-187,
-189-203, 205-209,
-212-220, 223, 224,
-231-236, 239-298,
-301-304, 306, 308,
-315-317, 322-341, 343,
-346-999
-77-21-01-01A-085 RYR 014, 068, 087, 090,
-111, 125, 128, 138-168,
-174-179, 182-187,
-189-203, 205-209,
-212-220, 223, 224,
-231-236, 239-298,
-301-304, 306, 308,
-315-317, 322-341, 343,
-346-999
-77-21-01
+78-31-00-010-804-F00 Close the Thrust Reverser (Selection) (P/B 201)</p></section>
+<section class="field letter-field" data-letter="C"><h3>C. Consumable Materials</h3><p class="section-text"></p></section>
+<section class="field letter-field" data-letter="D"><h3>D. Expendables/Parts</h3><p class="section-text">77-21-01
 (Continued)
 AMM Item Description AIPC Reference AIPC Effectivity
 3 (cont.) 77-21-01-01B-130 RYR 006, 007, 013, 014,
@@ -634,81 +528,79 @@ AMM Item Description AIPC Reference AIPC Effectivity
 056-063, 067-078, 081,
 083-103, 111-114,
 121-129, 131, 132, 135,
-143, 147, 152, 167, 177
-E. Location Zones
-Zone Area
+143, 147, 152, 167, 177</p></section>
+<section class="field letter-field" data-letter="E"><h3>E. Location Zones</h3><p class="section-text">Zone Area
 411 Engine 1 - Engine
 421 Engine 2 - Engine
-F . T49.5 Probe Installation
+<strong class="section-marker">F. T49.5 Probe Installation</strong>
 SUBTASK 77-21-01-420-001-F00
-(1) Do these steps to prepare the T49.5 probe [3] for the installation:
-(a) Remove the masking (metal) tape or protective covers from the two Low Pressure
+<strong class="step-marker">(1)</strong> Do these steps to prepare the T49.5 probe [3] for the installation:
+<strong class="step-marker">(a)</strong> Remove the masking (metal) tape or protective covers from the two Low Pressure
 Turbine (LPT) case ports.
-(b) Remove the protective cover from the connector nut and receptacle.
-(c) Remove the protective covers from the thermocouples.
-(d) Lubricate the threads of the two bolts [8] with graphite mineral vaseline, D00601
+<strong class="step-marker">(b)</strong> Remove the protective cover from the connector nut and receptacle.
+<strong class="step-marker">(c)</strong> Remove the protective covers from the thermocouples.
+<strong class="step-marker">(d)</strong> Lubricate the threads of the two bolts [8] with graphite mineral vaseline, D00601
 [CP2101].
-(e) Lubricate the threads of the four LPT case studs with lubricant, D50068 [CP2544].
+<strong class="step-marker">(e)</strong> Lubricate the threads of the four LPT case studs with lubricant, D50068 [CP2544].
 SUBTASK 77-21-01-420-002-F00
 CAUTION
 BE CAREFUL OF THE FIRE DETECTOR HARNESSES. DAMAGE TO
 EQUIPMENT CAN OCCUR WHEN YOU INSTALL THE T49.5 PROBE.
-(2) Do these steps to install the T49.5 probe [3]:
-(a) Carefully, install the T49.5 probes [3] in the LPT case ports.
+<strong class="step-marker">(2)</strong> Do these steps to install the T49.5 probe [3]:
+<strong class="step-marker">(a)</strong> Carefully, install the T49.5 probes [3] in the LPT case ports.
 RYR ALL PRE SB CFM56-7B-72-0423
-(b) Install the four nuts [6] to attach the T49.5 probe [3] to the LPT case studs.
-(c) Tighten the nuts [6] to 80-90 Pound-inches (10-10.5 Newton-meters).
+<strong class="step-marker">(b)</strong> Install the four nuts [6] to attach the T49.5 probe [3] to the LPT case studs.
+<strong class="step-marker">(c)</strong> Tighten the nuts [6] to 80-90 Pound-inches (10-10.5 Newton-meters).
 RYR ALL POST SB CFM56-7B-72-0423
-(d) Lubricate the threads of the bolts that you have removed before with lubricant, D50068
+<strong class="step-marker">(d)</strong> Lubricate the threads of the bolts that you have removed before with lubricant, D50068
 [CP2544].
 NOTE: For the engine with T49.5 probe [3] brackets repaired, you must replace a bolt to
 one missing stud and one nut [6] on each bracket.
-(e) Attach the T49.5 probe [3] to the turbine frame bracket with the bolts located in the
+<strong class="step-marker">(e)</strong> Attach the T49.5 probe [3] to the turbine frame bracket with the bolts located in the
 threaded holes of the T49.5 probe [3] bracket.
-(f) Install the specific washer that you have removed before on the studs with the number
+<strong class="step-marker">(f)</strong> Install the specific washer that you have removed before on the studs with the number
 engraved at the top.
 NOTE: Be careful to set the plate of the specific washers turned to the head of the bolts.
-(g) Attach the T49.5 probe [3] to the studs with the nuts [6].
+<strong class="step-marker">(g)</strong> Attach the T49.5 probe [3] to the studs with the nuts [6].
 77-21-01
 RYR ALL POST SB CFM56-7B-72-0423 (Continued)
-(h) Tighten the nuts [6] and the bolts to 100 - 110 Pound-inches (11.5 - 12.5 Newton-meters).
-(i) Lock the bolts by a safety wire, G02345 [CP8001] or safety cable, G50065 [CP8006]
+<strong class="step-marker">(h)</strong> Tighten the nuts [6] and the bolts to 100 - 110 Pound-inches (11.5 - 12.5 Newton-meters).
+<strong class="step-marker">(i)</strong> Lock the bolts by a safety wire, G02345 [CP8001] or safety cable, G50065 [CP8006]
 (Ref. to Lockwire Installation, TASK 70-20-01-800-804-F00).
 1) Install the lockwire through the head holes.
 2) Attach the specific washers.
 RYR ALL PRE SB CFM56-7B-72-088
-(j) Loosely install the two bolts [8], washers [7], washers [5] and nuts [4] to attach the
+<strong class="step-marker">(j)</strong> Loosely install the two bolts [8], washers [7], washers [5] and nuts [4] to attach the
 receptacle to the bracket.
 RYR ALL POST SB CFM56-7B-72-088
-(k) For the top-right T49.5 probe, do this step:
+<strong class="step-marker">(k)</strong> For the top-right T49.5 probe, do this step:
 1) Loosely install the two bolts [8] and washers [7] to attach the receptacle to the
 bracket.
-(l) For the top-left, bottom-left and bottom-right T49.5 probes, do this step:
+<strong class="step-marker">(l)</strong> For the top-left, bottom-left and bottom-right T49.5 probes, do this step:
 1) Loosely install the two bolts [8], washers [7], washers [5] and nuts [4] to attach the
 receptacle to the bracket.
 RYR ALL
-(m) Do a check for the gap between the probe tube (T49.5 probe to the junction box) and the
+<strong class="step-marker">(m)</strong> Do a check for the gap between the probe tube (T49.5 probe to the junction box) and the
 adjacent parts (brackets, nuts, bolts, etc.).
 1) Make sure that the gap is not less than 0.12 in. (3.0 mm).
 2) Tighten the bolts [8] to 98-110 Pound-inches (11-12.5 Newton-meters), respectively.
-(n) Make sure that the connector nut [2] and receptacle are clean and clear of unwanted
+<strong class="step-marker">(n)</strong> Make sure that the connector nut [2] and receptacle are clean and clear of unwanted
 materials.
-(o) Connect the applicable connector nut [2], DP1013 (CH B, top left), DP1012 (CH B,
+<strong class="step-marker">(o)</strong> Connect the applicable connector nut [2], DP1013 (CH B, top left), DP1012 (CH B,
 bottom left), DP0912 (CH A, top right) or DP0913 (CH A, bottom right) to the applicable
 receptacle.
 1) Tighten the connector nut [2] to 133 in-lb (15 N·m) - 177 in-lb (20 N·m).
 2) Install the safety wire, G02345 [CP8001] or safety cable, G50065 [CP8006] to the
-connector nut [2].
-G. Put the Airplane Back to Its Usual Condition
-SUBTASK 77-21-01-010-005-F00
+connector nut [2].</p></section>
+<section class="field letter-field" data-letter="G"><h3>G. Put the Airplane Back to Its Usual Condition</h3><p class="section-text">SUBTASK 77-21-01-010-005-F00
 WARNING
 OBEY THE INSTRUCTIONS IN THE PROCEDURE TO CLOSE THE THRUST
 REVERSERS. IF YOU DO NOT OBEY THE INSTRUCTIONS WHEN YOU
 CLOSE THE THRUST REVERSERS, INJURIES TO PERSONS OR DAMAGE
 TO EQUIPMENT CAN OCCUR.
-(1) Do this task: Close the Thrust Reverser (Selection), TASK 78-31-00-010-804-F00.
+<strong class="step-marker">(1)</strong> Do this task: Close the Thrust Reverser (Selection), TASK 78-31-00-010-804-F00.
 SUBTASK 77-21-01-860-011-F00
-(2) For Engine 1, remove the safety tags and close these circuit breakers:
+<strong class="step-marker">(2)</strong> For Engine 1, remove the safety tags and close these circuit breakers:
 CAPT Electrical System Panel, P18-2
 Row Col Number Name
 A 1 C00458 ENGINE 1 IGNITION RIGHT
@@ -725,7 +617,7 @@ F/O Electrical System Panel, P6-1
 Row Col Number Name
 D 10 C01361 DISPLAY DEU 1 HOLDUP
 SUBTASK 77-21-01-860-012-F00
-(3) For Engine 2, remove the safety tags and close these circuit breakers:
+<strong class="step-marker">(3)</strong> For Engine 2, remove the safety tags and close these circuit breakers:
 F/O Electrical System Panel, P6-1
 Row Col Number Name
 D 9 C01362 DISPLAY DEU 2 HOLDUP
@@ -736,30 +628,31 @@ C 4 C00154 ENGINE 2 START VALVE
 D 4 C00459 ENGINE 2 IGNITION RIGHT
 D 6 C00151 ENGINE 2 IGNITION LEFT
 D 7 C01391 ENGINE 2 ALTN PWR CHAN B
-D 8 C01315 ENGINE 2 ALTN PWR CHAN A
-H. T49.5 Probe Installation Test
-SUBTASK 77-21-01-800-002-F00
-(1) Do this task: Power Plant Test Reference Table, TASK 71-00-00-800-811-F00.</pre></div>
+D 8 C01315 ENGINE 2 ALTN PWR CHAN A</p></section>
+<section class="field letter-field" data-letter="H"><h3>H. T49.5 Probe Installation Test</h3><p class="section-text">SUBTASK 77-21-01-800-002-F00
+<strong class="step-marker">(1)</strong> Do this task: Power Plant Test Reference Table, TASK 71-00-00-800-811-F00.</p></section>
+  </div>
 </details>
-<details class="task" id="task-77-21-01-200-801-F00" data-section="77-21-01">
-  <summary><span class="task-head"><span class="task-code">77-21-01-200-801-F00</span><span class="task-name">T49.5 Probe and EGT System Inspection</span></span><span class="task-page">PDF p. 35</span></summary>
-  <div class="task-body"><a class="source-link" href="file:///C:/Users/javie/Desktop/Proyecto%20B737NG/MANUALES/AMM/77_F__091.PDF#page=35" target="_blank" rel="noopener">Open original AMM PDF - page 35 <span aria-hidden="true">↗</span></a>
-    <pre class="procedure">2. T49.5 Probe and EGT System Inspection
-(Figure 601)
-A. General
-(1) This task is an electrical check for the complete system of the exhaust gas temperature (EGT)
+<details class="fault" id="task-77-21-01-200-801-F00">
+  <summary>
+    <span class="fault-head"><span class="fault-code">77-21-01-200-801-F00</span><span class="fault-name">T49.5 Probe and EGT System Inspection</span></span>
+    <span class="task-badge">ATA 77 · Task 200-801-F00</span>
+  </summary>
+  <div class="fields">
+<section class="field description letter-field"><h3>Task Description</h3><p class="section-text">2. T49.5 Probe and EGT System Inspection
+(Figure 601)</p></section>
+<section class="field letter-field" data-letter="A"><h3>A. General</h3><p class="section-text"><strong class="step-marker">(1)</strong> This task is an electrical check for the complete system of the exhaust gas temperature (EGT)
 indication system.
-(2) The engine has four T49.5 probes, each T49.5 probe has two thermocouples, a high
+<strong class="step-marker">(2)</strong> The engine has four T49.5 probes, each T49.5 probe has two thermocouples, a high
 temperature receptacle which is connected by a connector nut on the left or right harnesses,
 CJ10 or CJ9.
-(3) The T49.5 probes are installed on the LPT case at the 2:00, 5:00, 7:30 and 10:00 o'clock
+<strong class="step-marker">(3)</strong> The T49.5 probes are installed on the LPT case at the 2:00, 5:00, 7:30 and 10:00 o'clock
 positions.
-(4) The electrical check for all four T49.5 probes is equivalent; but, for the references to the
+<strong class="step-marker">(4)</strong> The electrical check for all four T49.5 probes is equivalent; but, for the references to the
 connectors, top left DP1013 (CH B), bottom left DP1012 (CH B), top right DP0912 (CH A) and
 bottom right DP0913 (CH A) and harnesses, left CJ10 (CH B) and right CJ9 (CH A).
-(5) The T49.5 probe is made of alumel (AL) and chromel (CR) metals.
-B. References
-Reference Title
+<strong class="step-marker">(5)</strong> The T49.5 probe is made of alumel (AL) and chromel (CR) metals.</p></section>
+<section class="field letter-field" data-letter="B"><h3>B. References</h3><p class="section-text">Reference Title
 71-00-00-800-811-F00 Power Plant Test Reference Table (P/B 501)
 73-21-06-000-802-F00 3 O'clock Strut Harness Removal (P/B 401)
 73-21-06-000-803-F00 Core Engine Harness Removal (P/B 401)
@@ -768,9 +661,8 @@ Reference Title
 77-21-01-000-801-F00 T49.5 Probe Removal (P/B 401)
 77-21-01-400-801-F00 T49.5 Probe Installation (P/B 401)
 78-31-00-010-801-F00 Open the Thrust Reverser (Selection) (P/B 201)
-78-31-00-010-804-F00 Close the Thrust Reverser (Selection) (P/B 201)
-C. Tools/Equipment
-NOTE: When more than one tool part number is listed under the same "Reference" number, the
+78-31-00-010-804-F00 Close the Thrust Reverser (Selection) (P/B 201)</p></section>
+<section class="field letter-field" data-letter="C"><h3>C. Tools/Equipment</h3><p class="section-text">NOTE: When more than one tool part number is listed under the same "Reference" number, the
 tools shown are alternates to each other within the same airplane series. Tool part numbers
 that are replaced or non-procurable are preceded by "Opt:", which stands for Optional.
 77-21-01
@@ -799,20 +691,14 @@ Part #: 1864-9700 Supplier: 62015
 Part #: 1865PLUS Supplier: 62015
 Part #: 1865PLUSCE Supplier: 62015
 Part #: 2471F Supplier: 21844
-Opt Part #: 1865-00-CE Supplier: 62015
-D. Consumable Materials
-Reference Description Specification
-G02345 [CP8001] Wire - Safety, 0.032 Inch (0.8 mm) Diameter AMS 5687
-G50065 [CP8006] Cable, Safety, Stainless Steel, 0.032 inch (0.8
-mm) Diameter
-M50 TF 9 CL-A
-E. Location Zones
-Zone Area
+Opt Part #: 1865-00-CE Supplier: 62015</p></section>
+<section class="field letter-field" data-letter="D"><h3>D. Consumable Materials</h3><p class="section-text"></p></section>
+<section class="field letter-field" data-letter="E"><h3>E. Location Zones</h3><p class="section-text">Zone Area
 411 Engine 1 - Engine
 421 Engine 2 - Engine
-F . Prepare for the T49.5 Probe Inspection
+<strong class="section-marker">F. Prepare for the T49.5 Probe Inspection</strong>
 SUBTASK 77-21-01-860-005-F00
-(1) For Engine 1, open these circuit breakers and install safety tags:
+<strong class="step-marker">(1)</strong> For Engine 1, open these circuit breakers and install safety tags:
 CAPT Electrical System Panel, P18-2
 Row Col Number Name
 A 1 C00458 ENGINE 1 IGNITION RIGHT
@@ -826,7 +712,7 @@ F/O Electrical System Panel, P6-1
 Row Col Number Name
 D 10 C01361 DISPLAY DEU 1 HOLDUP
 SUBTASK 77-21-01-860-006-F00
-(2) For Engine 2, open these circuit breakers and install safety tags:
+<strong class="step-marker">(2)</strong> For Engine 2, open these circuit breakers and install safety tags:
 F/O Electrical System Panel, P6-1
 Row Col Number Name
 D 9 C01362 DISPLAY DEU 2 HOLDUP
@@ -846,19 +732,18 @@ DEACTIVATION OF THE LEADING EDGE AND THE THRUST REVERSER
 (FOR GROUND MAINTENANCE), AND OPEN THE FAN COWL PANEL. IF YOU
 DO NOT OBEY THE ABOVE SEQUENCE, INJURIES TO PERSONS AND
 DAMAGE TO EQUIPMENT CAN OCCUR.
-(3) Do this task: Open the Thrust Reverser (Selection), TASK 78-31-00-010-801-F00.
-G. EGT System Inspection
-SUBTASK 77-21-01-760-001-F00
-(1) Do the electrical resistance check of the EGT system as follows:
+<strong class="step-marker">(3)</strong> Do this task: Open the Thrust Reverser (Selection), TASK 78-31-00-010-801-F00.</p></section>
+<section class="field letter-field" data-letter="G"><h3>G. EGT System Inspection</h3><p class="section-text">SUBTASK 77-21-01-760-001-F00
+<strong class="step-marker">(1)</strong> Do the electrical resistance check of the EGT system as follows:
 NOTE: You can use 50 up to 125 Vdc range input to measure the insulation resistance.
-(a) Use an digital/analog multimeter, COM-1793 or equivalent , with a precision of 0.01 Ohm
+<strong class="step-marker">(a)</strong> Use an digital/analog multimeter, COM-1793 or equivalent , with a precision of 0.01 Ohm
 and a range of 0-200 Ohms for the test.
-(b) Set the Ohmmeter to zero (range 0-200 Ohm).
-(c) Measure and record the resistance value (See tables below).
-(d) Change the direction of the ohmmeter wires for the subsequent resistance value.
-(e) Measure and record the resistance value between the pins A and B at the same
+<strong class="step-marker">(b)</strong> Set the Ohmmeter to zero (range 0-200 Ohm).
+<strong class="step-marker">(c)</strong> Measure and record the resistance value (See tables below).
+<strong class="step-marker">(d)</strong> Change the direction of the ohmmeter wires for the subsequent resistance value.
+<strong class="step-marker">(e)</strong> Measure and record the resistance value between the pins A and B at the same
 receptacle, again.
-(f) Add the two values together and then, divide the result by two.
+<strong class="step-marker">(f)</strong> Add the two values together and then, divide the result by two.
 1) The calculated average value must be in accordance with the values given in the
 tables below:
 a) Electrical check of J wiring harness + CJ wiring harness + T49.5 probe
@@ -905,7 +790,7 @@ T49.5 probe connector
 DP1013
 S4 A to B 0.6 to 0.8 Ohms
 NOTE: Line resistance values increases 10% higher at 80 °C (176 °F).
-(g) If the values are not correct, replace the defective part. These are the tasks:
+<strong class="step-marker">(g)</strong> If the values are not correct, replace the defective part. These are the tasks:
 T49.5 Probe Removal, TASK 77-21-01-000-801-F00
 T49.5 Probe Installation, TASK 77-21-01-400-801-F00
 3 O'clock Strut Harness Removal, TASK 73-21-06-000-802-F00
@@ -914,11 +799,11 @@ Core Engine Harness Removal, TASK 73-21-06-000-803-F00
 77-21-01
 Core Engine Harness Installation, TASK 73-21-06-400-803-F00.
 SUBTASK 77-21-01-760-003-F00
-(2) Do the insulation resistance check of the complete EGT system as follows:
+<strong class="step-marker">(2)</strong> Do the insulation resistance check of the complete EGT system as follows:
 NOTE: You can use 50 up to 125 Vdc range input to measure the insulation resistance.
-(a) Measure the insulation resistance with a insulation meter, COM-6457, between each pin
+<strong class="step-marker">(a)</strong> Measure the insulation resistance with a insulation meter, COM-6457, between each pin
 and the receptacle housing.
-(b) Make sure that the insulation resistance value is more than 20 MOhms.
+<strong class="step-marker">(b)</strong> Make sure that the insulation resistance value is more than 20 MOhms.
 1) Insulation resistance check of J wiring harness + CJ wiring harness + T49.5 probe
 Measure from: Sector Pins
 Line Resistance at 20 °C
@@ -951,7 +836,7 @@ S3 A to ground &amp; B to ground Higher than 20 MOhms
 T49.5 probe connector
 DP1013
 S4 A to ground &amp; B to ground Higher than 20 MOhms
-(c) If the values are not correct, replace the defective part. These are the tasks:
+<strong class="step-marker">(c)</strong> If the values are not correct, replace the defective part. These are the tasks:
 T49.5 Probe Removal, TASK 77-21-01-000-801-F00
 T49.5 Probe Installation, TASK 77-21-01-400-801-F00
 3 O'clock Strut Harness Removal, TASK 73-21-06-000-802-F00
@@ -960,22 +845,21 @@ Core Engine Harness Removal, TASK 73-21-06-000-803-F00
 Core Engine Harness Installation, TASK 73-21-06-400-803-F00.
 77-21-01
 SUBTASK 77-21-01-420-005-F00
-(3) Do these steps to connect the applicable connector nut:
-(a) Connect the applicable connector nut, DP1013 (CH B, top left), DP1012 (CH B, bottom
+<strong class="step-marker">(3)</strong> Do these steps to connect the applicable connector nut:
+<strong class="step-marker">(a)</strong> Connect the applicable connector nut, DP1013 (CH B, top left), DP1012 (CH B, bottom
 left), DP0912 (CH A, top right) or DP0913 (CH A, bottom right) to the applicable
 receptacle.
 1) Tighten the connector nut to 133 in-lb (15 N·m)-177 in-lb (20 N·m).
 2) Install safety wire, G02345 [CP8001] or safety cable, G50065 [CP8006] to the
-connector nut.
-H. Put the Airplane Back to Its Usual Condition
-SUBTASK 77-21-01-010-004-F00
+connector nut.</p></section>
+<section class="field letter-field" data-letter="H"><h3>H. Put the Airplane Back to Its Usual Condition</h3><p class="section-text">SUBTASK 77-21-01-010-004-F00
 WARNING
 OBEY THE INSTRUCTIONS IN THE PROCEDURE TO CLOSE THE THRUST
 REVERSER. IF YOU DO NOT OBEY THE INSTRUCTIONS, INJURIES TO
 PERSONS AND DAMAGE TO EQUIPMENT CAN OCCUR.
-(1) Do this task: Close the Thrust Reverser (Selection), TASK 78-31-00-010-804-F00.
+<strong class="step-marker">(1)</strong> Do this task: Close the Thrust Reverser (Selection), TASK 78-31-00-010-804-F00.
 SUBTASK 77-21-01-860-009-F00
-(2) For Engine 1, remove the safety tags and close these circuit breakers:
+<strong class="step-marker">(2)</strong> For Engine 1, remove the safety tags and close these circuit breakers:
 CAPT Electrical System Panel, P18-2
 Row Col Number Name
 A 1 C00458 ENGINE 1 IGNITION RIGHT
@@ -988,7 +872,7 @@ F/O Electrical System Panel, P6-1
 Row Col Number Name
 D 10 C01361 DISPLAY DEU 1 HOLDUP
 SUBTASK 77-21-01-860-010-F00
-(3) For Engine 2, remove the safety tags and close these circuit breakers:
+<strong class="step-marker">(3)</strong> For Engine 2, remove the safety tags and close these circuit breakers:
 F/O Electrical System Panel, P6-1
 Row Col Number Name
 D 9 C01362 DISPLAY DEU 2 HOLDUP
@@ -1000,77 +884,75 @@ D 4 C00459 ENGINE 2 IGNITION RIGHT
 D 6 C00151 ENGINE 2 IGNITION LEFT
 D 7 C01391 ENGINE 2 ALTN PWR CHAN B
 D 8 C01315 ENGINE 2 ALTN PWR CHAN A
-77-21-01
-I. T49.5 Probe Installation Test
-SUBTASK 77-21-01-800-001-F00
-(1) Do the test that is listed in the Power Plant Test Reference Table
-(TASK 71-00-00-800-811-F00).</pre></div>
+77-21-01</p></section>
+<section class="field letter-field" data-letter="I"><h3>I. T49.5 Probe Installation Test</h3><p class="section-text">SUBTASK 77-21-01-800-001-F00
+<strong class="step-marker">(1)</strong> Do the test that is listed in the Power Plant Test Reference Table
+(TASK 71-00-00-800-811-F00).</p></section>
+  </div>
 </details>
   </div>
 </section>
-<section class="system-section" id="section-77-31-00">
-  <div class="section-title"><h2>ATA 77-31-00 - Section</h2><span>5 tasks</span></div>
-  <div class="task-list">
-<details class="task" id="task-77-31-00-970-803-F00" data-section="77-31-00">
-  <summary><span class="task-head"><span class="task-code">77-31-00-970-803-F00</span><span class="task-name">Airborne Vibration Monitoring (AVM) System - System Test</span></span><span class="task-page">PDF p. 45</span></summary>
-  <div class="task-body"><a class="source-link" href="file:///C:/Users/javie/Desktop/Proyecto%20B737NG/MANUALES/AMM/77_F__091.PDF#page=45" target="_blank" rel="noopener">Open original AMM PDF - page 45 <span aria-hidden="true">↗</span></a>
-    <pre class="procedure">2. Airborne Vibration Monitoring (AVM) System - System Test
-A. General
-(1) This task is the system test procedure for the airborne vibration monitoring (AVM) system.
-(2) Use this procedure for the AVM signal conditioner with this part number:
+<section class="system-section">
+  <div class="section-title"><h2>ATA 77 · 77-31-00</h2><span>5 tasks</span></div>
+  <div class="fault-list">
+<details class="fault" id="task-77-31-00-970-803-F00">
+  <summary>
+    <span class="fault-head"><span class="fault-code">77-31-00-970-803-F00</span><span class="fault-name">Airborne Vibration Monitoring (AVM) System - System Test</span></span>
+    <span class="task-badge">ATA 77 · Task 970-803-F00</span>
+  </summary>
+  <div class="fields">
+<section class="field description letter-field"><h3>Task Description</h3><p class="section-text">2. Airborne Vibration Monitoring (AVM) System - System Test</p></section>
+<section class="field letter-field" data-letter="A"><h3>A. General</h3><p class="section-text"><strong class="step-marker">(1)</strong> This task is the system test procedure for the airborne vibration monitoring (AVM) system.
+<strong class="step-marker">(2)</strong> Use this procedure for the AVM signal conditioner with this part number:
 RYR 006, 007, 013, 014, 018-020, 043, 044, 056-063, 067-078, 081, 083-103, 111-114, 121-129, 131, 132, 135,
 138-169, 174-176 PRE SB 737-77-1069
-(a) Boeing part number - S360N021-113 and -114.
+<strong class="step-marker">(a)</strong> Boeing part number - S360N021-113 and -114.
 • Supplier part number - Vibro-meter P/N 241-258-032-109 and 241-258-032-110.
-(b) Boeing part number - S362A001-1, -10 and -12.
+<strong class="step-marker">(b)</strong> Boeing part number - S362A001-1, -10 and -12.
 • Supplier part number - Vibro-meter P/N 241-280-051-012, 241-280-053-013 and
 241-280-056-014.
 RYR 177-179, 182-187, 189-203, 205-209, 212-220, 223, 224, 231-236, 239-298, 301-304, 306, 308, 315-317,
 322-341, 343, 346-999; RYR 006, 007, 013, 014, 018-020, 043, 044, 056-063, 067-078, 081, 083-103, 111-114,
 121-129, 131, 132, 135, 138-169, 174-176 POST SB 737-77-1069
-(c) Boeing part number - S362A001-11, -13, -21 and -23.
+<strong class="step-marker">(c)</strong> Boeing part number - S362A001-11, -13, -21 and -23.
 • Supplier part number - Vibro-meter P/N 241-298-002-011, 241-298-002-012,
 241-298-002-015, and 241-298-002-016.
 RYR ALL
-(3) This AVM signal conditioner has a digital display of three lines of eight (8) characters in each
+<strong class="step-marker">(3)</strong> This AVM signal conditioner has a digital display of three lines of eight (8) characters in each
 line.
-(4) This procedure uses the Built-In Test Equipment in the AVM signal conditioner.
-(5) The AVM signal conditioner shows the Built-In Test Equipment Maintenance Messages first
+<strong class="step-marker">(4)</strong> This procedure uses the Built-In Test Equipment in the AVM signal conditioner.
+<strong class="step-marker">(5)</strong> The AVM signal conditioner shows the Built-In Test Equipment Maintenance Messages first
 and then the flight history.
-(6) This procedure refers to the Built-In Test Equipment as the BITE.
-B. References
-Reference Title
-79-00-00-200-804-F00 Chip Detectors and Scavenge Screens - Inspection (P/B 601)
-C. Location Zones
-Zone Area
+<strong class="step-marker">(6)</strong> This procedure refers to the Built-In Test Equipment as the BITE.</p></section>
+<section class="field letter-field" data-letter="B"><h3>B. References</h3><p class="section-text">Reference Title
+79-00-00-200-804-F00 Chip Detectors and Scavenge Screens - Inspection (P/B 601)</p></section>
+<section class="field letter-field" data-letter="C"><h3>C. Location Zones</h3><p class="section-text">Zone Area
 117 Electrical and Electronics Compartment - Left
 118 Electrical and Electronics Compartment - Right
-77-31-00
-D. Access Panels
-Number Name/Location
-117A Electronic Equipment Access Door
-E. Prepare to Read the BITE Maintenance Messages and the Flight History
-SUBTASK 77-31-00-860-014-F00
-(1) Make sure that this circuit breaker is closed:
+77-31-00</p></section>
+<section class="field letter-field" data-letter="D"><h3>D. Access Panels</h3><p class="section-text">Number Name/Location
+117A Electronic Equipment Access Door</p></section>
+<section class="field letter-field" data-letter="E"><h3>E. Prepare to Read the BITE Maintenance Messages and the Flight History</h3><p class="section-text">SUBTASK 77-31-00-860-014-F00
+<strong class="step-marker">(1)</strong> Make sure that this circuit breaker is closed:
 F/O Electrical System Panel, P6-2
 Row Col Number Name
 A 2 C01076 ENGINE VIB MON
 SUBTASK 77-31-00-010-005-F00
-(2) Open this access panel:
+<strong class="step-marker">(2)</strong> Open this access panel:
 Number Name/Location
 117A Electronic Equipment Access Door
-F . Read the BITE Maintenance Messages
+<strong class="section-marker">F. Read the BITE Maintenance Messages</strong>
 SUBTASK 77-31-00-970-012-F00
-(1) Do these steps to read the main menus on the front display of the AVM signal conditioner:
-(a) Push and release one of the four buttons to show Self Test? on the front display of the
+<strong class="step-marker">(1)</strong> Do these steps to read the main menus on the front display of the AVM signal conditioner:
+<strong class="step-marker">(a)</strong> Push and release one of the four buttons to show Self Test? on the front display of the
 AVM signal conditioner.
-(b) After Self Test?, push and release the NO button to show Fault History? on the front
+<strong class="step-marker">(b)</strong> After Self Test?, push and release the NO button to show Fault History? on the front
 display of the AVM signal conditioner.
-(c) After Fault History?, push and release the NO button to show Flight History? on the front
+<strong class="step-marker">(c)</strong> After Fault History?, push and release the NO button to show Flight History? on the front
 display of the AVM signal conditioner.
-(d) After Flight History?, push and release the NO button to show Balance? on the front
+<strong class="step-marker">(d)</strong> After Flight History?, push and release the NO button to show Balance? on the front
 display of the AVM signal conditioner.
-(e) After Balance?, push and release the NO button to show Turn off Display? on the front
+<strong class="step-marker">(e)</strong> After Balance?, push and release the NO button to show Turn off Display? on the front
 display of the AVM signal conditioner.
 RYR 177-179, 182-187, 189-203, 205-209, 212-220, 223, 224, 231-236, 239-298, 301-304, 306, 308,
 315-317, 322-341, 343, 346-999; RYR 006, 007, 013, 014, 018-020, 043, 044, 056-063, 067-078, 081,
@@ -1080,9 +962,9 @@ display of the AVM signal conditioner
 2) After AEVM?, push and release the NO button to show Turn off Display? on the
 front display of the AVM signal conditioner
 RYR ALL
-(f) After Turn off Display?, push and release the YES button to turn off the display.
+<strong class="step-marker">(f)</strong> After Turn off Display?, push and release the YES button to turn off the display.
 SUBTASK 77-31-00-970-013-F00
-(2) Do these steps to read the BITE maintenance messages (Table 201):
+<strong class="step-marker">(2)</strong> Do these steps to read the BITE maintenance messages (Table 201):
 Table 201/77-31-00-993-806-F00
 BITE MAINTENANCE MESSAGES
 MAINTENANCE MESSAGES DESCRIPTION
@@ -1097,44 +979,44 @@ AVM Syst Fault ZZ *[3] ZZ=fault code
 *[1] Display message only.
 *[2] Fault YY is the fault number.
 *[3] ZZ is the fault code.
-(a) Push and release one of the four buttons to show Self Test? on the front display of the
+<strong class="step-marker">(a)</strong> Push and release one of the four buttons to show Self Test? on the front display of the
 AVM signal conditioner.
 NOTE: You can move down the main menus with the NO button, but you can only exit
 with the NO button. The NO button is used to review all the main menus. Use the
 UP or DOWN to review faults, flight history, or imbalance data.
-(b) Push and release the NO button to show Fault History? on the front display of the AVM
+<strong class="step-marker">(b)</strong> Push and release the NO button to show Fault History? on the front display of the AVM
 signal conditioner.
 NOTE: The BITE maintenance messages will not be erased unless the YES button is
 pushed while Clear Faults Memory? shows on the front of the AVM signal
 conditioner. The AVM signal conditioner can keep 32 BITE maintenance
 messages in the storage memory. The YES button is used to review each menu.
-(c) After Fault History?, push and release the YES button to show XX Faults Display? on the
+<strong class="step-marker">(c)</strong> After Fault History?, push and release the YES button to show XX Faults Display? on the
 front display of the AVM signal conditioner.
 NOTE: The XX refers to the total number of faults in storage memory. If No Fault is
 displayed, there are no BITE maintenance messages to view. After No Fault, if
 the NO button is pushed, the front display will show Flight History?. If Flight
 History? is displayed, see the flight history steps below.
-(d) After XX Faults Display?, push and release the YES button to show the last BITE
+<strong class="step-marker">(d)</strong> After XX Faults Display?, push and release the YES button to show the last BITE
 maintenance message that was set.
 NOTE: The UP or DOWN ARROW button can be used to review all the BITE
 maintenance messages. The most recent BITE maintenance message is
 displayed first, followed by the most recent BITE maintenance message.
 1) Record this BITE maintenance message before you get the subsequent BITE
 maintenance message.
-(e) Push and release the DOWN ARROW button to show each of the remaining BITE
+<strong class="step-marker">(e)</strong> Push and release the DOWN ARROW button to show each of the remaining BITE
 maintenance messages.
 1) Record each BITE maintenance message before you get the subsequent BITE
 maintenance message.
-(f) If you do not want to continue, or if you want to keep the BITE maintenance messages,
+<strong class="step-marker">(f)</strong> If you do not want to continue, or if you want to keep the BITE maintenance messages,
 push and release the NO button to show Clear Faults Memory? on the front display of the
 AVM signal conditioner.
 NOTE: After Clear Faults Memory?, push and release the NO button again to show the
 main menu (Flight History displayed).
-(g) If you push and release the DOWN ARROW button after the last BITE maintenance
+<strong class="step-marker">(g)</strong> If you push and release the DOWN ARROW button after the last BITE maintenance
 message, the first BITE maintenance message will show on the front display of the AVM
 signal conditioner.
 77-31-00
-(h) Do one of the steps that follow to interrogate the AVM signal conditioner further:
+<strong class="step-marker">(h)</strong> Do one of the steps that follow to interrogate the AVM signal conditioner further:
 1) If you want to see the BITE maintenance messages again after Flight History?,
 push and release the NO button four times.
 2) If you want to see flight history after XX Faults Display?, push and release the NO
@@ -1158,11 +1040,10 @@ Memory? on the front display of the AVM signal conditioner.
 NOTE: After Clear Faults Memory?, if the NO button is pushed again the front
 display will show Flight History?. After Clear Faults Memory?, if the YES
 button is pushed the front display will show Faults Memory Cleared.
-(i) If there are BITE maintenance messages, do the applicable corrective action that shows
-in the FIM (FIM 77-31 TASK 801).
-G. Read the Flight History
-SUBTASK 77-31-00-970-014-F00
-(1) Do these steps to read the flight history (Table 202):
+<strong class="step-marker">(i)</strong> If there are BITE maintenance messages, do the applicable corrective action that shows
+in the FIM (FIM 77-31 TASK 801).</p></section>
+<section class="field letter-field" data-letter="G"><h3>G. Read the Flight History</h3><p class="section-text">SUBTASK 77-31-00-970-014-F00
+<strong class="step-marker">(1)</strong> Do these steps to read the flight history (Table 202):
 NOTE: The AVM records the highest vibration level of all the engine rotors.
 Table 202/77-31-00-993-807-F00
 FLIGHT HISTORY
@@ -1291,44 +1172,44 @@ Use the DOWN button for Flights other than last the flight F0
 *[4] E1 is Engine 1 and E2 is Engine 2.
 *[5] yyy% is the percent RPM measured for the N1 and N2 shaft.
 *[6] n.nn is vibration in scalar units (0.00 to 5.00).
-(a) Push and release one of the four buttons to show Self Test? on the front display of the
+<strong class="step-marker">(a)</strong> Push and release one of the four buttons to show Self Test? on the front display of the
 AVM signal conditioner.
 NOTE: The NO button is used to review all the main menus.
-(b) After Self Test?, push and release the NO button to show Fault History? on the front
+<strong class="step-marker">(b)</strong> After Self Test?, push and release the NO button to show Fault History? on the front
 display of the AVM signal conditioner.
 NOTE: If Fault History? is displayed, see the BITE maintenance message steps above.
-(c) After Fault History?, push and release the NO button to show Flight History? on the front
+<strong class="step-marker">(c)</strong> After Fault History?, push and release the NO button to show Flight History? on the front
 display of the AVM signal conditioner.
 NOTE: The flight history will not be erased unless the YES button is pushed after Clear
 Flight Memory? is displayed on the front display of the AVM signal conditioner.
 The AVM signal conditioner can keep 32 flights in the storage memory. The YES
 button is used to review each menu.
-(d) After Flight History?, push and release the YES button to show XX Flights Display? on
+<strong class="step-marker">(d)</strong> After Flight History?, push and release the YES button to show XX Flights Display? on
 the front display of the AVM signal conditioner.
 NOTE: The XX refers to the total number of flights in storage memory. If No Flight Data
 shows, there is no flight history to view. After No Flight Data, if the NO button is
 pushed the front display will show Balance?.
-(e) After XX Flights Display?, push and release the YES button to show Flight XX? on the
+<strong class="step-marker">(e)</strong> After XX Flights Display?, push and release the YES button to show Flight XX? on the
 front display of the AVM signal conditioner.
-(f) After Flight XX?, push and release the YES button to show the most recent flight history
+<strong class="step-marker">(f)</strong> After Flight XX?, push and release the YES button to show the most recent flight history
 data for engine 1 that was set.
 NOTE: The UP or DOWN ARROW button can be used to review all the flight history data
 for engine 1.
 1) Record the flight history data that you want.
 77-31-00
-(g) If you are done looking at flight history data for engine 1, push and release the NO button
+<strong class="step-marker">(g)</strong> If you are done looking at flight history data for engine 1, push and release the NO button
 to show the most recent flight history data for engine 2 that was set.
 NOTE: The UP or DOWN ARROW button can be used to review all the flight history data
 for engine 2.
 1) Record the flight history data, that you want, before you get the subsequent flight
 history data.
-(h) Push and release the NO button to show the subsequent flight number data that was set.
-(i) If you do not want to continue, or if you want to keep the flight history data, push and
+<strong class="step-marker">(h)</strong> Push and release the NO button to show the subsequent flight number data that was set.
+<strong class="step-marker">(i)</strong> If you do not want to continue, or if you want to keep the flight history data, push and
 release the NO button twice to show Clear Flight Memory? on the front display of the
 AVM signal conditioner and then Balance?.
-(j) If you push and release the DOWN ARROW button after the last flight history data, the
+<strong class="step-marker">(j)</strong> If you push and release the DOWN ARROW button after the last flight history data, the
 most recent flight history data will show on the front display of the AVM signal conditioner.
-(k) Do one of the steps that follow to interrogate the AVM signal conditioner further:
+<strong class="step-marker">(k)</strong> Do one of the steps that follow to interrogate the AVM signal conditioner further:
 1) If you want to see the flight history data again after Balance?, push and release the
 NO button four times.
 2) If you want to see balance data after XX Flights Display?, push and release the NO
@@ -1352,30 +1233,29 @@ display will show Balance?. After Clear Flight Memory?, if the YES button is
 pushed the front display will show Flight Memory Cleared (all flight history is
 deleted). Push and release the NO button to show Balance?
 RYR 177-179, 182-187, 189-203, 205-209, 212-220, 223, 224; AIRPLANES WITH AEVM WITH 4R BEARING
-DATA
-H. Use the Advanced Engine Vibration Monitor (AEVM) Menu (AEVM With 4R Bearing Data)
-SUBTASK 77-31-00-970-016-F01
-(1) Do these steps to use the AEVM menu:
-(a) Push and release one of the four buttons to show Self Test? on the front display of the
+DATA</p></section>
+<section class="field letter-field" data-letter="H"><h3>H. Use the Advanced Engine Vibration Monitor (AEVM) Menu (AEVM With 4R Bearing Data)</h3><p class="section-text">SUBTASK 77-31-00-970-016-F01
+<strong class="step-marker">(1)</strong> Do these steps to use the AEVM menu:
+<strong class="step-marker">(a)</strong> Push and release one of the four buttons to show Self Test? on the front display of the
 AVM signal conditioner.
 NOTE: The NO button is used to review all the main menus.
 77-31-00
 RYR 177-179, 182-187, 189-203, 205-209, 212-220, 223, 224; AIRPLANES WITH AEVM WITH 4R BEARING
 DATA (Continued)
-(b) After Self Test?, push and release the NO button to show Fault History? on the front
+<strong class="step-marker">(b)</strong> After Self Test?, push and release the NO button to show Fault History? on the front
 display of the AVM signal conditioner.
 NOTE: If Fault History? is displayed, see the BITE maintenance message steps above.
-(c) After Fault History?, push and release the NO button to show Flight History? on the front
+<strong class="step-marker">(c)</strong> After Fault History?, push and release the NO button to show Flight History? on the front
 display of the AVM signal conditioner.
 NOTE: The flight history will not be erased unless the YES button is pushed after Clear
 Flight Memory? is displayed on the front display of the AVM signal conditioner.
 The AVM signal conditioner can keep 32 flights in the storage memory. The YES
 button is used to review each menu.
-(d) After Flight History?, push and release the NO button to show Balance? on the front
+<strong class="step-marker">(d)</strong> After Flight History?, push and release the NO button to show Balance? on the front
 display of the AVM signal conditioner.
-(e) After Balance?, push and release the NO button to show AEVM Menu? on the front
+<strong class="step-marker">(e)</strong> After Balance?, push and release the NO button to show AEVM Menu? on the front
 display of the AVM signal conditioner.
-(f) After AEVM Menu?, push and release the YES button to show #4 BRG? on the front
+<strong class="step-marker">(f)</strong> After AEVM Menu?, push and release the YES button to show #4 BRG? on the front
 display of the AVM signal conditioner. The AEVM menu will display this order of menus on
 the front display of the AVM signal conditioner:
 NOTE: Use the applicable YES or NO button to get access to the applicable menu. Use
@@ -1384,7 +1264,7 @@ the NO button to go to the next menu.
 2) Config?
 3) Data?
 4) Altern.Accel.wiring?
-(g) After #4 BRG?, push and release the YES button to look for #4 BRG
+<strong class="step-marker">(g)</strong> After #4 BRG?, push and release the YES button to look for #4 BRG
 messages(Table 203).
 Table 203/77-31-00-993-810-F01 AAVM #4 BRG
 #4 BRG MENU DISPLAY
@@ -1459,7 +1339,7 @@ within 150 hours.
 4) Use the UP [back] and DOWN [next] buttons to go to and from Engine 1 (E1) and
 Engine 2 (E2).
 5) Push and release the NO button to show Config? on the front display.
-(h) After Config?, push and release the YES button to look at the Config menu (Table 204).
+<strong class="step-marker">(h)</strong> After Config?, push and release the YES button to look at the Config menu (Table 204).
 Table 204/77-31-00-993-811-F01 AAVM CONFIG MENU
 CONFIG MENU DISPLAY
 Main SW
@@ -1486,7 +1366,7 @@ are no flight limitations based on software revision level. Refer to AIPC for AV
 and AAVM Interchangeability.
 1) Use the UP [back] and DOWN [next] buttons to go to and from Config displays of
 the part numbers.
-(i) After Data?, push and release the YES button to look at the Data menu (Table 205).
+<strong class="step-marker">(i)</strong> After Data?, push and release the YES button to look at the Data menu (Table 205).
 Table 205/77-31-00-993-812-F01 AAVM DATA MENU
 DATA MENU DISPLAY
 E1
@@ -1512,7 +1392,7 @@ RYR 177-179, 182-187, 189-203, 205-209, 212-220, 223, 224; AIRPLANES WITH AEVM W
 DATA (Continued)
 1) Use the UP [back] and DOWN [next] buttons to go to and from the data displays.
 2) Push and release the NO button to show Altern.Accel.wiring? on the front display.
-(j) After Altern.Accel.wiring?, push and release the YES button to look at the Alternate
+<strong class="step-marker">(j)</strong> After Altern.Accel.wiring?, push and release the YES button to look at the Alternate
 Accelerometer menu (Table 206). Use the NO button to go to the next menu
 NOTE: This menu is used to activate or deactivate the AEVM function which depends on
 the No.1 bearing sensor being functional. The selection options are standard,
@@ -1561,33 +1441,31 @@ discon. select.
 5) The AEVM is active only if the No.1 bearing (NOB) vibration sensor is connected.
 6) Select NO to return to the Altern.Accel.wiring? menu.
 7) If it is necessary, do the steps again for Engine 2.
-(k) After Altern.Accel.wiring?, push and release the NO button to show Turn off Display? on
+<strong class="step-marker">(k)</strong> After Altern.Accel.wiring?, push and release the NO button to show Turn off Display? on
 the front display
 77-31-00
 RYR 231-236, 239-298, 301-304, 306, 308, 315-317, 322-341, 343, 346-999; RYR 006, 007, 013, 014, 018-020,
 043, 044, 056-063, 067-078, 081, 083-103, 111-114, 121-129, 131, 132, 135, 138-169, 174-176 POST SB
-737-77-1069; AIRPLANES WITH AEVM WITH ALGO1, ALGO2, AND ALGO3 BEARING DATA
-I. Use the Advanced Engine Vibration Monitor (AEVM) Menu (AEVM With ALGO1, ALGO2, and
-ALGO3 Bearing Data)
-SUBTASK 77-31-00-970-022-F00
-(1) Do these steps to use the AEVM menu:
-(a) Push and release one of the four buttons to show Self Test? on the front display of the
+737-77-1069; AIRPLANES WITH AEVM WITH ALGO1, ALGO2, AND ALGO3 BEARING DATA</p></section>
+<section class="field letter-field" data-letter="I"><h3>I. Use the Advanced Engine Vibration Monitor (AEVM) Menu (AEVM With ALGO1, ALGO2, and</h3><p class="section-text">SUBTASK 77-31-00-970-022-F00
+<strong class="step-marker">(1)</strong> Do these steps to use the AEVM menu:
+<strong class="step-marker">(a)</strong> Push and release one of the four buttons to show Self Test? on the front display of the
 AVM signal conditioner.
 NOTE: The NO button is used to review all the main menus.
-(b) After Self Test?, push and release the NO button to show Fault History? on the front
+<strong class="step-marker">(b)</strong> After Self Test?, push and release the NO button to show Fault History? on the front
 display of the AVM signal conditioner.
 NOTE: If Fault History? is displayed, see the BITE maintenance message steps above.
-(c) After Fault History?, push and release the NO button to show Flight History? on the front
+<strong class="step-marker">(c)</strong> After Fault History?, push and release the NO button to show Flight History? on the front
 display of the AVM signal conditioner.
 NOTE: The flight history will not be erased unless the YES button is pushed after Clear
 Flight Memory? is displayed on the front display of the AVM signal conditioner.
 The AVM signal conditioner can keep 32 flights in the storage memory. The YES
 button is used to review each menu.
-(d) After Flight History?, push and release the NO button to show Balance? on the front
+<strong class="step-marker">(d)</strong> After Flight History?, push and release the NO button to show Balance? on the front
 display of the AVM signal conditioner.
-(e) After Balance?, push and release the NO button to show AEVM Menu? on the front
+<strong class="step-marker">(e)</strong> After Balance?, push and release the NO button to show AEVM Menu? on the front
 display of the AVM signal conditioner.
-(f) After AEVM Menu?, push and release the YES button to show AEVM MESSAGES? on
+<strong class="step-marker">(f)</strong> After AEVM Menu?, push and release the YES button to show AEVM MESSAGES? on
 the front display of the AVM signal conditioner. The AEVM menu will display this order of
 menus on the front display of the AVM signal conditioner:
 NOTE: Use the applicable YES or NO button to get access to the applicable menu. Use
@@ -1596,7 +1474,7 @@ the NO button to go to the next menu.
 2) Config?
 3) Data?
 4) Altern.Accel.wiring?
-(g) After AEVM MESSAGES?, push and release the YES button to look for Alert Messages
+<strong class="step-marker">(g)</strong> After AEVM MESSAGES?, push and release the YES button to look for Alert Messages
 (Table 207).
 Table 207/77-31-00-993-821-F00 AAVM ALERT MENU
 ALERT MENU DISPLAY
@@ -1676,7 +1554,7 @@ within 150 hours.
 5) Use the UP [back] and DOWN [next] buttons to go to and from Engine 1 (E1) and
 Engine 2 (E2).
 6) Push and release the NO button to show CONFIG? on the front display.
-(h) After Config?, push and release the YES button to look at the Config menu (Table 208).
+<strong class="step-marker">(h)</strong> After Config?, push and release the YES button to look at the Config menu (Table 208).
 Table 208/77-31-00-993-822-F00 AAVM CONFIG MENU
 CONFIG MENU DISPLAY
 Main SW
@@ -1708,7 +1586,7 @@ a) The Post-Vibro-Meter SB 298-77-004 part numbers are:
 &lt;2&gt; DSP SW 249-110-000-403
 &lt;3&gt; Conf Tbl 249-113-000-408
 2) Push and release the NO button to show Data? on the front display.
-(i) After Data?, push and release the YES button to look at the Data menu (Table 209).
+<strong class="step-marker">(i)</strong> After Data?, push and release the YES button to look at the Data menu (Table 209).
 77-31-00
 RYR 231-236, 239-298, 301-304, 306, 308, 315-317, 322-341, 343, 346-999; RYR 006, 007, 013, 014, 018-020,
 043, 044, 056-063, 067-078, 081, 083-103, 111-114, 121-129, 131, 132, 135, 138-169, 174-176 POST SB
@@ -1735,7 +1613,7 @@ duration
 hhhhh:mm
 1) Use the UP [back] and DOWN [next] buttons to go to and from the data displays.
 2) Push and release the NO button to show Altern.Accel.wiring? on the front display.
-(j) After Altern.Accel.wiring?, push and release the YES button to look at the Alternate
+<strong class="step-marker">(j)</strong> After Altern.Accel.wiring?, push and release the YES button to look at the Alternate
 Accelerometer menu (Table 210). Use the NO button to go to the next menu
 NOTE: This menu is used to activate or deactivate the AEVM function which depends on
 the No.1 bearing sensor being functional. The selection options are standard,
@@ -1791,62 +1669,60 @@ discon. select.
 5) The AEVM is active only if the No.1 bearing (NOB) vibration sensor is connected.
 6) Select NO to return to the Altern.Accel.wiring? menu.
 7) If it is necessary, do the steps again for Engine 2.
-(k) After Altern.Accel.wiring?, push and release the NO button to show Turn off Display? on
+<strong class="step-marker">(k)</strong> After Altern.Accel.wiring?, push and release the NO button to show Turn off Display? on
 the front display
-(l) After Turn off Display?, push and release the YES button to turn off the front display.
-RYR ALL
-J. Put the Airplane Back To Its Usual Condition
-SUBTASK 77-31-00-410-005-F00
-(1) Close this access panel:
+<strong class="step-marker">(l)</strong> After Turn off Display?, push and release the YES button to turn off the front display.
+RYR ALL</p></section>
+<section class="field letter-field" data-letter="J"><h3>J. Put the Airplane Back To Its Usual Condition</h3><p class="section-text">SUBTASK 77-31-00-410-005-F00
+<strong class="step-marker">(1)</strong> Close this access panel:
 Number Name/Location
-117A Electronic Equipment Access Door</pre></div>
+117A Electronic Equipment Access Door</p></section>
+  </div>
 </details>
-<details class="task" id="task-77-31-00-970-805-F00" data-section="77-31-00">
-  <summary><span class="task-head"><span class="task-code">77-31-00-970-805-F00</span><span class="task-name">Download the Advanced AVM (AAVM) Bearing Data with the Ground Support Software (GSS)</span></span><span class="task-page">PDF p. 60</span></summary>
-  <div class="task-body"><a class="source-link" href="file:///C:/Users/javie/Desktop/Proyecto%20B737NG/MANUALES/AMM/77_F__091.PDF#page=60" target="_blank" rel="noopener">Open original AMM PDF - page 60 <span aria-hidden="true">↗</span></a>
-    <pre class="procedure">3. Download the Advanced AVM (AAVM) Bearing Data with the Ground Support Software (GSS)
-A. General
-(1) This task is to download the Advanced Airborne Vibration Monitoring (AAVM) bearing data with
+<details class="fault" id="task-77-31-00-970-805-F00">
+  <summary>
+    <span class="fault-head"><span class="fault-code">77-31-00-970-805-F00</span><span class="fault-name">Download the Advanced AVM (AAVM) Bearing Data with the Ground Support Software (GSS)</span></span>
+    <span class="task-badge">ATA 77 · Task 970-805-F00</span>
+  </summary>
+  <div class="fields">
+<section class="field description letter-field"><h3>Task Description</h3><p class="section-text">3. Download the Advanced AVM (AAVM) Bearing Data with the Ground Support Software (GSS)</p></section>
+<section class="field letter-field" data-letter="A"><h3>A. General</h3><p class="section-text"><strong class="step-marker">(1)</strong> This task is to download the Advanced Airborne Vibration Monitoring (AAVM) bearing data with
 the Ground Support Software (GSS).
-(2) Use this task when the AAVM has applicable bearing messages.
-(3) This task includes these procedures to use the GSS:
-(a) Troubleshooting Tips
-(b) Configure the GSS for Aircraft Identification
-(c) Download the contents of the AAVM Bearing Memory using the GSS
-(d) Erase the memory of the AAVM using the GSS.
+<strong class="step-marker">(2)</strong> Use this task when the AAVM has applicable bearing messages.
+<strong class="step-marker">(3)</strong> This task includes these procedures to use the GSS:
+<strong class="step-marker">(a)</strong> Troubleshooting Tips
+<strong class="step-marker">(b)</strong> Configure the GSS for Aircraft Identification
+<strong class="step-marker">(c)</strong> Download the contents of the AAVM Bearing Memory using the GSS
+<strong class="step-marker">(d)</strong> Erase the memory of the AAVM using the GSS.
 77-31-00
 RYR 177-179, 182-187, 189-203, 205-209, 212-220, 223, 224, 231-236, 239-298, 301-304, 306, 308, 315-317,
 322-341, 343, 346-999; RYR 006, 007, 013, 014, 018-020, 043, 044, 056-063, 067-078, 081, 083-103, 111-114,
-121-129, 131, 132, 135, 138-169, 174-176 POST SB 737-77-1069 (Continued)
-B. Tools/Equipment
-NOTE: When more than one tool part number is listed under the same "Reference" number, the
+121-129, 131, 132, 135, 138-169, 174-176 POST SB 737-77-1069 (Continued)</p></section>
+<section class="field letter-field" data-letter="B"><h3>B. Tools/Equipment</h3><p class="section-text">NOTE: When more than one tool part number is listed under the same "Reference" number, the
 tools shown are alternates to each other within the same airplane series. Tool part numbers
 that are replaced or non-procurable are preceded by "Opt:", which stands for Optional.
 Reference Description
 SPL-4905 Cable - Advanced Airborne Vibration Monitoring Equipment
 Part #: 980-101-000-011 Supplier: S3960
 SPL-4906 Software - Advanced Airborne Vibration Monitoring Equipment
-Part #: 259-109-10X-SSS Supplier: S3960
-C. Location Zones
-Zone Area
+Part #: 259-109-10X-SSS Supplier: S3960</p></section>
+<section class="field letter-field" data-letter="C"><h3>C. Location Zones</h3><p class="section-text">Zone Area
 117 Electrical and Electronics Compartment - Left
-118 Electrical and Electronics Compartment - Right
-D. Access Panels
-Number Name/Location
-117A Electronic Equipment Access Door
-E. Prepare to Use the AAVM with the GSS
-SUBTASK 77-31-00-860-016-F00
-(1) Make sure that this circuit breaker is closed:
+118 Electrical and Electronics Compartment - Right</p></section>
+<section class="field letter-field" data-letter="D"><h3>D. Access Panels</h3><p class="section-text">Number Name/Location
+117A Electronic Equipment Access Door</p></section>
+<section class="field letter-field" data-letter="E"><h3>E. Prepare to Use the AAVM with the GSS</h3><p class="section-text">SUBTASK 77-31-00-860-016-F00
+<strong class="step-marker">(1)</strong> Make sure that this circuit breaker is closed:
 F/O Electrical System Panel, P6-2
 Row Col Number Name
 A 2 C01076 ENGINE VIB MON
 SUBTASK 77-31-00-010-006-F00
-(2) Open this access panel:
+<strong class="step-marker">(2)</strong> Open this access panel:
 Number Name/Location
 117A Electronic Equipment Access Door
-F . Troubleshooting Tips
+<strong class="section-marker">F. Troubleshooting Tips</strong>
 SUBTASK 77-31-00-800-003-F00
-(1) This data is a guide to aid in troubleshooting of the AAVM and GSS (Table 211).
+<strong class="step-marker">(1)</strong> This data is a guide to aid in troubleshooting of the AAVM and GSS (Table 211).
 Table 211/77-31-00-993-814-F00 GSS Troubleshooting
 SYMPTOM POSSIBLE CAUSE SOLUTION
 No display on AAVM front panel 1 AAVM not powered Apply electrical power to AAVM. Wait 30
@@ -1929,16 +1805,15 @@ function if the No.1 bearing accel is
 disconnected.
 3 Accel line is declared faulty Repair accel line or move AAVM to a
 different aircraft
-“AVM syst Fault xx” 1 Internal failure Replace the AAVM.
-G. Configure the GSS for Aircraft Identification
-SUBTASK 77-31-00-970-017-F00
-(1) Perform this step to configure the GSS AAVM software, SPL-4906 for aircraft identification
+“AVM syst Fault xx” 1 Internal failure Replace the AAVM.</p></section>
+<section class="field letter-field" data-letter="G"><h3>G. Configure the GSS for Aircraft Identification</h3><p class="section-text">SUBTASK 77-31-00-970-017-F00
+<strong class="step-marker">(1)</strong> Perform this step to configure the GSS AAVM software, SPL-4906 for aircraft identification
 (Figure 201):
 77-31-00
 RYR 177-179, 182-187, 189-203, 205-209, 212-220, 223, 224, 231-236, 239-298, 301-304, 306, 308, 315-317,
 322-341, 343, 346-999; RYR 006, 007, 013, 014, 018-020, 043, 044, 056-063, 067-078, 081, 083-103, 111-114,
 121-129, 131, 132, 135, 138-169, 174-176 POST SB 737-77-1069 (Continued)
-(a) The laptop with the GSS does not need to be connected to the AAVM to perform this
+<strong class="step-marker">(a)</strong> The laptop with the GSS does not need to be connected to the AAVM to perform this
 function.
 NOTE: Pre-loading of the airplane data will enable the flight line mechanic to select the
 applicable aircraft identifier from an existing list. Pre-loading of the airplane data
@@ -1968,11 +1843,10 @@ a) This step is not necessary if the data was entered prior to downloading.
 12) Enter engine type and serial number and any additional data in the fields provided.
 13) Click on 'Save Changes' or push the '(F5)' key.
 14) Click on the 'Back (Esc)' button.
-15) Click on the 'Exit (Esc)' button to close the GSS software.
-H. Download the Contents of the AAVM Bearing Memory using the GSS
-SUBTASK 77-31-00-970-021-F00
-(1) Do this step to check the AAVM firmware version and the GSS version.
-(a) Use the Advanced Engine Vibration Monitoring (AEVM) menu
+15) Click on the 'Exit (Esc)' button to close the GSS software.</p></section>
+<section class="field letter-field" data-letter="H"><h3>H. Download the Contents of the AAVM Bearing Memory using the GSS</h3><p class="section-text">SUBTASK 77-31-00-970-021-F00
+<strong class="step-marker">(1)</strong> Do this step to check the AAVM firmware version and the GSS version.
+<strong class="step-marker">(a)</strong> Use the Advanced Engine Vibration Monitoring (AEVM) menu
 (TASK 77-31-00-970-803-F00) to look for bearing messages.
 1) If 'AEVM Messages?' shows, then the 3-Algorithm firmware is installed.
 a) Use the GSS version 2.1.3 or later to download the data.
@@ -1983,75 +1857,74 @@ RYR 177-179, 182-187, 189-203, 205-209, 212-220, 223, 224, 231-236, 239-298, 301
 121-129, 131, 132, 135, 138-169, 174-176 POST SB 737-77-1069 (Continued)
 a) Use GSS version 1.x.x to download the data.
 SUBTASK 77-31-00-970-018-F00
-(2) Do these steps to Download the Contents of the AAVM Bearing Memory using the GSS AAVM
+<strong class="step-marker">(2)</strong> Do these steps to Download the Contents of the AAVM Bearing Memory using the GSS AAVM
 software, SPL-4906 (Figure 202):
-(a) If it is necessary refer to the GSS Troubleshooting Tips and GSS Configure Aircraft.
-(b) Make sure both engines are not running.
-(c) Gain access to the electronics bay and locate the AAVM.
+<strong class="step-marker">(a)</strong> If it is necessary refer to the GSS Troubleshooting Tips and GSS Configure Aircraft.
+<strong class="step-marker">(b)</strong> Make sure both engines are not running.
+<strong class="step-marker">(c)</strong> Gain access to the electronics bay and locate the AAVM.
 1) Make sure there is no cable connected to the maintenance connector (the larger of
 the two) on the front panel of the AAVM.
-(d) Remove the protective cover from the maintenance connector on the front panel of the
+<strong class="step-marker">(d)</strong> Remove the protective cover from the maintenance connector on the front panel of the
 AAVM.
-(e) Connect the RJ45 ethernet connector of the GSS cable to the network connector of the
+<strong class="step-marker">(e)</strong> Connect the RJ45 ethernet connector of the GSS cable to the network connector of the
 laptop PC.
-(f) Switch on the laptop PC and allow the boot process to complete.
-(g) Make sure that electrical power is being supplied to the AAVM and that the AAVM has
+<strong class="step-marker">(f)</strong> Switch on the laptop PC and allow the boot process to complete.
+<strong class="step-marker">(g)</strong> Make sure that electrical power is being supplied to the AAVM and that the AAVM has
 finished processing any flight data. Push one of the four buttons on the front panel to
 activate the front panel display. If the front panel display becomes active, then the
 necessary conditions have been met.
 1) When 'Self Test?' shows on the front panel display, click the 'Yes' button.
 2) Wait for 30 seconds to let the AAVM BITE function run.
-(h) Connect the 50-pin sub-D type connector of the GSS AAVM adapter cable, SPL-4905 to
+<strong class="step-marker">(h)</strong> Connect the 50-pin sub-D type connector of the GSS AAVM adapter cable, SPL-4905 to
 the maintenance connector on the front panel of the AAVM.
-(i) Wait until the 10 Mbits/s network connection show the status 'connected'. Depending on
+<strong class="step-marker">(i)</strong> Wait until the 10 Mbits/s network connection show the status 'connected'. Depending on
 how the TCP/IP settings have been configured (use of the Alternate Configuration feature
 or not), some computers may take up to 1 minute to establish the communication.
 1) Refer to Vibro-Meter Service Bulletin 298-77-004 for more details.
-(j) On the laptop computer, double-click on the 'GSS AAVM' icon to start the GSS software.
-(k) GSS Version 1:
+<strong class="step-marker">(j)</strong> On the laptop computer, double-click on the 'GSS AAVM' icon to start the GSS software.
+<strong class="step-marker">(k)</strong> GSS Version 1:
 The GSS screen will show the hardware applicability information. Click on the 'Continue'
 button or push the '(F5)' key.
-(l) GSS Version 2:
+<strong class="step-marker">(l)</strong> GSS Version 2:
 The GSS will try to connect to the AAVM. Click on the 'Continue' button or push the '(F5)'
 key when the connection is done.
-(m) The date and time are indicated on the login screen. Make sure that these values are
+<strong class="step-marker">(m)</strong> The date and time are indicated on the login screen. Make sure that these values are
 correct, as this information will be used with the downloaded data.
-(n) Click on the 'Download' button or push the '(F5)' key.
+<strong class="step-marker">(n)</strong> Click on the 'Download' button or push the '(F5)' key.
 77-31-00
 RYR 177-179, 182-187, 189-203, 205-209, 212-220, 223, 224, 231-236, 239-298, 301-304, 306, 308, 315-317,
 322-341, 343, 346-999; RYR 006, 007, 013, 014, 018-020, 043, 044, 056-063, 067-078, 081, 083-103, 111-114,
 121-129, 131, 132, 135, 138-169, 174-176 POST SB 737-77-1069 (Continued)
-(o) Select a pre-configured aircraft identifier from the Auto Download menu pull-down
+<strong class="step-marker">(o)</strong> Select a pre-configured aircraft identifier from the Auto Download menu pull-down
 options.
 NOTE: If aircraft information has already been programmed, the information will be
 displayed when the aircraft is selected from the pull-down options. Otherwise, it
 can be entered at this point. See the task, Configure the GSS for Aircraft
 Identification.
-(p) Click on the 'Continue Download' button or push the '(F5)' key.
-(q) The GSS will show the progression of the download.
+<strong class="step-marker">(p)</strong> Click on the 'Continue Download' button or push the '(F5)' key.
+<strong class="step-marker">(q)</strong> The GSS will show the progression of the download.
 NOTE: A complete download when the AAVM memory is full will take approximately two
 minutes to complete.
-(r) When the download is complete click on the 'Done' button or push the 'Enter' key to
+<strong class="step-marker">(r)</strong> When the download is complete click on the 'Done' button or push the 'Enter' key to
 return to the main menu.
-(s) Disconnect the 50-pin sub-D type connector of the GSS cable from the maintenance
+<strong class="step-marker">(s)</strong> Disconnect the 50-pin sub-D type connector of the GSS cable from the maintenance
 connector on the front panel of the AAVM.
-(t) Replace the protective cover on the maintenance connector on the front panel of the
+<strong class="step-marker">(t)</strong> Replace the protective cover on the maintenance connector on the front panel of the
 AAVM.
-(u) Push one of the four buttons on the front panel to activate the front panel display.
-(v) Push the 'No' button four times to access the 'AAVM Menu' option.
-(w) Push the 'Yes' button to access the applicable bearing menu option.
-(x) If the applicable bearing menu option is available no further action is necessary.
-(y) If the message 'Not in service' is shown, cycle the circuit breaker ENGINE VIB MON
-C1076 panel P6-2, grid location A2 to reset the AAVM before the next flight.
-I. Erase the Memory of the AAVM using the GSS
-SUBTASK 77-31-00-970-019-F00
-(1) If it is necessary, do these steps to erase the memory of the AAVM using the GSS AAVM
+<strong class="step-marker">(u)</strong> Push one of the four buttons on the front panel to activate the front panel display.
+<strong class="step-marker">(v)</strong> Push the 'No' button four times to access the 'AAVM Menu' option.
+<strong class="step-marker">(w)</strong> Push the 'Yes' button to access the applicable bearing menu option.
+<strong class="step-marker">(x)</strong> If the applicable bearing menu option is available no further action is necessary.
+<strong class="step-marker">(y)</strong> If the message 'Not in service' is shown, cycle the circuit breaker ENGINE VIB MON
+C1076 panel P6-2, grid location A2 to reset the AAVM before the next flight.</p></section>
+<section class="field letter-field" data-letter="I"><h3>I. Erase the Memory of the AAVM using the GSS</h3><p class="section-text">SUBTASK 77-31-00-970-019-F00
+<strong class="step-marker">(1)</strong> If it is necessary, do these steps to erase the memory of the AAVM using the GSS AAVM
 software, SPL-4906 (Figure 203).
 NOTE: CFM recommends to erase the AAVM memory after an engine change or AAVM
 change to ensure no bearing data is mixed between engines. This step can be
 deferred until the next convenient maintenance opportunity and is not required if
 operators do not use the AAVM system.
-(a) This procedure applies for these conditions:
+<strong class="step-marker">(a)</strong> This procedure applies for these conditions:
 1) This procedure must be done after an engine change or when the AAVM is changed
 on the aircraft.
 2) Do not erase the memory after every download. AAVM functions require repeated
@@ -2067,7 +1940,7 @@ approximately 20 minutes.
 RYR 177-179, 182-187, 189-203, 205-209, 212-220, 223, 224, 231-236, 239-298, 301-304, 306, 308, 315-317,
 322-341, 343, 346-999; RYR 006, 007, 013, 014, 018-020, 043, 044, 056-063, 067-078, 081, 083-103, 111-114,
 121-129, 131, 132, 135, 138-169, 174-176 POST SB 737-77-1069 (Continued)
-(b) To erase the AAVM memory, do these steps:
+<strong class="step-marker">(b)</strong> To erase the AAVM memory, do these steps:
 1) Make sure both engines are not running.
 2) Get access to the electronics bay and find the AAVM.
 3) Switch on the laptop PC and allow the boot process to complete.
@@ -2124,24 +1997,25 @@ the AAVM.
 22) Push the 'Yes' button to access the applicable 'AEVM Menu' option.
 23) If the applicable bearing menu option is available no further action is necessary.
 24) If the message 'AEVM Comm Error' is shown, cycle the circuit breaker ENGINE VIB
-MON C1076 panel P6-2, grid location A2 to reset the AAVM before the next flight.
-J. Put the Airplane Back To Its Usual Condition
-SUBTASK 77-31-00-410-006-F00
-(1) Close this access panel:
+MON C1076 panel P6-2, grid location A2 to reset the AAVM before the next flight.</p></section>
+<section class="field letter-field" data-letter="J"><h3>J. Put the Airplane Back To Its Usual Condition</h3><p class="section-text">SUBTASK 77-31-00-410-006-F00
+<strong class="step-marker">(1)</strong> Close this access panel:
 Number Name/Location
-117A Electronic Equipment Access Door</pre></div>
+117A Electronic Equipment Access Door</p></section>
+  </div>
 </details>
-<details class="task" id="task-77-31-00-910-801-F00" data-section="77-31-00">
-  <summary><span class="task-head"><span class="task-code">77-31-00-910-801-F00</span><span class="task-name">ARINC 429 Data Bus Charts</span></span><span class="task-page">PDF p. 71</span></summary>
-  <div class="task-body"><a class="source-link" href="file:///C:/Users/javie/Desktop/Proyecto%20B737NG/MANUALES/AMM/77_F__091.PDF#page=71" target="_blank" rel="noopener">Open original AMM PDF - page 71 <span aria-hidden="true">↗</span></a>
-    <pre class="procedure">4. ARINC 429 Data Bus Charts
-A. General
-(1) The ARINC 429 data bus charts give the information necessary to analyze the ARINC
+<details class="fault" id="task-77-31-00-910-801-F00">
+  <summary>
+    <span class="fault-head"><span class="fault-code">77-31-00-910-801-F00</span><span class="fault-name">ARINC 429 Data Bus Charts</span></span>
+    <span class="task-badge">ATA 77 · Task 910-801-F00</span>
+  </summary>
+  <div class="fields">
+<section class="field description letter-field"><h3>Task Description</h3><p class="section-text">4. ARINC 429 Data Bus Charts</p></section>
+<section class="field letter-field" data-letter="A"><h3>A. General</h3><p class="section-text"><strong class="step-marker">(1)</strong> The ARINC 429 data bus charts give the information necessary to analyze the ARINC
 transmitters, receivers and data buses.
-(2) To do a test of the ARINC 429 data bus, you can use an available terminal block or a
-connector on the LRU.
-B. Tools/Equipment
-NOTE: When more than one tool part number is listed under the same "Reference" number, the
+<strong class="step-marker">(2)</strong> To do a test of the ARINC 429 data bus, you can use an available terminal block or a
+connector on the LRU.</p></section>
+<section class="field letter-field" data-letter="B"><h3>B. Tools/Equipment</h3><p class="section-text">NOTE: When more than one tool part number is listed under the same "Reference" number, the
 tools shown are alternates to each other within the same airplane series. Tool part numbers
 that are replaced or non-procurable are preceded by "Opt:", which stands for Optional.
 Reference Description
@@ -2162,13 +2036,12 @@ Opt Part #: DT400H Supplier: 0Z3C6
 Opt Part #: MODEL 429HBA Supplier: 5J927
 Opt Part #: TYPE 030/026 Supplier: $0494
 SPL-2415 Test Box - Generic AVM Interface
-Part #: C77004-10 Supplier: 81205
-C. Procedure
-SUBTASK 77-31-00-480-001-F00
-(1) Connect the test box, SPL-2415 to the front panel of the airborne vibration monitor (AVM)
+Part #: C77004-10 Supplier: 81205</p></section>
+<section class="field letter-field" data-letter="C"><h3>C. Procedure</h3><p class="section-text">SUBTASK 77-31-00-480-001-F00
+<strong class="step-marker">(1)</strong> Connect the test box, SPL-2415 to the front panel of the airborne vibration monitor (AVM)
 signal conditioner.
 SUBTASK 77-31-00-480-002-F00
-(2) Connect the analyzer, COM-1562 to the test box, SPL-2415.
+<strong class="step-marker">(2)</strong> Connect the analyzer, COM-1562 to the test box, SPL-2415.
 Table 212/77-31-00-993-808-F00
 BUS NAME
 SOURCE TYPE BUS CON PINS BUS FORMAT BIT RATE DATA BUS
@@ -2216,76 +2089,75 @@ A 357 BNR 5 10 5.00 ALWAYS POS
 STATUS
 WORD
 A 270 DIS 5 N/A N/A
-*[1] Scalar Units.</pre></div>
+*[1] Scalar Units.</p></section>
+  </div>
 </details>
-<details class="task" id="task-77-31-00-710-801-F00" data-section="77-31-00">
-  <summary><span class="task-head"><span class="task-code">77-31-00-710-801-F00</span><span class="task-name">Airborne Vibration Monitoring (AVM) System - Operational Test</span></span><span class="task-page">PDF p. 73</span></summary>
-  <div class="task-body"><a class="source-link" href="file:///C:/Users/javie/Desktop/Proyecto%20B737NG/MANUALES/AMM/77_F__091.PDF#page=73" target="_blank" rel="noopener">Open original AMM PDF - page 73 <span aria-hidden="true">↗</span></a>
-    <pre class="procedure">2. Airborne Vibration Monitoring (AVM) System - Operational Test
-A. General
-(1) This task is the operational test procedure for the Airborne Vibration Monitor (AVM) system.
-(2) The operational test consists of three parts as follows:
-(a) A Built-In-Test Equipment (BITE) test of the AVM signal conditioner.
-(b) A BITE check of the complete AVM system for faults external to the AVM signal
+<details class="fault" id="task-77-31-00-710-801-F00">
+  <summary>
+    <span class="fault-head"><span class="fault-code">77-31-00-710-801-F00</span><span class="fault-name">Airborne Vibration Monitoring (AVM) System - Operational Test</span></span>
+    <span class="task-badge">ATA 77 · Task 710-801-F00</span>
+  </summary>
+  <div class="fields">
+<section class="field description letter-field"><h3>Task Description</h3><p class="section-text">2. Airborne Vibration Monitoring (AVM) System - Operational Test</p></section>
+<section class="field letter-field" data-letter="A"><h3>A. General</h3><p class="section-text"><strong class="step-marker">(1)</strong> This task is the operational test procedure for the Airborne Vibration Monitor (AVM) system.
+<strong class="step-marker">(2)</strong> The operational test consists of three parts as follows:
+<strong class="step-marker">(a)</strong> A Built-In-Test Equipment (BITE) test of the AVM signal conditioner.
+<strong class="step-marker">(b)</strong> A BITE check of the complete AVM system for faults external to the AVM signal
 conditioner from the recent flight(s).
-(c) An engine operation (one engine at idle and then to 70% N1 for two minutes) to check
+<strong class="step-marker">(c)</strong> An engine operation (one engine at idle and then to 70% N1 for two minutes) to check
 that AVM system is operational.
-(3) You can use the operational test to make sure that the AVM signal conditioner operates after a
-component replacement.
-B. References
-Reference Title
+<strong class="step-marker">(3)</strong> You can use the operational test to make sure that the AVM signal conditioner operates after a
+component replacement.</p></section>
+<section class="field letter-field" data-letter="B"><h3>B. References</h3><p class="section-text">Reference Title
 71-00-00-700-819-F00 Stop the Engine Procedure (Usual Engine Stop) (P/B 201)
 71-00-00-800-807-F00 Start the Engine Procedure (Selection) (P/B 201)
 77-31-00-970-803-F00 Airborne Vibration Monitoring (AVM) System - System Test
-(P/B 201)
-C. Location Zones
-Zone Area
+(P/B 201)</p></section>
+<section class="field letter-field" data-letter="C"><h3>C. Location Zones</h3><p class="section-text">Zone Area
 117 Electrical and Electronics Compartment - Left
 118 Electrical and Electronics Compartment - Right
 211 Flight Compartment - Left
-212 Flight Compartment - Right
-D. Access Panels
-Number Name/Location
-117A Electronic Equipment Access Door
-E. Prepare for the Operational Test
-SUBTASK 77-31-00-860-015-F00
-(1) Make sure that the center display system is on.
+212 Flight Compartment - Right</p></section>
+<section class="field letter-field" data-letter="D"><h3>D. Access Panels</h3><p class="section-text">Number Name/Location
+117A Electronic Equipment Access Door</p></section>
+<section class="field letter-field" data-letter="E"><h3>E. Prepare for the Operational Test</h3><p class="section-text">SUBTASK 77-31-00-860-015-F00
+<strong class="step-marker">(1)</strong> Make sure that the center display system is on.
 SUBTASK 77-31-00-860-002-F00
-(2) Make sure that this circuit breaker is closed:
+<strong class="step-marker">(2)</strong> Make sure that this circuit breaker is closed:
 F/O Electrical System Panel, P6-2
 Row Col Number Name
 A 2 C01076 ENGINE VIB MON
 77-31-00
 SUBTASK 77-31-00-010-002-F00
-(3) Open this access panel:
+<strong class="step-marker">(3)</strong> Open this access panel:
 Number Name/Location
 117A Electronic Equipment Access Door
-F . AVM System Operational Test
+<strong class="section-marker">F. AVM System Operational Test</strong>
 SUBTASK 77-31-00-860-012-F00
-(1) VIBRO-METER AVM;
+<strong class="step-marker">(1)</strong> VIBRO-METER AVM;
 Do these steps to do a self test of the AVM signal conditioner:
-(a) Make sure that the two VIB indicators, on the P2 center instrument panel, show 0 units.
+<strong class="step-marker">(a)</strong> Make sure that the two VIB indicators, on the P2 center instrument panel, show 0 units.
 NOTE: If the circuit breaker is closed, the two VIB indicators, on the P2 center
 instrument panel, will show 0. If the circuit breaker was open, the two VIB
 indicators, on the P2 center instrument panel, will not show. If the circuit breaker
 is closed and the two VIB indicators, on the P2 center instrument panel, do not
 show, then do the fault isolation for the Engine VIB Indication Blank
 (FIM 77-05 TASK 805).
-(b) Push and release one of the four buttons on the front display of the AVM signal
+<strong class="step-marker">(b)</strong> Push and release one of the four buttons on the front display of the AVM signal
 conditioner.
 1) If the front display on the AVM signal conditioner stays blank, do this task: AVM
 Signal Conditioner Display Blank - Fault Isolation, FIM 77-05 TASK 809.
-(c) The AVM signal conditioner will show Self Test?.
-(d) Push and release the YES button on the front display of the AVM signal conditioner.
-(e) The AVM signal conditioner will show the hardware and software versions and engine
+<strong class="step-marker">(c)</strong> The AVM signal conditioner will show Self Test?.
+<strong class="step-marker">(d)</strong> Push and release the YES button on the front display of the AVM signal conditioner.
+<strong class="step-marker">(e)</strong> The AVM signal conditioner will show the hardware and software versions and engine
 type for 10 seconds, then show Test in progress for a couple seconds.
 1) Make sure that the engine type is correct.
-(f) Make sure that the AVM signal conditioner shows Test OK.
+<strong class="step-marker">(f)</strong> Make sure that the AVM signal conditioner shows Test OK.
 NOTE: The AVM signal conditioner passed the self test. After Test OK, push and release
 the NO button to show Fault History? on the front display of the AVM signal
 conditioner. If the AVM signal conditioner is left alone for 5 minutes, the display
 will then turn off.
-(g) If the AVM signal conditioner shows XX Faults Display? or is blank, there is a failure of
+<strong class="step-marker">(g)</strong> If the AVM signal conditioner shows XX Faults Display? or is blank, there is a failure of
 the AVM signal conditioner.
 NOTE: XX is the total number of faults.
 1) If the AVM displays CONFIG FAULT , make sure that the wiring change per Service
@@ -2295,105 +2167,104 @@ conditioner and do the self test again.
 3) Interrogate the AVM system, do this task: Airborne Vibration Monitoring (AVM)
 System - System Test, TASK 77-31-00-970-803-F00.
 SUBTASK 77-31-00-970-015-F00
-(2) VIBRO-METER AVM;
+<strong class="step-marker">(2)</strong> VIBRO-METER AVM;
 For the BITE maintenance messages only, do this task: Airborne Vibration Monitoring (AVM)
 System - System Test, TASK 77-31-00-970-803-F00.
 NOTE: If you find BITE maintenance messages, these are the faults from other flights or other
 engine operations.
 77-31-00
 SUBTASK 77-31-00-800-001-F00
-(3) Do this task: Start the Engine Procedure (Selection), TASK 71-00-00-800-807-F00.
-(a) Operate only one engine to do this test.
-(b) Operate the engine at idle power.
+<strong class="step-marker">(3)</strong> Do this task: Start the Engine Procedure (Selection), TASK 71-00-00-800-807-F00.
+<strong class="step-marker">(a)</strong> Operate only one engine to do this test.
+<strong class="step-marker">(b)</strong> Operate the engine at idle power.
 SUBTASK 77-31-00-710-001-F00
-(4) Monitor the VIB indication, on the P2 center instrument panel, in the flight compartment.
-(a) Make sure that the VIB indication is greater than zero:
+<strong class="step-marker">(4)</strong> Monitor the VIB indication, on the P2 center instrument panel, in the flight compartment.
+<strong class="step-marker">(a)</strong> Make sure that the VIB indication is greater than zero:
 1) If a VIB indication of zero is seen at an idle condition, do this step:
 a) Increase the throttle by a small quantity to make sure that the VIB indication is
 more than zero.
-(b) Make sure that the VIB indication is shown for the engine that you operate.
-(c) Slowly move the thrust lever forward to 70% N1.
-(d) Let the engine operation become stable for 2 minutes.
-(e) Move the thrust lever rearward to idle power.
+<strong class="step-marker">(b)</strong> Make sure that the VIB indication is shown for the engine that you operate.
+<strong class="step-marker">(c)</strong> Slowly move the thrust lever forward to 70% N1.
+<strong class="step-marker">(d)</strong> Let the engine operation become stable for 2 minutes.
+<strong class="step-marker">(e)</strong> Move the thrust lever rearward to idle power.
 SUBTASK 77-31-00-800-002-F00
-(5) Do this task: Stop the Engine Procedure (Usual Engine Stop), TASK 71-00-00-700-819-F00.
+<strong class="step-marker">(5)</strong> Do this task: Stop the Engine Procedure (Usual Engine Stop), TASK 71-00-00-700-819-F00.
 SUBTASK 77-31-00-970-010-F00
-(6) VIBRO-METER AVM;
+<strong class="step-marker">(6)</strong> VIBRO-METER AVM;
 For the BITE maintenance messages only, do this task: Airborne Vibration Monitoring (AVM)
 System - System Test, TASK 77-31-00-970-803-F00.
 SUBTASK 77-31-00-810-001-F00
-(7) If there are new BITE maintenance messages, do the applicable corrective action that shows
+<strong class="step-marker">(7)</strong> If there are new BITE maintenance messages, do the applicable corrective action that shows
 in the reference (FIM 77-31 TASK 801).
 SUBTASK 77-31-00-860-004-F00
-(8) Do this test again for the other engine.
+<strong class="step-marker">(8)</strong> Do this test again for the other engine.
 SUBTASK 77-31-00-410-002-F00
-(9) Close this access panel:
+<strong class="step-marker">(9)</strong> Close this access panel:
 Number Name/Location
-117A Electronic Equipment Access Door</pre></div>
+117A Electronic Equipment Access Door</p></section>
+  </div>
 </details>
-<details class="task" id="task-77-31-00-700-801-F00" data-section="77-31-00">
-  <summary><span class="task-head"><span class="task-code">77-31-00-700-801-F00</span><span class="task-name">Airborne Vibration Monitor (AVM) Signal Conditioner - Self Test</span></span><span class="task-page">PDF p. 75</span></summary>
-  <div class="task-body"><a class="source-link" href="file:///C:/Users/javie/Desktop/Proyecto%20B737NG/MANUALES/AMM/77_F__091.PDF#page=75" target="_blank" rel="noopener">Open original AMM PDF - page 75 <span aria-hidden="true">↗</span></a>
-    <pre class="procedure">3. Airborne Vibration Monitor (AVM) Signal Conditioner - Self Test
-A. General
-(1) This task is the self test procedure for the Airborne Vibration Monitor (AVM) signal conditioner.
-(2) This task refers to the Built-In Test Equipment as the BITE.
-(3) The self test does a check of the AVM signal conditioner.
-(a) The self test makes sure that the AVM signal conditioner operates correctly.
-(b) The self test does not display BITE maintenance messages or flight history.
-77-31-00
-B. References
-Reference Title
+<details class="fault" id="task-77-31-00-700-801-F00">
+  <summary>
+    <span class="fault-head"><span class="fault-code">77-31-00-700-801-F00</span><span class="fault-name">Airborne Vibration Monitor (AVM) Signal Conditioner - Self Test</span></span>
+    <span class="task-badge">ATA 77 · Task 700-801-F00</span>
+  </summary>
+  <div class="fields">
+<section class="field description letter-field"><h3>Task Description</h3><p class="section-text">3. Airborne Vibration Monitor (AVM) Signal Conditioner - Self Test</p></section>
+<section class="field letter-field" data-letter="A"><h3>A. General</h3><p class="section-text"><strong class="step-marker">(1)</strong> This task is the self test procedure for the Airborne Vibration Monitor (AVM) signal conditioner.
+<strong class="step-marker">(2)</strong> This task refers to the Built-In Test Equipment as the BITE.
+<strong class="step-marker">(3)</strong> The self test does a check of the AVM signal conditioner.
+<strong class="step-marker">(a)</strong> The self test makes sure that the AVM signal conditioner operates correctly.
+<strong class="step-marker">(b)</strong> The self test does not display BITE maintenance messages or flight history.
+77-31-00</p></section>
+<section class="field letter-field" data-letter="B"><h3>B. References</h3><p class="section-text">Reference Title
 77-31-00-970-803-F00 Airborne Vibration Monitoring (AVM) System - System Test
-(P/B 201)
-C. Location Zones
-Zone Area
+(P/B 201)</p></section>
+<section class="field letter-field" data-letter="C"><h3>C. Location Zones</h3><p class="section-text">Zone Area
 117 Electrical and Electronics Compartment - Left
 118 Electrical and Electronics Compartment - Right
 211 Flight Compartment - Left
-212 Flight Compartment - Right
-D. Access Panels
-Number Name/Location
-117A Electronic Equipment Access Door
-E. Prepare for the Self Test
-SUBTASK 77-31-00-860-005-F00
-(1) Make sure that this circuit breaker is closed:
+212 Flight Compartment - Right</p></section>
+<section class="field letter-field" data-letter="D"><h3>D. Access Panels</h3><p class="section-text">Number Name/Location
+117A Electronic Equipment Access Door</p></section>
+<section class="field letter-field" data-letter="E"><h3>E. Prepare for the Self Test</h3><p class="section-text">SUBTASK 77-31-00-860-005-F00
+<strong class="step-marker">(1)</strong> Make sure that this circuit breaker is closed:
 F/O Electrical System Panel, P6-2
 Row Col Number Name
 A 2 C01076 ENGINE VIB MON
 SUBTASK 77-31-00-010-003-F00
-(2) Open this access panel:
+<strong class="step-marker">(2)</strong> Open this access panel:
 Number Name/Location
 117A Electronic Equipment Access Door
-F . AVM Signal Conditioner Self Test
+<strong class="section-marker">F. AVM Signal Conditioner Self Test</strong>
 SUBTASK 77-31-00-860-013-F00
-(1) VIBRO-METER AVM;
+<strong class="step-marker">(1)</strong> VIBRO-METER AVM;
 Do these steps to do a self test of the AVM signal conditioner:
-(a) Make sure that the two VIB indicators, on the P2 center instrument panel, show 0 units.
+<strong class="step-marker">(a)</strong> Make sure that the two VIB indicators, on the P2 center instrument panel, show 0 units.
 NOTE: If the circuit breaker is closed, the two VIB indicators, on the P2 center
 instrument panel, will show 0. If the circuit breaker was open, the two VIB
 indicators, on the P2 center instrument panel, will not show. If the circuit breaker
 is closed and the two VIB indicators, on the P2 center instrument panel, do not
 show, then do the fault isolation for Engine VIB Indication Blank
 (FIM 77-05 TASK 805).
-(b) Push and release the one of the four buttons on the front display of the AVM signal
+<strong class="step-marker">(b)</strong> Push and release the one of the four buttons on the front display of the AVM signal
 conditioner.
 1) If the front display on the AVM signal conditioner stays blank, do this task: AVM
 Signal Conditioner Display Blank - Fault Isolation, FIM 77-05 TASK 809.
-(c) The AVM signal conditioner will show Self Test?.
-(d) Push and release the YES button on the front display of the AVM signal conditioner.
-(e) The AVM signal conditioner will show the hardware and software versions and engine
+<strong class="step-marker">(c)</strong> The AVM signal conditioner will show Self Test?.
+<strong class="step-marker">(d)</strong> Push and release the YES button on the front display of the AVM signal conditioner.
+<strong class="step-marker">(e)</strong> The AVM signal conditioner will show the hardware and software versions and engine
 type for 10 seconds, then show Test in progress for a couple seconds.
 1) Make sure that the engine type is correct.
 77-31-00
 a) The -7 is for the engine type.
 b) The A or B is for the scaling that the AVM applies to the vibration.
-(f) Make sure that the AVM signal conditioner shows Test OK.
+<strong class="step-marker">(f)</strong> Make sure that the AVM signal conditioner shows Test OK.
 NOTE: The AVM signal conditioner passed the self test. After Test OK, push and release
 the NO button to show Fault History? on the front display of the AVM signal
 conditioner. If the AVM signal conditioner is left alone for 5 minutes, the display
 will then turn off.
-(g) If the AVM signal conditioner shows XX Faults? or is blank, there is a failure of the AVM
+<strong class="step-marker">(g)</strong> If the AVM signal conditioner shows XX Faults? or is blank, there is a failure of the AVM
 signal conditioner.
 NOTE: XX is the total number of faults.
 1) If the AVM displays CONFIG FAULT , make sure that the wiring change per SB
@@ -2403,45 +2274,44 @@ conditioner and do the self test again.
 3) Interrogate the AVM system, do this task: Airborne Vibration Monitoring (AVM)
 System - System Test, TASK 77-31-00-970-803-F00.
 SUBTASK 77-31-00-410-003-F00
-(2) Close this access panel:
+<strong class="step-marker">(2)</strong> Close this access panel:
 Number Name/Location
-117A Electronic Equipment Access Door</pre></div>
+117A Electronic Equipment Access Door</p></section>
+  </div>
 </details>
   </div>
 </section>
-<section class="system-section" id="section-77-31-03">
-  <div class="section-title"><h2>ATA 77-31-03 - Section</h2><span>2 tasks</span></div>
-  <div class="task-list">
-<details class="task" id="task-77-31-03-000-801-F00" data-section="77-31-03">
-  <summary><span class="task-head"><span class="task-code">77-31-03-000-801-F00</span><span class="task-name">Airborne Vibration Monitor (AVM) Signal Conditioner Removal</span></span><span class="task-page">PDF p. 79</span></summary>
-  <div class="task-body"><a class="source-link" href="file:///C:/Users/javie/Desktop/Proyecto%20B737NG/MANUALES/AMM/77_F__091.PDF#page=79" target="_blank" rel="noopener">Open original AMM PDF - page 79 <span aria-hidden="true">↗</span></a>
-    <pre class="procedure">2. Airborne Vibration Monitor (AVM) Signal Conditioner Removal
-(Figure 401)
-A. General
-(1) This task is the removal procedure for the airborne vibration monitor (AVM) signal conditioner.
-(2) The AVM signal conditioner is installed on the E3-2 shelf in the main equipment center.
-(a) When you remove the AVM signal conditioner, do not supply the electrical power to the
+<section class="system-section">
+  <div class="section-title"><h2>ATA 77 · 77-31-03</h2><span>2 tasks</span></div>
+  <div class="fault-list">
+<details class="fault" id="task-77-31-03-000-801-F00">
+  <summary>
+    <span class="fault-head"><span class="fault-code">77-31-03-000-801-F00</span><span class="fault-name">Airborne Vibration Monitor (AVM) Signal Conditioner Removal</span></span>
+    <span class="task-badge">ATA 77 · Task 000-801-F00</span>
+  </summary>
+  <div class="fields">
+<section class="field description letter-field"><h3>Task Description</h3><p class="section-text">2. Airborne Vibration Monitor (AVM) Signal Conditioner Removal
+(Figure 401)</p></section>
+<section class="field letter-field" data-letter="A"><h3>A. General</h3><p class="section-text"><strong class="step-marker">(1)</strong> This task is the removal procedure for the airborne vibration monitor (AVM) signal conditioner.
+<strong class="step-marker">(2)</strong> The AVM signal conditioner is installed on the E3-2 shelf in the main equipment center.
+<strong class="step-marker">(a)</strong> When you remove the AVM signal conditioner, do not supply the electrical power to the
 AVM system.
-(b) A lever that is part of the handle holds the AVM signal conditioner in the E3 rack mount.
-B. References
-Reference Title
+<strong class="step-marker">(b)</strong> A lever that is part of the handle holds the AVM signal conditioner in the E3 rack mount.</p></section>
+<section class="field letter-field" data-letter="B"><h3>B. References</h3><p class="section-text">Reference Title
 20-10-07-000-801 E/E Box Removal (P/B 201)
-20-40-12-000-802 ESDS Handling for Metal Encased Unit Removal (P/B 201)
-C. Location Zones
-Zone Area
+20-40-12-000-802 ESDS Handling for Metal Encased Unit Removal (P/B 201)</p></section>
+<section class="field letter-field" data-letter="C"><h3>C. Location Zones</h3><p class="section-text">Zone Area
 117 Electrical and Electronics Compartment - Left
-118 Electrical and Electronics Compartment - Right
-D. Access Panels
-Number Name/Location
-117A Electronic Equipment Access Door
-E. Procedure
-SUBTASK 77-31-03-860-001-F00
-(1) Open this circuit breaker and install safety tag:
+118 Electrical and Electronics Compartment - Right</p></section>
+<section class="field letter-field" data-letter="D"><h3>D. Access Panels</h3><p class="section-text">Number Name/Location
+117A Electronic Equipment Access Door</p></section>
+<section class="field letter-field" data-letter="E"><h3>E. Procedure</h3><p class="section-text">SUBTASK 77-31-03-860-001-F00
+<strong class="step-marker">(1)</strong> Open this circuit breaker and install safety tag:
 F/O Electrical System Panel, P6-2
 Row Col Number Name
 A 2 C01076 ENGINE VIB MON
 SUBTASK 77-31-03-010-001-F00
-(2) Open this access panel:
+<strong class="step-marker">(2)</strong> Open this access panel:
 Number Name/Location
 117A Electronic Equipment Access Door
 77-31-03
@@ -2451,22 +2321,24 @@ DO NOT TRY TO REMOVE THE AVM SIGNAL CONDITIONER BEFORE YOU
 DO THE PROCEDURE FOR DEVICES THAT ARE SENSITIVE TO
 ELECTROSTATIC DISCHARGE. ELECTROSTATIC DISCHARGE CAN CAUSE
 DAMAGE TO THE AVM SIGNAL CONDITIONER.
-(3) Before you touch the AVM signal conditioner [1], do this task: ESDS Handling for Metal
+<strong class="step-marker">(3)</strong> Before you touch the AVM signal conditioner [1], do this task: ESDS Handling for Metal
 Encased Unit Removal, TASK 20-40-12-000-802.
 SUBTASK 77-31-03-020-002-F00
-(4) To remove the AVM signal conditioner [1], do this task: E/E Box Removal,
-TASK 20-10-07-000-801.</pre></div>
+<strong class="step-marker">(4)</strong> To remove the AVM signal conditioner [1], do this task: E/E Box Removal,
+TASK 20-10-07-000-801.</p></section>
+  </div>
 </details>
-<details class="task" id="task-77-31-03-400-801-F00" data-section="77-31-03">
-  <summary><span class="task-head"><span class="task-code">77-31-03-400-801-F00</span><span class="task-name">Airborne Vibration Monitor (AVM) Signal Conditioner Installation</span></span><span class="task-page">PDF p. 82</span></summary>
-  <div class="task-body"><a class="source-link" href="file:///C:/Users/javie/Desktop/Proyecto%20B737NG/MANUALES/AMM/77_F__091.PDF#page=82" target="_blank" rel="noopener">Open original AMM PDF - page 82 <span aria-hidden="true">↗</span></a>
-    <pre class="procedure">3. Airborne Vibration Monitor (AVM) Signal Conditioner Installation
-(Figure 401)
-A. General
-(1) This task provides the instructions on how to install the Airborne Vibration Monitor (AVM) signal
-conditioner.
-B. References
-Reference Title
+<details class="fault" id="task-77-31-03-400-801-F00">
+  <summary>
+    <span class="fault-head"><span class="fault-code">77-31-03-400-801-F00</span><span class="fault-name">Airborne Vibration Monitor (AVM) Signal Conditioner Installation</span></span>
+    <span class="task-badge">ATA 77 · Task 400-801-F00</span>
+  </summary>
+  <div class="fields">
+<section class="field description letter-field"><h3>Task Description</h3><p class="section-text">3. Airborne Vibration Monitor (AVM) Signal Conditioner Installation
+(Figure 401)</p></section>
+<section class="field letter-field" data-letter="A"><h3>A. General</h3><p class="section-text"><strong class="step-marker">(1)</strong> This task provides the instructions on how to install the Airborne Vibration Monitor (AVM) signal
+conditioner.</p></section>
+<section class="field letter-field" data-letter="B"><h3>B. References</h3><p class="section-text">Reference Title
 20-10-07-400-801 E/E Box Installation (P/B 201)
 20-40-12-400-802 ESDS Handling for Metal Encased Unit Installation (P/B 201)
 71-00-00-750-802-F00 Test 14A - Fan Trim Balance (Three-Shot Plot Procedure)
@@ -2480,93 +2352,65 @@ MAINTENANCE PRACTICES
 77-31-00-970-803-F00 Airborne Vibration Monitoring (AVM) System - System Test
 (P/B 201)
 77-31-00-970-805-F00 Download the Advanced AVM (AAVM) Bearing Data with the
-Ground Support Software (GSS) (P/B 201)
-C. Expendables/Parts
-AMM Item Description AIPC Reference AIPC Effectivity
-1 Conditioner 77-31-03-01-006 RYR 014, 018, 019
-77-31-03-01-010 RYR 006, 007, 013, 014,
-018, 019
-77-31-03-03-030 RYR 083-103, 111-114,
-121-129, 131, 132, 135,
-138-169, 174-179,
-182-187, 189-203,
-205-209, 212-220, 223,
-224, 231-236, 239-298,
-301-304, 306, 308,
-315-317, 322-341, 343,
-346-999
-77-31-03-03-100 RYR 083-103, 111-114,
-121-129, 131, 132, 135,
-138-169, 174-179,
-182-187, 189-203,
-205-209, 212-220, 223,
-224, 231-236, 239-298,
-301-304, 306, 308,
-315-317, 322-341, 343,
-346-999
-77-31-03-04-020 RYR 043, 044, 056-063,
-067-078, 081
-77-31-03
+Ground Support Software (GSS) (P/B 201)</p></section>
+<section class="field letter-field" data-letter="C"><h3>C. Expendables/Parts</h3><p class="section-text">77-31-03
 (Continued)
 AMM Item Description AIPC Reference AIPC Effectivity
 1 (cont.) 77-31-03-04-030 RYR 043, 044, 056-063,
 067-078, 081
 77-31-03-04-100 RYR 043, 044, 056-063,
-067-078, 081
-D. Location Zones
-Zone Area
+067-078, 081</p></section>
+<section class="field letter-field" data-letter="D"><h3>D. Location Zones</h3><p class="section-text">Zone Area
 117 Electrical and Electronics Compartment - Left
 118 Electrical and Electronics Compartment - Right
 211 Flight Compartment - Left
-212 Flight Compartment - Right
-E. Access Panels
-Number Name/Location
+212 Flight Compartment - Right</p></section>
+<section class="field letter-field" data-letter="E"><h3>E. Access Panels</h3><p class="section-text">Number Name/Location
 117A Electronic Equipment Access Door
-F . AVM Signal Conditioner Installation
+<strong class="section-marker">F. AVM Signal Conditioner Installation</strong>
 SUBTASK 77-31-03-840-002-F00
 CAUTION
 DO NOT TOUCH THE SIGNAL CONDITIONER UNIT UNTIL YOU DO THE
 PROCEDURE FOR DEVICES THAT ARE SENSITIVE TO ELECTROSTATIC
 DISCHARGE. ELECTROSTATIC DISCHARGE CAN CAUSE DAMAGE TO THE
 UNIT .
-(1) Before you touch the AVM signal conditioner [1], do this task: ESDS Handling for Metal
+<strong class="step-marker">(1)</strong> Before you touch the AVM signal conditioner [1], do this task: ESDS Handling for Metal
 Encased Unit Installation, TASK 20-40-12-400-802.
 SUBTASK 77-31-03-420-001-F00
-(2) To install the AVM signal conditioner [1], do this task: E/E Box Installation,
-TASK 20-10-07-400-801.
-G. AVM Signal Conditioner Installation Test
-SUBTASK 77-31-03-860-003-F00
-(1) Remove the safety tag and close this circuit breaker:
+<strong class="step-marker">(2)</strong> To install the AVM signal conditioner [1], do this task: E/E Box Installation,
+TASK 20-10-07-400-801.</p></section>
+<section class="field letter-field" data-letter="G"><h3>G. AVM Signal Conditioner Installation Test</h3><p class="section-text">SUBTASK 77-31-03-860-003-F00
+<strong class="step-marker">(1)</strong> Remove the safety tag and close this circuit breaker:
 F/O Electrical System Panel, P6-2
 Row Col Number Name
 A 2 C01076 ENGINE VIB MON
 SUBTASK 77-31-03-860-009-F00
-(2) VIBRO-METER AVM; Do these steps to do a self test of the AVM signal conditioner [1]:
-(a) Make sure that the two VIB indicators, on the P2 center instrument panel, show 0.
+<strong class="step-marker">(2)</strong> VIBRO-METER AVM; Do these steps to do a self test of the AVM signal conditioner [1]:
+<strong class="step-marker">(a)</strong> Make sure that the two VIB indicators, on the P2 center instrument panel, show 0.
 NOTE: If the circuit breaker is closed, the two VIB indicators, on the P2 center
 instrument panel, will show 0. If the circuit breaker was open, the two VIB
 indicators, on the P2 center instrument panel, will not show. If the circuit breaker
 is closed and the two VIB indicators, on the P2 center instrument panel, do not
 show, then do the fault isolation for Engine VIB Indication Blank
 (FIM 77-05 TASK 805).
-(b) Push and release one of the four buttons on the front display of the AVM signal
+<strong class="step-marker">(b)</strong> Push and release one of the four buttons on the front display of the AVM signal
 conditioner [1].
 77-31-03
 1) If the front display on the AVM signal conditioner stays blank, do this task: AVM
 Signal Conditioner Display Blank - Fault Isolation, FIM 77-05 TASK 809.
-(c) The AVM signal conditioner [1] will show Self Test?.
-(d) Push and release the YES button on the front display of the AVM signal conditioner [1].
-(e) The AVM signal conditioner [1] will show the hardware and software versions, and engine
+<strong class="step-marker">(c)</strong> The AVM signal conditioner [1] will show Self Test?.
+<strong class="step-marker">(d)</strong> Push and release the YES button on the front display of the AVM signal conditioner [1].
+<strong class="step-marker">(e)</strong> The AVM signal conditioner [1] will show the hardware and software versions, and engine
 type for 10 seconds, then show Test in progress for approximately two seconds.
 1) Make sure that the engine type is correct.
 NOTE: The -7 is for the engine type. The A or B is for the scaling which the AVM
 applies to the vibration.
-(f) Make sure that the AVM signal conditioner [1] shows Test OK.
+<strong class="step-marker">(f)</strong> Make sure that the AVM signal conditioner [1] shows Test OK.
 NOTE: The AVM signal conditioner passed the self test. After Test OK, push and release
 the NO button to show Fault History? on the front display of the AVM signal
 conditioner. If the AVM signal conditioner is left alone for 5 minutes, the display
 will then turn off.
-(g) If the AVM signal conditioner [1] shows XX Faults? or is blank, there is a failure of the
+<strong class="step-marker">(g)</strong> If the AVM signal conditioner [1] shows XX Faults? or is blank, there is a failure of the
 unit.
 NOTE: XX is the total number of faults.
 NOTE: If the AVM displays CONFIG FAULT , make sure that the wiring change per SB
@@ -2576,12 +2420,12 @@ conditioner [1] and do the self test again.
 2) To interrogate the AVM system, do this task: Airborne Vibration Monitoring (AVM)
 System - System Test, TASK 77-31-00-970-803-F00.
 SUBTASK 77-31-03-070-003-F00
-(3) VIBRO-METER AVM; Do these steps to remove all of the AVM data:
-(a) Do these steps on the Built-In-Test Equipment (BITE) maintenance message and flight
+<strong class="step-marker">(3)</strong> VIBRO-METER AVM; Do these steps to remove all of the AVM data:
+<strong class="step-marker">(a)</strong> Do these steps on the Built-In-Test Equipment (BITE) maintenance message and flight
 history menus (TASK 77-31-00-970-803-F00):
 1) Erase the BITE maintenance messages.
 2) Erase the flight history.
-(b) Do these steps on the trim balance menu (Test 14A - Fan Trim Balance (Three-Shot Plot
+<strong class="step-marker">(b)</strong> Do these steps on the trim balance menu (Test 14A - Fan Trim Balance (Three-Shot Plot
 Procedure), TASK 71-00-00-750-802-F00 or Test 14D - Two-Plane Trim Balance,
 TASK 71-00-00-750-806-F00 or Test 14C - Fan Trim Balance (Analyzer Procedure),
 TASK 71-00-00-750-805-F00 or Test 14B - Fan Trim Balance (On Board Procedure -
@@ -2597,7 +2441,7 @@ RYR 177-179, 182-187, 189-203, 205-209, 212-220, 223, 224, 231-236, 239-298, 301
 083-103, 111-114, 121-129, 131, 132, 135, 138-169, 174-176 POST SB 737-77-1069; AIRPLANES
 WITH ADVANCED ENGINE VIBRATION MONITOR (AEVM)
 SUBTASK 77-31-03-740-001-F00
-(4) Erase the memory of the AVM using the Ground Support Software (GSS)
+<strong class="step-marker">(4)</strong> Erase the memory of the AVM using the Ground Support Software (GSS)
 (TASK 77-31-00-970-805-F00):
 NOTE: This step is not necessary for units with a blank memory.
 NOTE: The Vibro-meter Advanced Engine Vibration Monitoring (AEVM) can have different
@@ -2611,43 +2455,43 @@ between engines. This step can be deferred until the next convenient maintenance
 opportunity.
 RYR ALL
 SUBTASK 77-31-03-010-003-F00
-(5) Close this access panel:
+<strong class="step-marker">(5)</strong> Close this access panel:
 Number Name/Location
-117A Electronic Equipment Access Door</pre></div>
+117A Electronic Equipment Access Door</p></section>
+  </div>
 </details>
   </div>
 </section>
-<section class="system-section" id="section-77-31-04">
-  <div class="section-title"><h2>ATA 77-31-04 - Section</h2><span>2 tasks</span></div>
-  <div class="task-list">
-<details class="task" id="task-77-31-04-000-801-F00" data-section="77-31-04">
-  <summary><span class="task-head"><span class="task-code">77-31-04-000-801-F00</span><span class="task-name">FFCC Vibration Sensor Removal</span></span><span class="task-page">PDF p. 87</span></summary>
-  <div class="task-body"><a class="source-link" href="file:///C:/Users/javie/Desktop/Proyecto%20B737NG/MANUALES/AMM/77_F__091.PDF#page=87" target="_blank" rel="noopener">Open original AMM PDF - page 87 <span aria-hidden="true">↗</span></a>
-    <pre class="procedure">2. FFCC Vibration Sensor Removal
-(Figure 401)
-A. General
-(1) This task is the removal procedure for the fan frame compressor case vibration sensor
+<section class="system-section">
+  <div class="section-title"><h2>ATA 77 · 77-31-04</h2><span>2 tasks</span></div>
+  <div class="fault-list">
+<details class="fault" id="task-77-31-04-000-801-F00">
+  <summary>
+    <span class="fault-head"><span class="fault-code">77-31-04-000-801-F00</span><span class="fault-name">FFCC Vibration Sensor Removal</span></span>
+    <span class="task-badge">ATA 77 · Task 000-801-F00</span>
+  </summary>
+  <div class="fields">
+<section class="field description letter-field"><h3>Task Description</h3><p class="section-text">2. FFCC Vibration Sensor Removal
+(Figure 401)</p></section>
+<section class="field letter-field" data-letter="A"><h3>A. General</h3><p class="section-text"><strong class="step-marker">(1)</strong> This task is the removal procedure for the fan frame compressor case vibration sensor
 (referred to as the FFCC vibration sensor).
-(2) The FFCC vibration sensor is installed on the aft face of the fan frame at the 3:00 o'clock
-position.
-B. References
-Reference Title
+<strong class="step-marker">(2)</strong> The FFCC vibration sensor is installed on the aft face of the fan frame at the 3:00 o'clock
+position.</p></section>
+<section class="field letter-field" data-letter="B"><h3>B. References</h3><p class="section-text">Reference Title
 70-10-02-910-801-F00 General Precautions during the Removal and Installation of
 Engine Components (P/B 201)
-78-31-00-010-801-F00 Open the Thrust Reverser (Selection) (P/B 201)
-C. Location Zones
-Zone Area
+78-31-00-010-801-F00 Open the Thrust Reverser (Selection) (P/B 201)</p></section>
+<section class="field letter-field" data-letter="C"><h3>C. Location Zones</h3><p class="section-text">Zone Area
 411 Engine 1 - Engine
-421 Engine 2 - Engine
-D. Prepare for the Removal
-SUBTASK 77-31-04-860-001-F00
-(1) For Engine 1, open these circuit breakers and install safety tags:
+421 Engine 2 - Engine</p></section>
+<section class="field letter-field" data-letter="D"><h3>D. Prepare for the Removal</h3><p class="section-text">SUBTASK 77-31-04-860-001-F00
+<strong class="step-marker">(1)</strong> For Engine 1, open these circuit breakers and install safety tags:
 CAPT Electrical System Panel, P18-2
 Row Col Number Name
 A 4 C01390 ENGINE 1 ALTN PWR CHAN B
 A 5 C01314 ENGINE 1 ALTN PWR CHAN A
 SUBTASK 77-31-04-860-002-F00
-(2) For Engine 2, open these circuit breakers and install safety tags:
+<strong class="step-marker">(2)</strong> For Engine 2, open these circuit breakers and install safety tags:
 F/O Electrical System Panel, P6-2
 Row Col Number Name
 D 7 C01391 ENGINE 2 ALTN PWR CHAN B
@@ -2661,75 +2505,45 @@ DEACTIVATION OF THE LEADING EDGE AND THE THRUST REVERSER
 (FOR GROUND MAINTENANCE), AND OPEN THE FAN COWL PANELS. IF
 YOU DO NOT OBEY THE ABOVE SEQUENCE, INJURIES TO PERSONS AND
 DAMAGE TO EQUIPMENT CAN OCCUR.
-(3) For the right thrust reverser, do this task: Open the Thrust Reverser (Selection),
-TASK 78-31-00-010-801-F00.
-E. FFCC Vibration Sensor Removal
-SUBTASK 77-31-04-020-001-F00
-(1) Remove the FFCC vibration sensor [2]:
-(a) Disconnect the electrical connector, DP1101 [3] from the FFCC vibration sensor
+<strong class="step-marker">(3)</strong> For the right thrust reverser, do this task: Open the Thrust Reverser (Selection),
+TASK 78-31-00-010-801-F00.</p></section>
+<section class="field letter-field" data-letter="E"><h3>E. FFCC Vibration Sensor Removal</h3><p class="section-text">SUBTASK 77-31-04-020-001-F00
+<strong class="step-marker">(1)</strong> Remove the FFCC vibration sensor [2]:
+<strong class="step-marker">(a)</strong> Disconnect the electrical connector, DP1101 [3] from the FFCC vibration sensor
 receptacle.
-(b) Remove the two bolts [1] to disconnect the FFCC vibration sensor [2] from the aft face of
+<strong class="step-marker">(b)</strong> Remove the two bolts [1] to disconnect the FFCC vibration sensor [2] from the aft face of
 the fan frame.
-(c) Remove the FFCC vibration sensor [2].
-(d) Install protective covers on the FFCC vibration sensor receptacle and the electrical
-connector, DP1101 [3] (TASK 70-10-02-910-801-F00).</pre></div>
+<strong class="step-marker">(c)</strong> Remove the FFCC vibration sensor [2].
+<strong class="step-marker">(d)</strong> Install protective covers on the FFCC vibration sensor receptacle and the electrical
+connector, DP1101 [3] (TASK 70-10-02-910-801-F00).</p></section>
+  </div>
 </details>
-<details class="task" id="task-77-31-04-400-801-F00" data-section="77-31-04">
-  <summary><span class="task-head"><span class="task-code">77-31-04-400-801-F00</span><span class="task-name">FFCC Vibration Sensor Installation</span></span><span class="task-page">PDF p. 90</span></summary>
-  <div class="task-body"><a class="source-link" href="file:///C:/Users/javie/Desktop/Proyecto%20B737NG/MANUALES/AMM/77_F__091.PDF#page=90" target="_blank" rel="noopener">Open original AMM PDF - page 90 <span aria-hidden="true">↗</span></a>
-    <pre class="procedure">3. FFCC Vibration Sensor Installation
-(Figure 401)
-A. General
-(1) This task is the installation procedure for the fan frame compressor case vibration sensor
-(referred to as the FFCC vibration sensor).
-B. References
-Reference Title
+<details class="fault" id="task-77-31-04-400-801-F00">
+  <summary>
+    <span class="fault-head"><span class="fault-code">77-31-04-400-801-F00</span><span class="fault-name">FFCC Vibration Sensor Installation</span></span>
+    <span class="task-badge">ATA 77 · Task 400-801-F00</span>
+  </summary>
+  <div class="fields">
+<section class="field description letter-field"><h3>Task Description</h3><p class="section-text">3. FFCC Vibration Sensor Installation
+(Figure 401)</p></section>
+<section class="field letter-field" data-letter="A"><h3>A. General</h3><p class="section-text"><strong class="step-marker">(1)</strong> This task is the installation procedure for the fan frame compressor case vibration sensor
+(referred to as the FFCC vibration sensor).</p></section>
+<section class="field letter-field" data-letter="B"><h3>B. References</h3><p class="section-text">Reference Title
 70-10-02-910-801-F00 General Precautions during the Removal and Installation of
 Engine Components (P/B 201)
 71-00-00-800-811-F00 Power Plant Test Reference Table (P/B 501)
-78-31-00-010-804-F00 Close the Thrust Reverser (Selection) (P/B 201)
-C. Consumable Materials
-Reference Description Specification
-B00130 Alcohol - Isopropyl TT-I-735
-D00601 [CP2101] Vaseline - Graphite Mineral
-G00034 Cotton Wiper - Process Cleaning Absorbent
-Wiper (Cheesecloth, Gauze)
-AMS3819 Class 1
-Grade A or B Form 1
-(Supersede BMS15-5
-CL A)
-D. Expendables/Parts
-AMM Item Description AIPC Reference AIPC Effectivity
-2 Sensor 77-31-04-01-055 RYR 006, 007, 013, 014,
-018, 019, 043, 044,
-056-063, 067-078, 081,
-083-103, 111-114,
-121-129, 131, 132, 135
-77-31-04-01A-055 RYR 014, 068, 087, 090,
-111, 125, 128, 138-168,
-174-179, 182-187,
-189-203, 205-209,
-212-220, 223, 224,
-231-236, 239-298,
-301-304, 306, 308,
-315-317, 322-341, 343,
-346-999
-77-31-04-01B-055 RYR 006, 007, 013, 014,
-018, 019, 043, 044,
-056-063, 067-078, 081,
-083-103, 111-114,
-121-129, 131, 132, 135,
-143, 147, 152, 167, 177
-E. Location Zones
-Zone Area
+78-31-00-010-804-F00 Close the Thrust Reverser (Selection) (P/B 201)</p></section>
+<section class="field letter-field" data-letter="C"><h3>C. Consumable Materials</h3><p class="section-text"></p></section>
+<section class="field letter-field" data-letter="D"><h3>D. Expendables/Parts</h3><p class="section-text"></p></section>
+<section class="field letter-field" data-letter="E"><h3>E. Location Zones</h3><p class="section-text">Zone Area
 411 Engine 1 - Engine
 421 Engine 2 - Engine
 77-31-04
-F . Prepare for the Installation
+<strong class="section-marker">F. Prepare for the Installation</strong>
 SUBTASK 77-31-04-840-001-F00
-(1) Do these steps to prepare the FFCC vibration sensor [2] for the installation
+<strong class="step-marker">(1)</strong> Do these steps to prepare the FFCC vibration sensor [2] for the installation
 (TASK 70-10-02-910-801-F00):
-(a) Remove the protective covers from the FFCC vibration sensor receptacle and from the
+<strong class="step-marker">(a)</strong> Remove the protective covers from the FFCC vibration sensor receptacle and from the
 electrical connector, DP1101 [3].
 WARNING
 DO NOT GET ISOPROPYL ALCOHOL IN YOUR MOUTH, EYES, OR ON
@@ -2738,212 +2552,210 @@ ALCOHOL. KEEP THE ISOPROPYL ALCOHOL AWAY FROM SPARKS,
 FLAME, AND HEAT . ISOPROPYL ALCOHOL IS POISONOUS AND
 FLAMMABLE, WHICH CAN CAUSE INJURIES TO PERSONS AND
 DAMAGE TO EQUIPMENT .
-(b) Clean the flanges on the FFCC vibration sensor [2] and the fan frame with alcohol,
+<strong class="step-marker">(b)</strong> Clean the flanges on the FFCC vibration sensor [2] and the fan frame with alcohol,
 B00130 and a cotton wiper, G00034.
-(c) Make sure that all the flanges on the FFCC vibration sensor [2] and the fan frame are
-clean and in good condition.
-G. FFCC Vibration Sensor Installation
-SUBTASK 77-31-04-420-001-F00
-(1) Install the FFCC vibration sensor [2]:
-(a) Lubricate the threads of the two bolts [1] with graphite mineral vaseline, D00601
+<strong class="step-marker">(c)</strong> Make sure that all the flanges on the FFCC vibration sensor [2] and the fan frame are
+clean and in good condition.</p></section>
+<section class="field letter-field" data-letter="G"><h3>G. FFCC Vibration Sensor Installation</h3><p class="section-text">SUBTASK 77-31-04-420-001-F00
+<strong class="step-marker">(1)</strong> Install the FFCC vibration sensor [2]:
+<strong class="step-marker">(a)</strong> Lubricate the threads of the two bolts [1] with graphite mineral vaseline, D00601
 [CP2101].
-(b) Put the FFCC vibration sensor [2] in its position.
-(c) Install the two bolts [1] to attach the FFCC Vibration Sensor [2] to the aft face of the fan
+<strong class="step-marker">(b)</strong> Put the FFCC vibration sensor [2] in its position.
+<strong class="step-marker">(c)</strong> Install the two bolts [1] to attach the FFCC Vibration Sensor [2] to the aft face of the fan
 frame.
 1) Tighten the bolts [1] to 98-110 pound-inches (11-12.5 Newton meters).
 SUBTASK 77-31-04-420-002-F00
-(2) Connect the electrical connector, DP1101 [3] to the FFCC vibration sensor receptacle.
-H. Put the Airplane Back to Its Usual Condition
-SUBTASK 77-31-04-410-001-F00
+<strong class="step-marker">(2)</strong> Connect the electrical connector, DP1101 [3] to the FFCC vibration sensor receptacle.</p></section>
+<section class="field letter-field" data-letter="H"><h3>H. Put the Airplane Back to Its Usual Condition</h3><p class="section-text">SUBTASK 77-31-04-410-001-F00
 WARNING
 OBEY THE INSTRUCTIONS IN THE PROCEDURE TO CLOSE THE THRUST
 REVERSERS. IF YOU DO NOT OBEY THE INSTRUCTIONS, INJURIES TO
 PERSONS AND DAMAGE TO EQUIPMENT CAN OCCUR.
-(1) Do this task: Close the Thrust Reverser (Selection), TASK 78-31-00-010-804-F00.
+<strong class="step-marker">(1)</strong> Do this task: Close the Thrust Reverser (Selection), TASK 78-31-00-010-804-F00.
 SUBTASK 77-31-04-860-003-F00
-(2) For Engine 1, remove the safety tags and close these circuit breakers:
+<strong class="step-marker">(2)</strong> For Engine 1, remove the safety tags and close these circuit breakers:
 CAPT Electrical System Panel, P18-2
 Row Col Number Name
 A 4 C01390 ENGINE 1 ALTN PWR CHAN B
 A 5 C01314 ENGINE 1 ALTN PWR CHAN A
 77-31-04
 SUBTASK 77-31-04-860-004-F00
-(3) For Engine 2, remove the safety tags and close these circuit breakers:
+<strong class="step-marker">(3)</strong> For Engine 2, remove the safety tags and close these circuit breakers:
 F/O Electrical System Panel, P6-2
 Row Col Number Name
 D 7 C01391 ENGINE 2 ALTN PWR CHAN B
-D 8 C01315 ENGINE 2 ALTN PWR CHAN A
-I. FFCC Vibration Sensor Installation Test
-SUBTASK 77-31-04-800-001-F00
-(1) Do the tests that are listed in the Power Plant Test Reference Table
+D 8 C01315 ENGINE 2 ALTN PWR CHAN A</p></section>
+<section class="field letter-field" data-letter="I"><h3>I. FFCC Vibration Sensor Installation Test</h3><p class="section-text">SUBTASK 77-31-04-800-001-F00
+<strong class="step-marker">(1)</strong> Do the tests that are listed in the Power Plant Test Reference Table
 (TASK 71-00-00-800-811-F00).
 NOTE: As an option to performing the Airborne Vibration Monitor (AVM) System - Operational
 test specified in the Power Plant Test Reference Table, operators may instead monitor
 the vibration data on the subsequent flight or engine operation for a satisfactory
-indication with regulatory approval.</pre></div>
+indication with regulatory approval.</p></section>
+  </div>
 </details>
   </div>
 </section>
-<section class="system-section" id="section-77-31-05">
-  <div class="section-title"><h2>ATA 77-31-05 - Section</h2><span>2 tasks</span></div>
-  <div class="task-list">
-<details class="task" id="task-77-31-05-040-801-F00" data-section="77-31-05">
-  <summary><span class="task-head"><span class="task-code">77-31-05-040-801-F00</span><span class="task-name">No. 1 Bearing Vibration Sensor Deactivation</span></span><span class="task-page">PDF p. 93</span></summary>
-  <div class="task-body"><a class="source-link" href="file:///C:/Users/javie/Desktop/Proyecto%20B737NG/MANUALES/AMM/77_F__091.PDF#page=93" target="_blank" rel="noopener">Open original AMM PDF - page 93 <span aria-hidden="true">↗</span></a>
-    <pre class="procedure">2. No. 1 Bearing Vibration Sensor Deactivation
-A. General
-(1) This task is used for deactivation of the No. 1 bearing (NOB) vibration sensor (referred to as
+<section class="system-section">
+  <div class="section-title"><h2>ATA 77 · 77-31-05</h2><span>2 tasks</span></div>
+  <div class="fault-list">
+<details class="fault" id="task-77-31-05-040-801-F00">
+  <summary>
+    <span class="fault-head"><span class="fault-code">77-31-05-040-801-F00</span><span class="fault-name">No. 1 Bearing Vibration Sensor Deactivation</span></span>
+    <span class="task-badge">ATA 77 · Task 040-801-F00</span>
+  </summary>
+  <div class="fields">
+<section class="field description letter-field"><h3>Task Description</h3><p class="section-text">2. No. 1 Bearing Vibration Sensor Deactivation</p></section>
+<section class="field letter-field" data-letter="A"><h3>A. General</h3><p class="section-text"><strong class="step-marker">(1)</strong> This task is used for deactivation of the No. 1 bearing (NOB) vibration sensor (referred to as
 the NOB vibration sensor).
-(2) The steps that follow are the effects that a deactivated NOB vibration sensor has on the
+<strong class="step-marker">(2)</strong> The steps that follow are the effects that a deactivated NOB vibration sensor has on the
 airborne vibration monitoring (AVM) system for the applicable engine:
-(a) The on-wing fan trim balance feature of the AVM signal conditioner will not function
+<strong class="step-marker">(a)</strong> The on-wing fan trim balance feature of the AVM signal conditioner will not function
 correctly.
-(b) The computed balance solution will not be correct.
-(c) The fan imbalance data will not be stored in the AVM signal conditioner.
-(d) The flight history data for the fan and high pressure compressor (HPC) will show 0.0
+<strong class="step-marker">(b)</strong> The computed balance solution will not be correct.
+<strong class="step-marker">(c)</strong> The fan imbalance data will not be stored in the AVM signal conditioner.
+<strong class="step-marker">(d)</strong> The flight history data for the fan and high pressure compressor (HPC) will show 0.0
 scaler units, regardless of the actual fan and HPC vibration.
-(3) Use this task for flight dispatch.
-B. References
-Reference Title
+<strong class="step-marker">(3)</strong> Use this task for flight dispatch.</p></section>
+<section class="field letter-field" data-letter="B"><h3>B. References</h3><p class="section-text">Reference Title
 77-31-00-710-801-F00 Airborne Vibration Monitoring (AVM) System - Operational Test
-(P/B 501)
-C. Location Zones
-Zone Area
+(P/B 501)</p></section>
+<section class="field letter-field" data-letter="C"><h3>C. Location Zones</h3><p class="section-text">Zone Area
 121 Forward Cargo Compartment - Left
-122 Forward Cargo Compartment - Right
-D. Access Panels
-Number Name/Location
-821 Forward Cargo Door
-E. Procedure
-SUBTASK 77-31-05-860-001-F00
-(1) Open this circuit breaker and install safety tag:
+122 Forward Cargo Compartment - Right</p></section>
+<section class="field letter-field" data-letter="D"><h3>D. Access Panels</h3><p class="section-text">Number Name/Location
+821 Forward Cargo Door</p></section>
+<section class="field letter-field" data-letter="E"><h3>E. Procedure</h3><p class="section-text">SUBTASK 77-31-05-860-001-F00
+<strong class="step-marker">(1)</strong> Open this circuit breaker and install safety tag:
 F/O Electrical System Panel, P6-2
 Row Col Number Name
 A 2 C01076 ENGINE VIB MON
 SUBTASK 77-31-05-010-001-F00
-(2) Open this access panel:
+<strong class="step-marker">(2)</strong> Open this access panel:
 Number Name/Location
 821 Forward Cargo Door
 SUBTASK 77-31-05-040-001-F00
-(3) Do these steps to deactivate the NOB vibration sensor for engine 1:
+<strong class="step-marker">(3)</strong> Do these steps to deactivate the NOB vibration sensor for engine 1:
 77-31-05
-(a) Remove the forward bulkhead cargo liner in the forward cargo bay.
-(b) Find the bracket, AE0302A, at the rear of the E3-2 electronic equipment rack.
-(c) Disconnect the electrical connector, D40594P , from the bracket, AE0302A.
+<strong class="step-marker">(a)</strong> Remove the forward bulkhead cargo liner in the forward cargo bay.
+<strong class="step-marker">(b)</strong> Find the bracket, AE0302A, at the rear of the E3-2 electronic equipment rack.
+<strong class="step-marker">(c)</strong> Disconnect the electrical connector, D40594P , from the bracket, AE0302A.
 NOTE: The electrical connector, D40594P , is attached to the bracket, AE0302A, at
 position 16.
-(d) Remove the pins A3, B3 and A4 from the electrical connector, D40594P (two NOB sensor
+<strong class="step-marker">(d)</strong> Remove the pins A3, B3 and A4 from the electrical connector, D40594P (two NOB sensor
 wires and shield).
-(e) Cap and stow the wires.
-(f) Connect the electrical connector, D40594P , to the bracket, AE0302A.
-(g) Install the forward bulkhead cargo liner in the forward cargo bay.
+<strong class="step-marker">(e)</strong> Cap and stow the wires.
+<strong class="step-marker">(f)</strong> Connect the electrical connector, D40594P , to the bracket, AE0302A.
+<strong class="step-marker">(g)</strong> Install the forward bulkhead cargo liner in the forward cargo bay.
 SUBTASK 77-31-05-040-002-F00
-(4) Do these steps to deactivate the NOB vibration sensor for engine 2:
-(a) Remove the forward bulkhead cargo liner in the forward cargo bay.
-(b) Find the bracket, AE0302A, at the rear of the E3-2 electronic equipment rack.
-(c) Disconnect the electrical connector, D43080P , from the bracket, AE0302A.
+<strong class="step-marker">(4)</strong> Do these steps to deactivate the NOB vibration sensor for engine 2:
+<strong class="step-marker">(a)</strong> Remove the forward bulkhead cargo liner in the forward cargo bay.
+<strong class="step-marker">(b)</strong> Find the bracket, AE0302A, at the rear of the E3-2 electronic equipment rack.
+<strong class="step-marker">(c)</strong> Disconnect the electrical connector, D43080P , from the bracket, AE0302A.
 NOTE: The electrical connector, D43080P , is attached to the bracket, AE0302A, at
 position 54.
-(d) Remove the pins B8, B9 and B10 from the electrical connector, D43080P (two NOB
+<strong class="step-marker">(d)</strong> Remove the pins B8, B9 and B10 from the electrical connector, D43080P (two NOB
 sensor wires and shield).
-(e) Cap and stow the wires.
-(f) Connect the electrical connector, D43080P , to the bracket, AE0302A.
-(g) Install the forward bulkhead cargo liner in the forward cargo bay.
+<strong class="step-marker">(e)</strong> Cap and stow the wires.
+<strong class="step-marker">(f)</strong> Connect the electrical connector, D43080P , to the bracket, AE0302A.
+<strong class="step-marker">(g)</strong> Install the forward bulkhead cargo liner in the forward cargo bay.
 SUBTASK 77-31-05-860-002-F00
-(5) Remove the safety tag and close this circuit breaker:
+<strong class="step-marker">(5)</strong> Remove the safety tag and close this circuit breaker:
 F/O Electrical System Panel, P6-2
 Row Col Number Name
 A 2 C01076 ENGINE VIB MON
 SUBTASK 77-31-05-010-002-F00
-(6) Close this access panel:
+<strong class="step-marker">(6)</strong> Close this access panel:
 Number Name/Location
 821 Forward Cargo Door
 SUBTASK 77-31-05-710-001-F00
-(7) Do this task: Airborne Vibration Monitoring (AVM) System - Operational Test,
-TASK 77-31-00-710-801-F00.</pre></div>
+<strong class="step-marker">(7)</strong> Do this task: Airborne Vibration Monitoring (AVM) System - Operational Test,
+TASK 77-31-00-710-801-F00.</p></section>
+  </div>
 </details>
-<details class="task" id="task-77-31-05-440-801-F00" data-section="77-31-05">
-  <summary><span class="task-head"><span class="task-code">77-31-05-440-801-F00</span><span class="task-name">Number One Bearing Vibration Sensor Activation</span></span><span class="task-page">PDF p. 94</span></summary>
-  <div class="task-body"><a class="source-link" href="file:///C:/Users/javie/Desktop/Proyecto%20B737NG/MANUALES/AMM/77_F__091.PDF#page=94" target="_blank" rel="noopener">Open original AMM PDF - page 94 <span aria-hidden="true">↗</span></a>
-    <pre class="procedure">3. Number One Bearing Vibration Sensor Activation
-A. References
-Reference Title
+<details class="fault" id="task-77-31-05-440-801-F00">
+  <summary>
+    <span class="fault-head"><span class="fault-code">77-31-05-440-801-F00</span><span class="fault-name">Number One Bearing Vibration Sensor Activation</span></span>
+    <span class="task-badge">ATA 77 · Task 440-801-F00</span>
+  </summary>
+  <div class="fields">
+<section class="field description letter-field"><h3>Task Description</h3><p class="section-text">3. Number One Bearing Vibration Sensor Activation</p></section>
+<section class="field letter-field" data-letter="A"><h3>A. References</h3><p class="section-text">Reference Title
 77-31-00-710-801-F00 Airborne Vibration Monitoring (AVM) System - Operational Test
 (P/B 501)
-77-31-05
-B. Location Zones
-Zone Area
+77-31-05</p></section>
+<section class="field letter-field" data-letter="B"><h3>B. Location Zones</h3><p class="section-text">Zone Area
 121 Forward Cargo Compartment - Left
-122 Forward Cargo Compartment - Right
-C. Access Panels
-Number Name/Location
-821 Forward Cargo Door
-D. Procedure
-SUBTASK 77-31-05-860-003-F00
-(1) Open this circuit breaker and install safety tag:
+122 Forward Cargo Compartment - Right</p></section>
+<section class="field letter-field" data-letter="C"><h3>C. Access Panels</h3><p class="section-text">Number Name/Location
+821 Forward Cargo Door</p></section>
+<section class="field letter-field" data-letter="D"><h3>D. Procedure</h3><p class="section-text">SUBTASK 77-31-05-860-003-F00
+<strong class="step-marker">(1)</strong> Open this circuit breaker and install safety tag:
 F/O Electrical System Panel, P6-2
 Row Col Number Name
 A 2 C01076 ENGINE VIB MON
 SUBTASK 77-31-05-010-003-F00
-(2) Open this access panel:
+<strong class="step-marker">(2)</strong> Open this access panel:
 Number Name/Location
 821 Forward Cargo Door
 SUBTASK 77-31-05-040-003-F00
-(3) Do these steps to activate the NOB vibration sensor for engine 1:
-(a) Remove the forward bulkhead cargo liner in the forward cargo bay.
-(b) Find the bracket, AE0302A, at the rear of the E3-2 electronic equipment rack.
-(c) Disconnect the electrical connector, D40594P , from the bracket, AE0302A.
+<strong class="step-marker">(3)</strong> Do these steps to activate the NOB vibration sensor for engine 1:
+<strong class="step-marker">(a)</strong> Remove the forward bulkhead cargo liner in the forward cargo bay.
+<strong class="step-marker">(b)</strong> Find the bracket, AE0302A, at the rear of the E3-2 electronic equipment rack.
+<strong class="step-marker">(c)</strong> Disconnect the electrical connector, D40594P , from the bracket, AE0302A.
 NOTE: The electrical connector, D40594P , is attached to the bracket, AE0302A, at
 position 16.
-(d) Remove the caps and install the wires.
-(e) Install the pins A3, B3 and A4 in the electrical connector, D40594P (two NOB vibration
+<strong class="step-marker">(d)</strong> Remove the caps and install the wires.
+<strong class="step-marker">(e)</strong> Install the pins A3, B3 and A4 in the electrical connector, D40594P (two NOB vibration
 sensor wires and shield).
-(f) Connect the electrical connector, D40594P , to the bracket, AE0302A.
-(g) Install the forward bulkhead cargo liner in the forward cargo bay.
+<strong class="step-marker">(f)</strong> Connect the electrical connector, D40594P , to the bracket, AE0302A.
+<strong class="step-marker">(g)</strong> Install the forward bulkhead cargo liner in the forward cargo bay.
 SUBTASK 77-31-05-040-004-F00
-(4) Do these steps to activate the NOB vibration sensor for engine 2:
-(a) Remove the forward bulkhead cargo liner in the forward cargo bay.
-(b) Find the bracket, AE0302A, at the rear of the E3-2 electronic equipment rack.
-(c) Disconnect the electrical connector, D43080P , from the bracket, AE0302A.
+<strong class="step-marker">(4)</strong> Do these steps to activate the NOB vibration sensor for engine 2:
+<strong class="step-marker">(a)</strong> Remove the forward bulkhead cargo liner in the forward cargo bay.
+<strong class="step-marker">(b)</strong> Find the bracket, AE0302A, at the rear of the E3-2 electronic equipment rack.
+<strong class="step-marker">(c)</strong> Disconnect the electrical connector, D43080P , from the bracket, AE0302A.
 NOTE: The electrical connector, D43080P , is attached to the bracket, AE0302A, at
 position 54.
-(d) Remove the caps and install the wires.
-(e) Install the pins B8, B9 and B10 in the electrical connector, D43080P (two NOB vibration
+<strong class="step-marker">(d)</strong> Remove the caps and install the wires.
+<strong class="step-marker">(e)</strong> Install the pins B8, B9 and B10 in the electrical connector, D43080P (two NOB vibration
 sensor wires and shield).
-(f) Connect the electrical connector, D43080P , to the bracket, AE0302A.
-(g) Install the forward bulkhead cargo liner in the forward cargo bay.
+<strong class="step-marker">(f)</strong> Connect the electrical connector, D43080P , to the bracket, AE0302A.
+<strong class="step-marker">(g)</strong> Install the forward bulkhead cargo liner in the forward cargo bay.
 77-31-05
 SUBTASK 77-31-05-860-004-F00
-(5) Remove the safety tag and close this circuit breaker:
+<strong class="step-marker">(5)</strong> Remove the safety tag and close this circuit breaker:
 F/O Electrical System Panel, P6-2
 Row Col Number Name
 A 2 C01076 ENGINE VIB MON
 SUBTASK 77-31-05-010-004-F00
-(6) Close this access panel:
+<strong class="step-marker">(6)</strong> Close this access panel:
 Number Name/Location
 821 Forward Cargo Door
 SUBTASK 77-31-05-710-002-F00
-(7) Do this task: Airborne Vibration Monitoring (AVM) System - Operational Test,
-TASK 77-31-00-710-801-F00.</pre></div>
+<strong class="step-marker">(7)</strong> Do this task: Airborne Vibration Monitoring (AVM) System - Operational Test,
+TASK 77-31-00-710-801-F00.</p></section>
+  </div>
 </details>
   </div>
 </section>
-  </div>
-  <div class="empty" id="empty">No tasks match this search.</div>
-  <footer class="footer">Source: supplied 737 AMM chapter. Task procedures retain the extracted source line breaks. The source links open the original PDF at the task page.</footer>
 </main>
+<div class="empty" id="empty">No tasks match this search.</div>
+<footer class="footer">Lettered sections follow the structure of the supplied AMM manual. Each lettered section contains one paragraph with its procedure steps grouped together.</footer>
+</div>
 <script>
+
 (()=>{
  const input=document.getElementById('search');
- const cards=[...document.querySelectorAll('.task')];
- const sections=[...document.querySelectorAll('.system-section')];
+ const cards=[...document.querySelectorAll('.fault')];
+ const groups=[...document.querySelectorAll('.system-section')];
  const count=document.getElementById('count');
  const empty=document.getElementById('empty');
  function filter(){
    const q=input.value.trim().toLocaleLowerCase();let shown=0;
    for(const card of cards){const match=!q||card.textContent.toLocaleLowerCase().includes(q);card.hidden=!match;if(match)shown++;}
-   for(const section of sections)section.hidden=!section.querySelector('.task:not([hidden])');
-   count.textContent=`Showing ${shown.toLocaleString()} of ${cards.length.toLocaleString()} tasks`;
+   for(const group of groups)group.hidden=!group.querySelector('.fault:not([hidden])');
+   count.textContent=`Showing ${shown.toLocaleString()} of ${cards.length.toLocaleString()} maintenance tasks`;
    empty.classList.toggle('visible',shown===0);
  }
  input.addEventListener('input',filter);
@@ -2951,6 +2763,7 @@ TASK 77-31-00-710-801-F00.</pre></div>
  document.getElementById('collapse').addEventListener('click',()=>cards.forEach(c=>c.open=false));
  filter();
 })();
+
 </script>
 </body>
 </html>
